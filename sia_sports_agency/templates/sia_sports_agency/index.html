@@ -1,0 +1,69 @@
+{% extends 'sia_sports_agency/base.html' %}
+{% block content %}
+
+<!-- Modal -->
+{% include "sia_sports_agency/modal_window_user.html" %}
+{% load static %}
+<div id="home">
+    <!--Carousel Wrapper-->
+    <div id="video-carousel" class="carousel slide carousel-fade" data-ride="carousel">
+        <!--Indicators-->
+        <ol class="carousel-indicators">
+            <li data-target="#video-carousel-example" data-slide-to="0" class="active"></li>
+        </ol>
+        <!--/.Indicators-->
+        <!--Slides-->
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+                <video class="video-fluid" autoplay loop muted>
+                    <source src="{% static 'video/futbol.mp4' %}" type="video/mp4" />
+                </video>
+            </div>
+        </div>
+        <!--/.Slides-->
+        <!--Controls-->
+        <a class="carousel-control-prev" href="#video-carousel-example" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Anterior</span>
+        </a>
+        <a class="carousel-control-next" href="#video-carousel-example" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Siguiente</span>
+        </a>
+        <!--/.Controls-->
+    </div>
+    <!--Carousel Wrapper-->
+
+    <!-- Registration button -->
+    <div class="div-registration" id="quienes">
+        <!-- Call to action -->
+        <button type="button" class="btn registration-btn btn-outline-light" data-toggle="modal" data-target="#registrationModalCenter">Reg&iacute;strate!</button>
+    </div>
+
+    <!-- Info -->
+    <div class="row justify-content-center" style="margin-top: 10%; max-width: 100%;">
+        <div class="col-12 col-xl-3">
+            <img class="rounded-circle" id="fotoHome" width="100%" src="{% static 'img/basket.jpg' %}" />
+        </div>
+        <div class="col-12 col-xl-6 home-text">
+            <span>Plataforma online creada por deportistas y para deportistas, en la cual caben todos los deportes, todos los géneros y todas las personas.</span>
+        </div>
+    </div>
+    <div class="row home justify-content-center" style="margin-top: 0; max-width: 100%;">
+        <div class="col-12 col-xl-6 home-text">
+            <span>Regístrate gratis y edita tu perfil con tus habilidades, vídeos, currículum, proyectos... Si buscas mejorar en el ámbito deportivo este es tu lugar.</span>
+        </div>
+        <div class="col-12 col-xl-3">
+            <img class="rounded-circle" id="fotoHome" width="100%" src="{% static 'img/futbol.jpg' %}" />
+        </div>
+    </div>
+    <div class="row home justify-content-center" style="margin-top: 0; max-width: 100%;">
+        <div class="col-12 col-xl-3">
+            <img class="rounded-circle" id="fotoHome" width="100%" src="{% static 'img/futbolA.jpg' %}" />
+        </div>
+        <div class="col-12 col-xl-6 home-text">
+            <span>Crea tu perfil de forma fácil y sencilla, y podrás acceder a la búsqueda de otros usuarios, comunicarte con ellos y recibir o enviar ofertas.</span>
+        </div>
+    </div>
+</div>
+{% endblock %}

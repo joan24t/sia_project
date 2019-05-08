@@ -25,7 +25,7 @@ SECRET_KEY = '*@-yg8enwv$_qxo$_rl&fip@6!_zv#4oz28#ix@a75rpbyl97o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '192.168.1.111', '95.23.209.196']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'sia_sports_agency',
 ]
 
 MIDDLEWARE = [

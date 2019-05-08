@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+    {% block title %}
+        <title>Inicio | SIA Sports Agency</title>
+    {% endblock %}
+    {% block head %}
+    <head>
+        <link rel="shortcut icon" type="image/png" src="{% static 'img/caja.png' %}">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+        <script src="{% static 'js/multiselect.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/flag-icon.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/flag-icon.min.css' %}" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <script type="text/javascript">
+            $('.selectpicker').selectpicker();
+        </script>
+    </head>
+    {% endblock %}
+
+    <body style="background-color: #343A40;">
+        <nav class="navbar navbar-expand-xl sticky-top navbar-dark bg-dark navbar-toggler-left fill">
+            <div class="d-xl-none row col-12">
+                <div class="col">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+                <div class="caja col-6">
+                    <div>
+                        <span style="margin-left: 15%;"><img src="{% static 'img/caja.png' %}" class="logo-responsive" /></span>
+                    </div>
+                </div>
+                <div class="col"></div>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <div class="d-none d-xl-block">
+                    <a class="navbar-brand" href="/"><img src="{% static 'img/logo.png' %}" width="550px" height="100px" /></a>
+                </div>
+                <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active"  href="/#home">HOME <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/#quienes">¿QUI&Eacute;NES SOMOS? <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">CONTACTO<span class="sr-only">(current)</span></a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Usuario
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right bg-dark" aria-labelledby="navbarDropdownMenuLink" style="width: 280px;">
+                            <a class="dropdown-item  dropdown-item-submenu" href="/perfil">Perfil</a>
+                            <a class="dropdown-item  dropdown-item-submenu" href="#">B&uacute;squeda</a>
+                            <a class="dropdown-item  dropdown-item-submenu" href="#">Cerrar sesi&oacute;n</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        {% block content %}
+        {% endblock %}
+    </body>
+
+
+    <!-- Footer -->
+    <footer class="page-footer font-small cyan darken-3">
+
+        <!-- Footer Elements -->
+        <div class="container">
+
+            <!-- Grid row-->
+            <div class="row">
+
+                <!-- Grid column -->
+                <div class="div-icons">
+                    <div class="mb-5">
+
+                        <!-- Facebook -->
+                        <a class="fb-ic">
+                            <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                        </a>
+                        <!-- Twitter -->
+                        <a class="tw-ic">
+                            <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                        </a>
+                        <!--Instagram-->
+                        <a class="ins-ic">
+                            <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row-->
+
+        </div>
+        <!-- Footer Elements -->
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2019 Copyright:
+            <a href="https://mdbootstrap.com/education/bootstrap/"> siasportsagency.com</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+
+</html>
