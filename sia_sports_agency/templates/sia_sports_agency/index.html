@@ -13,56 +13,73 @@
         </ol>
         <!--/.Indicators-->
         <!--Slides-->
-        <div class="carousel-inner" role="listbox">
+        <div class="carousel-inner">
             <div class="carousel-item active">
                 <video class="video-fluid" autoplay loop muted>
-                    <source src="{% static 'video/futbol.mp4' %}" type="video/mp4" />
+                    <source src="{% static 'video/video_sia.mp4' %}" type="video/mp4" />
                 </video>
             </div>
         </div>
         <!--/.Slides-->
-        <!--Controls-->
-        <a class="carousel-control-prev" href="#video-carousel-example" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Anterior</span>
-        </a>
-        <a class="carousel-control-next" href="#video-carousel-example" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Siguiente</span>
-        </a>
-        <!--/.Controls-->
     </div>
     <!--Carousel Wrapper-->
 
-    <!-- Registration button -->
-    <div class="div-registration" id="quienes">
-        <!-- Call to action -->
-        <button type="button" class="btn registration-btn btn-outline-light" data-toggle="modal" data-target="#registrationModalCenter">Reg&iacute;strate!</button>
+    <!-- Baraja -->
+    <div class="row justify-content-center baraja aniview"  data-av-animation="slideInRight" style="opacity: 0;">
+        <div class="baraja-home justify-content-center row col-12" >
+            <div class="col-md-12 col-xl-6" style="text-align: center;">
+                <img src="{% static 'img/home/baraja.png' %}" style="max-width: 100%;"/>
+            </div>
+            <div class="col-md-12 col-xl-6 baraja-text div-registration">
+                <span>Reg&iacute;strate GRATIS y crea tu perfil de forma f&aacute;cil y sencilla</span>
+                <!-- Registration button -->
+                <div id="quienes"  style="margin-top: 100px; max-width: 100%;">
+                    <button type="button" class="btn registration-btn btn-outline-light" data-toggle="modal" data-target="#registrationModalCenter">¡Reg&iacute;strate!</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Info -->
-    <div class="row justify-content-center" style="margin-top: 10%; max-width: 100%;">
-        <div class="col-12 col-xl-3">
-            <img class="rounded-circle" id="fotoHome" width="100%" src="{% static 'img/basket.jpg' %}" />
-        </div>
-        <div class="col-12 col-xl-6 home-text">
-            <span>Plataforma online creada por deportistas y para deportistas, en la cual caben todos los deportes, todos los géneros y todas las personas.</span>
+    <div class="info aniview row" data-av-animation="slideInLeft" style="opacity: 0;">
+        <div class="row col-12">
+            <div class="col-12 col-xl-4 home-text">
+                <img class="rounded-circle" width="100%" style="margin-bottom: 120px;" src="{% static 'img/basket.jpg' %}" />
+                <span>Accede a la b&uacute;squeda de otros usuarios, comun&iacute;cate con ellos y recibir o env&iacute; ofertas. </span>
+            </div>
+            <div class="col-12 col-xl-4 home-text"  style="padding-top: 80px;">
+                <p >Edita tu perfil con tus habilidades, v&iacute;deos, curr&iacute;culum, proyectos...</p>
+                <img class="rounded-circle" width="100%" src="{% static 'img/futbol.jpg' %}" style="margin-top: 100px;"/>
+            </div>
+            <div class="col-12 col-xl-4 home-text">
+                <img class="rounded-circle" width="100%" src="{% static 'img/futbolA.jpg' %}" style="margin-bottom: 120px;"/>
+                <span>Seas del deporte que seas, si buscas mejorar en el ámbito deportivo, ¡este es tu lugar! </span>
+            </div>
         </div>
     </div>
-    <div class="row home justify-content-center" style="margin-top: 0; max-width: 100%;">
-        <div class="col-12 col-xl-6 home-text">
-            <span>Regístrate gratis y edita tu perfil con tus habilidades, vídeos, currículum, proyectos... Si buscas mejorar en el ámbito deportivo este es tu lugar.</span>
-        </div>
-        <div class="col-12 col-xl-3">
-            <img class="rounded-circle" id="fotoHome" width="100%" src="{% static 'img/futbol.jpg' %}" />
-        </div>
-    </div>
-    <div class="row home justify-content-center" style="margin-top: 0; max-width: 100%;">
-        <div class="col-12 col-xl-3">
-            <img class="rounded-circle" id="fotoHome" width="100%" src="{% static 'img/futbolA.jpg' %}" />
-        </div>
-        <div class="col-12 col-xl-6 home-text">
-            <span>Crea tu perfil de forma fácil y sencilla, y podrás acceder a la búsqueda de otros usuarios, comunicarte con ellos y recibir o enviar ofertas.</span>
+    <div class="container text-center col-10 aniview" style="margin-top: 100px; opacity: 0;" data-av-animation="slideInUp" >
+        <h2>DEPORTISTAS SIA</h2>
+        <div id="recipeCarousel" class="carousel slide w-100 " data-ride="carousel" >
+            <div class="carousel-inner w-100" role="listbox">
+                <div class="carousel-item row no-gutters active">
+                    <div class="col-4 float-left"><img class="img-fluid" src="{% static 'img/home/ej1.jpg' %}"></div>
+                    <div class="col-4 float-left"><img class="img-fluid" src="{% static 'img/home/ej2.png' %}"></div>
+                    <div class="col-4 float-left"><img class="img-fluid" src="{% static 'img/home/ej3.jpg' %}"></div>
+                </div>
+                <div class="carousel-item row no-gutters">
+                    <div class="col-4 float-left"><img class="img-fluid" src="{% static 'img/home/ej 4.jpg' %}"></div>
+                    <div class="col-4 float-left"><img class="img-fluid" src="{% static 'img/home/ej5.jpg' %}"></div>
+                    <div class="col-4 float-left"><img class="img-fluid" src="{% static 'img/home/ej6.jpg' %}"></div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#recipeCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#recipeCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
     </div>
 </div>

@@ -1,10 +1,192 @@
+/*
+****************************************************************************************************
+    COMUN
+****************************************************************************************************
+*/
 /* Por defecto */
+body {
+	background-color: #2f3c45;
+	color: #fff;
+	width: 100%;
+}
+html{
+	scroll-behavior: smooth;
+}
 .width100{
     width: 100%;
 }
-/* Style navbar */
+/*
+****************************************************************************************************
+    FOOTER
+****************************************************************************************************
+*/
+.footer-copyright{
+    color: white;
+}
+.page-footer{
+	width: 100%;
+	margin-top: 20px;
+}
+.fab {
+  color: white;
+}
+.div-icons{
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 50px;
+}
+/*
+****************************************************************************************************
+    REGISTRO - #Form
+****************************************************************************************************
+*/
+.form-group{
+    color: white;
+    background-color: #2f3c45;
+    margin-top: 5px;
+}
+.form-control>option{
+    background-color: #2f3c45;
+    color: white;
+}
+#dropdownMenuButton{
+    width:100%;
+    text-align: left;
+}
+.dropdown-menu{
+    background-color: #2f3c45;
+    width:100%;
+}
+.form-registration-btn{
+    font-size: 20px;
+    font-weight: bold;
+    background: linear-gradient(to right, #9A8056, #CFAB71, #9A8056);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.data-div{
+    padding-left: 10px;
+}
+.filter-option{
+    background-color: #2f3c45;
+    color: white;
+}
+.modal-header{
+    background: linear-gradient(to right, #9A8056, #CFAB71, #9A8056);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+select.form-control {
+  margin: 0;
+ -webkit-box-sizing: border-box;
+ -moz-box-sizing: border-box;
+ box-sizing: border-box;
+ -webkit-appearance: none;
+ -moz-appearance: none;
+}
+.dropdown-item-submenu{
+   font-size: 40px;
+   width: auto;
+   font-family:  'Open Sans Condensed', sans-serif;
+   background: linear-gradient(to right, #9A8056, #CFAB71, #9A8056);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+ }
+  .dropdown-item{
+  color: white;
+ }
+
+
+/*
+****************************************************************************************************
+    HOME
+****************************************************************************************************
+*/
+.home{
+    margin-top: 10%;
+}
+.home-text{
+    padding-left: 20px;
+    color: #BFB597  ;
+    font-size: 40px;
+	text-align: center;
+	font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+	text-shadow: 0 1px 0 black, 0 2px 0 black, 0 3px 0 black, 0 4px 0 black, 0 5px 0 black, 0 6px 1px black;
+}
+.home-2{
+    margin-top: 2%;
+}
+.baraja{
+	 /*background-image: linear-gradient(to right, #2f3c45, #2E272E);*/
+	 background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("../img/home/ej7.jpg");
+	 background-repeat: repeat-y;
+	 margin: 30px 0px 30px 0px;
+}
+.info{
+	background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("../img/home/ej8.png");
+	background-repeat: repeat-y;
+	padding: 50px 0px 50px 0px;
+	margin: 30px 0px 30px 0px;
+}
+.rounded-circle{
+	max-width: 90%;
+}
+.baraja-home{
+	/*border: 10px solid #9A8056;*/
+	/*border-style: ridge;*/
+	padding: 80px;
+}
+.baraja-text{
+	color: white;
+	font-size: 50px;
+}
+#fotoHome{
+    float: right;
+	max-width: 80%;
+}
+/* Boton registro */
+.registration-btn{
+    font-size: 55px;
+    background: linear-gradient(to right, #9A8056, #CFAB71, #9A8056);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    width: 500px;
+    height: 100px;
+	max-width: 100%;
+}
+/*.div-registration:hover{
+    border: 1px solid;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+    outline-color: rgba(255, 255, 255, 0);
+    outline-offset: 15px;
+    text-shadow: 1px 1px 2px #427388;
+}*/
+.div-registration{
+    background-color: transparent;
+	text-align: center;
+	max-width: 100%;
+	padding-top: 80px;
+    /*margin-top: -50px;*/
+    /*z-index:15;*/
+    /*position:absolute;*/
+    /*margin-left: 50%;*/
+    /*left: -250px;*/
+}
+.registration-btn:hover{
+	border: 1px solid;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+    outline-color: rgba(255, 255, 255, 0);
+    outline-offset: 15px;
+    text-shadow: 1px 1px 2px #9A8056;
+}
+/* Carousel */
+.carousel-item>video {
+   max-width: 100%;
+}
+/* Navbar */
 .nav-link{
-    font-size: 40px !important;
+    font-size: 30px !important;
     }
 .navbar{
     border-bottom:5px solid #9A8056;
@@ -20,188 +202,36 @@
  .nav-link:hover{
   border-bottom: 5px solid #9A8056;
  }
- select.form-control {
-   margin: 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+ /*
+ ****************************************************************************************************
+     HOME - #Imagenes
+ ****************************************************************************************************
+ */
+.img-fluid{
+	max-width: 100%;
+	height: 100%;
+	max-height: 400px;
 }
- .dropdown-item-submenu{
-    font-size: 40px;
-    width: auto;
-    font-family:  'Open Sans Condensed', sans-serif;
-    background: linear-gradient(to right, #9A8056, #CFAB71, #9A8056);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-   .dropdown-item{
-   color: white;
-  }
-
- /*Logo responsive*/
-img.logo-responsive{
-   height: 150px;
-   width: 190px;
- }
-
-
- @media(max-width:1199px){
-    .form-control{
-        background-color: #343A40;
-        color: white;
-        font-size: 30px;
-        height: 90px;
-    }
-    .data-div>label{
-        font-size: 30px;
-    }
-    .modal-registration{
-        background-color: #343A40;
-        max-width: 100% !important;
-    }
- }
- @media(min-width:1200px){
-    .form-control{
-        background-color: #343A40;
-        color: white;
-        font-size: 25px;
-        height: 50px;
-    }
-    .form-control>option{
-        font-size: 25px;
-    }
-    .modal-registration{
-        background-color: #343A40;
-        max-width: 80% !important;
-        margin-left: 12%;
-    }
-
- }
- .caja{
-    float: right;
-    text-align: center;
- }
-
- .navbar-toggler-icon{
-   height: 120px;
-   width: 120px;
- }
-
-/*Style carrusel*/
- .carousel-item>video {
-    max-width: 100%;
+.carusel-img{
+	margin-top:200px;
 }
-
-/*Style registration button*/
-.registration-btn{
-    font-size: 55px;
-    background: linear-gradient(to right, #9A8056, #CFAB71, #9A8056);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    width: 500px;
-    height: 100px;
+.carousel-control-prev-icon{
+	height: 100px;
+	width: 100px;
+	border-radius: 15px;
+	background-image: url(../img/icons/arrow-left.png);
 }
-.div-registration:hover{
-    border: 1px solid;
-    box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
-    outline-color: rgba(255, 255, 255, 0);
-    outline-offset: 15px;
-    text-shadow: 1px 1px 2px #427388;
+.carousel-control-next-icon{
+	height: 100px;
+	width: 100px;
+	border-radius: 15px;
+	background-image: url(../img/icons/arrow-right.png);
 }
-.div-registration{
-    background-color: #343A40;
-    margin-top: -50px;
-    z-index:15;
-    position:absolute;
-    margin-left: 50%;
-    left: -250px;
-}
-
-/*Style footer*/
-
-.footer-copyright{
-    color: white;
-}
-
-.page-footer{
-}
-
-/*Style fav icons*/
-.fab {
-  color: white;
-}
-.div-icons{
-    width: 50%;
-    margin: 0 auto;
-    text-align: center;
-    margin-top: 50px;
-}
-
-/*Div modal registration*/
-.modal-header{
-    background: linear-gradient(to right, #9A8056, #CFAB71, #9A8056);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/*Registration form*/
-
-.form-group{
-    color: white;
-    background-color: #343A40;
-    margin-top: 5px;
-}
-
-.form-control>option{
-    background-color: #343A40;
-    color: white;
-}
-#dropdownMenuButton{
-    width:100%;
-    text-align: left;
-}
-.dropdown-menu{
-    background-color: #343A40;
-    width:100%;
-}
-.form-registration-btn{
-    font-size: 20px;
-    font-weight: bold;
-    background: linear-gradient(to right, #9A8056, #CFAB71, #9A8056);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-.data-div{
-    padding-left: 10px;
-}
-
-/*Multiselect style*/
-.filter-option{
-    background-color: #343A40;
-    color: white;
-}
-
-/*Home*/
-.home{
-    margin-top: 10%;
-}
-.home-text{
-    padding-left: 20px;
-    color: white;
-    font-size: 30px;
-    padding-top: 70px;
-}
-.home-2{
-    margin-top: 2%;
-}
-
-#fotoHome{
-    float: right;
-}
-
-/**Perfil*/
+/*
+****************************************************************************************************
+    PERFIL - #Tabs
+****************************************************************************************************
+*/
 .lateral-menu{
     border-right: 5px solid #9A8056;
     border-bottom: 5px solid #9A8056;
@@ -223,16 +253,16 @@ img.logo-responsive{
 }
 
 .info-perfil{
-    border-bottom: 5px solid #9A8056;
+    border: 5px solid #41494d;
+    margin-top: 2%;
+    height: auto;
+    padding: 1%;
+
 }
 
-.img-cromo{
-    width: 400px;
-    border: 15px solid #9A8056;
-    border-style: ridge;
-}
 .tabs{
     margin-top: 2%;
+	margin-bottom: 2%;
 }
 .nav-tabs>.active>a, .nav-tabs>.active>a:hover, .nav-tabs>.active>a:focus {
     border-color: #9A8056;
@@ -240,14 +270,13 @@ img.logo-responsive{
 }
 .form-perfil{
     color: white;
-    background-color: #343A40;
-    margin-top: 3%;
+    background-color: #181d20;
+    margin: 3%;
     font-size: 26px;
-    margin-left: 2%;
 }
 
 .form-perfil-control{
-    background-color: #343A40;
+    background-color: #2f3c45;
     color: white;
     font-size: 25px;
     height: 50px;
@@ -256,7 +285,7 @@ img.logo-responsive{
 }
 
 .form-perfil-control-multi{
-    background-color: #343A40;
+    background-color: #2f3c45;
     color: white;
     font-size: 25px;
     height: 50px;
@@ -271,4 +300,146 @@ select.form-perfil-control {
  box-sizing: border-box;
  -webkit-appearance: none;
  -moz-appearance: none;
+}
+
+/*
+****************************************************************************************************
+    PERFIL - #BarraLateral
+****************************************************************************************************
+*/
+
+/* CABECERA DE LA BARRA LATERAL */
+
+.sidebar-header {
+	text-align: center;
+	border-bottom: 2px solid #41494d;
+	padding: 40px 15px 33px;
+	background-color: #1f282d;
+}
+.sidebar-header .user-name {
+	margin-top: 15px;
+	font-size: 20px;
+	font-weight: 300;
+	color: #fff;
+}
+
+.img-cromo{
+    width: 325px;
+    border: 15px solid #9A8056;
+    border-style: ridge;
+}
+/*
+****************************************************************************************************
+    PERFIL - #TabDatosAdicionales
+****************************************************************************************************
+*/
+
+#trending-videos .video-info .video-info-title > a {
+	font-size: 16px;
+	color: #fff;
+}
+.panel {
+	background-color: #181d20;
+	transition: all .3s ease;
+	border: 0px;
+	width: 100%;
+}
+.panel-heading {
+	line-height: 50px !important;
+	padding: 0px 30px !important;
+	border-bottom: 2px solid #41494d !important;
+	background-color: #1f282d !important;
+	color: #ffab40 !important;
+}
+.panel-title {
+	line-height: 50px;
+	text-transform: uppercase;;
+}
+.panel-body {
+	padding: 10px 30px;
+}
+
+.datos-dicionales{
+	margin-top: 20px;
+}
+.video-thumb video {
+	margin: 10px;
+	max-width: 300px;
+}
+.video-add{
+	padding-left: 40%;
+	padding-top: 25%;
+}
+
+/*
+****************************************************************************************************
+    PERFIL - #TabDatosAdicionales
+****************************************************************************************************
+*/
+.table{
+	color: white;
+	font-size: 20px;
+}
+.table > thead{
+	font-size: 25px !important;
+}
+.mail-ver{
+	background-color: #9A8056 !important;
+	border: 1px solid #9A8056;
+}
+
+/*
+****************************************************************************************************
+    ESCRITORIO
+****************************************************************************************************
+*/
+@media(min-width:1200px){
+   .form-control{
+	  background-color: #2f3c45;
+	  color: white;
+	  font-size: 25px;
+	  height: 50px;
+   }
+   .form-control>option{
+	  font-size: 25px;
+   }
+   .modal-registration{
+	  background-color: #2f3c45;
+	  max-width: 80% !important;
+	  margin-left: 12%;
+   }
+
+}
+/*
+****************************************************************************************************
+    OTROS
+****************************************************************************************************
+*/
+@media(max-width:1199px){
+   .form-control{
+	   background-color: #2f3c45;
+	   color: white;
+	   font-size: 30px;
+	   height: 90px;
+   }
+   .data-div>label{
+	   font-size: 30px;
+   }
+   .modal-registration{
+	   background-color: #2f3c45;
+	   max-width: 100% !important;
+   }
+}
+/*Logo responsive*/
+img.logo-responsive{
+  height: 150px;
+  width: 190px;
+}
+.caja{
+   float: right;
+   text-align: center;
+}
+.navbar-toggler-icon{
+  height: 120px;
+  width: 120px;
 }
