@@ -10,7 +10,17 @@ SPORT_TYPE_CHOICES = (
     ('m', 'Masculino'),
     ('f', 'Femenino'),
 )
+SOCIAL_NETWORK_CHOICES = (
+    ('f', 'Facebook'),
+    ('t', 'Twitter'),
+    ('i', 'Instagram'),
+    ('y', 'YouTube'),
+    ('b', 'Blog')
+)
 
+"""
+    Model Usuario
+"""
 class Usuario(models.Model):
 
     # Attributes
@@ -81,4 +91,24 @@ class Usuario(models.Model):
         max_length=150,
         null=True,
         unique=True
+    )
+
+"""
+    Model Red_social
+"""
+class Red_social(models.Model):
+
+    # Attributes
+    nombre = models.CharField(
+        choices=SOCIAL_NETWORK_CHOICES,
+        null=False,
+        max_length=2,
+    )
+    enlace = models.CharField(
+        null=False,
+        max_length=150
+    )
+    usuario = models.ForeignKey(
+        Usuario,
+        on_delete=models.CASCADE
     )
