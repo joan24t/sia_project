@@ -5,102 +5,25 @@
 */
 /* Por defecto */
 body {
-	background-color: #2f3c45;
+	background-color: #2A2A2A;
 	color: #fff;
-	width: 100%;
+}
+div.content {
+	width: 100% !important;
+	max-width: 100% !important;
 }
 html{
 	scroll-behavior: smooth;
+}
+section{
+	border: 6px solid #41494d !important;
 }
 .width100{
     width: 100%;
 }
 /*
 ****************************************************************************************************
-    FOOTER
-****************************************************************************************************
-*/
-.footer-copyright{
-    color: white;
-}
-.page-footer{
-	width: 100%;
-	margin-top: 20px;
-}
-.fab {
-  color: white;
-}
-.div-icons{
-    width: 50%;
-    margin: 0 auto;
-    text-align: center;
-    margin-top: 50px;
-}
-/*
-****************************************************************************************************
-    REGISTRO - #Form
-****************************************************************************************************
-*/
-.form-group{
-    color: white;
-    background-color: #2f3c45;
-    margin-top: 5px;
-}
-.form-control>option{
-    background-color: #2f3c45;
-    color: white;
-}
-#dropdownMenuButton{
-    width:100%;
-    text-align: left;
-}
-.dropdown-menu{
-    background-color: #2f3c45;
-    width:100%;
-}
-.form-registration-btn{
-    font-size: 20px;
-    font-weight: bold;
-    background: linear-gradient(to right, #9A8056, #CFAB71, #9A8056);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-.data-div{
-    padding-left: 10px;
-}
-.filter-option{
-    background-color: #2f3c45;
-    color: white;
-}
-.modal-header{
-    background: linear-gradient(to right, #9A8056, #CFAB71, #9A8056);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-select.form-control {
-  margin: 0;
- -webkit-box-sizing: border-box;
- -moz-box-sizing: border-box;
- box-sizing: border-box;
- -webkit-appearance: none;
- -moz-appearance: none;
-}
-.dropdown-item-submenu{
-   font-size: 40px;
-   width: auto;
-   font-family:  'Open Sans Condensed', sans-serif;
-   background: linear-gradient(to right, #9A8056, #CFAB71, #9A8056);
-   -webkit-background-clip: text;
-   -webkit-text-fill-color: transparent;
- }
-  .dropdown-item{
-  color: white;
- }
-
-
-/*
-****************************************************************************************************
-    HOME
+    PRINCIPAL-HOME
 ****************************************************************************************************
 */
 .home{
@@ -117,17 +40,16 @@ select.form-control {
 .home-2{
     margin-top: 2%;
 }
-.baraja{
+.seccion-baraja{
 	 /*background-image: linear-gradient(to right, #2f3c45, #2E272E);*/
-	 background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("../img/home/ej7.jpg");
+	 background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../img/home/home/baraja-fondo.jpg");
 	 background-repeat: repeat-y;
-	 margin: 30px 0px 30px 0px;
+	 margin: 100px 0px 100px 0px;
 }
-.info{
-	background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("../img/home/ej8.png");
-	background-repeat: repeat-y;
+.seccion-info{
+	background-color: #202020 !important;;
 	padding: 50px 0px 50px 0px;
-	margin: 30px 0px 30px 0px;
+	margin: 0px 0px 30px 0px;
 }
 .rounded-circle{
 	max-width: 90%;
@@ -180,16 +102,64 @@ select.form-control {
     outline-offset: 15px;
     text-shadow: 1px 1px 2px #9A8056;
 }
+/*
+****************************************************************************************************
+    PRINCIPAL-QUIENES
+****************************************************************************************************
+*/
+.seccion-info img{
+	max-width: 350px;
+	transition: transform .5s ease;
+}
+.quienes-text{
+	color: white;
+	font-size: 20px;
+}
+.que-section{
+	border-radius: 15px 20px;
+	border: 2px solid white;
+	margin: 40px;
+	display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+
+}
+.que-section:hover{
+	box-shadow: 5px 5px 5px #aaaaaa;
+	cursor: pointer;
+}
+
+.modal-que{
+   background-color: #202020 !important;
+}
+
+#queModalCenter{
+	margin: 100px 0px 30px 0px;
+}
+/*
+****************************************************************************************************
+    NAVBAR
+****************************************************************************************************
+*/
+
 /* Carousel */
 .carousel-item>video {
    max-width: 100%;
+   width:100%;
 }
 /* Navbar */
 .nav-link{
-    font-size: 30px !important;
+    font-size: 25px !important;
     }
 .navbar{
     border-bottom:5px solid #9A8056;
+	background-color: #202020 !important;
 }
 .navbar-nav > li{ padding-left:25px; padding-right:25px;}
 .nav-link {
@@ -200,8 +170,121 @@ select.form-control {
    -webkit-text-fill-color: transparent;
  }
  .nav-link:hover{
-  border-bottom: 5px solid #9A8056;
+  border-bottom: 2px solid #9A8056;
  }
+ .dropdown-item-submenu{
+    font-size: 35px;
+    width: auto;
+    font-family:  'Open Sans Condensed', sans-serif;
+    background: linear-gradient(to right, #9A8056, #CFAB71, #9A8056);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+	background-color: #202020 !important;
+  }
+ .dropdown-item{
+   color: white;
+  }
+ /*
+ ****************************************************************************************************
+     PRINCIPAL-CONTACTO
+ ****************************************************************************************************
+ */
+ .contact  i{
+	 background-color: transparent;
+ }
+ .form-group-contact {
+	 background-color: transparent;
+ }
+ .contact-form .form-control {
+	 background-color: transparent !important;
+	 margin-bottom: 10px;
+ }
+ .jumbotron{
+	  background-color: #202020 !important;
+	 margin-top: 50px;
+ }
+ .button-contact{
+	background-color: #202020 !important;
+ }
+/*
+****************************************************************************************************
+    FOOTER
+****************************************************************************************************
+*/
+.footer-copyright{
+    color: white;
+}
+.page-footer{
+	width: 100%;
+	margin-top: 20px;
+	background-color: #202020 !important;
+}
+.fab {
+  color: white;
+}
+.div-icons{
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 50px;
+}
+/*
+****************************************************************************************************
+    REGISTRO - #Form
+****************************************************************************************************
+*/
+.form-group{
+    color: white;
+    background-color: #202020;
+    margin-top: 5px;
+}
+.form-control>option{
+    background-color: #202020;
+    color: white;
+}
+#dropdownMenuButton{
+    width:100%;
+    text-align: left;
+}
+.dropdown-menu{
+    background-color: #202020;
+    width:100%;
+}
+.form-registration-btn{
+    font-size: 20px;
+    font-weight: bold;
+    background: linear-gradient(to right, #9A8056, #CFAB71, #9A8056);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.data-div{
+    padding-left: 10px;
+}
+.filter-option{
+    background-color: #202020;
+    color: white;
+}
+.modal-header{
+    background: linear-gradient(to right, #9A8056, #CFAB71, #9A8056);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+select.form-control {
+	background-color: #202020;
+	margin: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+.modal-registration{
+	background-color: #202020;
+}
+.form-control{
+   background-color: #202020;
+}
+
  /*
  ****************************************************************************************************
      HOME - #Imagenes
@@ -370,6 +453,12 @@ select.form-perfil-control {
 	padding-left: 40%;
 	padding-top: 25%;
 }
+.panel-networks{
+	margin-bottom: 30px;
+}
+.panel-networks .panel-body{
+	padding: 30px;
+}
 
 /*
 ****************************************************************************************************
@@ -390,13 +479,20 @@ select.form-perfil-control {
 
 /*
 ****************************************************************************************************
+    PERFIL - MENSAJES
+****************************************************************************************************
+*/
+#mensajes tr:hover{
+	color: #9A8056;
+	cursor: pointer;
+}
+/*
+****************************************************************************************************
     ESCRITORIO
 ****************************************************************************************************
 */
 @media(min-width:1200px){
    .form-control{
-	  background-color: #2f3c45;
-	  color: white;
 	  font-size: 25px;
 	  height: 50px;
    }
@@ -404,7 +500,6 @@ select.form-perfil-control {
 	  font-size: 25px;
    }
    .modal-registration{
-	  background-color: #2f3c45;
 	  max-width: 80% !important;
 	  margin-left: 12%;
    }
@@ -417,8 +512,6 @@ select.form-perfil-control {
 */
 @media(max-width:1199px){
    .form-control{
-	   background-color: #2f3c45;
-	   color: white;
 	   font-size: 30px;
 	   height: 90px;
    }
@@ -426,7 +519,6 @@ select.form-perfil-control {
 	   font-size: 30px;
    }
    .modal-registration{
-	   background-color: #2f3c45;
 	   max-width: 100% !important;
    }
 }

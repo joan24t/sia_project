@@ -1,22 +1,84 @@
 from django.db import models
 
 GENDER_CHOICES = (
-    ('Select one', 'Select one'),
-    ('Male', 'Male'),
-    ('Female', 'Female'),
+    ('s', 'Selecciona uno'),
+    ('m', 'Masculino'),
+    ('f', 'Femenino'),
+)
+SPORT_TYPE_CHOICES = (
+    ('a', 'Ambos'),
+    ('m', 'Masculino'),
+    ('f', 'Femenino'),
 )
 
-class User(models.Model):
+class Usuario(models.Model):
 
     # Attributes
-    name = models.CharField(max_length=100)
-    surnames = models.CharField(max_length=100)
-    location = models.CharField(max_length=100)
-    email = models.EmailField(max_length=254)
-    gender = models.CharField(
-        max_length=2,
-        choices=GENDER_CHOICES,
-        default='Select one',
+    nombre = models.CharField(
+        max_length=150,
+        null=False
     )
-    contact_phone = models.IntegerField()
-    description = models.TextField(max_length=254)
+    apellidos = models.CharField(
+        max_length=150,
+        null=True
+    )
+    ubicacion = models.CharField(
+        max_length=150,
+        null=True
+    )
+    fnacimiento = models.DateField(
+        null=True
+    )
+    foto_path = models.CharField(
+        null=False,
+        max_length=150,
+        unique=True
+    )
+    email = models.EmailField(
+        max_length=150,
+        null=False,
+        unique=True
+    )
+    genero = models.CharField(
+        max_length=1,
+        choices=GENDER_CHOICES,
+        default='s',
+    )
+    tipo_deporte = models.CharField(
+        max_length=1,
+        choices=SPORT_TYPE_CHOICES,
+        null=False,
+        default='a'
+
+    )
+    telefono = models.IntegerField(
+        null=True
+    )
+    eactual = models.CharField(
+        max_length=150,
+        null=True
+    )
+    altura = models.IntegerField(
+        null=True
+    )
+    peso = models.IntegerField(
+        null=True
+    )
+    interesadoen = models.TextField(
+        max_length=500,
+        null=True
+    )
+    nacionalidad = models.CharField(
+        max_length=200,
+        null=True
+    )
+    curriculum = models.CharField(
+        max_length=150,
+        null=True,
+        unique=True
+    )
+    cpresentacion = models.CharField(
+        max_length=150,
+        null=True,
+        unique=True
+    )

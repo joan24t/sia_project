@@ -24,9 +24,6 @@
                 <a class="nav-link datosAdicionaleTab" href="javascript:hideOrShowTabs('da')">Datos adicionales</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Redes sociales</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link mensajesTab" href="javascript:hideOrShowTabs('me')">Mensajes</a>
             </li>
         </ul>
@@ -94,6 +91,53 @@
         </div>
         <!-- *** DATOS ADICIONALES *** -->
         <div class="row col-12" id="datosAdicionales" style="display: none;">
+            <section class="panel panel-networks">
+				<header class="panel panel-heading">
+					<h2 class="panel-title pull-left">Tus redes sociales</h2>
+				</header>
+				<div class="panel-body">
+                    <div class="row">
+                        <div class="col-1">
+                            <a class="fb-ic">
+                                <i class="fab fa-facebook-f fa-lg white-text fa-2x"> </i>
+                            </a>
+                        </div>
+                        <div class="col-11">
+                            <input type="text" name="username" id="username" class="username form-control" placeholder="Enlace facebook" value="">
+                        </div>
+                    </div><br/>
+                    <div class="row">
+                        <div class="col-1">
+                            <a class="tw-ic">
+                                <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                            </a>
+                        </div>
+                        <div class="col-11">
+                            <input type="text" name="email" class=" email form-control" placeholder="Enlace twitter" value="">
+                        </div>
+                    </div><br/>
+                    <div class="row">
+                        <div class="col-1">
+                            <a class="ins-ic">
+                                <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                            </a>
+                        </div>
+                        <div class="col-11">
+                            <input type="text" name="subject" class="subject form-control" placeholder="Enlace instagram" value="">
+                        </div>
+                    </div><br/>
+                    <div class="row">
+                        <div class="col-1">
+                            <a class="ins-ic">
+                                <i class="fab fa-youtube fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
+                            </a>
+                        </div>
+                        <div class="col-11">
+                            <input type="text" name="subject" class="subject form-control" placeholder="Enlace youtube" value="">
+                        </div>
+                    </div>
+				</div>
+			</section>
 			<section class="panel">
 				<header class="panel panel-heading">
 					<h2 class="panel-title pull-left">Tus vídeos</h2>
@@ -177,7 +221,7 @@
                 <header class="panel panel-heading">
                     <h2 class="panel-title pull-left">Tus mensajes</h2>
                 </header>
-                <div id="trending-videos" class="panel-body">
+                <div class="panel-body">
                     <table class="table table-hover table-striped">
                         <thead class="mail-header">
                             <tr>

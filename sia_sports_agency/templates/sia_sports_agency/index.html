@@ -7,11 +7,6 @@
 <div id="home">
     <!--Carousel Wrapper-->
     <div id="video-carousel" class="carousel slide carousel-fade" data-ride="carousel">
-        <!--Indicators-->
-        <ol class="carousel-indicators">
-            <li data-target="#video-carousel-example" data-slide-to="0" class="active"></li>
-        </ol>
-        <!--/.Indicators-->
         <!--Slides-->
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -25,15 +20,15 @@
     <!--Carousel Wrapper-->
 
     <!-- Baraja -->
-    <div class="row justify-content-center baraja aniview"  data-av-animation="slideInRight" style="opacity: 0;">
-        <div class="baraja-home justify-content-center row col-12" >
-            <div class="col-md-12 col-xl-6" style="text-align: center;">
-                <img src="{% static 'img/home/baraja.png' %}" style="max-width: 100%;"/>
+    <div class="row justify-content-center seccion-baraja" data-aos="zoom-out-down" data-aos-duration="1500">
+        <div class="baraja-home justify-content-center row col-12">
+            <div class="col-md-12 col-xl-6" style="text-align: center;" data-aos="flip-right" data-aos-duration="1000">
+                <img src="{% static 'img/home/home/baraja.png' %}" style="max-width: 100%;" />
             </div>
             <div class="col-md-12 col-xl-6 baraja-text div-registration">
                 <span>Reg&iacute;strate GRATIS y crea tu perfil de forma f&aacute;cil y sencilla</span>
                 <!-- Registration button -->
-                <div id="quienes"  style="margin-top: 100px; max-width: 100%;">
+                <div style="margin-top: 100px; max-width: 100%;" data-aos="zoom-in" data-aos-duration="1000">
                     <button type="button" class="btn registration-btn btn-outline-light" data-toggle="modal" data-target="#registrationModalCenter">¡Reg&iacute;strate!</button>
                 </div>
             </div>
@@ -41,25 +36,25 @@
     </div>
 
     <!-- Info -->
-    <div class="info aniview row" data-av-animation="slideInLeft" style="opacity: 0;">
+    <div class="seccion-info row" data-aos="zoom-out-left" style="max-width:100% !important;">
         <div class="row col-12">
-            <div class="col-12 col-xl-4 home-text">
-                <img class="rounded-circle" width="100%" style="margin-bottom: 120px;" src="{% static 'img/basket.jpg' %}" />
-                <span>Accede a la b&uacute;squeda de otros usuarios, comun&iacute;cate con ellos y recibir o env&iacute; ofertas. </span>
+            <div class="col-12 col-xl-4 home-text" data-aos="zoom-in" data-aos-duration="2000">
+                <img src="{% static 'img/home/quienes/punto.png' %}" /><br>
+                <span>Accede a la b&uacute;squeda de otros usuarios, comun&iacute;cate con ellos y recibir o env&iacute;ar ofertas. </span>
             </div>
-            <div class="col-12 col-xl-4 home-text"  style="padding-top: 80px;">
-                <p >Edita tu perfil con tus habilidades, v&iacute;deos, curr&iacute;culum, proyectos...</p>
-                <img class="rounded-circle" width="100%" src="{% static 'img/futbol.jpg' %}" style="margin-top: 100px;"/>
+            <div class="col-12 col-xl-4 home-text" style="padding-top: 80px;" data-aos="zoom-in" data-aos-duration="2000">
+                <p>Edita tu perfil con tus habilidades, v&iacute;deos, curr&iacute;culum, proyectos...</p>
+                <img src="{% static 'img/home/quienes/profile.png' %}" /><br />
             </div>
-            <div class="col-12 col-xl-4 home-text">
-                <img class="rounded-circle" width="100%" src="{% static 'img/futbolA.jpg' %}" style="margin-bottom: 120px;"/>
-                <span>Seas del deporte que seas, si buscas mejorar en el ámbito deportivo, ¡este es tu lugar! </span>
+            <div class="col-12 col-xl-4 home-text" data-aos="zoom-in" data-aos-duration="2000" >
+                <img src="{% static 'img/home/quienes/register.png' %}" /><br />
+                <span id="quienes">Seas del deporte que seas, si buscas mejorar en el ámbito deportivo, ¡este es tu lugar! </span>
             </div>
         </div>
     </div>
-    <div class="container text-center col-10 aniview" style="margin-top: 100px; opacity: 0;" data-av-animation="slideInUp" >
+    <div class="container text-center col-10" style="margin-top: 100px;" data-aos="zoom-out-up">
         <h2>DEPORTISTAS SIA</h2>
-        <div id="recipeCarousel" class="carousel slide w-100 " data-ride="carousel" >
+        <div id="recipeCarousel" class="carousel slide w-100 " data-ride="carousel">
             <div class="carousel-inner w-100" role="listbox">
                 <div class="carousel-item row no-gutters active">
                     <div class="col-4 float-left"><img class="img-fluid" src="{% static 'img/home/ej1.jpg' %}"></div>
@@ -82,5 +77,61 @@
             </a>
         </div>
     </div>
+    <div class="jumbotron jumbotron-sm" id="contacto-form">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-lg-12">
+                    <h1 class="h1">
+                        <small>Formulario de contacto</small>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h2 class="text-center">Contáctanos</h2>
+        <div class="errors">
+        </div>
+        <form action="<?=$_SERVER['PHP_SELF']?>" class="contact-form" method="POST">
+            <div class="row">
+                <div class="col-1">
+                    <i class="fa fa-user fa-2x"></i>
+                </div>
+                <div class="col-11">
+                    <input type="text" name="username" id="username" class="username form-control" placeholder="Nombre" value="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    <i class="fa fa-envelope fa-2x"></i>
+                </div>
+                <div class="col-11">
+                    <input type="text" name="email" class=" email form-control" placeholder="Email" value="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    <i class="fas fa-pencil-alt fa-2x "></i>
+                </div>
+                <div class="col-11">
+                    <input type="text" name="subject" class="subject form-control" placeholder="Asunto" value="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    <i class="fa fa-comments message-icon fa-2x"></i>
+                </div>
+                <div class="col-11">
+                    <textarea class=" message form-control" name="message" placeholder="Mensaje"></textarea>
+                </div>
+            </div>
+            <div class="row justify-content-end" style="border: 1px">
+                <div class="col-11">
+                    <input type="submit" value="Enviar" class="btn btn-success btn-block button-contact" style="border: none">
+                </div>
+            </div>
+        </form>
+    </div>
+
 </div>
 {% endblock %}
