@@ -9,12 +9,14 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form>
+                <form class="form-registro">
                     <div class="row">
-                        <div class="col-xl-6 col-sm-12">
+                        <div class="col-6">
                             <div class="form-group">
-                                <label class="qform" for="queEresDropdown"><h2>1. &iquest;Qu&eacute; eres?</h2></label>
-                                <select class="form-control" id="queEresDropdown">
+                                <label class="qform" for="queEresDropdown">
+                                    <h2>1. &iquest;Qu&eacute; eres?</h2>
+                                </label>
+                                <select class="form-control-lg" id="queEresDropdown">
                                     <option>Jugador</option>
                                     <option>Club</option>
                                     <option>Entrenado</option>
@@ -23,21 +25,23 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label><h2>2. Tus datos</h2></label>
-                                <div class="data-div">
+                                <label>
+                                    <h2>2. Tus datos</h2>
+                                </label>
+                                <div>
                                     <label for="FormControlInputEmail">Direcci&oacute;n email</label>
-                                    <input type="email" class="form-control input-lg" id="FormControlInputEmail" placeholder="nombre@siasportsagency.com">
+                                    <input type="email" class="form-control-lg" id="FormControlInputEmail" placeholder="nombre@siasportsagency.com">
                                     <label for="FormControlInputNombre">Nombre y apellidos</label>
-                                    <input class="form-control" type="text" id="FormControlInputNombre" placeholder="Nombre y apellidos">
+                                    <input class="form-control-lg" type="text" id="FormControlInputNombre" placeholder="Nombre y apellidos">
                                     <label for="sexoDropdown">Sexo</label>
-                                    <select class="form-control" id="sexoDropdown">
+                                    <select class="form-control-lg" id="sexoDropdown">
                                         <option>Hombre</option>
                                         <option>Mujer</option>
                                     </select>
                                     <label for="FormControlInputFNacimiento">F. Nacimiento</label>
-                                    <input class="form-control" type="date" name="bday" max="3000-12-31" min="1000-01-01" id="FormControlInputFNacimiento" class="form-control">
+                                    <input class="form-control-lg" type="date" name="bday" max="3000-12-31" min="1000-01-01" id="FormControlInputFNacimiento" class="form-control-lg">
                                     <label for="nacionalidadDropdown">Nacionalidad</label>
-                                    <select class="form-control-lg form-control selectpicker" id="nacionalidadDropdown">
+                                    <select class="form-control-lg selectpicker" multiple data-live-search="true">
                                         <option value="1" data-content="<span class='flag-icon flag-icon-es'></span> Espa&#241;a"></option>
                                         <option data-content="<span class='flag-icon flag-icon-us'></span> USA"></option>
                                         <option data-content="<span class='flag-icon flag-icon-fr'></span> France"></option>
@@ -50,36 +54,41 @@
                         </div>
                         <div class="col-xl-6 col-sm-12">
                             <div class="form-group">
-                                <label><h2>3. &iquest;A qu&eacute; juegas?</h2></label>
+                                <label>
+                                    <h2>3. &iquest;A qu&eacute; juegas?</h2>
+                                </label>
                                 <div class="data-div">
                                     <label for="aQueJuegasDropdown">Deporte</label>
-                                    <select class="form-control" id="aQueJuegasDropdown">
+                                    <select class="form-control-lg" id="aQueJuegasDropdown">
                                         <option>F&uacute;tbol</option>
                                         <option>F&uacute;tbol Sala</option>
                                     </select>
                                     <label for="aQueJuegasDropdown">G&eacute;nero</label>
-                                    <select class="form-control" id="aQueJuegasDropdown">
+                                    <select class="form-control-lg" id="aQueJuegasDropdown">
                                         <option>Masculino</option>
                                         <option>Femenino</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="posicionDropdown"><h2>4. &iquest;Qu&eacute; posici&oacute;n ocupas?</h2></label>
-                                <select class="form-control" id="posicionDropdown">
+                                <label for="posicionDropdown">
+                                    <h2>4. &iquest;Qu&eacute; posici&oacute;n ocupas?</h2>
+                                </label>
+                                <select class="form-control-lg" id="posicionDropdown">
                                     <option>Tight End</option>
                                     <option>Center</option>
                                     <option>...</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="fotoPerfil" class="width100"><h2>5. Foto de perfil</h2></label>
-                                <img id="fotoPerfil" width="200px" height="200px" src="{% static 'img/fotoDefecto.png' %}" /><br />
+                                <label for="fotoPerfil" class="width100">
+                                    <h2>5. Foto de perfil</h2>
+                                </label>
+                                <img class="rounded-circle" id="fotoPerfil" width="200px" height="200px" src="{% static 'img/fotoDefecto.png' %}" /><br />
                             </div>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-outline-light form-registration-btn rounded">Registrar</button>
-
                 </form>
             </div>
         </div>

@@ -233,14 +233,23 @@ section{
     REGISTRO - #Form
 ****************************************************************************************************
 */
-.form-group{
+.form-registro{
+	padding: 10px;
+}
+.form-registro .form-group{
     color: white;
     background-color: #202020;
     margin-top: 5px;
 }
-.form-control>option{
+.form-registro .form-control-lg{
     background-color: #202020;
     color: white;
+	width: 100%;
+}
+.form-registro .bootstrap-select{
+	width: 105%;
+	margin-left: -15px !important;
+	background-color: #202020;
 }
 #dropdownMenuButton{
     width:100%;
@@ -257,9 +266,6 @@ section{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-.data-div{
-    padding-left: 10px;
-}
 .filter-option{
     background-color: #202020;
     color: white;
@@ -269,20 +275,8 @@ section{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-select.form-control {
-	background-color: #202020;
-	margin: 0;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-}
 .modal-registration{
 	background-color: #202020;
-}
-.form-control{
-   background-color: #202020;
 }
 
  /*
@@ -358,6 +352,15 @@ select.form-control {
     font-size: 26px;
 }
 
+/*
+****************************************************************************************************
+    PERFIL - #DatosBasicos
+****************************************************************************************************
+*/
+.panel-datos-basicos .filter-option{
+	background-color: #2f3c45;
+}
+
 .form-perfil-control{
     background-color: #2f3c45;
     color: white;
@@ -384,7 +387,6 @@ select.form-perfil-control {
  -webkit-appearance: none;
  -moz-appearance: none;
 }
-
 /*
 ****************************************************************************************************
     PERFIL - #BarraLateral
@@ -395,7 +397,7 @@ select.form-perfil-control {
 
 .sidebar-header {
 	text-align: center;
-	border-bottom: 2px solid #41494d;
+	border: 5px solid #41494d;
 	padding: 40px 15px 33px;
 	background-color: #1f282d;
 }
@@ -459,6 +461,9 @@ select.form-perfil-control {
 .panel-networks .panel-body{
 	padding: 30px;
 }
+.panel-networks .form-control{
+	background-color: #2f3c45;
+}
 
 /*
 ****************************************************************************************************
@@ -492,13 +497,6 @@ select.form-perfil-control {
 ****************************************************************************************************
 */
 @media(min-width:1200px){
-   .form-control{
-	  font-size: 25px;
-	  height: 50px;
-   }
-   .form-control>option{
-	  font-size: 25px;
-   }
    .modal-registration{
 	  max-width: 80% !important;
 	  margin-left: 12%;
@@ -511,13 +509,6 @@ select.form-perfil-control {
 ****************************************************************************************************
 */
 @media(max-width:1199px){
-   .form-control{
-	   font-size: 30px;
-	   height: 90px;
-   }
-   .data-div>label{
-	   font-size: 30px;
-   }
    .modal-registration{
 	   max-width: 100% !important;
    }
