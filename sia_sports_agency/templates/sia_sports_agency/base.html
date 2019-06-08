@@ -6,6 +6,8 @@
     {% endblock %}
     {% block head %}
     <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+        <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
         <link rel="shortcut icon" type="image/png" src="{% static 'img/caja.png' %}">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.6/animate.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -15,6 +17,7 @@
         <script type="text/javascript" src="{% static 'js/tabs.js' %}"></script>
         <script type="text/javascript" src="{% static 'js/onchange.js' %}"></script>
         <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/translate.sass' %}" />
         <link rel="stylesheet" href="{% static 'css/flag-icon.css' %}" />
         <link rel="stylesheet" href="{% static 'css/flag-icon.min.css' %}" />
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
@@ -23,11 +26,15 @@
 
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     </head>
     {% endblock %}
 
     <body>
         {% include "sia_sports_agency/modal_window_que.html" %}
+        {% include "sia_sports_agency/modal_login.html" %}
         <div class="content">
             <nav class="navbar navbar-expand-xl sticky-top navbar-dark bg-dark navbar-toggler-left fill">
                 <div class="d-xl-none row col-12">
@@ -49,7 +56,7 @@
                     </div>
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active"  href="/#home">HOME <span class="sr-only">(current)</span></a>
+                            <a class="nav-link active"  href="/#home"> <span class="pepe"> HOME </span> <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#queModalCenter" data-toggle="modal" data-target="#queModalCenter">QU&Eacute; OFRECEMOS<span class="sr-only">(current)</span></a>
@@ -57,8 +64,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/#contacto-form">CONTACTO<span class="sr-only">(current)</span></a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="" data-toggle="modal" data-target="#loginModalCenter">LOGIN<span class="sr-only">(current)</span></a>
+                        </li>
 
-                        <li class="nav-item dropdown">
+                        <!--li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Usuario
                             </a>
@@ -67,7 +77,7 @@
                                 <a class="dropdown-item  dropdown-item-submenu" href="#">B&uacute;squeda</a>
                                 <a class="dropdown-item  dropdown-item-submenu" href="#">Cerrar sesi&oacute;n</a>
                             </div>
-                        </li>
+                        </li-->
                     </ul>
                 </div>
             </nav>
@@ -120,7 +130,29 @@
 
     </footer>
     <script>
-      AOS.init();
+        AOS.init();
+        $.datepicker.regional['es'] = {
+            closeText: 'Cerrar',
+            prevText: '< Ant',
+            nextText: 'Sig >',
+            currentText: 'Hoy',
+            monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+            monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+            dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+            dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
+            dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+            weekHeader: 'Sm',
+            dateFormat: 'dd/mm/yy',
+            firstDay: 1,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix: ''
+        };
+        $.datepicker.setDefaults($.datepicker.regional['es']);
+        $( function() {
+          $( "#datepicker" ).datepicker();
+        } );
+        $(".selectpicker").selectpicker();
     </script>
     <!-- Footer -->
 

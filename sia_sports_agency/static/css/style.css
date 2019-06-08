@@ -118,9 +118,9 @@ section{
 .que-section{
 	border-radius: 15px 20px;
 	border: 2px solid white;
-	margin: 40px;
-	display: inline-block;
+	margin: 20px;
     vertical-align: middle;
+	height: 155px;
     -webkit-transform: perspective(1px) translateZ(0);
     transform: perspective(1px) translateZ(0);
     box-shadow: 0 0 1px rgba(0, 0, 0, 0);
@@ -161,10 +161,9 @@ section{
     border-bottom:5px solid #9A8056;
 	background-color: #202020 !important;
 }
-.navbar-nav > li{ padding-left:25px; padding-right:25px;}
+.navbar-nav > li{ padding-left:25px; padding-right:25p}
 .nav-link {
    font-family:  'Open Sans Condensed', sans-serif;
-   font-weight: bold;
    background: linear-gradient(to right, #9A8056, #CFAB71, #9A8056);
    -webkit-background-clip: text;
    -webkit-text-fill-color: transparent;
@@ -233,23 +232,34 @@ section{
     REGISTRO - #Form
 ****************************************************************************************************
 */
+.modal-registration{
+	background-color: #2a2a2a;
+}
 .form-registro{
 	padding: 10px;
 }
 .form-registro .form-group{
     color: white;
-    background-color: #202020;
+    background-color: #2a2a2a;
     margin-top: 5px;
 }
-.form-registro .form-control-lg{
-    background-color: #202020;
+.form-registro .form-control{
+    background-color: #46433F;
     color: white;
 	width: 100%;
 }
 .form-registro .bootstrap-select{
 	width: 105%;
 	margin-left: -15px !important;
-	background-color: #202020;
+	background-color: #2a2a2a;
+}
+.form-registro .divPais{
+	margin-left: 15px;
+	width: 100%;
+}
+.form-registro .filter-option{
+    background-color: #46433F;
+    color: white;
 }
 #dropdownMenuButton{
     width:100%;
@@ -266,17 +276,24 @@ section{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-.filter-option{
-    background-color: #202020;
-    color: white;
-}
-.modal-header{
-    background: linear-gradient(to right, #9A8056, #CFAB71, #9A8056);
+.modal-title{
+	background: linear-gradient(to right, #9A8056, #CFAB71, #9A8056);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-.modal-registration{
-	background-color: #202020;
+.modal-header{
+	background-color: #202020 !important;
+}
+.modal-body{
+	background-color: #2a2a2a;
+}
+.close {
+    color: #fff;
+    opacity: 1;
+}
+.close:hover {
+    color: white;
+    opacity: 1;
 }
 
  /*
@@ -354,11 +371,38 @@ section{
 
 /*
 ****************************************************************************************************
+    PERFIL - #BarraLateral
+****************************************************************************************************
+*/
+
+/* CABECERA DE LA BARRA LATERAL */
+
+.sidebar-header {
+	text-align: center;
+	border: 5px solid #41494d;
+	padding: 40px 15px 33px;
+	background-color: #202020;
+}
+.sidebar-header .user-name {
+	margin-top: 15px;
+	font-size: 20px;
+	font-weight: 300;
+	color: #fff;
+}
+
+.img-cromo{
+    width: 325px;
+    border: 15px solid #9A8056;
+    border-style: ridge;
+}
+
+/*
+****************************************************************************************************
     PERFIL - #DatosBasicos
 ****************************************************************************************************
 */
 .panel-datos-basicos .filter-option{
-	background-color: #2f3c45;
+	background-color: #46433F;
 }
 
 .form-perfil-control{
@@ -371,7 +415,7 @@ section{
 }
 
 .form-perfil-control-multi{
-    background-color: #2f3c45;
+    background-color: #5F5B56;
     color: white;
     font-size: 25px;
     height: 50px;
@@ -387,32 +431,13 @@ select.form-perfil-control {
  -webkit-appearance: none;
  -moz-appearance: none;
 }
-/*
-****************************************************************************************************
-    PERFIL - #BarraLateral
-****************************************************************************************************
-*/
 
-/* CABECERA DE LA BARRA LATERAL */
-
-.sidebar-header {
-	text-align: center;
-	border: 5px solid #41494d;
-	padding: 40px 15px 33px;
-	background-color: #1f282d;
-}
-.sidebar-header .user-name {
-	margin-top: 15px;
-	font-size: 20px;
-	font-weight: 300;
-	color: #fff;
+.panel-datos-basicos .form-control{
+	background-color: #46433F;
+	color: white;
+	margin-bottom:10px;
 }
 
-.img-cromo{
-    width: 325px;
-    border: 15px solid #9A8056;
-    border-style: ridge;
-}
 /*
 ****************************************************************************************************
     PERFIL - #TabDatosAdicionales
@@ -424,7 +449,7 @@ select.form-perfil-control {
 	color: #fff;
 }
 .panel {
-	background-color: #181d20;
+	background-color: #2a2a2a;
 	transition: all .3s ease;
 	border: 0px;
 	width: 100%;
@@ -433,8 +458,8 @@ select.form-perfil-control {
 	line-height: 50px !important;
 	padding: 0px 30px !important;
 	border-bottom: 2px solid #41494d !important;
-	background-color: #1f282d !important;
-	color: #ffab40 !important;
+	background-color: #202020 !important;
+	color: #DCA967 !important;
 }
 .panel-title {
 	line-height: 50px;
@@ -462,12 +487,29 @@ select.form-perfil-control {
 	padding: 30px;
 }
 .panel-networks .form-control{
-	background-color: #2f3c45;
+	background-color: #46433F;
+	color: white;
+	margin-bottom:10px;
+}
+.panel-datos-especificos{
+	margin-bottom: 30px;
+}
+.panel-datos-especificos .panel-body{
+	padding: 30px;
+}
+.panel-datos-especificos .form-control{
+	background-color: #46433F;
+	color: white;
+	margin-bottom:10px;
+}
+
+.panel-datos-especificos .custom-file{
+	margin-bottom:10px;
 }
 
 /*
 ****************************************************************************************************
-    PERFIL - #TabDatosAdicionales
+    PERFIL - #Mensajes
 ****************************************************************************************************
 */
 .table{
@@ -482,11 +524,6 @@ select.form-perfil-control {
 	border: 1px solid #9A8056;
 }
 
-/*
-****************************************************************************************************
-    PERFIL - MENSAJES
-****************************************************************************************************
-*/
 #mensajes tr:hover{
 	color: #9A8056;
 	cursor: pointer;
@@ -525,4 +562,84 @@ img.logo-responsive{
 .navbar-toggler-icon{
   height: 120px;
   width: 120px;
+}
+form .form-control::-webkit-input-placeholder {
+  color: grey;
+}
+
+form .form-control::-moz-placeholder {
+  color: grey;
+}
+form .form-control:-ms-input-placeholder {
+  color: grey;
+}
+form .form-control:placeholder {
+  color: grey;
+}
+
+/*
+****************************************************************************************************
+    LOGIN
+****************************************************************************************************
+*/.card{
+	height:300px;
+	margin-top: auto;
+	margin-bottom: auto;
+	width: 100%;
+	background-color: #202020 !important;
+}
+.card-body{
+	width: 100%;
+}
+.card-footer{
+	padding: 20px;
+}
+
+.modal-login{
+	background-color: #202020 !important;
+	width: 100%;
+}
+
+.input-group-prepend span{
+	width: 50px;
+	background-color: #9A8056;
+	color: black;
+	border:0 !important;
+}
+
+input:focus{
+outline: 0 0 0 0  !important;
+box-shadow: 0 0 0 0 !important;
+
+}
+
+.remember{
+color: white;
+}
+
+.remember input
+{
+width: 20px;
+height: 20px;
+margin-left: 15px;
+margin-right: 5px;
+}
+
+.login_btn{
+color: black;
+background-color: #9A8056;
+width: 120px;
+}
+
+.login_btn:hover{
+color: black;
+background-color: white;
+}
+
+.links{
+color: white;
+}
+
+.links a{
+margin-left: 4px;
 }

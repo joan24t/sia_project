@@ -105,11 +105,6 @@ class Pais(models.Model):
         max_length=15,
         unique=True
     )
-    path_icono = models.CharField(
-        null=False,
-        max_length=150,
-        unique=True
-    )
 
 """
     Model Usuario
@@ -133,7 +128,7 @@ class Usuario(models.Model):
         null=True
     )
     foto_path = models.CharField(
-        null=False,
+        null=True,
         max_length=150,
         unique=True
     )
@@ -200,8 +195,23 @@ class Usuario(models.Model):
         on_delete=models.SET_NULL,
         null=True
     )
-    paises = models.ManyToManyField(
-        Pais
+    pais = models.ForeignKey(
+        Pais,
+        on_delete=models.SET_NULL,
+        null=True
+    )
+    posicion = models.ForeignKey(
+        Posicion,
+        on_delete=models.SET_NULL,
+        null=True
+    )
+    contrasena_1 = models.CharField(
+        max_length=150,
+        null=True
+    )
+    contrasena_2 = models.CharField(
+        max_length=150,
+        null=True
     )
 
 """

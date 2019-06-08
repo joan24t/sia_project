@@ -20,13 +20,15 @@
     <!--Carousel Wrapper-->
 
     <!-- Baraja -->
-    <div class="row justify-content-center seccion-baraja" data-aos="zoom-out-down" data-aos-duration="1500">
+    <div class="row justify-content-center seccion-baraja">
         <div class="baraja-home justify-content-center row col-12">
-            <div class="col-md-12 col-xl-6" style="text-align: center;" data-aos="flip-right" data-aos-duration="1000">
+            <div class="col-md-12 col-xl-6" style="text-align: center;" data-aos="flip-right" data-aos-duration="1500">
                 <img src="{% static 'img/home/home/baraja.png' %}" style="max-width: 100%;" />
             </div>
             <div class="col-md-12 col-xl-6 baraja-text div-registration">
-                <span>Reg&iacute;strate GRATIS y crea tu perfil de forma f&aacute;cil y sencilla</span>
+                <div data-aos="flip-right" data-aos-duration="1500">
+                    <span><b>Reg&iacute;strate GRATIS y crea tu perfil de forma f&aacute;cil y sencilla</b></span>
+                </div>
                 <!-- Registration button -->
                 <div style="margin-top: 100px; max-width: 100%;" data-aos="zoom-in" data-aos-duration="1000">
                     <button type="button" class="btn registration-btn btn-outline-light" data-toggle="modal" data-target="#registrationModalCenter">¡Reg&iacute;strate!</button>
@@ -36,15 +38,15 @@
     </div>
 
     <!-- Info -->
-    <div class="seccion-info row" data-aos="zoom-out-left" style="max-width:100% !important;">
+    <div class="seccion-info row" style="max-width:100% !important;">
         <div class="row col-12">
             <div class="col-12 col-xl-4 home-text" data-aos="zoom-in" data-aos-duration="2000">
-                <img src="{% static 'img/home/quienes/punto.png' %}" /><br>
-                <span>Accede a la b&uacute;squeda de otros usuarios, comun&iacute;cate con ellos y recibir o env&iacute;ar ofertas. </span>
+                <img src="{% static 'img/home/quienes/profile.png' %}" /><br/>
+                <p>Edita tu perfil con tus habilidades, v&iacute;deos, curr&iacute;culum, proyectos...</p>
             </div>
             <div class="col-12 col-xl-4 home-text" style="padding-top: 80px;" data-aos="zoom-in" data-aos-duration="2000">
-                <p>Edita tu perfil con tus habilidades, v&iacute;deos, curr&iacute;culum, proyectos...</p>
-                <img src="{% static 'img/home/quienes/profile.png' %}" /><br />
+                <span>Accede a la b&uacute;squeda de otros usuarios, comun&iacute;cate con ellos y recibir o env&iacute;ar ofertas. </span><br/>
+                <img src="{% static 'img/home/quienes/punto.png' %}" /><br>
             </div>
             <div class="col-12 col-xl-4 home-text" data-aos="zoom-in" data-aos-duration="2000" >
                 <img src="{% static 'img/home/quienes/register.png' %}" /><br />
@@ -52,6 +54,8 @@
             </div>
         </div>
     </div>
+
+    <!-- Deportistas SIA -->
     <div class="container text-center col-10" style="margin-top: 100px;" data-aos="zoom-out-up">
         <h2>DEPORTISTAS SIA</h2>
         <div id="recipeCarousel" class="carousel slide w-100 " data-ride="carousel">

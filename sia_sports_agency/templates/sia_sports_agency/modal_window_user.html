@@ -9,81 +9,97 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form class="form-registro">
+                <form class="form-registro" action="usuario_crear/" method="post">
+                    {% csrf_token %}
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-xl-6 col-sm-12">
                             <div class="form-group">
                                 <label class="qform" for="queEresDropdown">
-                                    <h2>1. &iquest;Qu&eacute; eres?</h2>
+                                    <h4>1. &iquest;Qu&eacute; eres?</h4>
                                 </label>
-                                <select class="form-control-lg" id="queEresDropdown">
+                                <select class="form-control" name="inputTipoUsuario" id="queEresDropdown">
                                     {% for tipo in tipo_jugadores %}
-                                        <option>{{tipo.nombre}}</option>
+                                        <option value={{tipo.codigo}}>{{tipo.nombre}}</option>
                                     {% endfor %}
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>
-                                    <h2>2. Tus datos</h2>
+                                    <h4>2. Tus datos</h4>
                                 </label>
                                 <div>
-                                    <label for="FormControlInputEmail">Direcci&oacute;n email</label>
-                                    <input type="email" class="form-control-lg" id="FormControlInputEmail" placeholder="nombre@siasportsagency.com">
                                     <label for="FormControlInputNombre">Nombre y apellidos</label>
-                                    <input class="form-control-lg" type="text" id="FormControlInputNombre" placeholder="Nombre y apellidos">
+                                    <input class="form-control" name="inputNombre" type="text" id="FormControlInputNombre" placeholder="Nombre y apellidos">
                                     <label for="sexoDropdown">Sexo</label>
-                                    <select class="form-control-lg" id="sexoDropdown">
-                                        <option>Hombre</option>
-                                        <option>Mujer</option>
+                                    <select class="form-control" id="sexoDropdown" name="inputSexo">
+                                        <option value="m">Hombre</option>
+                                        <option value="f">Mujer</option>
                                     </select>
-                                    <label for="FormControlInputFNacimiento">F. Nacimiento</label>
-                                    <input class="form-control-lg" type="date" name="bday" max="3000-12-31" min="1000-01-01" id="FormControlInputFNacimiento" class="form-control-lg">
-                                    <label for="nacionalidadDropdown">Nacionalidad</label>
-                                    <select class="form-control-lg selectpicker" multiple data-live-search="true">
-                                        <option value="1" data-content="<span class='flag-icon flag-icon-es'></span> Espa&#241;a"></option>
-                                        <option data-content="<span class='flag-icon flag-icon-us'></span> USA"></option>
-                                        <option data-content="<span class='flag-icon flag-icon-fr'></span> France"></option>
-                                        <option data-content="<span class='flag-icon flag-icon-de'></span> Alemania"></option>
-                                        <option data-content="<span class='flag-icon flag-icon-it'></span> Italia"></option>
-                                        <option data-content="<span class='flag-icon flag-icon-be'></span> B&eacute;glica"></option>
+                                    <label for="datepicker">F. Nacimiento</label>
+                                    <input name="inputNacimiento" id="datepicker" class="form-control" autocomplete="off">
+                                    <label for="paisDropdown">País</label>
+                                    <div class="divPais" id="paisDropdown">
+                                        <select class="form-control selectpicker" name="inputPais" data-live-search="true">
+                                            {% for pais in paises %}
+                                            <option value={{pais.codigo}} data-content="<span class='flag-icon flag-icon-{{pais.codigo|lower}}'></span>&ensp;&ensp;{{pais.nombre}}"></option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <h4>3. &iquest;A qu&eacute; juegas?</h4>
+                                </label>
+                                <div class="data-div">
+                                    <label for="aQueJuegasDropdown">Deporte</label>
+                                    <select class="form-control" id="aQueJuegasDropdown" name="inputDeporte">
+                                        {% for deporte in deportes %}
+                                            <option value={{deporte.codigo}}>{{deporte.nombre}}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <label for="generoDropdown">G&eacute;nero</label>
+                                    <select class="form-control" id="generoDropdown" name="inputGenero">
+                                        <option value="m">Masculino</option>
+                                        <option value="f">Femenino</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xl-6 col-sm-12">
                             <div class="form-group">
-                                <label>
-                                    <h2>3. &iquest;A qu&eacute; juegas?</h2>
-                                </label>
-                                <div class="data-div">
-                                    <label for="aQueJuegasDropdown">Deporte</label>
-                                    <select class="form-control-lg" id="aQueJuegasDropdown">
-                                        {% for deporte in deportes %}
-                                            <option value={{deporte.id}}>{{deporte.nombre}}</option>
-                                        {% endfor %}
+                                <div class="divPositions">
+                                    <label for="posicionDropdown">
+                                        <h4>4. &iquest;Qu&eacute; posici&oacute;n ocupas?</h4>
+                                    </label>
+                                    <select class="form-control" id="posicionDropdown" name="inputPosicion">
                                     </select>
-                                    <label for="aQueJuegasDropdown">G&eacute;nero</label>
-                                    <select class="form-control-lg" id="aQueJuegasDropdown">
-                                        <option>Masculino</option>
-                                        <option>Femenino</option>
+                                </div>
+                                <div class="divMultiplePositions" hidden>
+                                    <label for="posicionDropdownMultiple">
+                                        <h4>4. &iquest;Qu&eacute; posici&oacute;n ocupas?</h4>
+                                    </label>
+                                    <select class="form-control selectpicker" name="inputPosicionMulti" id="posicionDropdownMultiple" multiple data-live-search="true">
+                                        {% for posicion in posiciones %}
+                                            <option value={{posicion.codigo}}>{{posicion.nombre}}</option>
+                                        {% endfor %}
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="posicionDropdown">
-                                    <h2>4. &iquest;Qu&eacute; posici&oacute;n ocupas?</h2>
+                                <label class="width100">
+                                    <h4>5. Datos de acceso</h4>
                                 </label>
-                                <select class="form-control-lg" id="posicionDropdown">
-                                    {% for posicion in posiciones %}
-                                        <option>{{posicion.nombre}}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="fotoPerfil" class="width100">
-                                    <h2>5. Foto de perfil</h2>
-                                </label>
-                                <img class="rounded-circle" id="fotoPerfil" width="200px" height="200px" src="{% static 'img/fotoDefecto.png' %}" /><br />
+                                <label for="FormControlInputEmail">Direcci&oacute;n email</label>
+                                <input type="email" class="form-control" name="inputEmail" id="FormControlInputEmail" placeholder="nombre@siasportsagency.com">
+                                <div class="form-group">
+                                    <label for="password1">Contraseña</label>
+                                    <input type="password" name="inputPassword1" class="form-control" id="password1" placeholder="Contraseña">
+                                </div>
+                                <div class="form-group">
+                                  <label for="password2">Repite contraseña</label>
+                                  <input type="password" name="inputPassword2" class="form-control" id="password2" placeholder="Contraseña">
+                                </div>
                             </div>
                         </div>
                     </div>

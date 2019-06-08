@@ -1,0 +1,51 @@
+{% load static %}
+<div class="modal fade" id="loginModalCenter" tabindex="-1" role="dialog" aria-labelledby="loginModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+        <div class="modal-content modal-login">
+            <div class="modal-header">
+                <h2 class="modal-title">Inicio de sesión</h2>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="container">
+                <div class="d-flex justify-content-center h-100">
+                    <div class="card">
+                        <div class="card-body">
+                            <form>
+                                <div class="input-group form-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Nombre de usuario">
+
+                                </div>
+                                <div class="input-group form-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                    </div>
+                                    <input type="password" class="form-control" placeholder="Contraseña">
+                                </div>
+                                <div class="row align-items-center remember">
+                                    <input type="checkbox">Recuérdame
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" value="Iniciar sesión" class="btn float-right login_btn">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="card-footer">
+                            <div class="d-flex justify-content-center links">
+                                No tienes cuenta?<a href="#">Regístrate</a>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <a href="#">Olvidaste tu contraseña?</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
