@@ -19,7 +19,7 @@
                                 </label>
                                 <select class="form-control" name="inputTipoUsuario" id="queEresDropdown">
                                     {% for tipo in tipo_jugadores %}
-                                        <option value={{tipo.codigo}}>{{tipo.nombre}}</option>
+                                        <option value="{{tipo.codigo|default:''}}">{{tipo.nombre}}</option>
                                     {% endfor %}
                                 </select>
                             </div>
@@ -41,7 +41,7 @@
                                     <div class="divPais" id="paisDropdown">
                                         <select class="form-control selectpicker" name="inputPais" data-live-search="true">
                                             {% for pais in paises %}
-                                            <option value={{pais.codigo}} data-content="<span class='flag-icon flag-icon-{{pais.codigo|lower}}'></span>&ensp;&ensp;{{pais.nombre}}"></option>
+                                            <option value="{{pais.codigo|default:''}}" data-content="<span class='flag-icon flag-icon-{{pais.codigo|lower}}'></span>&ensp;&ensp;{{pais.nombre}}"></option>
                                             {% endfor %}
                                         </select>
                                     </div>
@@ -55,11 +55,11 @@
                                     <label for="aQueJuegasDropdown">Deporte</label>
                                     <select class="form-control" id="aQueJuegasDropdown" name="inputDeporte">
                                         {% for deporte in deportes %}
-                                            <option value={{deporte.codigo}}>{{deporte.nombre}}</option>
+                                            <option value="{{deporte.codigo|default:''}}">{{deporte.nombre}}</option>
                                         {% endfor %}
                                     </select>
                                     <label for="generoDropdown">G&eacute;nero</label>
-                                    <select class="form-control" id="generoDropdown" name="inputGenero">
+                                    <select class="form-control" id="generoDropdown" name="inputTipoDeporte">
                                         <option value="m">Masculino</option>
                                         <option value="f">Femenino</option>
                                     </select>
@@ -81,7 +81,7 @@
                                     </label>
                                     <select class="form-control selectpicker" name="inputPosicionMulti" id="posicionDropdownMultiple" multiple data-live-search="true">
                                         {% for posicion in posiciones %}
-                                            <option value={{posicion.codigo}}>{{posicion.nombre}}</option>
+                                            <option value="{{posicion.codigo|default:''}}">{{posicion.nombre}}</option>
                                         {% endfor %}
                                     </select>
                                 </div>

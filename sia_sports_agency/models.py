@@ -1,7 +1,6 @@
 from django.db import models
 
 GENDER_CHOICES = (
-    ('s', 'Selecciona uno'),
     ('m', 'Masculino'),
     ('f', 'Femenino'),
 )
