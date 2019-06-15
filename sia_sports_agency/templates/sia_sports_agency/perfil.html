@@ -33,136 +33,188 @@
                     <h2 class="panel-title pull-left">Tus datos básicos</h2>
                 </header>
                 <div class="panel-body">
-                    <form>
-                        <fieldset class="datosBasicosForm" disabled="disabled">
+                    <form id="form-datos-basicos">
+                        <fieldset class="datosBasicosForm">
                             <div class="row">
                                 <div class="col-6">
-                                    <label for="queEresDropdown"><h4>Rol</h4></label>
-                                    <select class="form-control" id="queEresDropdown">
+                                    <label for="queEresDropdown">
+                                        <h4>Rol</h4>
+                                    </label>
+                                    <select class="form-control" id="queEresDropdown" name="inputTipoUsuario">
                                         {% for tipo in tipo_jugadores %}
                                         <option value="{{tipo.codigo|default:''}}" {% if tipo.codigo == usuario.tipo.codigo %} selected {% endif %}>{{tipo.nombre}}</option>
                                         {% endfor %}
                                     </select>
-                                    <label for="FormControlInputEmail"><h4>Direcci&oacute;n email</h4></label>
-                                    <input type="email" value="{{usuario.email}}" class="form-control" id="FormControlInputEmail" >
-                                    <label for="FormControlInputNombre"><h4>Nombre y apellidos</h4></label>
-                                    <input class="form-control" value="{{usuario.nombre}}" type="text" id="FormControlInputNombre">
-                                    <label for="sexoDropdown"><h4>Sexo</h4></label>
-                                    <select class="form-control" id="sexoDropdown">
-                                        <option {% if usuario.genero == 'm' %} selected {% endif %}>Hombre</option>
-                                        <option {% if usuario.genero == 'f' %} selected {% endif %}>Mujer</option>
+                                    <label for="FormControlInputEmail">
+                                        <h4>Direcci&oacute;n email</h4>
+                                    </label>
+                                    <input type="email" value="{{usuario.email}}" name="inputEmail" class="form-control" id="FormControlInputEmail">
+                                    <label for="FormControlInputNombre">
+                                        <h4>Nombre y apellidos</h4>
+                                    </label>
+                                    <input class="form-control" value="{{usuario.nombre}}" name="inputNombre" type="text" id="FormControlInputNombre">
+                                    <label for="sexoDropdown">
+                                        <h4>Sexo</h4>
+                                    </label>
+                                    <select class="form-control" id="sexoDropdown" name="inputSexo">
+                                        <option value="m" {% if usuario.genero == 'm' %} selected {% endif %}>Hombre</option>
+                                        <option value="f" {% if usuario.genero == 'f' %} selected {% endif %}>Mujer</option>
                                     </select>
-                                    <label for="datepicker"><h4>F. Nacimiento</h4></label>
-                                    <input class="form-control" value={{ usuario.fnacimiento|date:'d/m/Y' }} id="datepicker" autocomplete="off">
-                                    <label for="paisDropdown"><h4>País</h4></label>
-                                    <select class="form-control selectpicker" id="paisDropdown" multiple data-live-search="true" disabled>
+                                    <label for="datepicker">
+                                        <h4>F. Nacimiento</h4>
+                                    </label>
+                                    <input class="form-control" name="inputNacimiento" value={{ usuario.fnacimiento|date:'d/m/Y' }} id="datepicker" autocomplete="off">
+                                    <label for="paisDropdown">
+                                        <h4>País</h4>
+                                    </label>
+                                    <select class="form-control selectpicker" id="paisDropdown" name="inputPais" multiple data-live-search="true">
                                         {% for pais in paises %}
-                                        <option value="{{pais.codigo|default:''}}" {% if pais.codigo == usuario.pais.codigo %} selected {% endif %} data-content="<span class='flag-icon flag-icon-{{pais.codigo|lower}}'></span>&ensp;&ensp;{{pais.nombre}}"></option>
+                                        <option value="{{pais.codigo|default:''}}" {% if pais.codigo == usuario.pais.codigo %} selected {% endif %}
+                                            data-content="<span class='flag-icon flag-icon-{{pais.codigo|lower}}'></span>&ensp;&ensp;{{pais.nombre}}"></option>
                                         {% endfor %}
                                     </select>
-                            </div>
-                            <div class="col-6">
-                                <label for="deporteInput"><h4>Deporte</h4></label>
-                                <select class="form-control" id="deporteInput">
-                                    {% for deporte in deportes %}
-                                    <option value="{{deporte.codigo|default:''}}" {% if deporte.codigo == usuario.deporte.codigo %} selected {% endif %}>{{deporte.nombre}}</option>
-                                    {% endfor %}
-                                </select>
-                                <label for="generoInput"><h4>G&eacute;nero</h4></label>
-                                <select class="form-control" id="generoInput">
-                                    <option value="m" {% if usuario.tipo_deporte == 'm' %} selected {% endif %}>Masculino</option>
-                                    <option value="f" {% if usuario.tipo_deporte == 'f' %} selected {% endif %}>Femenino</option>
-                                </select>
-                                <div class="divPositions">
-                                    <label for="posicionDropdown">
-                                        <h4>4. &iquest;Qu&eacute; posici&oacute;n ocupas?</h4>
-                                    </label>
-                                    <select class="form-control" id="posicionDropdown" name="inputPosicion">
-                                    </select>
                                 </div>
-                                <div class="divMultiplePositions" hidden>
-                                    <label for="posicionDropdownMultiple">
-                                        <h4>4. &iquest;Qu&eacute; posici&oacute;n ocupas?</h4>
+                                <div class="col-6">
+                                    <label for="deporteInput">
+                                        <h4>Deporte</h4>
                                     </label>
-                                    <select class="form-control selectpicker" name="inputPosicionMulti" id="posicionDropdownMultiple" multiple data-live-search="true">
-                                        {% for posicion in posiciones %}
+                                    <select class="form-control" id="deporteInput" name="inputDeporte">
+                                        {% for deporte in deportes %}
+                                        <option value="{{deporte.codigo|default:''}}" {% if deporte.codigo == usuario.deporte.codigo %} selected {% endif %}>{{deporte.nombre}}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <label for="generoInput">
+                                        <h4>G&eacute;nero</h4>
+                                    </label>
+                                    <select class="form-control" id="generoInput" name="inputTipoDeporte">
+                                        <option value="m" {% if usuario.tipo_deporte == 'm' %} selected {% endif %}>Masculino</option>
+                                        <option value="f" {% if usuario.tipo_deporte == 'f' %} selected {% endif %}>Femenino</option>
+                                    </select>
+                                    <div class="divPositions">
+                                        <label for="posicionDropdown">
+                                            <h4>Posici&oacute;n</h4>
+                                        </label>
+                                        <select class="form-control" id="posicionDropdown" name="inputPosicion">
+                                        </select>
+                                    </div>
+                                    <div class="divMultiplePositions" hidden>
+                                        <label for="posicionDropdownMultiple">
+                                            <h4>Posici&oacute;n</h4>
+                                        </label>
+                                        <select class="form-control selectpicker" name="inputPosicionMulti" id="posicionDropdownMultiple" multiple data-live-search="true">
+                                            {% for posicion in posiciones %}
                                             <option value="{{posicion.codigo}}|default:''">{{posicion.nombre}}</option>
-                                        {% endfor %}
-                                    </select>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                    <button  class="btn btn-db btn-outline-light float-right btn-editar rounded">
+                                        <h5>Editar</h5>
+                                    </button>
+                                    <button type="submit" class="btn btn-db btn-outline-light float-right btn-guardar rounded" hidden>
+                                        <h5>Guardar</h5>
+                                    </button>
                                 </div>
-                                <button type="submit" class="btn btn-db btn-outline-light float-right btn-editar rounded"><h5>Editar</h5></button>
-                                <button type="submit" class="btn btn-db btn-outline-light float-right btn-guardar rounded" hidden><h5>Guardar</h5></button>
-                            </div>
                         </fieldset>
                     </form>
                 </div>
             </section>
         </div>
-        <!-- *** DATOS ADICIONALES *** -->
-        <div class="row col-12" id="datosAdicionales" style="display: none;">
+        <!-- *** DATOS ESPECIFICOS *** -->
+        <div class="row col-12" id="datosEspecificos" style="display: none;">
             <section class="panel panel-datos-especificos">
                 <header class="panel panel-heading">
                     <h2 class="panel-title pull-left">Tus datos específicos</h2>
                 </header>
                 <div class="panel-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <label for="telefono"><h4>Telefono</h4></label>
-                            <input type="text" value="{{usuario.telefono|default:''}}" name="telefono" id="telefono" class="form-control">
-                            <label for="ubicacion"><h4>Ubicación</h4></label>
-                            <input type="text" value="{{usuario.ubicacion|default:''}}" name="ubicacion" id="ubicacion" class="form-control">
+                    <form>
+                        <fieldset class="datosEspecificosForm">
                             <div class="row">
                                 <div class="col-6">
+                                    <label for="telefono">
+                                        <h4>Telefono</h4>
+                                    </label>
+                                    <input type="text" value="{{usuario.telefono|default:''}}" name="telefono" id="telefono" class="form-control">
+                                    <label for="ubicacion">
+                                        <h4>Ubicación</h4>
+                                    </label>
+                                    <input type="text" value="{{usuario.ubicacion|default:''}}" name="ubicacion" id="ubicacion" class="form-control">
                                     <div class="row">
-                                        <div class="col-10">
-                                            <label for="peso"><h4>Peso</h4></label>
-                                            <input type="text" value="{{usuario.peso|default:''}}" name="peso" id="peso" class="form-control">
+                                        <div class="col-6">
+                                            <div class="row">
+                                                <div class="col-10">
+                                                    <label for="peso">
+                                                        <h4>Peso</h4>
+                                                    </label>
+                                                    <input type="text" value="{{usuario.peso|default:''}}" name="peso" id="peso" class="form-control">
+                                                </div>
+                                                <div>
+                                                    <h5 style="bottom: 0; position: absolute;">kg</h5>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <h5 style="bottom: 0; position: absolute;">kg</h5>
+                                        <div class="col-6">
+                                            <div class="row">
+                                                <div class="col-10">
+                                                    <label for="altura">
+                                                        <h4>Altura</h4>
+                                                    </label>
+                                                    <input type="text" value="{{usuario.altura|default:''}}" name="altura" id="altura" class="form-control">
+                                                </div>
+                                                <div>
+                                                    <h5 style="bottom: 0; position: absolute;">cm</h5>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
+                                    <label for="edominante">
+                                        <h4>Extremidad dominante</h4>
+                                    </label>
+                                    <select class="form-control" id="edominante">
+                                        {% for extremidad in extremidades %}
+                                        <option value="{{extremidad.codigo|default:''}}" {% if usuario.extremidad.codigo == extremidad.codigo %} selected {% endif %}>{{extremidad.nombre}}</option>
+                                        {% endfor %}
+                                    </select>
                                 </div>
                                 <div class="col-6">
-                                    <div class="row">
-                                        <div class="col-10">
-                                            <label for="altura"><h4>Altura</h4></label>
-                                            <input type="text" value="{{usuario.altura|default:''}}" name="altura" id="altura" class="form-control">
-                                        </div>
-                                        <div>
-                                            <h5 style="bottom: 0; position: absolute;">cm</h5>
-                                        </div>
+                                    <label for="nacionalidad">
+                                        <h4>Nacionalidad</h4>
+                                    </label>
+                                    <input type="text" value="{{usuario.nacionalidad|default:''}}" name="nacionalidad" id="nacionalidad" class="form-control">
+                                    <label for="eactual">
+                                        <h4>Equipo actual</h4>
+                                    </label>
+                                    <input type="text" value="{{usuario.eactual|default:''}}" name="eactual" id="eactual" class="form-control">
+                                    <label for="cpresentacion">
+                                        <h4>Carta de presentación</h4>
+                                    </label>
+                                    <div class="custom-file" id="cpresentacion">
+                                        <input type="file" class="custom-file-input" id="customFileCarta" lang="es">
+                                        <label class="custom-file-label form-control" for="customFileCarta">Seleccionar Archivo</label>
+                                    </div>
+                                    <label for="curriculum">
+                                        <h4>Curriculum</h4>
+                                    </label>
+                                    <div class="custom-file" id="curriculum">
+                                        <input type="file" class="custom-file-input" id="customFileCurriculum" lang="es">
+                                        <label class="custom-file-label form-control" for="customFileCurriculum">Seleccionar Archivo</label>
                                     </div>
                                 </div>
+                                <div class="col-12">
+                                    <label for="interesadoen">
+                                        <h4>Interesado en</h4>
+                                    </label>
+                                    <textarea id="interesadoen" class="form-control" name="interesadoen" rows="6" cols="50">{{usuario.interesadoen|default:''}}</textarea>
+                                </div>
                             </div>
-                            <label for="edominante"><h4>Extremidad dominante</h4></label>
-                            <select class="form-control" id="edominante">
-                                {% for extremidad in extremidades %}
-                                <option value="{{extremidad.codigo|default:''}}" {% if usuario.extremidad.codigo == extremidad.codigo %} selected {% endif %}>{{extremidad.nombre}}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-                        <div class="col-6">
-                            <label for="nacionalidad"><h4>Nacionalidad</h4></label>
-                            <input type="text" value="{{usuario.nacionalidad|default:''}}" name="nacionalidad" id="nacionalidad" class="form-control">
-                            <label for="eactual"><h4>Equipo actual</h4></label>
-                            <input type="text" value="{{usuario.eactual|default:''}}" name="eactual" id="eactual" class="form-control">
-                            <label for="cpresentacion"><h4>Carta de presentación</h4></label>
-                            <div class="custom-file" id="cpresentacion">
-                                <input type="file" class="custom-file-input" id="customFileCarta" lang="es">
-                                <label class="custom-file-label form-control" for="customFileCarta">Seleccionar Archivo</label>
-                            </div>
-                            <label for="curriculum"><h4>Curriculum</h4></label>
-                            <div class="custom-file" id="curriculum">
-                                <input type="file" class="custom-file-input" id="customFileCurriculum" lang="es">
-                                <label class="custom-file-label form-control" for="customFileCurriculum">Seleccionar Archivo</label>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <label for="interesadoen"><h4>Interesado en</h4></label>
-                            <textarea id="interesadoen" class="form-control" name="interesadoen" rows="6" cols="50">{{usuario.interesadoen|default:''}}</textarea>
-                        </div>
-                    </div>
+
+                            <button class="btn btn-de btn-outline-light float-right btn-editar rounded">
+                                <h5>Editar</h5>
+                            </button>
+                            <button type="submit" class="btn btn-de btn-outline-light float-right btn-guardar rounded" hidden>
+                                <h5>Guardar</h5>
+                            </button>
+                        </fieldset>
+                    </form>
                 </div>
             </section>
             <section class="panel panel-networks">
@@ -170,46 +222,56 @@
                     <h2 class="panel-title pull-left">Tus redes sociales</h2>
                 </header>
                 <div class="panel-body">
-                    <div class="row">
-                        <div class="col-1">
-                            <a class="fb-ic">
-                                <i class="fab fa-facebook-f fa-lg white-text fa-2x"> </i>
-                            </a>
-                        </div>
-                        <div class="col-11">
-                            <input type="text" name="username" id="username" class="username form-control" placeholder="Enlace facebook" value="">
-                        </div>
-                    </div><br />
-                    <div class="row">
-                        <div class="col-1">
-                            <a class="tw-ic">
-                                <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-                            </a>
-                        </div>
-                        <div class="col-11">
-                            <input type="text" name="email" class=" email form-control" placeholder="Enlace twitter" value="">
-                        </div>
-                    </div><br />
-                    <div class="row">
-                        <div class="col-1">
-                            <a class="ins-ic">
-                                <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-                            </a>
-                        </div>
-                        <div class="col-11">
-                            <input type="text" name="subject" class="subject form-control" placeholder="Enlace instagram" value="">
-                        </div>
-                    </div><br />
-                    <div class="row">
-                        <div class="col-1">
-                            <a class="ins-ic">
-                                <i class="fab fa-youtube fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
-                            </a>
-                        </div>
-                        <div class="col-11">
-                            <input type="text" name="subject" class="subject form-control" placeholder="Enlace youtube" value="">
-                        </div>
-                    </div>
+                    <form>
+                        <fieldset class="datosRedesForm">
+                            <div class="row">
+                                <div class="col-1">
+                                    <a class="fb-ic">
+                                        <i class="fab fa-facebook-f fa-lg white-text fa-2x"> </i>
+                                    </a>
+                                </div>
+                                <div class="col-11">
+                                    <input type="text" name="username" id="username" class="username form-control" placeholder="Enlace facebook" value="">
+                                </div>
+                            </div><br />
+                            <div class="row">
+                                <div class="col-1">
+                                    <a class="tw-ic">
+                                        <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                                    </a>
+                                </div>
+                                <div class="col-11">
+                                    <input type="text" name="email" class=" email form-control" placeholder="Enlace twitter" value="">
+                                </div>
+                            </div><br />
+                            <div class="row">
+                                <div class="col-1">
+                                    <a class="ins-ic">
+                                        <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                                    </a>
+                                </div>
+                                <div class="col-11">
+                                    <input type="text" name="subject" class="subject form-control" placeholder="Enlace instagram" value="">
+                                </div>
+                            </div><br />
+                            <div class="row">
+                                <div class="col-1">
+                                    <a class="ins-ic">
+                                        <i class="fab fa-youtube fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
+                                    </a>
+                                </div>
+                                <div class="col-11">
+                                    <input type="text" name="subject" class="subject form-control" placeholder="Enlace youtube" value="">
+                                </div>
+                            </div>
+                            <button class="btn btn-de btn-outline-light float-right btn-editar rounded">
+                                <h5>Editar</h5>
+                            </button>
+                            <button type="submit" class="btn btn-de btn-outline-light float-right btn-guardar rounded" hidden>
+                                <h5>Guardar</h5>
+                            </button>
+                        </fieldset>
+                    </form>
                 </div>
             </section>
             <section class="panel">

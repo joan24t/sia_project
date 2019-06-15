@@ -53,6 +53,7 @@ class Deporte(models.Model):
         max_length=5,
         unique=True
     )
+    requiere_multiple = models.BooleanField(default=False)
 
 """
     Model Extremidad dominante
@@ -139,7 +140,7 @@ class Usuario(models.Model):
     genero = models.CharField(
         max_length=1,
         choices=GENDER_CHOICES,
-        default='s',
+        default='m',
     )
     tipo_deporte = models.CharField(
         max_length=1,
@@ -199,11 +200,7 @@ class Usuario(models.Model):
         on_delete=models.SET_NULL,
         null=True
     )
-    posicion = models.ForeignKey(
-        Posicion,
-        on_delete=models.SET_NULL,
-        null=True
-    )
+    posiciones = models.ManyToManyField(Posicion)
     contrasena_1 = models.CharField(
         max_length=150,
         null=True

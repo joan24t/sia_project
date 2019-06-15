@@ -1,41 +1,114 @@
 <!DOCTYPE html>
-<html lang="en">
-    {% load static %}
+<html lang="es">
     {% block title %}
         <title>Inicio | SIA Sports Agency</title>
     {% endblock %}
     {% block head %}
     <head>
-        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-        <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=7,8,9">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load static %}
         <link rel="shortcut icon" type="image/png" src="{% static 'img/caja.png' %}">
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.6/animate.min.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+
+        <!--  LINKS BOOTSTRAP -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
-        <script type="text/javascript" src="{% static 'js/tabs.js' %}"></script>
-        <script type="text/javascript" src="{% static 'js/onchange.js' %}"></script>
-        <script type="text/javascript" src="{% static 'js/onclick.js' %}"></script>
-        <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-        <link rel="stylesheet" href="{% static 'css/translate.sass' %}" />
-        <link rel="stylesheet" href="{% static 'css/flag-icon.css' %}" />
-        <link rel="stylesheet" href="{% static 'css/flag-icon.min.css' %}" />
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <!--  LINKS JQUERY -->
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+        <!--  LINKS BOOTSTRAP SELECT -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
 
+        <!--  LINKS ANIMATE -->
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.6/animate.min.css">
+
+        <!--  LINKS PERSONALES -->
+        <script type="text/javascript" src="{% static 'js/tabs.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/onchange.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/perfil.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/flag-icon.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/flag-icon.min.css' %}" />
+
+        <!--  LINKS FONT AWESOME -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+        <!--  LINKS AOS -->
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('.toast').toast({delay: 3000});
+                $('.selectpicker').selectpicker({
+                    'selectedText': 'cat'
+                });
+                AOS.init();
+                $.datepicker.regional['es'] = {
+                    closeText: 'Cerrar',
+                    prevText: '< Ant',
+                    nextText: 'Sig >',
+                    currentText: 'Hoy',
+                    monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                    monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+                    dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+                    dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
+                    dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+                    weekHeader: 'Sm',
+                    dateFormat: 'dd/mm/yy',
+                    firstDay: 1,
+                    isRTL: false,
+                    showMonthAfterYear: false,
+                    yearSuffix: ''
+                };
+                $.datepicker.setDefaults($.datepicker.regional['es']);
+                $( function() {
+                  $( "#datepicker" ).datepicker();
+                } );
+            });
+        </script>
     </head>
     {% endblock %}
 
     <body>
         {% include "sia_sports_agency/modal_window_que.html" %}
         {% include "sia_sports_agency/modal_login.html" %}
+
+        <!-- Notificación proceso de guardado -->
+        <div class="toast toast-success" style="position: fixed; top: 0; right: 0; z-index:1055" hidden>
+            <div class="toast-header">
+                <i class="fas fa-check"></i>&nbsp;&nbsp;
+                <strong class="mr-auto">Datos modificados</strong>
+                <small>Justo ahora</small>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body">
+                Los datos han sido modificados correctamente.
+            </div>
+        </div>
+        <!-- Notificación error en proceso de guardado -->
+        <div class="toast toast-error" style="position: fixed; top: 0; right: 0; z-index:1055" hidden>
+            <div class="toast-header">
+                <i class="fa fa-times" aria-hidden="true"></i>&nbsp;
+                <strong class="mr-auto">Error</strong>
+                <small>Justo ahora</small>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body">
+                Ha ocurrido un error en el proceso de guardado de los datos.
+            </div>
+        </div>
         <div class="content">
             <nav class="navbar navbar-expand-xl sticky-top navbar-dark bg-dark navbar-toggler-left fill">
                 <div class="d-xl-none row col-12">
@@ -68,7 +141,7 @@
                         {% if usuario %}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Cuenta
+                                CUENTA
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="/perfil">Perfil</a>
@@ -132,31 +205,6 @@
         <!-- Copyright -->
 
     </footer>
-    <script>
-        AOS.init();
-        $.datepicker.regional['es'] = {
-            closeText: 'Cerrar',
-            prevText: '< Ant',
-            nextText: 'Sig >',
-            currentText: 'Hoy',
-            monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-            monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
-            dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
-            dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
-            dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
-            weekHeader: 'Sm',
-            dateFormat: 'dd/mm/yy',
-            firstDay: 1,
-            isRTL: false,
-            showMonthAfterYear: false,
-            yearSuffix: ''
-        };
-        $.datepicker.setDefaults($.datepicker.regional['es']);
-        $( function() {
-          $( "#datepicker" ).datepicker();
-        } );
-        $(".selectpicker").selectpicker();
-    </script>
     <!-- Footer -->
 
 </html>

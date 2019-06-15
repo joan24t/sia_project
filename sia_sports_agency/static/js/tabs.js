@@ -4,19 +4,19 @@ var hideOrShowTabs = function(tab){
     switch(tab){
         case 'db':
             to_show = 'datosBasicos';
-            to_hide = ['datosAdicionales', 'mensajes'];
+            to_hide = ['datosEspecificos', 'mensajes'];
             break;
         case 'da':
-            to_show = 'datosAdicionales';
+            to_show = 'datosEspecificos';
             to_hide = ['datosBasicos', 'mensajes'];
             break;
         case 'me':
             to_show = 'mensajes';
-            to_hide = ['datosAdicionales', 'datosBasicos'];
+            to_hide = ['datosEspecificos', 'datosBasicos'];
             break;
         default:
             to_show = 'datosBasicos';
-            to_hide = ['datosAdicionales', 'mensajes'];
+            to_hide = ['datosEspecificos', 'mensajes'];
             break;
     };
     setTab(to_show, to_hide);
