@@ -13,7 +13,7 @@ $(document).ready(function(){
     }else{
         establecerPosiciones($('#aQueJuegasDropdown').val(), 0);
     }
-    $('#customFileCarta, #customFileCurriculum').on('change',function(){
+    $('#customFileCarta, #customFileCurriculum, #customFileVideo').on('change',function(){
         //Conseguimos el nombre del fichero
         var fileName = $(this).val();
         //Lo establecemos en el input

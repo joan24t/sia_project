@@ -245,7 +245,12 @@ class Red_social(models.Model):
     nombre = models.CharField(
         choices=SOCIAL_NETWORK_CHOICES,
         null=False,
-        max_length=2,
+        max_length=150
+    )
+    codigo = models.CharField(
+        null=False,
+        max_length=5,
+        default='UK'
     )
     enlace = models.CharField(
         null=False,

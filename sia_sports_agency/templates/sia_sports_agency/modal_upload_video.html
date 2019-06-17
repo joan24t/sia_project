@@ -1,0 +1,42 @@
+{% load static %}
+<div class="modal fade" id="uploadModalCenter" tabindex="-1" role="dialog" aria-labelledby="uploadModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content modal-upload">
+            <div class="modal-header">
+                <h2 class="modal-title">Sube tu vídeo</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body"/>
+                <div class="d-flex justify-content-center h-100">
+                    <form action="insertar_video/" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="inputNombre">
+                                    <h5>Nombre del vídeo:</h5>
+                                </label>
+                            </div>
+                            <div class="col-12" style="margin-bottom: 20px;">
+                                <input class="form-control" id="inputNombre" name="inputNombre" type="text" placeholder="Nombre del vídeo"/>
+                            </div>
+                            <div class="col-12">
+                                <label for="inputFile">
+                                    <h5>Archivo:</h5>
+                                </label>
+                            </div>
+                            <div class="col-12">
+                                <div class="custom-file" id="inputFile" style="margin-bottom: 20px;">
+                                    <input type="file" class="custom-file-input" name="inputFile" id="customFileVideo" lang="es" hidden>
+                                    <label class="custom-file-label form-control" for="customFileVideo">Seleccionar Archivo</label>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-outline-light form-upload-btn rounded float-right">Subir</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

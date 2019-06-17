@@ -170,6 +170,7 @@ section{
  }
  .nav-link:hover{
   border-bottom: 2px solid #9A8056;
+  border-top: 2px solid #9A8056;
  }
  .navbar .dropdown-item{
     font-size: 25px;
@@ -247,9 +248,6 @@ section{
     background-color: #46433F !important;
     color: white;
 	width: 100%;
-	-webkit-appearance: none;
-    -moz-appearance: none;
-	appearance: none;
 }
 .form-registro .bootstrap-select{
 	width: 105%;
@@ -289,10 +287,24 @@ section{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+
+/*
+****************************************************************************************************
+    Ventanas modales
+****************************************************************************************************
+*/
+
 .modal-title{
 	background: linear-gradient(to right, #9A8056, #CFAB71, #9A8056);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+.modal-content  {
+    -webkit-border-radius: 0px !important;
+    -moz-border-radius: 0px !important;
+    border-radius: 20px !important;
+	box-shadow: 0 0 1px #ccc;
 }
 .modal-header{
 	background-color: #202020 !important;
@@ -303,6 +315,7 @@ section{
 .close {
     color: #fff;
     opacity: 1;
+	transform: scale(1.8);
 }
 .close:hover {
     color: white;
@@ -448,7 +461,9 @@ section{
 	color: white;
 	cursor: pointer;
 }
-.panel-datos-basicos input:disabled, .panel-datos-basicos select:disabled:not(.selectpicker){
+.panel-datos-basicos input:disabled,
+.panel-datos-basicos select:disabled:not(.selectpicker)
+{
     opacity: 0.5 !important;
 }
 /*
@@ -456,11 +471,6 @@ section{
     PERFIL - #TabDatosEspecificos
 ****************************************************************************************************
 */
-
-#trending-videos .video-info .video-info-title > a {
-	font-size: 16px;
-	color: #fff;
-}
 .panel {
 	background-color: #2a2a2a;
 	transition: all .3s ease;
@@ -476,7 +486,7 @@ section{
 }
 .panel-title {
 	line-height: 50px;
-	text-transform: uppercase;;
+	text-transform: uppercase;
 }
 .panel-body {
 	padding: 10px 30px;
@@ -484,14 +494,6 @@ section{
 
 .datos-dicionales{
 	margin-top: 20px;
-}
-.video-thumb video {
-	margin: 10px;
-	max-width: 300px;
-}
-.video-add{
-	padding-left: 40%;
-	padding-top: 25%;
 }
 .panel-networks{
 	margin-bottom: 30px;
@@ -533,19 +535,106 @@ section{
 }
 .panel-datos-especificos .btn-editar:hover,
 .panel-networks .btn-editar:hover{
-    box-shadow:100px 0 0 #DCA967 inset;
+    box-shadow:100px 0 0 #202020 inset;
 	color: white;
 	cursor: pointer;
 }
 .panel-datos-especificos .btn-guardar:hover,
 .panel-networks .btn-guardar:hover{
-    box-shadow: -100px 0 0 #DCA967 inset;
+    box-shadow: -100px 0 0 #202020 inset;
 	color: white;
 	cursor: pointer;
 }
 .panel-datos-especificos input:disabled,
-.panel-networks input:disabled{
+.panel-networks input:disabled,
+.panel-datos-especificos select:disabled,
+.panel-datos-especificos textarea:disabled{
     opacity: 0.5 !important;
+}
+
+.panel-networks .red-social:hover{
+	box-shadow:  #000000;
+	z-index: 2;
+	-webkit-transition: all 200ms ease-in;
+	-webkit-transform: scale(2);
+	-ms-transition: all 200ms ease-in;
+	-ms-transform: scale(2);
+	-moz-transition: all 200ms ease-in;
+	-moz-transform: scale(2);
+	transition: all 200ms ease-in;
+	transform: scale(2);
+}
+
+.panel-networks .red-social-tt:hover{
+	color: #1da1f2;
+}
+
+.panel-networks .red-social-fb:hover{
+	color: #3b5999;
+}
+
+.panel-networks .red-social-ig:hover{
+	color: #e4405f;
+}
+
+.panel-networks .red-social-yt:hover{
+	color: #cd201f;
+}
+
+/* Videos */
+#video-gallery .video-info .video-info-title > a {
+	font-size: 16px;
+	color: #fff;
+}
+.video-info{
+	padding-left: 20px;
+}
+.modal-upload .form-control{
+	background-color: #46433F !important;
+	color: white;
+	width: 100%;
+}
+.video-thumb video {
+	margin: 10px;
+	max-width: 300px;
+}
+.video-add{
+	min-width: 200px;
+	min-height: 200px;
+	padding: 25%;
+}
+.video-icon:hover{
+	box-shadow:  #000000;
+    z-index: 2;
+    -webkit-transition: all 300ms ease-in;
+    -webkit-transform: scale(2);
+    -ms-transition: all 300ms ease-in;
+    -ms-transform: scale(2);
+    -moz-transition: all 300ms ease-in;
+    -moz-transform: scale(2);
+    transition: all 300ms ease-in;
+    transform: scale(2);
+	cursor: pointer;
+}
+.form-upload-btn{
+    font-size: 20px;
+    font-weight: bold;
+    background: linear-gradient(to right, #9A8056, #CFAB71, #9A8056);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.form-upload-btn:hover{
+	box-shadow:  #000000;
+	z-index: 2;
+	-webkit-transition: all 300ms ease-in;
+	-webkit-transform: scale(1.2);
+	-ms-transition: all 100ms ease-in;
+	-ms-transform: scale(1.2);
+	-moz-transition: all 100ms ease-in;
+	-moz-transform: scale(1.2);
+	transition: all 100ms ease-in;
+	transform: scale(1.2);
+	cursor: pointer;
 }
 
 

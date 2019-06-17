@@ -5,11 +5,13 @@ from . import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('perfil/', views.perfil, name='perfil'),
-    path('get_posiciones/<slug:cod>/', views.get_posiciones, name='get_posiciones'),
-    url('registrar_usuario/$', views.registrar_usuario, name='registrar_usuario'),
-    url('usuario_modificar_db/$', views.usuario_modificar_db, name='usuario_modificar_db'),
-    path('logout/', views.logout, name='logout'),
-    url(r'login/$', views.login, name='login')
+    path('', views.index, name='Index'),
+    path('perfil/', views.perfil, name='Perfil'),
+    path('get_posiciones/<slug:cod>/', views.get_posiciones, name='Get posiciones'),
+    url(r'registrar_usuario/$', views.registrar_usuario, name='Registrar usuario'),
+    url(r'actualizar_redes/$', views.actualizar_redes, name='Actualizar redes'),
+    path('modificar_usuario/<slug:tipo>/', views.modificar_usuario, name='Modificar usuario'),
+    path('logout/', views.logout, name='Logout'),
+    url(r'login/$', views.login, name='Login'),
+    url(r'insertar_video/$', views.insertar_video, name='Insertar video')
 ]

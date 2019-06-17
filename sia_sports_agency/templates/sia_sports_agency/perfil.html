@@ -1,16 +1,18 @@
 {% extends 'sia_sports_agency/base.html' %}
 {% block content %}
-
+{% include "sia_sports_agency/modal_upload_video.html" %}
 <!-- Modal -->
 {% load static %}
+{% static "" as baseUrl %}
 
 <div class="row">
     <!-- *** CABECERA DE LA BARRA LATERAL *** -->
     <div class="col-3 sidebar-header">
-        <img class="img-cromo" src="{% static 'img/ejemploCromo.png' %}" />
-        <p class="user-name">Alan Wilson</p>
-        <div>
-            <button type="button" class="btn cromo-btn btn-outline-light">Descargar cromo</button>
+        <div class="row justify-content-center">
+            <img class="img-cromo" src="{% static 'img/ejemploCromo.png' %}" />
+            <div>
+                <button type="button" class="btn cromo-btn btn-outline-light">Descargar cromo</button>
+            </div>
         </div>
     </div>
     <!-- *** DATOS BASICOS *** -->
@@ -67,7 +69,7 @@
                                     <label for="paisDropdown">
                                         <h4>País</h4>
                                     </label>
-                                    <select class="form-control selectpicker" id="paisDropdown" name="inputPais" multiple data-live-search="true">
+                                    <select class="form-control selectpicker" id="paisDropdown" name="inputPais" data-live-search="true" hidden>
                                         {% for pais in paises %}
                                         <option value="{{pais.codigo|default:''}}" {% if pais.codigo == usuario.pais.codigo %} selected {% endif %}
                                             data-content="<span class='flag-icon flag-icon-{{pais.codigo|lower}}'></span>&ensp;&ensp;{{pais.nombre}}"></option>
@@ -101,7 +103,7 @@
                                         <label for="posicionDropdownMultiple">
                                             <h4>Posici&oacute;n</h4>
                                         </label>
-                                        <select class="form-control selectpicker" name="inputPosicionMulti" id="posicionDropdownMultiple" multiple data-live-search="true">
+                                        <select class="form-control selectpicker" name="inputPosicionMulti" id="posicionDropdownMultiple" multiple data-live-search="true" hidden>
                                             {% for posicion in posiciones %}
                                             <option value="{{posicion.codigo}}|default:''">{{posicion.nombre}}</option>
                                             {% endfor %}
@@ -126,18 +128,18 @@
                     <h2 class="panel-title pull-left">Tus datos específicos</h2>
                 </header>
                 <div class="panel-body">
-                    <form>
+                    <form id="form-datos-especificos">
                         <fieldset class="datosEspecificosForm">
                             <div class="row">
                                 <div class="col-6">
                                     <label for="telefono">
                                         <h4>Telefono</h4>
                                     </label>
-                                    <input type="text" value="{{usuario.telefono|default:''}}" name="telefono" id="telefono" class="form-control">
+                                    <input type="text" value="{{usuario.telefono|default:''}}" name="inputTelefono" id="telefono" class="form-control">
                                     <label for="ubicacion">
                                         <h4>Ubicación</h4>
                                     </label>
-                                    <input type="text" value="{{usuario.ubicacion|default:''}}" name="ubicacion" id="ubicacion" class="form-control">
+                                    <input type="text" value="{{usuario.ubicacion|default:''}}" name="inputUbicacion" id="ubicacion" class="form-control">
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="row">
@@ -145,7 +147,7 @@
                                                     <label for="peso">
                                                         <h4>Peso</h4>
                                                     </label>
-                                                    <input type="text" value="{{usuario.peso|default:''}}" name="peso" id="peso" class="form-control">
+                                                    <input type="text" value="{{usuario.peso|default:''}}" name="inputPeso" id="peso" class="form-control">
                                                 </div>
                                                 <div>
                                                     <h5 style="bottom: 0; position: absolute;">kg</h5>
@@ -158,7 +160,7 @@
                                                     <label for="altura">
                                                         <h4>Altura</h4>
                                                     </label>
-                                                    <input type="text" value="{{usuario.altura|default:''}}" name="altura" id="altura" class="form-control">
+                                                    <input type="text" value="{{usuario.altura|default:''}}" name="inputAltura" id="altura" class="form-control">
                                                 </div>
                                                 <div>
                                                     <h5 style="bottom: 0; position: absolute;">cm</h5>
@@ -169,7 +171,7 @@
                                     <label for="edominante">
                                         <h4>Extremidad dominante</h4>
                                     </label>
-                                    <select class="form-control" id="edominante">
+                                    <select class="form-control" id="edominante" name="inputEdominante">
                                         {% for extremidad in extremidades %}
                                         <option value="{{extremidad.codigo|default:''}}" {% if usuario.extremidad.codigo == extremidad.codigo %} selected {% endif %}>{{extremidad.nombre}}</option>
                                         {% endfor %}
@@ -179,23 +181,23 @@
                                     <label for="nacionalidad">
                                         <h4>Nacionalidad</h4>
                                     </label>
-                                    <input type="text" value="{{usuario.nacionalidad|default:''}}" name="nacionalidad" id="nacionalidad" class="form-control">
+                                    <input type="text" value="{{usuario.nacionalidad|default:''}}" name="inputNacionalidad" id="nacionalidad" class="form-control">
                                     <label for="eactual">
                                         <h4>Equipo actual</h4>
                                     </label>
-                                    <input type="text" value="{{usuario.eactual|default:''}}" name="eactual" id="eactual" class="form-control">
+                                    <input type="text" value="{{usuario.eactual|default:''}}" name="inputEactual" id="eactual" class="form-control">
                                     <label for="cpresentacion">
                                         <h4>Carta de presentación</h4>
                                     </label>
                                     <div class="custom-file" id="cpresentacion">
-                                        <input type="file" class="custom-file-input" id="customFileCarta" lang="es">
+                                        <input type="file" class="custom-file-input" id="customFileCarta" lang="es" hidden>
                                         <label class="custom-file-label form-control" for="customFileCarta">Seleccionar Archivo</label>
                                     </div>
                                     <label for="curriculum">
                                         <h4>Curriculum</h4>
                                     </label>
                                     <div class="custom-file" id="curriculum">
-                                        <input type="file" class="custom-file-input" id="customFileCurriculum" lang="es">
+                                        <input type="file" class="custom-file-input" id="customFileCurriculum" lang="es" hidden>
                                         <label class="custom-file-label form-control" for="customFileCurriculum">Seleccionar Archivo</label>
                                     </div>
                                 </div>
@@ -203,7 +205,7 @@
                                     <label for="interesadoen">
                                         <h4>Interesado en</h4>
                                     </label>
-                                    <textarea id="interesadoen" class="form-control" name="interesadoen" rows="6" cols="50">{{usuario.interesadoen|default:''}}</textarea>
+                                    <textarea id="interesadoen" class="form-control" name="inputInteresadoen" rows="6" cols="50">{{usuario.interesadoen|default:''}}</textarea>
                                 </div>
                             </div>
 
@@ -222,46 +224,46 @@
                     <h2 class="panel-title pull-left">Tus redes sociales</h2>
                 </header>
                 <div class="panel-body">
-                    <form>
+                    <form id="form-redes-sociales">
                         <fieldset class="datosRedesForm">
                             <div class="row">
-                                <div class="col-1">
-                                    <a class="fb-ic">
-                                        <i class="fab fa-facebook-f fa-lg white-text fa-2x"> </i>
+                                <div class="col-1 align-self-center">
+                                    <a class="fb-ic" href="{{red_FB}}" target="_blank">
+                                        <i class="fab fa-facebook-f fa-lg white-text fa-2x red-social red-social-fb"> </i>
                                     </a>
                                 </div>
                                 <div class="col-11">
-                                    <input type="text" name="username" id="username" class="username form-control" placeholder="Enlace facebook" value="">
+                                    <input type="text" name="inputFacebook" class="form-control" placeholder="Enlace facebook" value="{{red_FB}}">
                                 </div>
                             </div><br />
                             <div class="row">
-                                <div class="col-1">
-                                    <a class="tw-ic">
-                                        <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                                <div class="col-1 align-self-center">
+                                    <a class="tw-ic" href="{{red_TT}}" target="_blank">
+                                        <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x red-social red-social-tt"> </i>
                                     </a>
                                 </div>
                                 <div class="col-11">
-                                    <input type="text" name="email" class=" email form-control" placeholder="Enlace twitter" value="">
+                                    <input type="text" name="inputTwitter" class="form-control" placeholder="Enlace twitter" value="{{red_TT}}">
                                 </div>
                             </div><br />
                             <div class="row">
-                                <div class="col-1">
-                                    <a class="ins-ic">
-                                        <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                                <div class="col-1 align-self-center">
+                                    <a class="ins-ic" href="{{red_IG}}" target="_blank">
+                                        <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x red-social red-social-ig"> </i>
                                     </a>
                                 </div>
                                 <div class="col-11">
-                                    <input type="text" name="subject" class="subject form-control" placeholder="Enlace instagram" value="">
+                                    <input type="text" name="inputInstagram" class="form-control" placeholder="Enlace instagram" value="{{red_IG}}">
                                 </div>
                             </div><br />
                             <div class="row">
-                                <div class="col-1">
-                                    <a class="ins-ic">
-                                        <i class="fab fa-youtube fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
+                                <div class="col-1 align-self-center">
+                                    <a class="ins-ic" href="{{red_YT}}" target="_blank">
+                                        <i class="fab fa-youtube fa-lg white-text mr-md-5 mr-3 fa-2x red-social red-social-yt"></i>
                                     </a>
                                 </div>
                                 <div class="col-11">
-                                    <input type="text" name="subject" class="subject form-control" placeholder="Enlace youtube" value="">
+                                    <input type="text"  name="inputYoutube" class="form-control" placeholder="Enlace youtube" value="{{red_YT}}">
                                 </div>
                             </div>
                             <button class="btn btn-de btn-outline-light float-right btn-editar rounded">
@@ -278,73 +280,25 @@
                 <header class="panel panel-heading">
                     <h2 class="panel-title pull-left">Tus vídeos</h2>
                 </header>
-                <div id="trending-videos" class="panel-body">
+                <div id="video-gallery" class="panel-body">
                     <div class="row">
+                        {% for video in videos %}
                         <div class="col-3">
-                            <div class="video-trending">
+                            <div class="video-gallery">
                                 <div class="video-thumb">
                                     <video controls="">
-                                        <source src="{% static 'users/videos-perfil/ej1.mp4' %}" type="video/mp4">
+                                        <source src="{{ baseUrl }}{{video.path}}" type="video/mp4">
                                     </video>
                                 </div>
                                 <div class="video-info">
-                                    <h5 class="video-info-title"><a href="#">Praesent sagittis arcu et vehicula</a></h5>
+                                    <h5 class="video-info-title"><a href="#"><h4>{{video.nombre}}</h4></a></h5>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-3">
-                            <div class="video-trending">
-                                <div class="video-thumb">
-                                    <video controls="">
-                                        <source src="{% static 'users/videos-perfil/ej2.mp4' %}" type="video/mp4">
-                                    </video>
-                                </div>
-                                <div class="video-info">
-                                    <h5 class="video-info-title"><a href="#">Cras vitae consequat nisl</a></h5>
-                                </div>
-                            </div><!-- ./video-trending -->
-                        </div>
-                        <div class="clearfix visible-xs visible-sm"></div>
-                        <div class="col-3">
-                            <div class="video-trending">
-                                <div class="video-thumb">
-                                    <video controls="">
-                                        <source src="{% static 'users/videos-perfil/ej3.mp4' %}" type="video/mp4">
-                                    </video>
-                                </div>
-                                <div class="video-info">
-                                    <h5 class="video-info-title"><a href="#">Phasellus faucibus lacus est</a></h5>
-                                </div>
-                            </div><!-- ./video-trending-->
-                        </div>
-                        <div class="clearfix visible-md"></div>
-                        <div class="col-3">
-                            <div class="video-trending">
-                                <div class="video-thumb">
-                                    <video controls="">
-                                        <source src="{% static 'users/videos-perfil/ej4.mp4' %}" type="video/mp4">
-                                    </video>
-                                </div>
-                                <div class="video-info">
-                                    <h5 class="video-info-title"><a href="#">Suspendisse ac neque euismod</a></h5>
-                                </div>
-                            </div><!-- ./video-trending -->
-                        </div>
-                        <div class="col-3">
-                            <div class="video-trending">
-                                <div class="video-thumb">
-                                    <video controls="">
-                                        <source src="{% static 'users/videos-perfil/ej5.mp4' %}" type="video/mp4">
-                                    </video>
-                                </div>
-                                <div class="video-info">
-                                    <h5 class="video-info-title"><a href="#">Proin finibus dapibus urna</a></h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="video-trending video-add">
-                                <i class="fa fa-plus-circle fa-xl white-text fa-3x" aria-hidden="true"></i>
+                        {% endfor %}
+                        <div class="col-3 videos">
+                            <div class="video-gallery video-add">
+                                <i class="fa fa-plus-circle fa-xl white-text fa-3x video-icon" aria-hidden="true" data-toggle="modal" data-target="#uploadModalCenter"></i>
                             </div>
                         </div>
                     </div>

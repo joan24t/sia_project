@@ -39,7 +39,7 @@
                                     <input name="inputNacimiento" id="datepicker" class="form-control" autocomplete="off">
                                     <label for="paisDropdown">País</label>
                                     <div class="divPais" id="paisDropdown">
-                                        <select class="form-control selectpicker" name="inputPais" data-live-search="true">
+                                        <select class="form-control selectpicker" name="inputPais" data-live-search="true" hidden>
                                             {% for pais in paises %}
                                             <option value="{{pais.codigo|default:''}}" data-content="<span class='flag-icon flag-icon-{{pais.codigo|lower}}'></span>&ensp;&ensp;{{pais.nombre}}"></option>
                                             {% endfor %}
@@ -79,7 +79,7 @@
                                     <label for="posicionDropdownMultiple">
                                         <h4>4. &iquest;Qu&eacute; posici&oacute;n ocupas?</h4>
                                     </label>
-                                    <select class="form-control selectpicker" name="inputPosicionMulti" id="posicionDropdownMultiple" multiple data-live-search="true">
+                                    <select class="form-control selectpicker" name="inputPosicionMulti" id="posicionDropdownMultiple" multiple data-live-search="true" hidden>
                                     </select>
                                 </div>
                             </div>
