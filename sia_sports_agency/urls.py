@@ -13,5 +13,6 @@ urlpatterns = [
     path('modificar_usuario/<slug:tipo>/', views.modificar_usuario, name='Modificar usuario'),
     path('logout/', views.logout, name='Logout'),
     url(r'login/$', views.login, name='Login'),
-    url(r'insertar_video/$', views.insertar_video, name='Insertar video')
+    url(r'insertar_video/$', views.insertar_video, name='Insertar video'),
+    url(r'eliminar_video/$', views.eliminar_video, name='Eliminar video')
 ]

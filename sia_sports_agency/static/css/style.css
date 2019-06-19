@@ -304,13 +304,22 @@ section{
     -webkit-border-radius: 0px !important;
     -moz-border-radius: 0px !important;
     border-radius: 20px !important;
-	box-shadow: 0 0 1px #ccc;
 }
 .modal-header{
 	background-color: #202020 !important;
 }
 .modal-body{
 	background-color: #2a2a2a;
+}
+.modal-footer{
+	background-color: #2a2a2a;
+}
+.modal-footer .btn-primary{
+	background-color: #996633;
+	border-color: #996633;
+}
+.modal-footer .btn-primary:hover{
+	background-color: #604020;
 }
 .close {
     color: #fff;
@@ -582,28 +591,24 @@ section{
 }
 
 /* Videos */
-#video-gallery .video-info .video-info-title > a {
-	font-size: 16px;
+.video-gallery .video-info .video-info-title > a {
+	font-size: 12px;
 	color: #fff;
 }
-.video-info{
-	padding-left: 20px;
+.video-gallery .video-info{
+	text-align: center;
+	background-color: #46433F;
 }
-.modal-upload .form-control{
-	background-color: #46433F !important;
-	color: white;
+
+.video-gallery .video-thumb video {
 	width: 100%;
 }
-.video-thumb video {
-	margin: 10px;
-	max-width: 300px;
-}
-.video-add{
+.video-gallery .video-add{
 	min-width: 200px;
 	min-height: 200px;
 	padding: 25%;
 }
-.video-icon:hover{
+.video-gallery .video-icon:hover{
 	box-shadow:  #000000;
     z-index: 2;
     -webkit-transition: all 300ms ease-in;
@@ -615,6 +620,29 @@ section{
     transition: all 300ms ease-in;
     transform: scale(2);
 	cursor: pointer;
+}
+.video-gallery .video-options{
+	width: 100%;
+	padding: 0px 14px 0px 14px;
+}
+.video-gallery .option-edit{
+	background-color: #996633;
+	text-align: center;
+	padding: 10px 0px 10px 0px;
+}
+.video-gallery .option-delete{
+	background-color: #EF4545;
+	text-align: center;
+	padding: 10px 0px 10px 0px;
+}
+.video-options .fas:hover{
+	transform: scale(1.2);
+	cursor: pointer;
+}
+.modal-upload .form-control{
+	background-color: #46433F !important;
+	color: white;
+	width: 100%;
 }
 .form-upload-btn{
     font-size: 20px;

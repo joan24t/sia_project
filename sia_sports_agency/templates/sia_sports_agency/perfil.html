@@ -1,6 +1,7 @@
 {% extends 'sia_sports_agency/base.html' %}
 {% block content %}
 {% include "sia_sports_agency/modal_upload_video.html" %}
+{% include "sia_sports_agency/modal_confirm.html" %}
 <!-- Modal -->
 {% load static %}
 {% static "" as baseUrl %}
@@ -276,15 +277,16 @@
                     </form>
                 </div>
             </section>
+            <!-- *** GALERIA DE VIDEOS *** -->
             <section class="panel">
                 <header class="panel panel-heading">
                     <h2 class="panel-title pull-left">Tus vídeos</h2>
                 </header>
-                <div id="video-gallery" class="panel-body">
-                    <div class="row">
+                <div class="video-gallery panel-body">
+                    <div class="row video-list">
                         {% for video in videos %}
                         <div class="col-3">
-                            <div class="video-gallery">
+                            <div>
                                 <div class="video-thumb">
                                     <video controls="">
                                         <source src="{{ baseUrl }}{{video.path}}" type="video/mp4">
@@ -292,6 +294,20 @@
                                 </div>
                                 <div class="video-info">
                                     <h5 class="video-info-title"><a href="#"><h4>{{video.nombre}}</h4></a></h5>
+                                </div>
+                                <div class="video-options">
+                                    <div class="row justify-content-center">
+                                        <div class="option-edit col-6">
+                                            <i class="fas fa-edit fa-2x"></i>
+                                        </div>
+                                        <div class="option-delete col-6">
+                                            <form class="form-eliminar-video" method="POST" action="eliminar_video/">
+                                                {% csrf_token %}
+                                                <input name="idVideo" type="text" value="{{video.id}}" hidden>
+                                                <i class="fas fa-trash-alt fa-2x"></i>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

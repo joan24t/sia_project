@@ -349,3 +349,12 @@ def crear_video(nombre, path, usuario):
         path=path,
         usuario_id=usuario.id
     )
+""" Eliminar video en el perfil """
+def eliminar_video(request):
+    usuario = get_usuario(request).get('usuario')
+    if usuario:
+        id = request.POST.get("idVideo")
+        Video.objects.get(id=id).delete()
+        return HttpResponseRedirect('/perfil/')
+    else:
+        return HttpResponseRedirect('/')

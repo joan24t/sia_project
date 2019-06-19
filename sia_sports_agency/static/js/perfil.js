@@ -11,6 +11,9 @@ $(document).ready(function(){
 
     /* Funcion que oculta el botón de añadir video si ya hay 4 */
     ocultaAddVideo();
+    /* Funcion que muestra la confirmacion de eliminacion de los videos */
+    mostrarConfirmacion();
+    enviarFormularioEliminacion();
 
     /* Funcion que pone ivisible los toats cuando se ocultan*/
     $('.toast').on('hidden.bs.toast', function () {
@@ -22,8 +25,26 @@ $(document).ready(function(){
     });
 });
 
+var mostrarConfirmacion = function(){
+    $('.video-gallery .option-delete').on('click', function(e) {
+        var $form = $(this).closest('form');
+        e.preventDefault();
+        $('#confirmModalCenter').modal({
+            backdrop: 'static',
+            keyboard: false
+        });
+    });
+};
+
+var enviarFormularioEliminacion = function(){
+    $('#confirmModalCenter .btn-primary').on('click', function(e) {
+        var form = $('.form-eliminar-video');
+        form.trigger('submit');
+    });
+};
+
 var ocultaAddVideo = function(){
-    if($("#video-gallery .row").children().length == 5){
+    if($(".video-gallery .video-list").children().length >= 5){
         $(".videos").attr('hidden', '');
     }
 }
