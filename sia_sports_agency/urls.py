@@ -14,5 +14,7 @@ urlpatterns = [
     path('logout/', views.logout, name='Logout'),
     url(r'login/$', views.login, name='Login'),
     url(r'insertar_video/$', views.insertar_video, name='Insertar video'),
-    url(r'eliminar_video/$', views.eliminar_video, name='Eliminar video')
+    url(r'eliminar_video/$', views.eliminar_video, name='Eliminar video'),
+    path('get_mensaje/<slug:id>/', views.get_mensaje, name='Datos mensaje'),
+    path('get_correos/', views.get_correos, name='Listado correos usuarios'),
 ]

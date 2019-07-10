@@ -15,6 +15,13 @@ $(document).ready(function(){
     mostrarConfirmacion();
     enviarFormularioEliminacion();
 
+    /* Petición datos mensaje para la ventana de detalle*/
+    peticionDatosMensaje();
+    /* Petición datos mensaje para la ventana de detalle*/
+    responderMensaje();
+    /*Autocmplete de correos existentes*/
+    autocompleteCorreos();
+
     /* Funcion que pone ivisible los toats cuando se ocultan*/
     $('.toast').on('hidden.bs.toast', function () {
         $(this).attr('hidden', '');
@@ -25,10 +32,56 @@ $(document).ready(function(){
     });
 });
 
+var autocompleteCorreos = function(){
+    $.ajax({
+      url: "/get_correos/",
+      success: function(data) {
+          $( ".remitente" ).autocomplete({
+            source: data.correos,
+            multiselect: true
+          });
+      }
+    });
+};
+
+var responderMensaje = function(){
+    $(".mail-responder").on("click", function() {
+      var id = $(this).attr('id');
+      $.ajax({
+        url: "/get_mensaje/" + id,
+        success: function(data) {
+            $(".modal-email .responder-btn").removeAttr('hidden');
+            $('.modal-email .remitente').attr('disabled', true);
+            $('.modal-email .asunto').attr('disabled', true);
+            $('.modal-email .mensaje').removeAttr('disabled');
+            $(".modal-email .remitente").val(data.remitente);
+            $(".modal-email .asunto").val(data.asunto);
+            $(".modal-email .mensaje").val('');
+        }
+      });
+    });
+};
+
+var peticionDatosMensaje = function(){
+    $(".mail-ver").on("click", function() {
+      var id = $(this).attr('id');
+      $.ajax({
+        url: "/get_mensaje/" + id,
+        success: function(data) {
+            $(".modal-email .responder-btn").attr('hidden', '');
+            $('.modal-email .remitente').attr('disabled', true);
+            $('.modal-email .asunto').attr('disabled', true);
+            $('.modal-email .mensaje').attr('disabled', true);
+            $(".modal-email .remitente").val(data.remitente);
+            $(".modal-email .asunto").val(data.asunto);
+            $(".modal-email .mensaje").val(data.mensaje);
+        }
+      });
+    });
+};
+
 var mostrarConfirmacion = function(){
     $('.video-gallery .option-delete').on('click', function(e) {
-        var $form = $(this).closest('form');
-        e.preventDefault();
         $('#confirmModalCenter').modal({
             backdrop: 'static',
             keyboard: false

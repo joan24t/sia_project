@@ -287,6 +287,11 @@ section{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+.form-registro .titulo{
+	text-decoration-color: white;
+	text-decoration-style: solid;
+	font-weight: bold;
+}
 
 
 /*
@@ -368,18 +373,6 @@ section{
 .cromo{
     margin-top: 10%;
 }
-
-.cromo-btn{
-    background: linear-gradient(to right, #9A8056, #CFAB71, #9A8056);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-top: 10%;
-    margin-bottom: 10%;
-    font-family:  'Open Sans Condensed', sans-serif;
-    font-weight: bold;
-    font-size: 26px;
-}
-
 .info-perfil{
     border: 5px solid #41494d;
     margin-top: 2%;
@@ -387,7 +380,6 @@ section{
     padding: 1%;
 
 }
-
 .tabs{
     margin-top: 2%;
 	margin-bottom: 2%;
@@ -402,6 +394,48 @@ section{
     margin: 3%;
     font-size: 26px;
 }
+.menu-messages{
+	background-color: #2A2A2A;
+	color: white;
+}
+.msg-link, .lista-msg{
+	text-decoration: none;
+	color: inherit;
+}
+.msg-link:hover, .lista-msg:hover{
+	text-decoration: none;
+	color: inherit;
+}
+.msg-link::after{
+	display:none;
+}
+
+.menu-messages img {
+	width: 45px;
+	background-color: black;
+}
+.msg-body{
+	color: white;
+}
+.header-msg-info, .lista-msg-info{
+	padding:  0px 30px 0px 30px;
+	color: #000;
+}
+.lista-msg-info:hover{
+	background-color:  #181d20;
+}
+.hr-msg{
+	background-color: white !important;
+	height: 1px;
+}
+.badge {
+	margin-left: 5px;
+	top: -12px;
+  	font-size: 11px;
+}
+.badge-messages {
+	background-color: #5cb85c;
+}
 
 /*
 ****************************************************************************************************
@@ -412,9 +446,8 @@ section{
 /* CABECERA DE LA BARRA LATERAL */
 
 .sidebar-header {
-	text-align: center;
 	border: 5px solid #41494d;
-	padding: 40px 15px 33px;
+	padding: 40px 15px 33px 20px;
 	background-color: #202020;
 }
 .sidebar-header .user-name {
@@ -425,9 +458,23 @@ section{
 }
 
 .img-cromo{
-    width: 325px;
-    border: 15px solid #9A8056;
-    border-style: ridge;
+    width: 370px;
+}
+
+.menu-lateral{
+	margin: 20px;
+}
+.menu-lateral a{
+	color: white;
+	font-size: 22px;
+	text-align: center;
+	background-color: #2A2A2A;
+}
+.menu-lateral a:hover{
+	border-top: 2px solid white !important;
+	border-bottom: 2px solid white !important;
+	background-color: #2A2A2B;
+	color: white;
 }
 
 /*
@@ -625,15 +672,10 @@ section{
 	width: 100%;
 	padding: 0px 14px 0px 14px;
 }
-.video-gallery .option-edit{
-	background-color: #996633;
-	text-align: center;
-	padding: 10px 0px 10px 0px;
-}
 .video-gallery .option-delete{
 	background-color: #EF4545;
 	text-align: center;
-	padding: 10px 0px 10px 0px;
+	padding: 5px 0px 5px 0px;
 }
 .video-options .fas:hover{
 	transform: scale(1.2);
@@ -652,17 +694,8 @@ section{
     -webkit-text-fill-color: transparent;
 }
 .form-upload-btn:hover{
-	box-shadow:  #000000;
-	z-index: 2;
-	-webkit-transition: all 300ms ease-in;
-	-webkit-transform: scale(1.2);
-	-ms-transition: all 100ms ease-in;
-	-ms-transform: scale(1.2);
-	-moz-transition: all 100ms ease-in;
-	-moz-transform: scale(1.2);
-	transition: all 100ms ease-in;
-	transform: scale(1.2);
-	cursor: pointer;
+  box-shadow: 0 0.5em 0.5em -0.4em white;
+  transform: translateY(-0.25em);
 }
 
 
@@ -683,10 +716,53 @@ section{
 	border: 1px solid #9A8056;
 }
 
-#mensajes tr:hover{
-	color: #9A8056;
+.mail-responder{
+	background-color: #425B6E !important;
+	border: 1px solid #425B6E;
+}
+
+.panel-email .mail-ver:hover,
+.panel-email .mail-ver:responder{
 	cursor: pointer;
 }
+
+.form-email .form-control{
+	background-color: #46433F;
+	color: white;
+	margin-bottom:10px;
+}
+.form-email .responder-btn{
+	font-size: 20px;
+	margin-top: 10px;
+    font-weight: bold;
+    background: linear-gradient(to right, #9A8056, #CFAB71, #9A8056);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.form-email .responder-btn:hover{
+	box-shadow: 0 0.5em 0.5em -0.4em white;
+    transform: translateY(-0.25em);
+}
+.panel-email .mensaje-no-leido{
+	font-weight: bold;
+	color:  #ffdca0 !important;
+}
+.panel-email .enviar-msj{
+	position:relative;
+	top:0;
+	left:0;
+	float:right;
+}
+
+.panel-email .enviar-msj a{
+	background-color:  #343434;
+	border-color:  #343434;
+}
+.panel-email .enviar-msj a:hover{
+	background-color:  #343429;
+	border-color:  #343429;
+}
+
 /*
 ****************************************************************************************************
     ESCRITORIO
@@ -704,6 +780,17 @@ section{
     OTROS
 ****************************************************************************************************
 */
+.ui-autocomplete {
+	z-index:2147483647;
+	background-color: #46433E;
+	color: white;
+}
+
+.ui-menu-item .ui-menu-item-wrapper:hover {
+	border: none !important;
+    background-color: #202020;
+}
+
 @media(max-width:1199px){
    .modal-registration{
 	   max-width: 100% !important;

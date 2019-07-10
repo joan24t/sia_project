@@ -1,0 +1,31 @@
+{% load static %}
+<div class="modal fade" id="emailModalCenter" tabindex="-1" role="dialog" aria-labelledby="emailModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content modal-email">
+            <div class="modal-header">
+                <h2 class="modal-title">Correo</h2>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="email/" method="post" class="form-email">
+                    {% csrf_token %}
+                    <div>
+                        <label>Remitente: </label>
+                        <input type="text" class="form-control remitente" name="remitente" value="{{correo.remitente.email}}">
+                    </div>
+                    <div>
+                        <label>Asunto: </label>
+                        <input type="text" class="form-control asunto" name="asunto" value="{{correo.asunto}}">
+                    </div>
+                    <div>
+                        <label>Mensaje: </label>
+                        <textarea name="mensaje" class="form-control mensaje" rows="5" cols="82" value="{{correo.cuerpo}}"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-outline-light responder-btn rounded float-right" hidden>Responder</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

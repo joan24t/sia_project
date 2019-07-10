@@ -15,7 +15,7 @@
                         <div class="col-xl-6 col-sm-12">
                             <div class="form-group">
                                 <label class="qform" for="queEresDropdown">
-                                    <h4>1. &iquest;Qu&eacute; eres?</h4>
+                                    <h4 class="titulo" >&iquest;Qu&eacute; eres?</h4>
                                 </label>
                                 <select class="form-control" name="inputTipoUsuario" id="queEresDropdown">
                                     {% for tipo in tipo_jugadores %}
@@ -25,18 +25,22 @@
                             </div>
                             <div class="form-group">
                                 <label>
-                                    <h4>2. Tus datos</h4>
+                                    <h4 class="titulo">Tus datos</h4>
                                 </label>
                                 <div>
                                     <label for="FormControlInputNombre">Nombre y apellidos</label>
                                     <input class="form-control" name="inputNombre" type="text" id="FormControlInputNombre" placeholder="Nombre y apellidos">
-                                    <label for="sexoDropdown">Sexo</label>
-                                    <select class="form-control" id="sexoDropdown" name="inputSexo">
-                                        <option value="m">Hombre</option>
-                                        <option value="f">Mujer</option>
-                                    </select>
-                                    <label for="datepicker">F. Nacimiento</label>
-                                    <input name="inputNacimiento" id="datepicker" class="form-control" autocomplete="off">
+                                    <div class="grupoSexo">
+                                        <label for="sexoDropdown">Sexo</label>
+                                        <select class="form-control" id="sexoDropdown" name="inputSexo">
+                                            <option value="m">Hombre</option>
+                                            <option value="f">Mujer</option>
+                                        </select>
+                                    </div>
+                                    <div class="grupoFechaNacimiento">
+                                        <label for="datepicker">F. Nacimiento</label>
+                                        <input name="inputNacimiento" id="datepicker" class="form-control" autocomplete="off">
+                                    </div>
                                     <label for="paisDropdown">País</label>
                                     <div class="divPais" id="paisDropdown">
                                         <select class="form-control selectpicker" name="inputPais" data-live-search="true" hidden>
@@ -47,9 +51,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group grupoAQueJuegas">
                                 <label>
-                                    <h4>3. &iquest;A qu&eacute; juegas?</h4>
+                                    <h4 class="titulo">&iquest;A qu&eacute; juegas?</h4>
                                 </label>
                                 <div class="data-div">
                                     <label for="aQueJuegasDropdown">Deporte</label>
@@ -58,26 +62,28 @@
                                             <option value="{{deporte.codigo|default:''}}">{{deporte.nombre}}</option>
                                         {% endfor %}
                                     </select>
-                                    <label for="generoDropdown">G&eacute;nero</label>
-                                    <select class="form-control" id="generoDropdown" name="inputTipoDeporte">
-                                        <option value="m">Masculino</option>
-                                        <option value="f">Femenino</option>
-                                    </select>
+                                    <div class="grupoGeneroDeporte">
+                                        <label for="generoDropdown">G&eacute;nero</label>
+                                        <select class="form-control" id="generoDropdown" name="inputTipoDeporte">
+                                            <option value="m">Masculino</option>
+                                            <option value="f">Femenino</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xl-6 col-sm-12">
-                            <div class="form-group">
-                                <div class="divPositions">
+                            <div class="form-group grupoPosiciones">
+                                <div class="divPositionsSimple">
                                     <label for="posicionDropdown">
-                                        <h4>4. &iquest;Qu&eacute; posici&oacute;n ocupas?</h4>
+                                        <h4 class="titulo">&iquest;Qu&eacute; posici&oacute;n ocupas?</h4>
                                     </label>
                                     <select class="form-control" id="posicionDropdown" name="inputPosicion">
                                     </select>
                                 </div>
                                 <div class="divMultiplePositions" hidden>
                                     <label for="posicionDropdownMultiple">
-                                        <h4>4. &iquest;Qu&eacute; posici&oacute;n ocupas?</h4>
+                                        <h4 class="titulo">&iquest;Qu&eacute; posici&oacute;n ocupas?</h4>
                                     </label>
                                     <select class="form-control selectpicker" name="inputPosicionMulti" id="posicionDropdownMultiple" multiple data-live-search="true" hidden>
                                     </select>
@@ -85,7 +91,7 @@
                             </div>
                             <div class="form-group">
                                 <label>
-                                    <h4>5. Datos de acceso</h4>
+                                    <h4 class="titulo">Datos de acceso</h4>
                                 </label>
                                 <div>
                                     <label for="FormControlInputEmail">Direcci&oacute;n email</label>

@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Tipo_jugador, Deporte, Posicion, Pais, Video
-from .models import Usuario, Extremidad_dominante, Red_social
+from .models import Usuario, Extremidad_dominante, Red_social, Mensaje
 from django.contrib.auth.hashers import make_password
 from django.views.decorators.csrf import csrf_exempt
 from django.core.files.storage import FileSystemStorage
@@ -239,6 +239,7 @@ def perfil(request):
     contexto.update(get_usuario(request))
     insertar_redes_contexto(contexto)
     insertar_videos_contexto(contexto)
+    insertar_correos_contexto(contexto)
     return render(
         request,
         'sia_sports_agency/perfil.html',
@@ -262,6 +263,14 @@ def insertar_redes_contexto(contexto):
     for r in lista_redes:
         nombre = 'red_' + r.codigo
         contexto.update({nombre: r.enlace})
+
+""" Inserta en el contexto del perfil los correos """
+def insertar_correos_contexto(contexto):
+    usuario = contexto.get('usuario')
+    lista_correos = Mensaje.objects.filter(
+        destinatario_id = usuario.id
+    )
+    contexto.update({'correos': lista_correos})
 
 """ Modificación de los datos de un usuario """
 @csrf_exempt
@@ -358,3 +367,27 @@ def eliminar_video(request):
         return HttpResponseRedirect('/perfil/')
     else:
         return HttpResponseRedirect('/')
+
+""" Conseguir datos del mensaje """
+def get_mensaje(request, id):
+    usuario = get_usuario(request).get('usuario')
+    dict = {}
+    if usuario:
+        mensaje = Mensaje.objects.get(id=id)
+        dict = {
+            'remitente': mensaje.remitente.email,
+            'asunto': mensaje.asunto,
+            'mensaje': mensaje.cuerpo
+        }
+    return HttpResponse(json.dumps(dict), content_type='application/json')
+
+""" Conseguir todos los correos de los usuario """
+def get_correos(request):
+    usuario = get_usuario(request).get('usuario')
+    dict = {}
+    if usuario:
+        correos = Usuario.objects.filter(activo=1)
+        dict = {
+            'correos': [c.nombre + " <" + c.email + ">" for c in correos],
+        }
+    return HttpResponse(json.dumps(dict), content_type='application/json')

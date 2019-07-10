@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime
 
 GENDER_CHOICES = (
     ('m', 'Masculino'),
@@ -209,6 +210,10 @@ class Usuario(models.Model):
         max_length=150,
         null=True
     )
+    activo = models.IntegerField(
+        null=False,
+        default=1
+    )
 
 """
     Model Mensaje
@@ -224,6 +229,10 @@ class Mensaje(models.Model):
         null=False,
         max_length=500
     )
+    fecha = models.DateTimeField(
+        null=False,
+        default=datetime.now
+    )
     remitente = models.ForeignKey(
         Usuario,
         related_name='%(class)s_remitente_id',
@@ -234,6 +243,10 @@ class Mensaje(models.Model):
         Usuario,
         related_name='%(class)s_destinatario_id',
         on_delete=models.CASCADE
+    )
+    leido = models.IntegerField(
+        null=False,
+        default=0
     )
 
 """
