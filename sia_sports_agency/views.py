@@ -39,7 +39,10 @@ def index(request):
 """ Comprueba si el email existe en base de datos """
 def comprobar_email(email, password):
     try:
-        usuario = Usuario.objects.get(email=email)
+        usuario = Usuario.objects.get(
+            email=email,
+            activo=1
+        )
     except Usuario.DoesNotExist:
         usuario = None
     return usuario
@@ -48,7 +51,10 @@ def comprobar_email(email, password):
 def get_usuario(request):
     email = request.session.get('email')
     if email:
-        usuario = Usuario.objects.get(email=email)
+        usuario = Usuario.objects.get(
+            email=email,
+            activo=1
+        )
         return {'usuario': usuario} if usuario is not None else {}
     return {}
 
@@ -267,10 +273,16 @@ def insertar_redes_contexto(contexto):
 """ Inserta en el contexto del perfil los correos """
 def insertar_correos_contexto(contexto):
     usuario = contexto.get('usuario')
-    lista_correos = Mensaje.objects.filter(
+    lista_bandeja = Mensaje.objects.filter(
         destinatario_id = usuario.id
     )
-    contexto.update({'correos': lista_correos})
+    lista_correos_env = Mensaje.objects.filter(
+        remitente_id = usuario.id
+    )
+    contexto.update({
+        'bandeja': lista_bandeja,
+        'correos_enviados': lista_correos_env
+    })
 
 """ Modificación de los datos de un usuario """
 @csrf_exempt
@@ -376,8 +388,12 @@ def get_mensaje(request, id):
         mensaje = Mensaje.objects.get(id=id)
         dict = {
             'remitente': mensaje.remitente.email,
+            'remitente_nombre': mensaje.remitente.nombre,
             'asunto': mensaje.asunto,
-            'mensaje': mensaje.cuerpo
+            'mensaje': mensaje.cuerpo,
+            'fecha': str(mensaje.fecha),
+            'destinatario': mensaje.destinatario.email,
+            'destinatario_nombre': mensaje.destinatario.nombre
         }
     return HttpResponse(json.dumps(dict), content_type='application/json')
 
@@ -391,3 +407,39 @@ def get_correos(request):
             'correos': [c.nombre + " <" + c.email + ">" for c in correos],
         }
     return HttpResponse(json.dumps(dict), content_type='application/json')
+
+""" A partir de un listado de emails, se envia un correo por cada email """
+@csrf_exempt
+def enviar_correo(request):
+    usuario = get_usuario(request).get('usuario')
+    if usuario:
+        dict = {}
+        try:
+            correos = request.POST.get("lista_correos", "")
+            print('CORREOS: ' + str(correos))
+            asunto = request.POST.get("asunto", "")
+            print('ASUNTO: ' + asunto)
+            cuerpo = request.POST.get("cuerpo", "")
+            print('CUERPO: ' + cuerpo)
+            lista_correos = [
+                c.strip() for c in correos.split(';') if c.strip() != ''
+            ]
+            print('lista_correos: ' + str(lista_correos))
+            for l in lista_correos:
+                email_dest = l[l.find("<")+1:l.find(">")] or None
+                print('email_dest: ' + email_dest)
+                destinatario = Usuario.objects.get(email=email_dest) or None
+                if destinatario and email_dest:
+                    Mensaje.objects.create(
+                        asunto=asunto,
+                        cuerpo=cuerpo,
+                        remitente_id=usuario.id,
+                        destinatario_id = destinatario.id,
+                        leido=0,
+                    )
+            dict = {'exito': True}
+        except:
+            dict = {'exito': False}
+        return HttpResponse(json.dumps(dict), content_type='application/json')
+    else:
+        return HttpResponseRedirect('/')

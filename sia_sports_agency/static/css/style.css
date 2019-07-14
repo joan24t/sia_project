@@ -754,15 +754,27 @@ section{
 	float:right;
 }
 
-.panel-email .enviar-msj a{
+.enviar-msj a{
 	background-color:  #343434;
 	border-color:  #343434;
 }
-.panel-email .enviar-msj a:hover{
-	background-color:  #343429;
-	border-color:  #343429;
+.enviar-msj a:hover{
+	background-color:   #2c3e50;
+	border-color:   #2c3e50;
+}
+.panel-email .tabla-correos td{
+	max-width: 200px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
+#mensajes .active{
+	background-color: #1c1c1c;
+}
+#mensajes .active{
+	background-color: #1c1c1c;
+}
 /*
 ****************************************************************************************************
     ESCRITORIO
@@ -904,6 +916,28 @@ margin-left: 4px;
 
 .toast-error .toast-header ,.toast-error .toast-body{
 	background-color: #EF4545;
+	color: white;
+	font-size: 20px;
+}
+
+.toast-error .toast-header ,.toast-error .toast-body{
+	background-color: #EF4545;
+	color: white;
+	font-size: 20px;
+}
+
+.toast-error .toast-header ,
+.toast-error .toast-body,
+.toast-correo-error .toast-header,
+.toast-correo-error .toast-body{
+	background-color: #EF4545;
+	color: white;
+	font-size: 20px;
+}
+
+.toast-correo-enviado .toast-header,
+.toast-correo-enviado .toast-body{
+	background-color: #284281;
 	color: white;
 	font-size: 20px;
 }

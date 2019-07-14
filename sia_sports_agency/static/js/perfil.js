@@ -19,8 +19,14 @@ $(document).ready(function(){
     peticionDatosMensaje();
     /* Petición datos mensaje para la ventana de detalle*/
     responderMensaje();
-    /*Autocmplete de correos existentes*/
+    /*Autocomplete de correos existentes*/
     autocompleteCorreos();
+    /*Respuesta de correo*/
+    responderCorreo()
+    /*Nuevo correo*/
+    nuevoCorreo();
+    /*Cambia de sección en el apartado de mensajes*/
+    cambiaSeccion();
 
     /* Funcion que pone ivisible los toats cuando se ocultan*/
     $('.toast').on('hidden.bs.toast', function () {
@@ -30,15 +36,100 @@ $(document).ready(function(){
     $('.toast').on('show.bs.toast', function () {
         $(this).removeAttr('hidden');
     });
+    /*Disparador modal nuevo mensaje*/
+    $('#nuevoEmailModalCenter').on('show.bs.modal', function() {
+        $(".modal-email .destinatario").val("");
+        $(".modal-email .asunto").val("");
+        $(".modal-email .mensaje").val('');
+    });
 });
+
+var cambiaSeccion = function(){
+    $(".btn-bandeja-entrada").on("click", function() {
+        $(".bandeja-entrada-section").removeAttr('hidden');
+        $(".btn-bandeja-entrada").addClass('active');
+        $(".elementos-enviados-section").attr('hidden', '');
+        $(".btn-elementos-enviados").removeClass('active');
+    });
+    $(".btn-elementos-enviados").on("click", function() {
+      $(".bandeja-entrada-section").attr('hidden', '');
+      $(".btn-bandeja-entrada").removeClass('active');
+      $(".elementos-enviados-section").removeAttr('hidden');
+      $(".btn-elementos-enviados").addClass('active');
+    });
+}
+
+var responderCorreo = function(){
+    $(".btn-responder-correo").on("click", function() {
+      var listadoCorreos = $(".destinatarios-res").val();
+      var asunto = $(".asunto-res").val();
+      var cuerpo = $(".cuerpo-res").val();
+      enviarCorreo(listadoCorreos, asunto, cuerpo);
+    });
+}
+var nuevoCorreo = function(){
+    $(".btn-nuevo-correo").on("click", function() {
+      var listadoCorreos = $(".destinatarios-nuevo").val();
+      var asunto = $(".asunto-nuevo").val();
+      var cuerpo = $(".cuerpo-nuevo").val();
+      enviarCorreo(listadoCorreos, asunto, cuerpo);
+    });
+}
+
+var enviarCorreo = function(listadoCorreos, asunto, cuerpo){
+    $.ajax({
+        url: "/enviar_correo/",
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            'lista_correos': listadoCorreos,
+            'asunto': asunto,
+            'cuerpo': cuerpo
+    },
+        success: function(data) {
+            //Notificación guardado
+            if(data.exito){
+                $('.toast-correo-enviado').toast('show');
+            }else{
+                $('.toast-correo-error').toast('show');
+            }
+    },
+        error: function(data){
+            $('.toast-correo-error').toast('show');
+    }
+    });
+}
+
+var eliminarCorreo = function(listOriginal){
+    var destinatarios = $( ".destinatario" ).val().split( /;\s*/ )
+                         .filter(x => listOriginal.includes(x));
+    var difference = listOriginal
+                 .filter(x => !destinatarios.includes(x));
+    return difference;
+};
 
 var autocompleteCorreos = function(){
     $.ajax({
       url: "/get_correos/",
       success: function(data) {
-          $( ".remitente" ).autocomplete({
-            source: data.correos,
-            multiselect: true
+          var listOriginal = data.correos;
+          $( ".destinatario" ).autocomplete({
+            source: function( request, response ) {
+                var listaDinamica = eliminarCorreo(listOriginal);
+                 response( $.ui.autocomplete.filter(
+                     listaDinamica, request.term.split( /;\s*/ ).pop() ) );
+             },
+             focus: function() {
+                 return false;
+             },
+            select: function( event, ui ) {
+                var terms = this.value.split( /;\s*/ );
+                terms.pop();
+                terms.push( ui.item.value );
+                terms.push( "" );
+                this.value = terms.join( "; " );
+                return false;
+            },
           });
       }
     });
@@ -50,13 +141,22 @@ var responderMensaje = function(){
       $.ajax({
         url: "/get_mensaje/" + id,
         success: function(data) {
-            $(".modal-email .responder-btn").removeAttr('hidden');
-            $('.modal-email .remitente').attr('disabled', true);
-            $('.modal-email .asunto').attr('disabled', true);
-            $('.modal-email .mensaje').removeAttr('disabled');
-            $(".modal-email .remitente").val(data.remitente);
-            $(".modal-email .asunto").val(data.asunto);
-            $(".modal-email .mensaje").val('');
+            $(".modal-email .btn-responder-correo").removeAttr('hidden');
+            $('.modal-email .destinatarios-res').attr('disabled', true);
+            $('.modal-email .asunto-res').attr('disabled', true);
+            $('.modal-email .cuerpo-res').removeAttr('disabled');
+            $(".modal-email .destinatario").val(
+                data.remitente_nombre + " <"+ data.remitente + ">"
+            );
+            $(".modal-email .asunto-res").val("Re: " + data.asunto);
+            $(".modal-email .cuerpo-res").val(
+                '\n' +
+                "-----------------------------------------" + '\n' +
+                "De: " + data.remitente_nombre + " <"+ data.remitente + ">" + '\n' +
+                "Para: " + data.destinatario_nombre + " <"+ data.destinatario + ">" +'\n' +
+                "Fecha: " + data.fecha + '\n' +
+                data.mensaje
+            );
         }
       });
     });
@@ -68,13 +168,15 @@ var peticionDatosMensaje = function(){
       $.ajax({
         url: "/get_mensaje/" + id,
         success: function(data) {
-            $(".modal-email .responder-btn").attr('hidden', '');
-            $('.modal-email .remitente').attr('disabled', true);
-            $('.modal-email .asunto').attr('disabled', true);
-            $('.modal-email .mensaje').attr('disabled', true);
-            $(".modal-email .remitente").val(data.remitente);
-            $(".modal-email .asunto").val(data.asunto);
-            $(".modal-email .mensaje").val(data.mensaje);
+            $(".modal-email .btn-responder-correo").attr('hidden', '');
+            $('.modal-email .destinatarios-res').attr('disabled', true);
+            $('.modal-email .asunto-res').attr('disabled', true);
+            $('.modal-email .cuerpo-res').attr('disabled', true);
+            $(".modal-email .destinatario").val(
+                data.remitente_nombre + " <"+ data.remitente + ">"
+            );
+            $(".modal-email .asunto-res").val(data.asunto);
+            $(".modal-email .cuerpo-res").val(data.mensaje);
         }
       });
     });
