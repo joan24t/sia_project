@@ -6,8 +6,11 @@ from django.contrib.auth.hashers import make_password
 from django.views.decorators.csrf import csrf_exempt
 from django.core.files.storage import FileSystemStorage
 from django.conf import settings
+from django.core.files.base import ContentFile
 import json
 import os
+import base64
+import shutil
 
 """""""""""""""""""""""""""""""""""""""""""""
 PARTE PUBLICA
@@ -177,6 +180,10 @@ def set_posiciones(usuario, deporte, diccionario):
         diccionario.get('posiciones')
     )
 
+"""""""""""""""""""""""""""""""""""""""""""""
+PARTE PRIVADA
+"""""""""""""""""""""""""""""""""""""""""""""
+
 """ Creación/Modificación de un usuario """
 def actualizar_usuario(request, seccion):
     diccionario = get_diccionario(request, seccion)
@@ -225,12 +232,30 @@ def actualizar_usuario(request, seccion):
 
 """ Registro de un usuario """
 def registrar_usuario(request):
-    actualizar_usuario(request, 'r')
+    try:
+        actualizar_usuario(request, 'r')
+        dict={'exito':True}
+        return HttpResponse(json.dumps(dict), content_type='application/json')
+    except:
+        dict={'exito':False}
+        return HttpResponse('Error al registrar')
+    #PENDIENTE DE HACER REDIRECCIÓN
     return HttpResponse('Usuario creado')
 
-"""""""""""""""""""""""""""""""""""""""""""""
-PARTE PRIVADA
-"""""""""""""""""""""""""""""""""""""""""""""
+""" Acceder a la pantalla de busqueda """
+def busqueda(request):
+    if not get_usuario(request):
+        return HttpResponseRedirect('/')
+    context = global_contexto()
+    context.update({
+        'rango_edad': range(14, 81)
+    })
+    print(str(context.get('rango_edad')))
+    return render(
+        request,
+        'sia_sports_agency/busqueda.html',
+        context
+    )
 
 """ Acceder al perfil del usuario """
 def perfil(request):
@@ -239,18 +264,29 @@ def perfil(request):
     lista_extremidades = Extremidad_dominante.objects.all()
     contexto = global_contexto()
     contexto.update({
-        'extremidades': lista_extremidades
+        'extremidades': lista_extremidades,
+        'n_visitas': get_usuario(request).get('usuario').n_visitas,
+        'img_perfil': get_usuario(request).get('usuario').img_perfil,
+        'ruta_cromo': get_usuario(request).get('usuario').ruta_cromo
     })
 
     contexto.update(get_usuario(request))
     insertar_redes_contexto(contexto)
     insertar_videos_contexto(contexto)
     insertar_correos_contexto(contexto)
+    insertar_posicion_prin_contexto(contexto)
     return render(
         request,
         'sia_sports_agency/perfil.html',
         contexto
     )
+
+def insertar_posicion_prin_contexto(contexto):
+    usuario = contexto.get('usuario')
+    posicion_principal = usuario.posiciones.first()
+    contexto.update({
+        'posicion_principal': posicion_principal
+    })
 
 """ Inserta en el contexto del perfil las redes sociales """
 def insertar_videos_contexto(contexto):
@@ -279,9 +315,14 @@ def insertar_correos_contexto(contexto):
     lista_correos_env = Mensaje.objects.filter(
         remitente_id = usuario.id
     )
+    correos_nuevos = Mensaje.objects.filter(
+        destinatario_id = usuario.id,
+        leido=0
+    )
     contexto.update({
         'bandeja': lista_bandeja,
-        'correos_enviados': lista_correos_env
+        'correos_enviados': lista_correos_env,
+        'correos_nuevos': correos_nuevos
     })
 
 """ Modificación de los datos de un usuario """
@@ -289,37 +330,52 @@ def insertar_correos_contexto(contexto):
 def modificar_usuario(request, tipo):
     usuario = get_usuario(request).get('usuario')
     if usuario:
-        exito = actualizar_usuario(request, tipo)
-        dict = {'exito': exito}
+        try:
+            exito = actualizar_usuario(request, tipo)
+            dict = {'exito': exito}
+        except:
+            dict = {'exito': False}
         return HttpResponse(json.dumps(dict), content_type='application/json')
     else:
-        return HttpResponseRedirect('/')
+        return HttpResponse('Error al acceder')
 
-""" Modificación de las redes sociales de un usuario """
+""" Actulización de las redes sociales de un usuario """
 @csrf_exempt
 def actualizar_redes(request):
     usuario = get_usuario(request).get('usuario')
     if usuario:
-        #Enlace facebook
-        url_facebook = request.POST.get('inputFacebook', '')
-        if url_facebook is not '' and usuario is not None:
-            crear_red('Facebook', 'FB', url_facebook, usuario)
-        #Enlace twitter
-        url_twitter = request.POST.get('inputTwitter', '')
-        if url_twitter is not '' and usuario is not None:
-            crear_red('Twitter', 'TT', url_twitter, usuario)
-        #Enlace instagram
-        url_instragram = request.POST.get('inputInstagram', '')
-        if url_instragram is not '' and usuario is not None:
-            crear_red('Instagram', 'IG', url_instragram, usuario)
-        #Enlace youtube
-        url_youtube = request.POST.get('inputYoutube', '')
-        if url_youtube is not '' and usuario is not None:
-            crear_red('Youtube', 'YT', url_youtube, usuario)
-        dict = {'exito': True}
+        try:
+            if usuario is not None:
+                #Enlace facebook
+                url_facebook = request.POST.get('inputFacebook', '')
+                if url_facebook is not '':
+                    crear_red('Facebook', 'FB', url_facebook, usuario)
+                else:
+                    eliminar_red('FB', usuario)
+                #Enlace twitter
+                url_twitter = request.POST.get('inputTwitter', '')
+                if url_twitter is not '':
+                    crear_red('Twitter', 'TT', url_twitter, usuario)
+                else:
+                    eliminar_red('TT', usuario)
+                #Enlace instagram
+                url_instragram = request.POST.get('inputInstagram', '')
+                if url_instragram is not '':
+                    crear_red('Instagram', 'IG', url_instragram, usuario)
+                else:
+                    eliminar_red('IG', usuario)
+                #Enlace youtube
+                url_youtube = request.POST.get('inputYoutube', '')
+                if url_youtube is not '':
+                    crear_red('Youtube', 'YT', url_youtube, usuario)
+                else:
+                    eliminar_red('YT', usuario)
+                dict = {'exito': True}
+        except Exception as error:
+            dict = {'exito': False}
         return HttpResponse(json.dumps(dict), content_type='application/json')
     else:
-        return HttpResponseRedirect('/')
+        return HttpResponse('Error al acceder')
 
 """ Crear o modifica la red social que se le pasa por parámetro """
 def crear_red(nombre, codigo, enlace, usuario):
@@ -341,25 +397,43 @@ def crear_red(nombre, codigo, enlace, usuario):
             usuario_id=usuario.id,
         )
 
+""" Elimina la red social que se le pasa por parámetro """
+def eliminar_red(codigo, usuario):
+    try:
+        url = Red_social.objects.get(
+            codigo=codigo,
+            usuario_id=usuario.id
+        )
+    except:
+        url = None
+    if url:
+        url.delete()
+
+
 """ Insertar video en el perfil """
 def insertar_video(request):
     usuario = get_usuario(request).get('usuario')
     if usuario:
-        nombre = request.POST.get('inputNombre')
-        video = request.FILES.get('inputFile')
-        path = os.path.join(settings.BASE_DIR, settings.BASE_DIR_VIDEO, str(usuario.id))
-        fs = FileSystemStorage(
-            location=path
-        )
-        filename = fs.save(video.name, video)
-        url_video = os.path.join(
-            'users',
-            'videos-perfil',
-            str(usuario.id),
-            filename
-        )
-        crear_video(nombre, url_video, usuario)
-        return HttpResponseRedirect('/perfil/')
+        dict = {'exito':False}
+        try:
+            nombre = request.POST.get('inputNombre')
+            video = request.FILES.get('inputFile')
+            path = os.path.join(settings.BASE_DIR, settings.BASE_DIR_VIDEO, str(usuario.id))
+            fs = FileSystemStorage(
+                location=path
+            )
+            filename = fs.save(video.name, video)
+            url_video = os.path.join(
+                'users',
+                'videos-perfil',
+                str(usuario.id),
+                filename
+            )
+            crear_video(nombre, url_video, usuario)
+            dict = {}
+            return HttpResponseRedirect('/perfil/')
+        except:
+            return HttpResponse('Error en la subida del video')
     else:
         return HttpResponseRedirect('/')
 
@@ -416,18 +490,13 @@ def enviar_correo(request):
         dict = {}
         try:
             correos = request.POST.get("lista_correos", "")
-            print('CORREOS: ' + str(correos))
             asunto = request.POST.get("asunto", "")
-            print('ASUNTO: ' + asunto)
             cuerpo = request.POST.get("cuerpo", "")
-            print('CUERPO: ' + cuerpo)
             lista_correos = [
                 c.strip() for c in correos.split(';') if c.strip() != ''
             ]
-            print('lista_correos: ' + str(lista_correos))
             for l in lista_correos:
                 email_dest = l[l.find("<")+1:l.find(">")] or None
-                print('email_dest: ' + email_dest)
                 destinatario = Usuario.objects.get(email=email_dest) or None
                 if destinatario and email_dest:
                     Mensaje.objects.create(
@@ -443,3 +512,95 @@ def enviar_correo(request):
         return HttpResponse(json.dumps(dict), content_type='application/json')
     else:
         return HttpResponseRedirect('/')
+
+""" Guarda el cromo como imagen png """
+@csrf_exempt
+def guardar_cromo(request):
+    dict={'exito':False}
+    try:
+        usuario = get_usuario(request).get('usuario')
+        if usuario:
+            path = os.path.join(
+                settings.BASE_DIR, settings.BASE_DIR_CROMO, str(usuario.id)
+            )
+            if os.path.isfile(path):
+                os.remove(path)
+            data_img = request.POST.get("imgBase64")
+            formato, imgstr = data_img.split(';base64,')
+            ext = formato.split('/')[-1]
+
+            data = ContentFile(base64.b64decode(imgstr))
+            nombre_fic = "cromo-" + str(usuario.id) + "." + ext
+            fs = FileSystemStorage(
+                location=path
+            )
+            fs.save(nombre_fic, data)
+            usuario.ruta_cromo = os.path.join(
+                'users',
+                'cromos',
+                str(usuario.id),
+                nombre_fic
+            )
+            usuario.save()
+            dict={'exito':True}
+            return HttpResponse(
+                json.dumps(dict), content_type='application/json'
+            )
+        else:
+            return HttpResponse(
+                json.dumps(dict), content_type='application/json'
+            )
+    except:
+        return HttpResponse(
+            json.dumps(dict), content_type='application/json'
+        )
+
+""" Comprueba si es el primer acceso del usuario """
+def primer_acceso(request):
+    dict={'exito':False}
+    try:
+        usuario = get_usuario(request).get('usuario')
+        path_cromo = os.path.join(
+            settings.BASE_DIR,
+            settings.BASE_DIR_CROMO,
+            str(usuario.id),
+            "cromo-" + str(usuario.id) + ".png"
+        )
+        if usuario:
+            dict.update({
+                'primer_acceso': usuario.primer_acceso,
+                'exito':True,
+                'vacio':False
+            })
+            if not os.path.isfile(path_cromo):
+                dict.update({'vacio':True})
+            return HttpResponse(
+                json.dumps(dict), content_type='application/json'
+            )
+        else:
+            return HttpResponse(
+                json.dumps(dict), content_type='application/json'
+            )
+    except:
+        return HttpResponse(json.dumps(dict), content_type='application/json')
+
+""" Setea el acceso a 0. Ya no será primer acceso """
+@csrf_exempt
+def set_acceso(request):
+    dict={'exito':False}
+    try:
+        usuario = get_usuario(request).get('usuario')
+        dict = {}
+        if usuario:
+            usuario.primer_acceso = 0
+            usuario.save()
+            dict={'exito':True}
+            return HttpResponse(
+                json.dumps(dict), content_type='application/json'
+            )
+        else:
+            return HttpResponse(
+                json.dumps(dict), content_type='application/json'
+            )
+    except:
+        return HttpResponse(json.dumps(dict), content_type='application/json')

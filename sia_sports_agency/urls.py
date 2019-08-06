@@ -7,6 +7,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     path('', views.index, name='Index'),
     path('perfil/', views.perfil, name='Perfil'),
+    path('busqueda/', views.busqueda, name='Busqueda'),
     path(
         'get_posiciones/<slug:cod>/',
         views.get_posiciones,
@@ -38,4 +39,7 @@ urlpatterns = [
         views.enviar_correo,
         name='Enviar correo'
     ),
+    path('guardar_cromo/', views.guardar_cromo, name='Guardar cromo'),
+    path('primer_acceso/', views.primer_acceso, name='Consulta primer acceso'),
+    path('set_acceso/', views.set_acceso, name='Insertar acceso')
 ]

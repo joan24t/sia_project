@@ -1,0 +1,59 @@
+{% load static %}
+{% static "" as baseCromo %}
+{% static "img/cromo/iconos_deporte/" as baseLogoDeporte %}
+<div class="cromo" style="opacity: 0.0;">
+    <div class="foto">
+        <img class="img-foto" src="{{ baseCromo }}{{img_perfil}}" />
+    </div>
+    <div class="plantilla">
+        <img class="img-plantilla" src="{% static 'img/cromo/plantillas/plantilla_club.png' %}" />
+    </div>
+    <div class="icono-deporte">
+        <img class="img-icono-deporte" src="{{baseLogoDeporte}}{{usuario.deporte.codigo}}.png" />
+    </div>
+    <div class=" row icono-redes">
+        {% if red_IG  %}
+        <div class="icono-instagram col-12">
+            <img class="img-icono-instagram" src="{% static 'img/cromo/iconos_redes/icono_instagram.png' %}" />
+        </div>
+        {% endif %}
+        {% if red_TT %}
+        <div class="icono-twitter col-12">
+            <img class="img-icono-twitter" src="{% static 'img/cromo/iconos_redes/icono_twitter.png' %}" />
+        </div>
+        {% endif %}
+        {% if red_FB %}
+        <div class="icono-facebook col-12">
+            <img class="img-icono-facebook" src="{% static 'img/cromo/iconos_redes/icono_facebook.png' %}" />
+        </div>
+        {% endif %}
+        {% if red_YT %}
+        <div class="icono-youtube col-12">
+            <img class="img-icono-youtube" src="{% static 'img/cromo/iconos_redes/icono_yt.png' %}" />
+        </div>
+        {% endif %}
+    </div>
+    <div class="row texto-cromo">
+        <span>{{usuario.nombre}}</span><br/>
+        <span>{{posicion_principal.nombre}}</span>
+    </div>
+    <div class="row tipo-cromo">
+        <span>{{usuario.tipo.nombre}}</span>
+    </div>
+</div>
+<div class="content-loader">
+    <div class='loader'>
+    </div>
+    <h4 class="texto-loader"> Cargando cromo... </h4>
+</div>
+<img class="cromo-img" src="{{ baseCromo }}{{ruta_cromo}}" download/>
+<div class="col-12 menu-lateral">
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <div class="list-group list-group-flush">
+            <a href="{{ baseCromo }}{{ruta_cromo}}" class="list-group-item list-group-item-action btn-descargar-cromo">Descargar</a>
+            <a href="#" class="list-group-item list-group-item-action">Cambiar imagen</a>
+        </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+</div>

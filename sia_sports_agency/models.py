@@ -1,5 +1,7 @@
 from django.db import models
 from datetime import datetime
+import os
+from django.conf import settings
 
 GENDER_CHOICES = (
     ('m', 'Masculino'),
@@ -213,6 +215,25 @@ class Usuario(models.Model):
     activo = models.IntegerField(
         null=False,
         default=1
+    )
+    n_visitas = models.IntegerField(
+        null=False,
+        default=0
+    )
+    img_perfil = models.CharField(
+        null=False,
+        max_length=150,
+        default=os.path.join(
+            settings.BASE_DIR_IMG_PERFIL_DEF,
+            "silueta_defecto.png"
+        )
+    )
+    primer_acceso = models.IntegerField(
+        null=False,
+        default=1
+    )
+    ruta_cromo = models.CharField(
+        max_length=150
     )
 
 """

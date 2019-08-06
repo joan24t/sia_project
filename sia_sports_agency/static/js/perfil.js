@@ -1,5 +1,11 @@
 /*** En el momento en el que todo ha sido cargado ***/
 $(document).ready(function(){
+    /* Variables que indica la id del video seleccionado */
+    var idVideoSeleccionado;
+    /* OCULTAMOS EL CROMO Y LANZAMOS EL SPINNER */
+    mostrarElemento($(".content-loader"));
+    ocultarElemento($(".cromo-img"));
+
     /* FUNCIONES PARA LOS DATOS BÁSICOS DEL PERFIL*/
     envioDatosBasicos();
 
@@ -27,6 +33,11 @@ $(document).ready(function(){
     nuevoCorreo();
     /*Cambia de sección en el apartado de mensajes*/
     cambiaSeccion();
+    /*Abrir correo desde las notificaciones*/
+    abrirDesdeNotificaciones();
+    /*Cargar y descargar cromo*/
+    cargarCromo();
+    ocultarElemento($(".content-loader"));
 
     /* Funcion que pone ivisible los toats cuando se ocultan*/
     $('.toast').on('hidden.bs.toast', function () {
@@ -38,11 +49,96 @@ $(document).ready(function(){
     });
     /*Disparador modal nuevo mensaje*/
     $('#nuevoEmailModalCenter').on('show.bs.modal', function() {
-        $(".modal-email .destinatario").val("");
-        $(".modal-email .asunto").val("");
-        $(".modal-email .mensaje").val('');
+        $(".modal-email .destinatarios-nuevo").val("");
+        $(".modal-email .asunto-nuevo").val("");
+        $(".modal-email .cuerpo-nuevo").val('');
     });
 });
+var guardarCromo = function(imageData){
+    $.ajax({
+        url: "/guardar_cromo/",
+        async:false,
+        type: 'POST',
+        data: {
+            'imgBase64': imageData,
+        },success: function(data) {
+            if(!data.exito){
+                $('.toast-error .content').text('Error en la carga del cromo.');
+                $('.toast-error').toast('show');
+            }
+        },error: function(data){
+            $('.toast-error .content').text('Error en la carga del cromo.');
+            $('.toast-error').toast('show');
+        }
+    });
+}
+var setAcceso = function(){
+    $.ajax({
+        url: "/set_acceso/",
+        type: 'POST',
+        async:false,
+        success: function(data) {
+            if(!data.exito){
+                $('.toast-error .content').text('Error en la carga del cromo.');
+                $('.toast-error').toast('show');
+            }
+        },error: function(data){
+            $('.toast-error .content').text('Error en la carga del cromo.');
+            $('.toast-error').toast('show');
+        }
+    });
+}
+var primerAcceso = function(canvas){
+    $.ajax({
+        url: "/primer_acceso/",
+        async:false,
+        success: function(data) {
+            if(data.exito && (data.primer_acceso == 1 || data.vacio)){
+                var imageData = canvas.toDataURL("image/png");
+                guardarCromo(imageData);
+                setAcceso();
+                //Refrescamos la imagen
+                ruta = $(".cromo-img").attr("src");
+                $(".cromo-img").attr("src", ruta);
+            }
+            else if(!data.exito){
+                $('.toast-error .content').text('Error en la carga del cromo.');
+                $('.toast-error').toast('show');
+            }
+        },error: function(data){
+            $('.toast-error .content').text('Error en la carga del cromo.');
+            $('.toast-error').toast('show');
+        }
+    });
+    mostrarElemento($(".cromo-img"));
+}
+var cargarCromo = function() {
+    if(window.location.pathname === "/perfil/"){
+        var element = $(".cromo");
+        var getCanvas;
+        html2canvas(element, {
+            width: 450,
+            height: 600,
+            onrendered: function (canvas) {
+                getCanvas = canvas;
+                primerAcceso(getCanvas);
+            }
+        });
+    }
+}
+var mostrarElemento = function(elemento){
+    elemento.removeAttr("hidden");
+}
+var ocultarElemento = function(elemento) {
+    elemento.attr("hidden", "");
+}
+
+var abrirDesdeNotificaciones = function() {
+    $(".lista-msg").on("click", function() {
+        hideOrShowTabs('me');
+        verCorreo($(this).attr('id'));
+    });
+}
 
 var cambiaSeccion = function(){
     $(".btn-bandeja-entrada").on("click", function() {
@@ -80,22 +176,24 @@ var enviarCorreo = function(listadoCorreos, asunto, cuerpo){
     $.ajax({
         url: "/enviar_correo/",
         type: 'POST',
+        async:false,
         dataType: 'json',
         data: {
             'lista_correos': listadoCorreos,
             'asunto': asunto,
             'cuerpo': cuerpo
-    },
-        success: function(data) {
+    },success: function(data) {
             //Notificación guardado
             if(data.exito){
-                $('.toast-correo-enviado').toast('show');
+                $('.toast-notificacion .content').text('El correo se envió correctamente.');
+                $('.toast-notificacion').toast('show');
             }else{
-                $('.toast-correo-error').toast('show');
+                $('.toast-error .content').text('Error el enviar el correo. Por favor, intente de nuevo.');
+                $('.toast-error').toast('show');
             }
-    },
-        error: function(data){
-            $('.toast-correo-error').toast('show');
+    },error: function(data){
+            $('.toast-error .content').text('Error el enviar el correo. Por favor, intente de nuevo.');
+            $('.toast-error').toast('show');
     }
     });
 }
@@ -162,28 +260,32 @@ var responderMensaje = function(){
     });
 };
 
-var peticionDatosMensaje = function(){
-    $(".mail-ver").on("click", function() {
-      var id = $(this).attr('id');
-      $.ajax({
-        url: "/get_mensaje/" + id,
-        success: function(data) {
-            $(".modal-email .btn-responder-correo").attr('hidden', '');
-            $('.modal-email .destinatarios-res').attr('disabled', true);
-            $('.modal-email .asunto-res').attr('disabled', true);
-            $('.modal-email .cuerpo-res').attr('disabled', true);
-            $(".modal-email .destinatario").val(
-                data.remitente_nombre + " <"+ data.remitente + ">"
-            );
-            $(".modal-email .asunto-res").val(data.asunto);
-            $(".modal-email .cuerpo-res").val(data.mensaje);
-        }
-      });
+var verCorreo = function(id){
+    $.ajax({
+      url: "/get_mensaje/" + id,
+      success: function(data) {
+          $(".modal-email .btn-responder-correo").attr('hidden', '');
+          $('.modal-email .destinatarios-res').attr('disabled', true);
+          $('.modal-email .asunto-res').attr('disabled', true);
+          $('.modal-email .cuerpo-res').attr('disabled', true);
+          $(".modal-email .destinatario").val(
+              data.remitente_nombre + " <"+ data.remitente + ">"
+          );
+          $(".modal-email .asunto-res").val(data.asunto);
+          $(".modal-email .cuerpo-res").val(data.mensaje);
+      }
     });
 };
 
+var peticionDatosMensaje = function(){
+    $(".mail-ver").on("click", function() {
+        var id = $(this).attr('id');
+        verCorreo(id);
+    });
+};
 var mostrarConfirmacion = function(){
     $('.video-gallery .option-delete').on('click', function(e) {
+        idVideoSeleccionado = $(this).attr('id');
         $('#confirmModalCenter').modal({
             backdrop: 'static',
             keyboard: false
@@ -193,7 +295,8 @@ var mostrarConfirmacion = function(){
 
 var enviarFormularioEliminacion = function(){
     $('#confirmModalCenter .btn-primary').on('click', function(e) {
-        var form = $('.form-eliminar-video');
+        var videoAEliminar = '.form-eliminar-video-' + String(idVideoSeleccionado)
+        var form = $(videoAEliminar);
         form.trigger('submit');
     });
 };
@@ -216,12 +319,15 @@ var envioDatosBasicos = function(){
             success: function(data) {
                 //Notificación guardado
                 if(data.exito){
+                    $('.toast-success .content').text('Los datos han sido modificados correctamente.');
                     $('.toast-success').toast('show');
                 }else{
+                    $('.toast-error .content').text('Ha ocurrido un error en el proceso de guardado de los datos.');
                     $('.toast-error').toast('show');
                 }
             },
             error: function(data){
+                $('.toast-error .content').text('Ha ocurrido un error en el proceso de guardado de los datos.');
                 $('.toast-error').toast('show');
             }
         });
@@ -240,7 +346,7 @@ var envioDatosBasicos = function(){
         $('.datosBasicosForm .dropdown-toggle').removeClass('disabled');
         //Ocultamos el botón de editar y mostramos el botón de guardar
         $(this).attr('hidden', '');
-        $('.datosBasicosForm .btn-guardar').removeAttr('hidden');
+        $('.datosBasicosForm .btn-guardar, .datosBasicosForm .btn-cancelar').removeAttr('hidden');
     });
 
     /* Habilitamos el formulario de los datos básicos */
@@ -248,14 +354,22 @@ var envioDatosBasicos = function(){
         e.preventDefault();
         //Disparamos la función de submit
         $('#form-datos-basicos').trigger('submit');
+        habilitarFormulario(e);
+    });
+    $(document).on("click", ".datosBasicosForm .btn-cancelar", function (e) {
+        e.preventDefault();
+        habilitarFormulario(e);
+    });
+
+    var habilitarFormulario = function(e) {
         //Deshabilitamos todos los inputs y los select picker
         $('.datosBasicosForm :input:not(.btn-editar)').attr('disabled', '');
         //Ocultamos el botón de guardar y mostramos el botón de editar
-        $(this).attr('hidden', '');
+        $(".datosBasicosForm .btn-cancelar, .datosBasicosForm .btn-guardar").attr('hidden', '');
         $('.datosBasicosForm .btn-editar').removeAttr('hidden');
-    });
-
+    }
 }
+
 
 var envioDatosEspecificos = function(){
     //Envio de de datos del formulario
@@ -269,12 +383,15 @@ var envioDatosEspecificos = function(){
             success: function(data) {
                 //Notificación guardado
                 if(data.exito){
+                    $('.toast-success .content').text('Los datos han sido modificados correctamente.');
                     $('.toast-success').toast('show');
                 }else{
+                    $('.toast-error .content').text('Ha ocurrido un error en el proceso de guardado de los datos.');
                     $('.toast-error').toast('show');
                 }
             },
             error: function(data){
+                $('.toast-error .content').text('Ha ocurrido un error en el proceso de guardado de los datos.');
                 $('.toast-error').toast('show');
             }
         });
@@ -290,7 +407,7 @@ var envioDatosEspecificos = function(){
         $('.datosEspecificosForm :input').removeAttr('disabled');
         //Ocultamos el botón de editar y mostramos el botón de guardar
         $(this).attr('hidden', '');
-        $('.datosEspecificosForm .btn-guardar').removeAttr('hidden');
+        $('.datosEspecificosForm .btn-guardar, .datosEspecificosForm .btn-cancelar').removeAttr('hidden');
     });
 
     /* Habilitamos el formulario de los datos específicos */
@@ -298,12 +415,20 @@ var envioDatosEspecificos = function(){
         e.preventDefault();
         //Disparamos la función de submit
         $('#form-datos-especificos').trigger('submit');
+        habilitarFormulario(e);
+    });
+    $(document).on("click", ".datosEspecificosForm .btn-cancelar", function (e) {
+        e.preventDefault();
+        habilitarFormulario(e);
+    });
+
+    var habilitarFormulario = function(e) {
         //Deshabilitamos todos los inputs y los select picker
         $('.datosEspecificosForm :input:not(.btn-editar)').attr('disabled', '');
         //Ocultamos el botón de guardar y mostramos el botón de editar
-        $(this).attr('hidden', '');
+        $(".datosEspecificosForm .btn-cancelar, .datosEspecificosForm .btn-guardar").attr('hidden', '');
         $('.datosEspecificosForm .btn-editar').removeAttr('hidden');
-    });
+    }
 }
 
 var envioRedesSociales = function(){
@@ -320,12 +445,15 @@ var envioRedesSociales = function(){
             success: function(data) {
                 //Notificación guardado
                 if(data.exito){
+                    $('.toast-success .content').text('Los datos han sido modificados correctamente.');
                     $('.toast-success').toast('show');
                 }else{
+                    $('.toast-error .content').text('Ha ocurrido un error en el proceso de guardado de los datos.');
                     $('.toast-error').toast('show');
                 }
             },
             error: function(data){
+                $('.toast-error .content').text('Ha ocurrido un error en el proceso de guardado de los datos.');
                 $('.toast-error').toast('show');
             }
         });
@@ -338,18 +466,26 @@ var envioRedesSociales = function(){
         $('.datosRedesForm :input').removeAttr('disabled');
         //Ocultamos el botón de editar y mostramos el botón de guardar
         $(this).attr('hidden', '');
-        $('.datosRedesForm .btn-guardar').removeAttr('hidden');
+        $('.datosRedesForm .btn-guardar, .datosRedesForm .btn-cancelar').removeAttr('hidden');
     });
 
-    /* Habilitamos el formulario de las redes de sociales */
+    /* Habilitamos el formulario de los datos específicos */
     $(document).on("click", ".datosRedesForm .btn-guardar", function (e) {
         e.preventDefault();
         //Disparamos la función de submit
         $('#form-redes-sociales').trigger('submit');
+        habilitarFormulario(e);
+    });
+    $(document).on("click", ".datosRedesForm .btn-cancelar", function (e) {
+        e.preventDefault();
+        habilitarFormulario(e);
+    });
+
+    var habilitarFormulario = function(e) {
         //Deshabilitamos todos los inputs y los select picker
         $('.datosRedesForm :input:not(.btn-editar)').attr('disabled', '');
         //Ocultamos el botón de guardar y mostramos el botón de editar
-        $(this).attr('hidden', '');
+        $(".datosRedesForm .btn-cancelar, .datosRedesForm .btn-guardar").attr('hidden', '');
         $('.datosRedesForm .btn-editar').removeAttr('hidden');
-    });
+    }
 }

@@ -1,0 +1,120 @@
+{% extends 'sia_sports_agency/base.html' %}
+{% block content %}
+{% load static %}
+<div class="busqueda">
+    <div class="row titulo" >
+        <h2>Filtros de búsqueda</h2>
+    </div>
+    <div class="row form-group justify-content-center">
+        <div class="col-5">
+            <div class="row">
+                <div class="col-4">
+                    <h4>Qué buscas</h4>
+                </div>
+                <div class="col-8">
+                    <select class="form-control">
+                        {% for tipo in tipo_jugadores %}
+                            <option value="{{tipo.codigo|default:''}}">{{tipo.nombre}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <h4>Nombre</h4>
+                </div>
+                <div class="col-8">
+                    <input class="form-control" type="text">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <h4>Deporte</h4>
+                </div>
+                <div class="col-8">
+                    <select class="form-control">
+                        {% for deporte in deportes %}
+                        <option value="{{deporte.codigo|default:''}}" {% if deporte.codigo == usuario.deporte.codigo %} selected {% endif %}>{{deporte.nombre}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <h4>Posición</h4>
+                </div>
+                <div class="col-8">
+                    <select class="form-control selectpicker" name="inputPosicionMulti" id="posicionDropdownMultiple" multiple data-live-search="true" hidden>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-5">
+            <div class="row">
+                <div class="col-4">
+                    <h4>Género</h4>
+                </div>
+                <div class="col-8">
+                    <select class="form-control">
+                        <option value="m" {% if usuario.tipo_deporte == 'm' %} selected {% endif %}>Masculino</option>
+                        <option value="f" {% if usuario.tipo_deporte == 'f' %} selected {% endif %}>Femenino</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <h4>País</h4>
+                </div>
+                <div class="col-8">
+                    <select class="form-control selectpicker" data-live-search="true" hidden>
+                        {% for pais in paises %}
+                        <option value="{{pais.codigo|default:''}}" data-content="<span class='flag-icon flag-icon-{{pais.codigo|lower}}'></span>&ensp;&ensp;{{pais.nombre}}"></option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <h4>Rango edad</h4>
+                </div>
+                <div class="col-2">
+                    <h5 style="margin-top: 4px;">Desde</h5>
+                </div>
+                <div class="col-2">
+                    <select class="form-control">
+                        {% for r in rango_edad %}
+                            <option value="{{r}}">{{r}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-2">
+                    <h5 style="margin-top: 4px;">hasta</h5>
+                </div>
+                <div class="col-2">
+                    <select class="form-control">
+                        {% for r in rango_edad %}
+                            <option value="{{r}}">{{r}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <h4>Equipo actual</h4>
+                </div>
+                <div class="col-8">
+                    <input class="form-control" type="text">
+                </div>
+            </div>
+            <div class="row botones">
+                <div class="col-6">
+                    <button class="form-control"><i class="fas fa-search"></i> Buscar</button>
+                </div>
+                <div class="col-6">
+                    <button class="form-control"><i class="fas fa-eraser"></i> Limpiar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
