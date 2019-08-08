@@ -41,5 +41,6 @@ urlpatterns = [
     ),
     path('guardar_cromo/', views.guardar_cromo, name='Guardar cromo'),
     path('primer_acceso/', views.primer_acceso, name='Consulta primer acceso'),
-    path('set_acceso/', views.set_acceso, name='Insertar acceso')
+    path('set_acceso/', views.set_acceso, name='Insertar acceso'),
+    url(r'subir_img_cromo/$', views.subir_img_cromo, name='Subir imagen cromo'),
 ]

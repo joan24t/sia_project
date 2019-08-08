@@ -1,7 +1,8 @@
 {% load static %}
 {% static "" as baseCromo %}
 {% static "img/cromo/iconos_deporte/" as baseLogoDeporte %}
-<div class="cromo" style="opacity: 0.0;">
+{% static "flags/png/" as baseLogoPais %}
+<div class="cromo">
     <div class="foto">
         <img class="img-foto" src="{{ baseCromo }}{{img_perfil}}" />
     </div>
@@ -13,32 +14,39 @@
     </div>
     <div class=" row icono-redes">
         {% if red_IG  %}
-        <div class="icono-instagram col-12">
+        <div class="icono-instagram col-10">
             <img class="img-icono-instagram" src="{% static 'img/cromo/iconos_redes/icono_instagram.png' %}" />
         </div>
         {% endif %}
         {% if red_TT %}
-        <div class="icono-twitter col-12">
+        <div class="icono-twitter col-10">
             <img class="img-icono-twitter" src="{% static 'img/cromo/iconos_redes/icono_twitter.png' %}" />
         </div>
         {% endif %}
         {% if red_FB %}
-        <div class="icono-facebook col-12">
+        <div class="icono-facebook col-10">
             <img class="img-icono-facebook" src="{% static 'img/cromo/iconos_redes/icono_facebook.png' %}" />
         </div>
         {% endif %}
         {% if red_YT %}
-        <div class="icono-youtube col-12">
+        <div class="icono-youtube col-10">
             <img class="img-icono-youtube" src="{% static 'img/cromo/iconos_redes/icono_yt.png' %}" />
         </div>
         {% endif %}
     </div>
     <div class="row texto-cromo">
-        <span>{{usuario.nombre}}</span><br/>
-        <span>{{posicion_principal.nombre}}</span>
+        <p>
+            {{usuario.nombre}}<br/>
+            {{posicion_principal.nombre}}
+        </p>
     </div>
     <div class="row tipo-cromo">
-        <span>{{usuario.tipo.nombre}}</span>
+        <div style="width: 180px; text-align: center;">
+            <span>{{usuario.tipo.nombre}}</span>
+        </div>
+    </div>
+    <div class="bandera-cromo">
+        <img class="img-bandera" src="{{baseLogoPais}}{{usuario.pais.codigo}}.png" />
     </div>
 </div>
 <div class="content-loader">
@@ -46,14 +54,18 @@
     </div>
     <h4 class="texto-loader"> Cargando cromo... </h4>
 </div>
-<img class="cromo-img" src="{{ baseCromo }}{{ruta_cromo}}" download/>
+<img class="cromo-img" src="{{ baseCromo }}{{ruta_cromo}}"/>
 <div class="col-12 menu-lateral">
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
         <div class="list-group list-group-flush">
-            <a href="{{ baseCromo }}{{ruta_cromo}}" class="list-group-item list-group-item-action btn-descargar-cromo">Descargar</a>
-            <a href="#" class="list-group-item list-group-item-action">Cambiar imagen</a>
+            <a href="{{ baseCromo }}{{ruta_cromo}}" class="list-group-item list-group-item-action btn-descargar-cromo" download>Descargar</a>
+            <a href="#" class="cambiar-img-cromo" class="list-group-item list-group-item-action">Cambiar imagen</a>
         </div>
     </div>
     <!-- /#sidebar-wrapper -->
 </div>
+<form action="subir_img_cromo/" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" onchange="form.submit()" class="custom-file-input" name="inputImgCromo" id="customFileImgCromo" lang="es" hidden>
+</form>

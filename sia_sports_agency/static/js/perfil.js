@@ -38,7 +38,8 @@ $(document).ready(function(){
     /*Cargar y descargar cromo*/
     cargarCromo();
     ocultarElemento($(".content-loader"));
-
+    /*Disparar input de tipo file para la subida de la img del cromo*/
+    triggerImgCromo();
     /* Funcion que pone ivisible los toats cuando se ocultan*/
     $('.toast').on('hidden.bs.toast', function () {
         $(this).attr('hidden', '');
@@ -54,6 +55,15 @@ $(document).ready(function(){
         $(".modal-email .cuerpo-nuevo").val('');
     });
 });
+var triggerImgCromo = function(){
+    $(".cambiar-img-cromo").on("click", function() {
+        $("#customFileImgCromo").click();
+    });
+}
+var refrescarCromo = function(){
+    ruta = $(".cromo-img").attr("src");
+    $(".cromo-img").attr("src", ruta);
+}
 var guardarCromo = function(imageData){
     $.ajax({
         url: "/guardar_cromo/",
@@ -98,8 +108,7 @@ var primerAcceso = function(canvas){
                 guardarCromo(imageData);
                 setAcceso();
                 //Refrescamos la imagen
-                ruta = $(".cromo-img").attr("src");
-                $(".cromo-img").attr("src", ruta);
+                refrescarCromo();
             }
             else if(!data.exito){
                 $('.toast-error .content').text('Error en la carga del cromo.');
@@ -118,7 +127,7 @@ var cargarCromo = function() {
         var getCanvas;
         html2canvas(element, {
             width: 450,
-            height: 600,
+            height: 700,
             onrendered: function (canvas) {
                 getCanvas = canvas;
                 primerAcceso(getCanvas);
@@ -321,6 +330,8 @@ var envioDatosBasicos = function(){
                 if(data.exito){
                     $('.toast-success .content').text('Los datos han sido modificados correctamente.');
                     $('.toast-success').toast('show');
+                    $('.pepe').text($('#FormControlInputNombre').val());
+                    cargarCromo();
                 }else{
                     $('.toast-error .content').text('Ha ocurrido un error en el proceso de guardado de los datos.');
                     $('.toast-error').toast('show');
@@ -447,6 +458,7 @@ var envioRedesSociales = function(){
                 if(data.exito){
                     $('.toast-success .content').text('Los datos han sido modificados correctamente.');
                     $('.toast-success').toast('show');
+                    refrescarRedes();
                 }else{
                     $('.toast-error .content').text('Ha ocurrido un error en el proceso de guardado de los datos.');
                     $('.toast-error').toast('show');
@@ -458,6 +470,18 @@ var envioRedesSociales = function(){
             }
         });
     });
+
+    /* Refresacmos las redes al cambiarse */
+    var refrescarRedes = function(){
+        ruta_yt = $("#form-redes-sociales .enlace-youtube").val();
+        ruta_ig = $("#form-redes-sociales .enlace-insta").val();
+        ruta_tt = $("#form-redes-sociales .enlace-twitter").val();
+        ruta_fb = $("#form-redes-sociales .enlace-facebook").val();
+        $(".fb-ic").attr("href", ruta_fb);
+        $(".tw-ic").attr("href", ruta_tt);
+        $(".ins-ic").attr("href", ruta_ig);
+        $(".yt-ic").attr("href", ruta_yt);
+    };
 
     /* Deshabilitamos el formulario de las redes de sociales */
     $(document).on("click", ".datosRedesForm .btn-editar", function (e) {

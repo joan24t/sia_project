@@ -76,6 +76,16 @@ section{
     width: 500px;
     height: 100px;
 	max-width: 100%;
+	border-radius: 25px;
+	border: 7px solid #9A8056;
+}
+.registration-btn:hover{
+	border: 1px solid;
+    box-shadow: inset 0 0 20px #9A8056, 0 0 20px #9A8056;
+    outline-color: #9A8056;
+    outline-offset: 15px;
+    text-shadow: 1px 1px 2px #9A8056;
+	cursor: pointer;
 }
 /*.div-registration:hover{
     border: 1px solid;
@@ -94,13 +104,6 @@ section{
     /*position:absolute;*/
     /*margin-left: 50%;*/
     /*left: -250px;*/
-}
-.registration-btn:hover{
-	border: 1px solid;
-    box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
-    outline-color: rgba(255, 255, 255, 0);
-    outline-offset: 15px;
-    text-shadow: 1px 1px 2px #9A8056;
 }
 /*
 ****************************************************************************************************
@@ -456,14 +459,15 @@ section{
 }
 /* Atributos cromo */
 .cromo{
-	margin-top: 10px;
 	height: 700px;
-	width: 500px;
+	width: 450px;
+	z-index: 20;
+	opacity: 0.0;
 }
 .cromo-img{
 	position: absolute;
 	left: 10px;
-	top: 180px;
+	top: 100px;
 	width: 100%;
 }
 .cromo .plantilla{
@@ -487,8 +491,9 @@ section{
 .cromo .icono-redes{
 	position: absolute;
 	left: 8.5%;
+	margin-left: 1px;
 	top: 200px;
-	padding: 230px 0px 0px 310px;
+	padding: 230px 0px 0px 300px;
 }
 .cromo .img-icono-instagram,
 .cromo .img-icono-twitter,
@@ -513,8 +518,10 @@ section{
 	position: absolute;
 	left: 8.5%;
 	top: 200px;
-	padding: 465px 0px 0px 110px;
+	margin-left: 1px;
+	padding: 470px 0px 0px 110px;
 	color: #89742E;
+	white-space: nowrap;
 }
 
 .cromo .tipo-cromo{
@@ -522,9 +529,18 @@ section{
 	position: absolute;
 	left: 8.5%;
 	top: 200px;
-	padding: 550px 0px 0px 155px;
+	padding: 550px 0px 0px 102px;
 	color: #89742E;
-	text-align: center;
+	margin-left: 1px;
+}
+.cromo .bandera-cromo{
+	position: absolute;
+	left: 8.5%;
+	top: 200px;
+	padding: 470px 0px 0px 30px;
+}
+.cromo .img-bandera{
+	width: 70px;
 }
 
 /* Fin atributos cromo */
@@ -536,12 +552,20 @@ section{
 	font-size: 22px;
 	text-align: center;
 	background-color: #2A2A2A;
+	height: 60px;
 }
 .menu-lateral a:hover{
 	border-top: 2px solid white !important;
 	border-bottom: 2px solid white !important;
 	background-color: #2A2A2B;
 	color: white;
+	text-decoration: none;
+}
+.modal .cropper .modal-body{
+	text-align: center;
+}
+.cr-overlay{
+	width: 300px;
 }
 
 /*

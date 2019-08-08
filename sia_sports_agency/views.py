@@ -186,61 +186,68 @@ PARTE PRIVADA
 
 """ Creación/Modificación de un usuario """
 def actualizar_usuario(request, seccion):
-    diccionario = get_diccionario(request, seccion)
-    email = request.session.get('email')
     try:
+        diccionario = get_diccionario(request, seccion)
+        email = request.session.get('email')
         usuario = Usuario.objects.get(email=email)
+        if seccion == 'r':
+            usuario = Usuario.objects.create(
+                nombre=diccionario.get('nombre'),
+                fnacimiento=diccionario.get('fnacimiento'),
+                email=diccionario.get('email'),
+                genero=diccionario.get('genero'),
+                tipo_deporte=diccionario.get('tipo_deporte'),
+                deporte_id=diccionario.get('deporte').id,
+                tipo_id=diccionario.get('tipo').id,
+                pais_id=diccionario.get('pais').id,
+                contrasena_1=diccionario.get('contrasena_1'),
+                contrasena_2=diccionario.get('contrasena_2')
+            )
+            set_posiciones(usuario, diccionario.get('deporte'), diccionario)
+        elif seccion == 'db':
+            usuario.nombre = diccionario.get('nombre')
+            usuario.fnacimiento = diccionario.get('fnacimiento')
+            usuario.email = diccionario.get('email')
+            usuario.genero = diccionario.get('genero')
+            usuario.tipo_deporte = diccionario.get('tipo_deporte')
+            usuario.deporte_id = diccionario.get('deporte').id
+            usuario.tipo_id = diccionario.get('tipo').id
+            usuario.pais_id = diccionario.get('pais').id
+            usuario.posiciones.clear()
+            set_posiciones(usuario, diccionario.get('deporte'), diccionario)
+            usuario.save()
+            path = os.path.join(
+                settings.BASE_DIR, settings.BASE_DIR_CROMO, str(usuario.id)
+            )
+            eliminar_fichero(
+                usuario,
+                path,
+                "cromo-" + str(usuario.id) + ".png"
+            );
+        elif seccion == 'de':
+            usuario.telefono = diccionario.get('telefono')
+            usuario.ubicacion = diccionario.get('ubicacion')
+            usuario.peso = diccionario.get('peso')
+            usuario.altura = diccionario.get('altura')
+            usuario.nacionalidad = diccionario.get('nacionalidad')
+            usuario.eactual = diccionario.get('eactual')
+            usuario.extremidad_id = diccionario.get('extremidad').id
+            usuario.interesadoen = diccionario.get('interesadoen')
+            usuario.save()
     except:
-        usuario = None
-    if seccion == 'r':
-        usuario = Usuario.objects.create(
-            nombre=diccionario.get('nombre'),
-            fnacimiento=diccionario.get('fnacimiento'),
-            email=diccionario.get('email'),
-            genero=diccionario.get('genero'),
-            tipo_deporte=diccionario.get('tipo_deporte'),
-            deporte_id=diccionario.get('deporte').id,
-            tipo_id=diccionario.get('tipo').id,
-            pais_id=diccionario.get('pais').id,
-            contrasena_1=diccionario.get('contrasena_1'),
-            contrasena_2=diccionario.get('contrasena_2')
-        )
-        set_posiciones(usuario, diccionario.get('deporte'), diccionario)
-    elif seccion == 'db':
-        usuario.nombre = diccionario.get('nombre')
-        usuario.fnacimiento = diccionario.get('fnacimiento')
-        usuario.email = diccionario.get('email')
-        usuario.genero = diccionario.get('genero')
-        usuario.tipo_deporte = diccionario.get('tipo_deporte')
-        usuario.deporte_id = diccionario.get('deporte').id
-        usuario.tipo_id = diccionario.get('tipo').id
-        usuario.pais_id = diccionario.get('pais').id
-        usuario.posiciones.clear()
-        set_posiciones(usuario, diccionario.get('deporte'), diccionario)
-        usuario.save()
-    elif seccion == 'de':
-        usuario.telefono = diccionario.get('telefono')
-        usuario.ubicacion = diccionario.get('ubicacion')
-        usuario.peso = diccionario.get('peso')
-        usuario.altura = diccionario.get('altura')
-        usuario.nacionalidad = diccionario.get('nacionalidad')
-        usuario.eactual = diccionario.get('eactual')
-        usuario.extremidad_id = diccionario.get('extremidad').id
-        usuario.interesadoen = diccionario.get('interesadoen')
-        usuario.save()
-    return True if seccion is not '' else False
+        return False
+    return True
 
 """ Registro de un usuario """
 def registrar_usuario(request):
     try:
         actualizar_usuario(request, 'r')
         dict={'exito':True}
-        return HttpResponse(json.dumps(dict), content_type='application/json')
+        return HttpResponseRedirect('/perfil/')
     except:
         dict={'exito':False}
         return HttpResponse('Error al registrar')
-    #PENDIENTE DE HACER REDIRECCIÓN
-    return HttpResponse('Usuario creado')
+    return HttpResponseRedirect('/perfil/')
 
 """ Acceder a la pantalla de busqueda """
 def busqueda(request):
@@ -288,7 +295,7 @@ def insertar_posicion_prin_contexto(contexto):
         'posicion_principal': posicion_principal
     })
 
-""" Inserta en el contexto del perfil las redes sociales """
+""" Inserta en el contexto del perfil los videos """
 def insertar_videos_contexto(contexto):
     usuario = contexto.get('usuario')
     lista_videos = Video.objects.filter(
@@ -418,7 +425,11 @@ def insertar_video(request):
         try:
             nombre = request.POST.get('inputNombre')
             video = request.FILES.get('inputFile')
-            path = os.path.join(settings.BASE_DIR, settings.BASE_DIR_VIDEO, str(usuario.id))
+            path = os.path.join(
+                settings.BASE_DIR,
+                settings.BASE_DIR_VIDEO,
+                str(usuario.id)
+            )
             fs = FileSystemStorage(
                 location=path
             )
@@ -513,6 +524,15 @@ def enviar_correo(request):
     else:
         return HttpResponseRedirect('/')
 
+""" Elimina el archivo indicado en el path"""
+def eliminar_fichero(usuario, path, subpath):
+    nombre_fic = os.path.join(
+        path,
+        subpath
+    )
+    if os.path.isfile(nombre_fic):
+        os.remove(nombre_fic)
+
 """ Guarda el cromo como imagen png """
 @csrf_exempt
 def guardar_cromo(request):
@@ -523,12 +543,14 @@ def guardar_cromo(request):
             path = os.path.join(
                 settings.BASE_DIR, settings.BASE_DIR_CROMO, str(usuario.id)
             )
-            if os.path.isfile(path):
-                os.remove(path)
+            eliminar_fichero(
+                usuario,
+                path,
+                "cromo-" + str(usuario.id) + ".png"
+            );
             data_img = request.POST.get("imgBase64")
             formato, imgstr = data_img.split(';base64,')
             ext = formato.split('/')[-1]
-
             data = ContentFile(base64.b64decode(imgstr))
             nombre_fic = "cromo-" + str(usuario.id) + "." + ext
             fs = FileSystemStorage(
@@ -604,3 +626,33 @@ def set_acceso(request):
             )
     except:
         return HttpResponse(json.dumps(dict), content_type='application/json')
+
+""" Añade la nueva foto del fromo """
+def subir_img_cromo(request):
+    usuario = get_usuario(request).get('usuario')
+    if usuario:
+        try:
+            imagen = request.FILES.get('inputImgCromo')
+            path = os.path.join(
+                settings.BASE_DIR,
+                settings.BASE_DIR_IMG_PERFIL_DEF,
+                str(usuario.id)
+            )
+            eliminar_fichero(usuario, path, str(usuario.id) + ".png");
+            fs = FileSystemStorage(
+                location=path
+            )
+            filename = fs.save(str(usuario.id) + ".png", imagen)
+            url_imagen = os.path.join(
+                'users',
+                'img-perfil',
+                str(usuario.id),
+                filename
+            )
+            usuario.img_perfil = url_imagen
+            usuario.save()
+            return HttpResponseRedirect('/perfil/')
+        except:
+            return HttpResponse('Error en la subida de la imagen del cromo')
+    else:
+        return HttpResponseRedirect('/')

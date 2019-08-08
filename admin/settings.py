@@ -130,5 +130,5 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 USERS_ROOT = os.path.join('sia_sports_agency', 'static', 'users')
 BASE_DIR_VIDEO = os.path.join(USERS_ROOT, 'videos-perfil')
-BASE_DIR_IMG_PERFIL_DEF = os.path.join(USERS_ROOT, 'img-perfil')
+BASE_DIR_IMG_PERFIL_DEF = os.path.join('users', 'img-perfil')
 BASE_DIR_CROMO = os.path.join(USERS_ROOT, 'cromos')
