@@ -168,7 +168,9 @@ def get_diccionario(request, seccion):
             'nacionalidad': request.POST.get('inputNacionalidad', ''),
             'eactual': request.POST.get('inputEactual', ''),
             'interesadoen': request.POST.get('inputInteresadoen', ''),
-            'extremidad': extremidad_dominante
+            'extremidad': extremidad_dominante,
+            'tipo_altura': request.POST.get('inputTipoAltura', ''),
+            'tipo_peso': request.POST.get('inputTipoPeso', '')
         }
     return diccionario
 
@@ -233,6 +235,8 @@ def actualizar_usuario(request, seccion):
             usuario.eactual = diccionario.get('eactual')
             usuario.extremidad_id = diccionario.get('extremidad').id
             usuario.interesadoen = diccionario.get('interesadoen')
+            usuario.tipo_altura = diccionario.get('tipo_altura')
+            usuario.tipo_peso = diccionario.get('tipo_peso')
             usuario.save()
     except:
         return False
@@ -257,7 +261,6 @@ def busqueda(request):
     context.update({
         'rango_edad': range(14, 81)
     })
-    print(str(context.get('rango_edad')))
     return render(
         request,
         'sia_sports_agency/busqueda.html',

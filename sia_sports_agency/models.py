@@ -1,8 +1,16 @@
 from django.db import models
 from datetime import datetime
+from decimal import *
 import os
 from django.conf import settings
-
+ALTURA_TIPO_CHOICES = (
+    ('cm', 'cm'),
+    ('pulgadas', 'pulgadas'),
+)
+PESO_TIPO_CHOICES = (
+    ('kg', 'kg'),
+    ('lb', 'lb'),
+)
 GENDER_CHOICES = (
     ('m', 'Masculino'),
     ('f', 'Femenino'),
@@ -159,11 +167,29 @@ class Usuario(models.Model):
         max_length=150,
         null=True
     )
-    altura = models.IntegerField(
+    altura = models.DecimalField(
+        max_digits=10,
+        decimal_places=2,
+        default=Decimal(0.00),
         null=True
     )
-    peso = models.IntegerField(
+    tipo_altura = models.CharField(
+        max_length=10,
+        choices=ALTURA_TIPO_CHOICES,
+        null=False,
+        default='cm'
+    )
+    peso = models.DecimalField(
+        max_digits=10,
+        decimal_places=2,
+        default=Decimal(0.00),
         null=True
+    )
+    tipo_peso = models.CharField(
+        max_length=10,
+        choices=PESO_TIPO_CHOICES,
+        null=False,
+        default='kg'
     )
     interesadoen = models.TextField(
         max_length=500,

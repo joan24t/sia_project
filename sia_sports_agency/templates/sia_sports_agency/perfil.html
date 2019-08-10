@@ -202,12 +202,13 @@
                                                     </label>
                                                     <div class="row">
                                                         <div class="col-8">
-                                                            <input type="text" value="{{usuario.peso|default:''}}" name="inputPeso" id="peso" class="form-control">
+                                                            {% load l10n %}
+                                                            <input type="number" value="{{usuario.peso | unlocalize}}" name="inputPeso" id="peso" class="form-control" required step=".01">
                                                         </div>
                                                         <div class="col-4">
-                                                            <select class="form-control">
-                                                                <option value="kg">kg</option>
-                                                                <option value="lb">lb</option>
+                                                            <select class="form-control" name="inputTipoPeso">
+                                                                <option value="kg" {% if usuario.tipo_peso == 'kg' %} selected {% endif %}>kg</option>
+                                                                <option value="lb" {% if usuario.tipo_peso == 'lb' %} selected {% endif %}>lb</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -222,12 +223,12 @@
                                                     </label>
                                                     <div class="row">
                                                         <div class="col-8">
-                                                            <input type="text" value="{{usuario.altura|default:''}}" name="inputAltura" id="altura" class="form-control">
+                                                            <input type="number" value="{{usuario.altura|unlocalize}}" name="inputAltura" id="altura" class="form-control" required step=".01">
                                                         </div>
                                                         <div class="col-4">
-                                                            <select class="form-control">
-                                                                <option value="cm">cm</option>
-                                                                <option value="pulgadas">pulgadas</option>
+                                                            <select class="form-control" name="inputTipoAltura">
+                                                                <option value="cm" {% if usuario.tipo_altura == 'cm' %} selected {% endif %}>cm</option>
+                                                                <option value="pulgadas" {% if usuario.tipo_altura == 'pulgadas' %} selected {% endif %}>pulgadas</option>
                                                             </select>
                                                         </div>
                                                     </div>
