@@ -4,7 +4,6 @@
 {% include "sia_sports_agency/modal_confirm.html" %}
 {% include "sia_sports_agency/modal_email_respuesta.html" %}
 {% include "sia_sports_agency/modal_email_nuevo.html" %}
-<!-- Modal -->
 {% load static %}
 {% static "" as baseUrl %}
 
@@ -257,15 +256,21 @@
                                     <label for="cpresentacion">
                                         <h4>Carta de presentación</h4>
                                     </label>
+                                    <div class="enlace-cpresentacion" hidden>
+                                        <a href="{{ baseUrl }}{{usuario.cpresentacion}}" download>Descargar carta de presentación</a>
+                                    </div>
                                     <div class="custom-file" id="cpresentacion">
-                                        <input type="file" class="custom-file-input" id="customFileCarta" lang="es" hidden>
+                                        <input type="file" class="custom-file-input" id="customFileCarta" lang="es" name="inputCpresentacion" hidden>
                                         <label class="custom-file-label form-control" for="customFileCarta">Seleccionar Archivo</label>
                                     </div>
                                     <label for="curriculum">
-                                        <h4>Curriculum</h4>
+                                        <h4>Currículum</h4>
                                     </label>
+                                    <div class="enlace-curriculum" hidden>
+                                        <a href="{{ baseUrl }}{{usuario.curriculum}}" download>Descargar currículum</a>
+                                    </div>
                                     <div class="custom-file" id="curriculum">
-                                        <input type="file" class="custom-file-input" id="customFileCurriculum" lang="es" hidden>
+                                        <input type="file" class="custom-file-input" id="customFileCurriculum" name="inputCurriculum" lang="es" hidden>
                                         <label class="custom-file-label form-control" for="customFileCurriculum">Seleccionar Archivo</label>
                                     </div>
                                 </div>

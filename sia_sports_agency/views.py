@@ -11,10 +11,12 @@ import json
 import os
 import base64
 import shutil
+import logging
 
 """""""""""""""""""""""""""""""""""""""""""""
 PARTE PUBLICA
 """""""""""""""""""""""""""""""""""""""""""""
+logger = logging.getLogger(__name__)
 def global_contexto():
     lista_tipo_jugadores = Tipo_jugador.objects.all()
     lista_deportes = Deporte.objects.all()
@@ -46,8 +48,8 @@ def comprobar_email(email, password):
             email=email,
             activo=1
         )
-    except Usuario.DoesNotExist:
-        usuario = None
+    except Exception as e:
+        logger.error('Error al comprobar el email: ' + e.message)
     return usuario
 
 """ Comprueba existe el usuario en la sesión """
@@ -170,7 +172,9 @@ def get_diccionario(request, seccion):
             'interesadoen': request.POST.get('inputInteresadoen', ''),
             'extremidad': extremidad_dominante,
             'tipo_altura': request.POST.get('inputTipoAltura', ''),
-            'tipo_peso': request.POST.get('inputTipoPeso', '')
+            'tipo_peso': request.POST.get('inputTipoPeso', ''),
+            'carta_presentacion': request.FILES.get('inputCpresentacion', ''),
+            'curriculum': request.FILES.get('inputCurriculum', ''),
         }
     return diccionario
 
@@ -185,6 +189,16 @@ def set_posiciones(usuario, deporte, diccionario):
 """""""""""""""""""""""""""""""""""""""""""""
 PARTE PRIVADA
 """""""""""""""""""""""""""""""""""""""""""""
+""" Registro de un usuario """
+def registrar_usuario(request):
+    try:
+        actualizar_usuario(request, 'r')
+        dict={'exito':True}
+        return HttpResponseRedirect('/perfil/')
+    except:
+        dict={'exito':False}
+        return HttpResponse('Error al registrar')
+    return HttpResponseRedirect('/perfil/')
 
 """ Creación/Modificación de un usuario """
 def actualizar_usuario(request, seccion):
@@ -222,7 +236,6 @@ def actualizar_usuario(request, seccion):
                 settings.BASE_DIR, settings.BASE_DIR_CROMO, str(usuario.id)
             )
             eliminar_fichero(
-                usuario,
                 path,
                 "cromo-" + str(usuario.id) + ".png"
             );
@@ -237,21 +250,59 @@ def actualizar_usuario(request, seccion):
             usuario.interesadoen = diccionario.get('interesadoen')
             usuario.tipo_altura = diccionario.get('tipo_altura')
             usuario.tipo_peso = diccionario.get('tipo_peso')
+            guardar_curriculum(
+                diccionario.get('curriculum'),
+                usuario
+            )
+            guardar_cpresentacion(
+                diccionario.get('carta_presentacion'),
+                usuario
+            )
             usuario.save()
     except:
         return False
     return True
 
-""" Registro de un usuario """
-def registrar_usuario(request):
-    try:
-        actualizar_usuario(request, 'r')
-        dict={'exito':True}
-        return HttpResponseRedirect('/perfil/')
-    except:
-        dict={'exito':False}
-        return HttpResponse('Error al registrar')
-    return HttpResponseRedirect('/perfil/')
+""" Guarda el curriculum """
+def guardar_curriculum(curriculum, usuario):
+    filename = str(usuario.id) + '.pdf'
+    path = os.path.join(
+        settings.BASE_DIR,
+        settings.BASE_DIR_CURRICULUM,
+        str(usuario.id)
+    )
+    eliminar_fichero(path, filename)
+    if curriculum:
+        guardar_fichero(curriculum, path, filename)
+        usuario.curriculum = os.path.join(
+            'users',
+            'curriculums',
+            str(usuario.id),
+            filename
+        )
+    else:
+        usuario.curriculum = None
+
+""" Guarda la carta de presentacion """
+def guardar_cpresentacion(cpresentacion, usuario):
+    filename = str(usuario.id) + '.pdf'
+    path = os.path.join(
+        settings.BASE_DIR,
+        settings.BASE_DIR_CPRESENTACION,
+        str(usuario.id)
+    )
+    eliminar_fichero(path, filename)
+    if cpresentacion:
+        guardar_fichero(cpresentacion, path, filename)
+        usuario.cpresentacion = os.path.join(
+            'users',
+            'cartas-presentacion',
+            str(usuario.id),
+            filename
+        )
+    else:
+        usuario.cpresentacion = None
+
 
 """ Acceder a la pantalla de busqueda """
 def busqueda(request):
@@ -433,10 +484,8 @@ def insertar_video(request):
                 settings.BASE_DIR_VIDEO,
                 str(usuario.id)
             )
-            fs = FileSystemStorage(
-                location=path
-            )
-            filename = fs.save(video.name, video)
+            filename =  video.name
+            guardar_fichero(video, path, filename)
             url_video = os.path.join(
                 'users',
                 'videos-perfil',
@@ -528,13 +577,20 @@ def enviar_correo(request):
         return HttpResponseRedirect('/')
 
 """ Elimina el archivo indicado en el path"""
-def eliminar_fichero(usuario, path, subpath):
+def eliminar_fichero(path, subpath):
     nombre_fic = os.path.join(
         path,
         subpath
     )
     if os.path.isfile(nombre_fic):
         os.remove(nombre_fic)
+
+""" Guardar el archivo indicado en el path"""
+def guardar_fichero(data, path, nombre_fic):
+    fs = FileSystemStorage(
+        location=path
+    )
+    fs.save(nombre_fic, data)
 
 """ Guarda el cromo como imagen png """
 @csrf_exempt
@@ -547,19 +603,15 @@ def guardar_cromo(request):
                 settings.BASE_DIR, settings.BASE_DIR_CROMO, str(usuario.id)
             )
             eliminar_fichero(
-                usuario,
                 path,
                 "cromo-" + str(usuario.id) + ".png"
-            );
+            )
             data_img = request.POST.get("imgBase64")
             formato, imgstr = data_img.split(';base64,')
             ext = formato.split('/')[-1]
             data = ContentFile(base64.b64decode(imgstr))
             nombre_fic = "cromo-" + str(usuario.id) + "." + ext
-            fs = FileSystemStorage(
-                location=path
-            )
-            fs.save(nombre_fic, data)
+            guardar_fichero(data, path, nombre_fic)
             usuario.ruta_cromo = os.path.join(
                 'users',
                 'cromos',
@@ -636,17 +688,14 @@ def subir_img_cromo(request):
     if usuario:
         try:
             imagen = request.FILES.get('inputImgCromo')
+            filename = str(usuario.id) + ".png"
             path = os.path.join(
                 settings.BASE_DIR,
                 settings.BASE_DIR_IMG_PERFIL_DEF,
                 str(usuario.id)
             )
-            eliminar_fichero(usuario, path, str(usuario.id) + ".png");
-            fs = FileSystemStorage(
-                location=path
-            )
-            print('HOOOOOLAAAAAAAAAAAAAAAAAAAAA: ' + path)
-            filename = fs.save(str(usuario.id) + ".png", imagen)
+            eliminar_fichero(path, filename);
+            guardar_fichero(imagen, path, filename)
             url_imagen = os.path.join(
                 'users',
                 'img-perfil',

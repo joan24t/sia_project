@@ -386,11 +386,16 @@ var envioDatosEspecificos = function(){
     //Envio de de datos del formulario
     $('#form-datos-especificos').submit(function(e) {
         e.preventDefault();
+        var form = $('#form-datos-especificos')[0];
+        var data = new FormData(form);
         $.ajax({
-            url: '/modificar_usuario/de/',
-            type: 'POST',
-            dataType: 'json',
-            data: $(this).serialize(),
+            type: "POST",
+            enctype: 'multipart/form-data',
+            url: "/modificar_usuario/de/",
+            data: data,
+            processData: false,
+            contentType: false,
+            cache: false,
             success: function(data) {
                 //Notificación guardado
                 if(data.exito){
@@ -418,6 +423,9 @@ var envioDatosEspecificos = function(){
         $('.datosEspecificosForm :input').removeAttr('disabled');
         //Ocultamos el botón de editar y mostramos el botón de guardar
         $(this).attr('hidden', '');
+        $('.datosEspecificosForm .enlace-cpresentacion').attr('hidden', '');
+        $('.datosEspecificosForm .enlace-curriculum').attr('hidden', '');
+        $('.datosEspecificosForm .custom-file').removeAttr('hidden');
         $('.datosEspecificosForm .btn-guardar, .datosEspecificosForm .btn-cancelar').removeAttr('hidden');
     });
 
@@ -436,6 +444,9 @@ var envioDatosEspecificos = function(){
     var habilitarFormulario = function(e) {
         //Deshabilitamos todos los inputs y los select picker
         $('.datosEspecificosForm :input:not(.btn-editar)').attr('disabled', '');
+        $('.datosEspecificosForm .enlace-cpresentacion').removeAttr('hidden');
+        $('.datosEspecificosForm .enlace-curriculum').removeAttr('hidden');
+        $('.datosEspecificosForm .custom-file').attr('hidden', '');
         //Ocultamos el botón de guardar y mostramos el botón de editar
         $(".datosEspecificosForm .btn-cancelar, .datosEspecificosForm .btn-guardar").attr('hidden', '');
         $('.datosEspecificosForm .btn-editar').removeAttr('hidden');
