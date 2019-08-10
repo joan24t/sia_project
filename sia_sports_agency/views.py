@@ -645,6 +645,7 @@ def subir_img_cromo(request):
             fs = FileSystemStorage(
                 location=path
             )
+            print('HOOOOOLAAAAAAAAAAAAAAAAAAAAA: ' + path)
             filename = fs.save(str(usuario.id) + ".png", imagen)
             url_imagen = os.path.join(
                 'users',
