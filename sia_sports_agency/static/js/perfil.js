@@ -36,7 +36,7 @@ $(document).ready(function(){
     /*Abrir correo desde las notificaciones*/
     abrirDesdeNotificaciones();
     /*Cargar y descargar cromo*/
-    cargarCromo();
+    cargarCromo('todo');
     ocultarElemento($(".content-loader"));
     /*Disparar input de tipo file para la subida de la img del cromo*/
     triggerImgCromo();
@@ -98,6 +98,8 @@ var setAcceso = function(){
         }
     });
 }
+/* Se comprueba si no hay cromo o si se accede por primera vez para cargar
+el cromo */
 var primerAcceso = function(canvas){
     $.ajax({
         url: "/primer_acceso/",
@@ -121,9 +123,18 @@ var primerAcceso = function(canvas){
     });
     mostrarElemento($(".cromo-img"));
 }
-var cargarCromo = function() {
+var cargarCromo = function(datos) {
     if(window.location.pathname === "/perfil/"){
         var element = $(".cromo");
+        if (datos == 'rs'){
+            establecerRedesCromo();
+        }
+        else if ('db'){
+            establecerDatosCromo();
+        }else{
+            establecerRedesCromo();
+            establecerDatosCromo();
+        }
         var getCanvas;
         html2canvas(element, {
             width: 450,
@@ -322,6 +333,7 @@ var envioDatosBasicos = function(){
         e.preventDefault();
         $.ajax({
             url: '/modificar_usuario/db/',
+            async: false,
             type: 'POST',
             dataType: 'json',
             data: $(this).serialize(),
@@ -330,8 +342,7 @@ var envioDatosBasicos = function(){
                 if(data.exito){
                     $('.toast-success .content').text('Los datos han sido modificados correctamente.');
                     $('.toast-success').toast('show');
-                    $('.pepe').text($('#FormControlInputNombre').val());
-                    cargarCromo();
+                    cargarCromo('db');
                 }else{
                     $('.toast-error .content').text('Ha ocurrido un error en el proceso de guardado de los datos.');
                     $('.toast-error').toast('show');
@@ -381,7 +392,7 @@ var envioDatosBasicos = function(){
     }
 }
 
-
+/* Guarda datos específicos */
 var envioDatosEspecificos = function(){
     //Envio de de datos del formulario
     $('#form-datos-especificos').submit(function(e) {
@@ -462,6 +473,7 @@ var envioRedesSociales = function(){
         $.ajax({
             url: '/actualizar_redes/',
             type: 'POST',
+            async: false,
             dataType: 'json',
             data: $(this).serialize(),
             success: function(data) {
@@ -470,6 +482,7 @@ var envioRedesSociales = function(){
                     $('.toast-success .content').text('Los datos han sido modificados correctamente.');
                     $('.toast-success').toast('show');
                     refrescarRedes();
+                    cargarCromo('rs');
                 }else{
                     $('.toast-error .content').text('Ha ocurrido un error en el proceso de guardado de los datos.');
                     $('.toast-error').toast('show');

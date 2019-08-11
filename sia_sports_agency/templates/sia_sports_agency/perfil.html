@@ -104,10 +104,11 @@
                                             <option value="f" {% if usuario.genero == 'f' %} selected {% endif %}>Mujer</option>
                                         </select>
                                     </div>
-                                    <div class="grupoFechaNacimiento" <label for="datepicker">
-                                        <h4>F. Nacimiento</h4>
+                                    <div class="grupoFechaNacimiento" >
+                                        <label for="datepicker">
+                                            <h4>F. Nacimiento</h4>
                                         </label>
-                                        <input class="form-control" name="inputNacimiento" value={{ usuario.fnacimiento|date:'d/m/Y' }} id="datepicker" autocomplete="off">
+                                        <input class="form-control" name="inputNacimiento" value="{{ usuario.fnacimiento|date:'d/m/Y' }}" id="datepicker" autocomplete="off">
                                     </div>
                                     <label for="paisDropdown">
                                         <h4>País</h4>

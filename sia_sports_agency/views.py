@@ -112,30 +112,38 @@ def get_posiciones(request, cod):
 
 """ Cambia el formato de la fecha a YYYY-MM-DD """
 def change_format(fecha):
-    return fecha[6:] + "-" + fecha[3:5] + "-" + fecha[:2]
+    if fecha:
+        return fecha[6:] + "-" + fecha[3:5] + "-" + fecha[:2]
+    else:
+        return ""
 
 """ Consigue el diccionario a partir del request """
 def get_diccionario(request, seccion):
     diccionario = {}
     if seccion == 'r' or seccion == 'db':
-        deporte = Deporte.objects.get(
-            codigo=str(request.POST.get('inputDeporte', ''))
-        )
+        deporte = ''
+        if request.POST.get('inputDeporte', ''):
+            deporte = Deporte.objects.get(
+                codigo=str(request.POST.get('inputDeporte', ''))
+            )
         tipo_jugador = Tipo_jugador.objects.get(
             codigo=str(request.POST.get('inputTipoUsuario', ''))
         )
         pais = Pais.objects.get(
             codigo=str(request.POST.get('inputPais', ''))
         )
-        posiciones = (
-            Posicion.objects.get(codigo=str(
-                request.POST.get('inputPosicion', ''))
-            )
-            if not deporte.requiere_multiple
-            else Posicion.objects.filter(
-                codigo__in=request.POST.getlist('inputPosicionMulti', '')
-            )
-        )
+        posiciones = []
+        if deporte:
+            if not deporte.requiere_multiple:
+                if request.POST.get('inputPosicion', ''):
+                    posiciones = Posicion.objects.get(
+                        codigo=str(request.POST.get('inputPosicion'))
+                    )
+            else:
+                if request.POST.getlist('inputPosicionMulti', ''):
+                    posiciones = Posicion.objects.filter(
+                        codigo__in=request.POST.getlist('inputPosicionMulti', '')
+                    )
         diccionario =  {
             'nombre': request.POST.get('inputNombre', ''),
             'fnacimiento': change_format(
@@ -186,6 +194,9 @@ def set_posiciones(usuario, deporte, diccionario):
         diccionario.get('posiciones')
     )
 
+def eliminar_posiciones(usuario):
+    usuario.posiciones.through.objects.all().delete()
+
 """""""""""""""""""""""""""""""""""""""""""""
 PARTE PRIVADA
 """""""""""""""""""""""""""""""""""""""""""""
@@ -194,7 +205,6 @@ def registrar_usuario(request):
     try:
         actualizar_usuario(request, 'r')
         dict={'exito':True}
-        return HttpResponseRedirect('/perfil/')
     except:
         dict={'exito':False}
         return HttpResponse('Error al registrar')
@@ -206,14 +216,20 @@ def actualizar_usuario(request, seccion):
         diccionario = get_diccionario(request, seccion)
         email = request.session.get('email')
         usuario = Usuario.objects.get(email=email)
+        fnacimiento = None
+        deporte = None
         if seccion == 'r':
+            if diccionario.get('fnacimiento'):
+                fnacimiento = diccionario.get('fnacimiento')
+            if diccionario.get('deporte'):
+                deporte = diccionario.get('deporte').id
             usuario = Usuario.objects.create(
                 nombre=diccionario.get('nombre'),
                 fnacimiento=diccionario.get('fnacimiento'),
                 email=diccionario.get('email'),
                 genero=diccionario.get('genero'),
                 tipo_deporte=diccionario.get('tipo_deporte'),
-                deporte_id=diccionario.get('deporte').id,
+                deporte_id=deporte,
                 tipo_id=diccionario.get('tipo').id,
                 pais_id=diccionario.get('pais').id,
                 contrasena_1=diccionario.get('contrasena_1'),
@@ -222,15 +238,24 @@ def actualizar_usuario(request, seccion):
             set_posiciones(usuario, diccionario.get('deporte'), diccionario)
         elif seccion == 'db':
             usuario.nombre = diccionario.get('nombre')
-            usuario.fnacimiento = diccionario.get('fnacimiento')
+            if diccionario.get('fnacimiento'):
+                fnacimiento = diccionario.get('fnacimiento')
+            usuario.fnacimiento = fnacimiento
             usuario.email = diccionario.get('email')
             usuario.genero = diccionario.get('genero')
             usuario.tipo_deporte = diccionario.get('tipo_deporte')
-            usuario.deporte_id = diccionario.get('deporte').id
+            if diccionario.get('deporte'):
+                deporte = diccionario.get('deporte').id
+            usuario.deporte_id = deporte
             usuario.tipo_id = diccionario.get('tipo').id
             usuario.pais_id = diccionario.get('pais').id
             usuario.posiciones.clear()
-            set_posiciones(usuario, diccionario.get('deporte'), diccionario)
+            if diccionario.get('posiciones'):
+                set_posiciones(
+                    usuario, diccionario.get('deporte'), diccionario
+                )
+            else:
+                eliminar_posiciones(usuario)
             usuario.save()
             path = os.path.join(
                 settings.BASE_DIR, settings.BASE_DIR_CROMO, str(usuario.id)
@@ -238,7 +263,7 @@ def actualizar_usuario(request, seccion):
             eliminar_fichero(
                 path,
                 "cromo-" + str(usuario.id) + ".png"
-            );
+            )
         elif seccion == 'de':
             usuario.telefono = diccionario.get('telefono')
             usuario.ubicacion = diccionario.get('ubicacion')
@@ -389,16 +414,14 @@ def insertar_correos_contexto(contexto):
 """ Modificación de los datos de un usuario """
 @csrf_exempt
 def modificar_usuario(request, tipo):
-    usuario = get_usuario(request).get('usuario')
-    if usuario:
-        try:
+    try:
+        usuario = get_usuario(request).get('usuario')
+        if usuario:
             exito = actualizar_usuario(request, tipo)
             dict = {'exito': exito}
-        except:
-            dict = {'exito': False}
-        return HttpResponse(json.dumps(dict), content_type='application/json')
-    else:
-        return HttpResponse('Error al acceder')
+    except:
+        dict = {'exito': False}
+    return HttpResponse(json.dumps(dict), content_type='application/json')
 
 """ Actulización de las redes sociales de un usuario """
 @csrf_exempt
@@ -431,6 +454,15 @@ def actualizar_redes(request):
                     crear_red('Youtube', 'YT', url_youtube, usuario)
                 else:
                     eliminar_red('YT', usuario)
+                #Eliminar cromo
+                path = os.path.join(
+                    settings.BASE_DIR, settings.BASE_DIR_CROMO, str(usuario.id)
+                )
+                eliminar_fichero(
+                    path,
+                    "cromo-" + str(usuario.id) + ".png"
+                )
+                print('llegoooooooooooooooooooooooo')
                 dict = {'exito': True}
         except Exception as error:
             dict = {'exito': False}
@@ -597,7 +629,11 @@ def guardar_fichero(data, path, nombre_fic):
 def guardar_cromo(request):
     dict={'exito':False}
     try:
-        usuario = get_usuario(request).get('usuario')
+        email = request.session.get('email')
+        usuario = Usuario.objects.get(
+            email=email,
+            activo=1
+        )
         if usuario:
             path = os.path.join(
                 settings.BASE_DIR, settings.BASE_DIR_CROMO, str(usuario.id)

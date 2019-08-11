@@ -2,17 +2,98 @@
 {% static "" as baseCromo %}
 {% static "img/cromo/iconos_deporte/" as baseLogoDeporte %}
 {% static "flags/png/" as baseLogoPais %}
+<script>
+    /* Establecemos los nuevos valores */
+    var establecerDatosCromo = function(){
+        /*Cambiamos plantilla del cromo*/
+        var plantilla = $('#form-datos-basicos #queEresDropdown').val();
+        var cromoImgPlt = $('.cromo .img-plantilla');
+        if(plantilla == 'JG'){
+            cromoImgPlt.replaceWith("<img class='img-plantilla' src='{% static 'img/cromo/plantillas/plantilla_jugador.png' %}' />");
+        }
+        else if(plantilla == 'CL'){
+            cromoImgPlt.replaceWith("<img class='img-plantilla' src='{% static 'img/cromo/plantillas/plantilla_club.png' %}' />");
+        }
+        else{
+            cromoImgPlt.replaceWith("<img class='img-plantilla' src='{% static 'img/cromo/plantillas/plantilla_general.png' %}' />");
+        }
+
+        /*Cambiamos icono del deporte del cromo*/
+        var deporte = $('#form-datos-basicos #deporteInput').val();
+        var cromoImgDpte= $('.cromo .img-icono-deporte');
+        cromoImgDpte.replaceWith("<img class='img-icono-deporte' src='{{baseLogoDeporte}}" + deporte + ".png' />");
+
+        /*Cambiamos texto del cromo*/
+        var texto = $('#form-datos-basicos #FormControlInputNombre').val() + "<br/>"
+        if (deporte != ''){
+            var requierMultiple = getRequiereMultiple(deporte);
+            if (requierMultiple){
+                var texto = $('#form-datos-basicos #FormControlInputNombre').val() + "<br/>" + nombreMultipleDeporte();
+            }else{
+                var texto = $('#form-datos-basicos #FormControlInputNombre').val() + "<br/>" + $('#form-datos-basicos #posicionDropdown option:selected').text();
+            }
+        }
+        $('.cromo .texto-cromo').html('<p>' + texto + '</p>');
+
+        /*Cambiamos rol cromo*/
+        var tipo = $('#form-datos-basicos #queEresDropdown option:selected').text();
+        var cromoTextoTipo= $('.cromo .tipo-cromo .texto-tipo').text(tipo);
+
+        /*Cambiamos el pais*/
+        var pais = $('#form-datos-basicos #paisDropdown').val();
+        var cromoPais= $('.cromo .img-bandera');
+        var enlace = "{{baseLogoPais}}" + pais + ".png";
+        cromoPais.attr("src", enlace);
+    }
+
+    /* Establecemos los nuevos valores de las redes */
+    var establecerRedesCromo = function(){
+        ruta_yt = $("#form-redes-sociales .enlace-youtube").val();
+        ruta_ig = $("#form-redes-sociales .enlace-insta").val();
+        ruta_tt = $("#form-redes-sociales .enlace-twitter").val();
+        ruta_fb = $("#form-redes-sociales .enlace-facebook").val();
+        var html = "";
+        if (ruta_ig != ''){
+            html = html +
+            "<div class='icono-instagram col-10'>" +
+                "<img class='img-icono-instagram' src='{% static 'img/cromo/iconos_redes/icono_instagram.png' %}' />" +
+            "</div>";
+        }
+        if (ruta_tt != ''){
+            html = html + "<div class='icono-twitter col-10'>" +
+            "<img class='img-icono-twitter' src='{% static 'img/cromo/iconos_redes/icono_twitter.png' %}' />" +
+            "</div>";
+        }
+        if (ruta_fb != ''){
+            html = html + "<div class='icono-facebook col-10'>" +
+            "<img class='img-icono-facebook' src='{% static 'img/cromo/iconos_redes/icono_facebook.png' %}' />" +
+            "</div>";
+        }
+        if (ruta_yt != ''){
+            html = html + "<div class='icono-youtube col-10'>" +
+            "<img class='img-icono-youtube' src='{% static 'img/cromo/iconos_redes/icono_yt.png' %}' />" +
+            "</div>";
+        }
+        $('.cromo .icono-redes').html(html);
+    }
+</script>
 <div class="cromo">
     <div class="foto">
         <img class="img-foto" src="{{ baseCromo }}{{img_perfil}}" />
     </div>
     <div class="plantilla">
+        {% if usuario.tipo.codigo ==  'JG' %}
+        <img class="img-plantilla" src="{% static 'img/cromo/plantillas/plantilla_jugador.png' %}" />
+        {% elif usuario.tipo.codigo == 'CL' %}
         <img class="img-plantilla" src="{% static 'img/cromo/plantillas/plantilla_club.png' %}" />
+        {% else %}
+        <img class="img-plantilla" src="{% static 'img/cromo/plantillas/plantilla_general.png' %}" />
+        {% endif %}
     </div>
     <div class="icono-deporte">
         <img class="img-icono-deporte" src="{{baseLogoDeporte}}{{usuario.deporte.codigo}}.png" />
     </div>
-    <div class=" row icono-redes">
+    <div class="row icono-redes">
         {% if red_IG  %}
         <div class="icono-instagram col-10">
             <img class="img-icono-instagram" src="{% static 'img/cromo/iconos_redes/icono_instagram.png' %}" />
@@ -42,7 +123,7 @@
     </div>
     <div class="row tipo-cromo">
         <div style="width: 180px; text-align: center;">
-            <span>{{usuario.tipo.nombre}}</span>
+            <span class="texto-tipo">{{usuario.tipo.nombre}}</span>
         </div>
     </div>
     <div class="bandera-cromo">

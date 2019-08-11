@@ -73,6 +73,9 @@ var mostrarOcultarComb2 = function(){
         $('.grupoSexo')
     ];
     ocultarCampos(listaOcultar);
+    $('.grupoFechaNacimiento #datepicker').val('');
+    $('.divPositionsSimple #posicionDropdown').val('');
+    $('.divMultiplePositions #posicionDropdownMultiple').val('');
 };
 
 var mostrarOcultarComb3 = function(){
@@ -87,6 +90,8 @@ var mostrarOcultarComb3 = function(){
         $('.grupoPosiciones')
     ];
     ocultarCampos(listaOcultar);
+    $('.divPositionsSimple #posicionDropdown').val('');
+    $('.divMultiplePositions #posicionDropdownMultiple').val('');
 };
 
 var mostrarOcultarComb4 = function(){
@@ -101,6 +106,8 @@ var mostrarOcultarComb4 = function(){
         $('.grupoGeneroDeporte')
     ];
     ocultarCampos(listaOcultar);
+    $('.divPositionsSimple #posicionDropdown').val('');
+    $('.divMultiplePositions #posicionDropdownMultiple').val('');
 };
 
 var mostrarOcultarComb5 = function(){
@@ -115,6 +122,9 @@ var mostrarOcultarComb5 = function(){
         $('.grupoFechaNacimiento')
     ];
     ocultarCampos(listaOcultar);
+    $('.grupoFechaNacimiento #datepicker').val('');
+    $('.divPositionsSimple #posicionDropdown').val('');
+    $('.divMultiplePositions #posicionDropdownMultiple').val('');
 };
 
 var mostrarOcultarComb6 = function(){
@@ -128,6 +138,9 @@ var mostrarOcultarComb6 = function(){
         $('.grupoAQueJuegas')
     ];
     ocultarCampos(listaOcultar);
+    $('.divPositionsSimple #posicionDropdown').val('');
+    $('.divMultiplePositions #posicionDropdownMultiple').val('');
+    $('.grupoAQueJuegas #deporteInput').val('');
 };
 
 var ocultarMostrarCampos = function(tipoJugador){
