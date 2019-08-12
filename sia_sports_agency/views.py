@@ -210,6 +210,16 @@ def registrar_usuario(request):
         return HttpResponse('Error al registrar')
     return HttpResponseRedirect('/perfil/')
 
+""" Eliminamos el cromo para volverlo a reestablecer """
+def eliminar_cromo(usuario):
+    path = os.path.join(
+        settings.BASE_DIR, settings.BASE_DIR_CROMO, str(usuario.id)
+    )
+    eliminar_fichero(
+        path,
+        "cromo-" + str(usuario.id) + ".png"
+    )
+
 """ Creación/Modificación de un usuario """
 def actualizar_usuario(request, seccion):
     try:
@@ -257,13 +267,7 @@ def actualizar_usuario(request, seccion):
             else:
                 eliminar_posiciones(usuario)
             usuario.save()
-            path = os.path.join(
-                settings.BASE_DIR, settings.BASE_DIR_CROMO, str(usuario.id)
-            )
-            eliminar_fichero(
-                path,
-                "cromo-" + str(usuario.id) + ".png"
-            )
+            eliminar_cromo(usuario)
         elif seccion == 'de':
             usuario.telefono = diccionario.get('telefono')
             usuario.ubicacion = diccionario.get('ubicacion')
@@ -455,14 +459,7 @@ def actualizar_redes(request):
                 else:
                     eliminar_red('YT', usuario)
                 #Eliminar cromo
-                path = os.path.join(
-                    settings.BASE_DIR, settings.BASE_DIR_CROMO, str(usuario.id)
-                )
-                eliminar_fichero(
-                    path,
-                    "cromo-" + str(usuario.id) + ".png"
-                )
-                print('llegoooooooooooooooooooooooo')
+                eliminar_cromo(usuario)
                 dict = {'exito': True}
         except Exception as error:
             dict = {'exito': False}
@@ -635,12 +632,9 @@ def guardar_cromo(request):
             activo=1
         )
         if usuario:
+            eliminar_cromo(usuario)
             path = os.path.join(
                 settings.BASE_DIR, settings.BASE_DIR_CROMO, str(usuario.id)
-            )
-            eliminar_fichero(
-                path,
-                "cromo-" + str(usuario.id) + ".png"
             )
             data_img = request.POST.get("imgBase64")
             formato, imgstr = data_img.split(';base64,')
@@ -730,8 +724,9 @@ def subir_img_cromo(request):
                 settings.BASE_DIR_IMG_PERFIL_DEF,
                 str(usuario.id)
             )
-            eliminar_fichero(path, filename);
+            eliminar_fichero(path, filename)
             guardar_fichero(imagen, path, filename)
+            eliminar_cromo(usuario)
             url_imagen = os.path.join(
                 'users',
                 'img-perfil',

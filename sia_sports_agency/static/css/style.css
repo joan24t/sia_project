@@ -465,10 +465,12 @@ section{
 	opacity: 0.0;
 }
 .cromo-img{
+	width: 100%;
+}
+.div-cromo{
 	position: absolute;
 	left: 10px;
 	top: 100px;
-	width: 100%;
 }
 .cromo .plantilla{
 	position: absolute;

@@ -79,7 +79,7 @@
 </script>
 <div class="cromo">
     <div class="foto">
-        <img class="img-foto" src="{{ baseCromo }}{{img_perfil}}" />
+        <img class="img-foto" src="{{ baseCromo }}{{img_perfil}}" onerror="this.onerror=null; this.src='{{ baseCromo }}users/img-perfil/silueta_defecto.png'"/>
     </div>
     <div class="plantilla">
         {% if usuario.tipo.codigo ==  'JG' %}
@@ -135,7 +135,9 @@
     </div>
     <h4 class="texto-loader"> Cargando cromo... </h4>
 </div>
-<img class="cromo-img" src="{{ baseCromo }}{{ruta_cromo}}"/>
+<div class="div-cromo"/>
+    <img class="cromo-img" src="{{ baseCromo }}{{ruta_cromo}}"/>
+</div>
 <div class="col-12 menu-lateral">
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
@@ -148,5 +150,5 @@
 </div>
 <form action="subir_img_cromo/" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    <input type="file" onchange="form.submit()" class="custom-file-input" name="inputImgCromo" id="customFileImgCromo" lang="es" hidden>
+    <input type="file" onchange="form.submit(); ocultarElemento($('.div-cromo'));" class="custom-file-input" name="inputImgCromo" id="customFileImgCromo" lang="es" hidden>
 </form>

@@ -2,9 +2,8 @@
 $(document).ready(function(){
     /* Variables que indica la id del video seleccionado */
     var idVideoSeleccionado;
-    /* OCULTAMOS EL CROMO Y LANZAMOS EL SPINNER */
-    mostrarElemento($(".content-loader"));
-    ocultarElemento($(".cromo-img"));
+    /* Oculatmos la img del cromo */
+    ocultarElemento($('.div-cromo'));
 
     /* FUNCIONES PARA LOS DATOS BÁSICOS DEL PERFIL*/
     envioDatosBasicos();
@@ -37,7 +36,6 @@ $(document).ready(function(){
     abrirDesdeNotificaciones();
     /*Cargar y descargar cromo*/
     cargarCromo('todo');
-    ocultarElemento($(".content-loader"));
     /*Disparar input de tipo file para la subida de la img del cromo*/
     triggerImgCromo();
     /* Funcion que pone ivisible los toats cuando se ocultan*/
@@ -116,12 +114,12 @@ var primerAcceso = function(canvas){
                 $('.toast-error .content').text('Error en la carga del cromo.');
                 $('.toast-error').toast('show');
             }
+            mostrarElemento($('.div-cromo'));
         },error: function(data){
             $('.toast-error .content').text('Error en la carga del cromo.');
             $('.toast-error').toast('show');
         }
     });
-    mostrarElemento($(".cromo-img"));
 }
 var cargarCromo = function(datos) {
     if(window.location.pathname === "/perfil/"){
@@ -129,10 +127,7 @@ var cargarCromo = function(datos) {
         if (datos == 'rs'){
             establecerRedesCromo();
         }
-        else if ('db'){
-            establecerDatosCromo();
-        }else{
-            establecerRedesCromo();
+        else if (datos == 'db'){
             establecerDatosCromo();
         }
         var getCanvas;
@@ -330,6 +325,7 @@ var ocultaAddVideo = function(){
 var envioDatosBasicos = function(){
     //Envio de de datos del formulario
     $('#form-datos-basicos').submit(function(e) {
+        ocultarElemento($('.div-cromo'));
         e.preventDefault();
         $.ajax({
             url: '/modificar_usuario/db/',
@@ -469,6 +465,7 @@ var envioRedesSociales = function(){
 
     //Envio de de datos del formulario
     $('#form-redes-sociales').submit(function(e) {
+        ocultarElemento($('.div-cromo'));
         e.preventDefault();
         $.ajax({
             url: '/actualizar_redes/',
