@@ -849,7 +849,7 @@ section{
 }
 .panel-email .mensaje-no-leido{
 	font-weight: bold;
-	color:  #ffdca0 !important;
+	background-color:   #232222 !important;
 }
 .panel-email .enviar-msj{
 	position:relative;
@@ -878,6 +878,80 @@ section{
 }
 #mensajes .active{
 	background-color: #1c1c1c;
+}
+.panel-email .columna-botones > div{
+	min-width: 220px;
+}
+.panel-email .dataTables_filter{
+	width: 80%;
+	display: inline-block;
+	font-family: Arial;
+	font-size: 20px;
+}
+.panel-email .dataTables_info{
+	width: 20%;
+	display: inline-block;
+	font-family: Arial;
+	font-size: 20px;
+}
+.panel-email .dataTables_length{
+	width: 20%;
+	display: inline-block;
+	font-family: Arial;
+	font-size: 20px;
+}
+.panel-email .dataTables_paginate{
+	width: 80%;
+	display: inline-block;
+	font-family: Arial;
+	font-size: 20px;
+}
+.panel-email .dataTables_filter input{
+	width: 600px;
+}
+.panel-email .dataTables_length select,
+.panel-email .dataTables_filter input{
+	border-radius: 4px;
+	background-color: #373634;
+	margin: 0px 10px 0px 10px;
+	color: white;
+	border: 2px solid #7F7F7F;
+}
+.panel-email .paginate_button{
+	box-sizing:border-box;
+	display:inline-block;
+	min-width:1.5em;
+	padding:0.5em 1em;
+	margin-left:2px;
+	text-align:center;
+	text-decoration:none !important;
+	cursor:pointer;
+	*cursor:hand;
+	color:white !important;
+	border:1px solid transparent;border-radius:2px;
+	border-radius: 4px;
+}
+.panel-email .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.panel-email .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
+	color: white !important;
+	border:1px solid  #9A8056;
+	background-color: #9A8056;
+	font-family: Arial;
+}
+
+.panel-email .dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
+.panel-email .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover,
+.panel-email .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active{
+	cursor:default;
+	color:#666 !important;
+	border:1px solid transparent;
+	background:transparent;box-shadow:none
+}
+
+.panel-email .dataTables_wrapper .dataTables_paginate .paginate_button:hover{
+	color:white !important;
+	border:1px solid #6a645e;
+	background-color: #6a645e;
 }
 /*
 ****************************************************************************************************

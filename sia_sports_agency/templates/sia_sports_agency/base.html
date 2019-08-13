@@ -52,12 +52,12 @@
         <!-- LINK FONTS -->
          <link href="http://allfont.es/allfont.css?fonts=good-times" rel="stylesheet" type="text/css" />
 
-         <!-- CROPPIE -->
-         <link rel="stylesheet" href="{% static 'css/croppie.css' %}" />
-         <script src="{% static 'js/croppie.js' %}"></script>
+         <!-- DATATABLE -->
+         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
 
         <script>
             $(document).ready(function(){
+                $('.tabla-correos').DataTable();
                 $('.toast').toast({delay: 3000});
                 $('.selectpicker').selectpicker({
                     'selectedText': 'cat'
