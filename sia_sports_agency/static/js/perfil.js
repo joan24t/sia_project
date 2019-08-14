@@ -36,6 +36,8 @@ $(document).ready(function(){
     abrirDesdeNotificaciones();
     /*Cargar y descargar cromo*/
     cargarCromo('todo');
+    /* Comprueba el tamaño del vídeo */
+    triggerSubidaVideo();
     /*Disparar input de tipo file para la subida de la img del cromo*/
     triggerImgCromo();
     /* Funcion que pone ivisible los toats cuando se ocultan*/
@@ -53,6 +55,19 @@ $(document).ready(function(){
         $(".modal-email .cuerpo-nuevo").val('');
     });
 });
+var triggerSubidaVideo = function(){
+    $('#form-subida-video').submit(function(e) {
+        var isOk = true;
+        var maxSize = 50;
+        var size = $('#form-subida-video #customFileVideo')[0].files[0].size / 1024 /1024;
+        isOk = maxSize > size;
+        if (!isOk){
+            $('.toast-error .content').text('El archivo no puede superar los 50 MB.');
+            $('.toast-error').toast('show');
+        }
+        return isOk;
+    });
+}
 var triggerImgCromo = function(){
     $(".cambiar-img-cromo").on("click", function() {
         $("#customFileImgCromo").click();
