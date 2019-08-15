@@ -12,7 +12,8 @@
                     <h4>Qué buscas</h4>
                 </div>
                 <div class="col-8">
-                    <select class="form-control">
+                    <select class="form-control busqueda-tipo">
+                            <option value="">Elige tipo de jugador</option>
                         {% for tipo in tipo_jugadores %}
                             <option value="{{tipo.codigo|default:''}}">{{tipo.nombre}}</option>
                         {% endfor %}
@@ -24,7 +25,7 @@
                     <h4>Nombre</h4>
                 </div>
                 <div class="col-8">
-                    <input class="form-control" type="text">
+                    <input class="form-control busqueda-nombre" type="text">
                 </div>
             </div>
             <div class="row">
@@ -32,7 +33,8 @@
                     <h4>Deporte</h4>
                 </div>
                 <div class="col-8">
-                    <select class="form-control">
+                    <select class="form-control busqueda-deporte">
+                        <option value="">Elige deporte</option>
                         {% for deporte in deportes %}
                         <option value="{{deporte.codigo|default:''}}" {% if deporte.codigo == usuario.deporte.codigo %} selected {% endif %}>{{deporte.nombre}}</option>
                         {% endfor %}
@@ -44,7 +46,7 @@
                     <h4>Posición</h4>
                 </div>
                 <div class="col-8">
-                    <select class="form-control selectpicker" name="inputPosicionMulti" id="posicionDropdownMultiple" multiple data-live-search="true" hidden>
+                    <select class="form-control selectpicker busqueda-posicion" name="inputPosicionMulti" id="posicionDropdownMultiple" multiple data-live-search="true" hidden>
                     </select>
                 </div>
             </div>
@@ -55,9 +57,10 @@
                     <h4>Género</h4>
                 </div>
                 <div class="col-8">
-                    <select class="form-control">
-                        <option value="m" {% if usuario.tipo_deporte == 'm' %} selected {% endif %}>Masculino</option>
-                        <option value="f" {% if usuario.tipo_deporte == 'f' %} selected {% endif %}>Femenino</option>
+                    <select class="form-control busqueda-genero">
+                        <option value="">Selecciona género del deporte</option>
+                        <option value="m">Masculino</option>
+                        <option value="f">Femenino</option>
                     </select>
                 </div>
             </div>
@@ -66,7 +69,8 @@
                     <h4>País</h4>
                 </div>
                 <div class="col-8">
-                    <select class="form-control selectpicker" data-live-search="true" hidden>
+                    <select class="form-control selectpicker busqueda-pais" data-live-search="true" hidden>
+                        <option value="">Seleccione país</option>
                         {% for pais in paises %}
                         <option value="{{pais.codigo|default:''}}" data-content="<span class='flag-icon flag-icon-{{pais.codigo|lower}}'></span>&ensp;&ensp;{{pais.nombre}}"></option>
                         {% endfor %}
@@ -81,7 +85,7 @@
                     <h5 style="margin-top: 4px;">Desde</h5>
                 </div>
                 <div class="col-2">
-                    <select class="form-control">
+                    <select class="form-control busqueda-edad">
                         {% for r in rango_edad %}
                             <option value="{{r}}">{{r}}</option>
                         {% endfor %}
@@ -91,7 +95,7 @@
                     <h5 style="margin-top: 4px;">hasta</h5>
                 </div>
                 <div class="col-2">
-                    <select class="form-control">
+                    <select class="form-control busqueda-edad">
                         {% for r in rango_edad %}
                             <option value="{{r}}">{{r}}</option>
                         {% endfor %}
@@ -103,7 +107,7 @@
                     <h4>Equipo actual</h4>
                 </div>
                 <div class="col-8">
-                    <input class="form-control" type="text">
+                    <input class="form-control busqueda-eactual" type="text">
                 </div>
             </div>
             <div class="row botones">
@@ -111,7 +115,7 @@
                     <button class="form-control"><i class="fas fa-search"></i> Buscar</button>
                 </div>
                 <div class="col-6">
-                    <button class="form-control"><i class="fas fa-eraser"></i> Limpiar</button>
+                    <button class="form-control" onclick="limpiarFiltros()"><i class="fas fa-eraser"></i> Limpiar</button>
                 </div>
             </div>
         </div>

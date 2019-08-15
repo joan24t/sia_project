@@ -55,6 +55,20 @@ $(document).ready(function(){
         $(".modal-email .cuerpo-nuevo").val('');
     });
 });
+
+/* Limpiar filtros de la búsqueda */
+var limpiarFiltros = function(){
+    $(".busqueda .busqueda-tipo").val("");
+    $(".busqueda .busqueda-nombre").val("");
+    $(".busqueda .busqueda-deporte").val("");
+    $(".busqueda .busqueda-genero").val("");
+    $(".busqueda .busqueda-pais .filter-option-inner-inner").text("Seleccione un país");
+    $(".busqueda .busqueda-posicion .filter-option-inner-inner").text("Selecciona posiciones");
+    $(".busqueda .busqueda-edad").val("14");
+    $(".busqueda .busqueda-eactual").val("");
+}
+
+/* Submit del de la subida del video */
 var triggerSubidaVideo = function(){
     $('#form-subida-video').submit(function(e) {
         var isOk = true;
@@ -68,6 +82,8 @@ var triggerSubidaVideo = function(){
         return isOk;
     });
 }
+
+/* Abrir modal subida img cromo */
 var triggerImgCromo = function(){
     $(".cambiar-img-cromo").on("click", function() {
         $("#customFileImgCromo").click();
