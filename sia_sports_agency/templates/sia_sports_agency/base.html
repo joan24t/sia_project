@@ -57,7 +57,9 @@
 
         <script>
             $(document).ready(function(){
-                $('.tabla-correos').DataTable();
+                $('.tabla-correos').DataTable({
+                    "order": [[ 2, "asc" ]]
+                });
                 $('.toast').toast({delay: 3000});
                 $('.selectpicker').selectpicker({
                     'selectedText': 'cat'

@@ -30,7 +30,7 @@
                                 </li>
                                 <hr class="hr-msg" style="margin-top: 40px;"/>
                                 {% for correo in correos_nuevos %}
-                                <li class="lista-msg-info">
+                                <li id="mensajes-info-{{correo.id}}" class="lista-msg-info">
                                     <a class="lista-msg" data-toggle="modal" data-target="#emailModalCenter" id="{{correo.id}}">
                                         <div class="msg-body">
                                             <p class="msg-heading"><strong>{{correo.remitente.nombre}}</strong><small> - {{correo.fecha|date:'d/m/Y H:i'}}</small></p>
@@ -38,7 +38,7 @@
                                         </div>
                                     </a>
                                 </li>
-                                <hr class="hr-msg"/>
+                                <hr id="hr-msg-{{correo.id}}" class="hr-msg"/>
                                 {% endfor %}
                             </ul>
                         </li>
@@ -433,7 +433,7 @@
                         </thead>
                         <tbody>
                             {% for correo in bandeja %}
-                            <tr {% if correo.leido == 0 %} class="mensaje-no-leido" {% endif %}>
+                            <tr id="correo-{{correo.id}}" {% if correo.leido == 0 %} class="mensaje-no-leido" {% endif %}>
                                 <td>{{correo.remitente.email}}</td>
                                 <td>{{correo.asunto}}</td>
                                 <td>{{correo.fecha|date:'d/m/Y H:i' }}</td>
@@ -476,7 +476,7 @@
                         </thead>
                         <tbody>
                             {% for correo in correos_enviados %}
-                            <tr {% if correo.leido == 0 %} class="mensaje-no-leido" {% endif %}>
+                            <tr class="fila-correo {% if correo.leido == 0 %} 'mensaje-no-leido' {% endif %}">
                                 <td>{{correo.remitente.email}}</td>
                                 <td>{{correo.asunto}}</td>
                                 <td>{{correo.fecha|date:'d/m/Y H:i' }}</td>

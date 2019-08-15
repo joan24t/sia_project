@@ -398,6 +398,10 @@ section{
 	background-color: #2A2A2A;
 	color: white;
 	min-width: 400px;
+    max-height: 300px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	scroll-behavior: smooth;
 }
 .msg-link, .lista-msg{
 	text-decoration: none;
@@ -424,6 +428,7 @@ section{
 }
 .lista-msg-info:hover{
 	background-color:  #181d20;
+	cursor: pointer;
 }
 .hr-msg{
 	background-color: white !important;
@@ -849,7 +854,7 @@ section{
 }
 .panel-email .mensaje-no-leido{
 	font-weight: bold;
-	background-color:   #232222 !important;
+	background-color: #171717 !important;
 }
 .panel-email .enviar-msj{
 	position:relative;
@@ -873,9 +878,6 @@ section{
 	white-space: nowrap;
 }
 
-#mensajes .active{
-	background-color: #1c1c1c;
-}
 #mensajes .active{
 	background-color: #1c1c1c;
 }

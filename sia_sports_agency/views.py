@@ -408,7 +408,7 @@ def insertar_correos_contexto(contexto):
     correos_nuevos = Mensaje.objects.filter(
         destinatario_id = usuario.id,
         leido=0
-    )
+    ).order_by('-fecha')
     contexto.update({
         'bandeja': lista_bandeja,
         'correos_enviados': lista_correos_env,
@@ -552,6 +552,8 @@ def get_mensaje(request, id):
     dict = {}
     if usuario:
         mensaje = Mensaje.objects.get(id=id)
+        mensaje.leido = 1
+        mensaje.save()
         dict = {
             'remitente': mensaje.remitente.email,
             'remitente_nombre': mensaje.remitente.nombre,

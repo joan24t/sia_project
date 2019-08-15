@@ -303,8 +303,25 @@ var verCorreo = function(id){
           );
           $(".modal-email .asunto-res").val(data.asunto);
           $(".modal-email .cuerpo-res").val(data.mensaje);
+          actualizarContadorCorreos(id);
       }
     });
+};
+
+/* Actualiza el contador de los mensajes*/
+var actualizarContadorCorreos = function(id){
+    var selectorCorreo = "#correo-" + id;
+    $(selectorCorreo).removeClass("mensaje-no-leido");
+    var cadena = $('.btn-bandeja-entrada a').text();
+    var ini = cadena.indexOf('(') + 1;
+    var fin = cadena.indexOf(')');
+    var contador = parseInt(cadena.substring(ini, fin));
+    contador--;
+    $('.btn-bandeja-entrada a').text('Bandeja de entrada (' + contador + ')');
+    $('.badge-messages').text(contador);
+    $('#mensajes-info-' + id).remove();
+    $('#hr-msg-' + id).remove();
+    $('.header-msg-info span').html("Tiene <strong>" + contador + "</strong> mensajes nuevos.");
 };
 
 var peticionDatosMensaje = function(){
