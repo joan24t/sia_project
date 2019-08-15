@@ -715,6 +715,7 @@ def set_acceso(request):
         return HttpResponse(json.dumps(dict), content_type='application/json')
 
 """ Añade la nueva foto del fromo """
+@csrf_exempt
 def subir_img_cromo(request):
     usuario = get_usuario(request).get('usuario')
     if usuario:

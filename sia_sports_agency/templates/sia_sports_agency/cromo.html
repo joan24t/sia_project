@@ -148,7 +148,7 @@
     </div>
     <!-- /#sidebar-wrapper -->
 </div>
-<form action="subir_img_cromo/" method="POST" enctype="multipart/form-data">
+<form action="subir_img_cromo/" method="POST" enctype="multipart/form-data" id="form-subida-img">
     {% csrf_token %}
-    <input type="file" onchange="form.submit(); ocultarElemento($('.div-cromo'));" class="custom-file-input" name="inputImgCromo" id="customFileImgCromo" lang="es" hidden>
+    <input type="file" onchange="enviarImgCromo();" class="custom-file-input" name="inputImgCromo" id="customFileImgCromo" lang="es" hidden>
 </form>

@@ -73,6 +73,28 @@ var triggerImgCromo = function(){
         $("#customFileImgCromo").click();
     });
 }
+var enviarImgCromo = function(){
+    var form = $('#form-subida-img')[0];
+    var data = new FormData(form);
+    $.ajax({
+        url: "/subir_img_cromo/",
+        enctype: 'multipart/form-data',
+        async: false,
+        data: data,
+        processData: false,
+        contentType: false,
+        cache: false,
+        type: 'POST',
+        success: function(data) {
+            location.reload();
+        },
+        error: function(data){
+            $('.toast-error .content').text('Error en la subida de la imagen. Intente de nuevo');
+            $('.toast-error').toast('show');
+            mostrarElemento($('.div-cromo'));
+        }
+    });
+}
 var refrescarCromo = function(){
     ruta = $(".cromo-img").attr("src");
     $(".cromo-img").attr("src", ruta);
