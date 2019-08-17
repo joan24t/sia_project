@@ -104,7 +104,7 @@ var enviarImgCromo = function(){
         cache: false,
         type: 'POST',
         success: function(data) {
-            location.reload();
+            location.reload(true);
         },
         error: function(data){
             $('.toast-error .content').text('Error en la subida de la imagen. Intente de nuevo');
@@ -449,6 +449,7 @@ var envioDatosBasicos = function(){
     $(document).on("click", ".datosBasicosForm .btn-cancelar", function (e) {
         e.preventDefault();
         habilitarFormulario(e);
+        location.reload(true);
     });
 
     var habilitarFormulario = function(e) {
@@ -518,6 +519,7 @@ var envioDatosEspecificos = function(){
     $(document).on("click", ".datosEspecificosForm .btn-cancelar", function (e) {
         e.preventDefault();
         habilitarFormulario(e);
+        location.reload(true);
     });
 
     var habilitarFormulario = function(e) {
@@ -596,6 +598,7 @@ var envioRedesSociales = function(){
     $(document).on("click", ".datosRedesForm .btn-cancelar", function (e) {
         e.preventDefault();
         habilitarFormulario(e);
+        location.reload(true);
     });
 
     var habilitarFormulario = function(e) {

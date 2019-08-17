@@ -552,7 +552,15 @@ def eliminar_video(request):
     usuario = get_usuario(request).get('usuario')
     if usuario:
         id = request.POST.get("idVideo")
-        Video.objects.get(id=id).delete()
+        video = Video.objects.get(id=id)
+        path = os.path.join(
+            settings.BASE_DIR,
+            'sia_sports_agency',
+            'static',
+            video.path
+        )
+        eliminar_fichero(path, '')
+        video.delete()
         return HttpResponseRedirect('/perfil/')
     else:
         return HttpResponseRedirect('/')
@@ -620,10 +628,9 @@ def enviar_correo(request):
 
 """ Elimina el archivo indicado en el path"""
 def eliminar_fichero(path, subpath):
-    nombre_fic = os.path.join(
-        path,
-        subpath
-    )
+    nombre_fic = os.path.join(path)
+    if subpath:
+        nombre_fic = os.path.join(path, subpath)
     if os.path.isfile(nombre_fic):
         os.remove(nombre_fic)
 
@@ -765,6 +772,7 @@ def busqueda_cromo(request):
             efin = int(request.POST.get('busquedaEdadFin'))
             lista_usuarios = Usuario.objects.filter(
                 primer_acceso=0,
+                activo=1,
                 id__in = get_usuario_por_edad(eini, efin)
             )
             nombre = request.POST.get('busquedaNombre', '')
