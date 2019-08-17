@@ -38,6 +38,8 @@ $(document).ready(function(){
     cargarCromo('todo');
     /* Comprueba el tamaño del vídeo */
     triggerSubidaVideo();
+    /* Dispara el la búsqueda de los cromos */
+    consultaCromos(true);
     /*Disparar input de tipo file para la subida de la img del cromo*/
     triggerImgCromo();
     /* Funcion que pone ivisible los toats cuando se ocultan*/

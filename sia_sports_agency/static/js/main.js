@@ -25,15 +25,21 @@ var cargarDatosDinamicos = function(){
     Si se trata de fútbol americano, se muestra el dropdown múltiple.*/
     $('#aQueJuegasDropdown, #deporteInput').change(function () {
         var cod = $(this).val();
-        establecerPosiciones(cod, 0);
+        establecerPosiciones(cod, 0, false);
+    });
+    $('.busqueda .busqueda-deporte').change(function () {
+        var cod = $(this).val();
+        establecerPosiciones(cod, 0, true);
     });
     /*Si accedemos al perfil, establecemos en el input del deporte las posiciones (llamado deporteInput).
     Si se trata de la página principal, realizamos lo mismo pero en el input aQueJuegasDropdown*/
     if(window.location.pathname === "/perfil/"){
-        establecerPosiciones($('#deporteInput').val(), 1);
+        establecerPosiciones($('#deporteInput').val(), 1, false);
         ocultarMostrarCampos(tipoJugador);
+    }else if(window.location.pathname === "/busqueda/"){
+        establecerPosiciones($('#busqueda-deporte').val(), 0, true);
     }else{
-        establecerPosiciones($('#aQueJuegasDropdown').val(), 0);
+        establecerPosiciones($('#aQueJuegasDropdown').val(), 0, false);
         ocultarMostrarCampos(tipoJugador);
     }
 }
@@ -201,22 +207,36 @@ var cargarNombreUpload = function(){
     });
 }
 
-/*** Establece los valores en el dropdaown de las posiciones según el deporte seleccionado ***/
-var establecerPosiciones = function(cod, edit){
-    $.ajax({
-        type: "GET",
-        url: "/get_posiciones/"+ cod + "?edit=" + edit,
-        success: function (data) {
-            if (data.multiple){
-                $('.divPositionsSimple').attr('hidden', '');
-                $('.divMultiplePositions').removeAttr('hidden');
-                $("#posicionDropdownMultiple").html(data.lista_posiciones);
-                $('.selectpicker').selectpicker('refresh');
-            }else{
-                $('.divMultiplePositions').attr('hidden', '');
-                $('.divPositionsSimple').removeAttr('hidden', '');
-                $("#posicionDropdown").html(data.lista_posiciones);
+/***
+    Establece los valores en el dropdaown de las posiciones según el deporte seleccionado
+    Parámetros: cod: Código del deporte seleccionado, edit: Indica si se trata de la edición del usuario,
+    pues entonces marcará como seleccionados los que ya tenía otorgados en el momento de recuperación de los datos,
+    esBusqueda: En la pantalla de búsqueda, el campos de posiciones siempre será de tipo múltiple. Por lo tanto,
+    no tan solo hay que recuperar las posiciones.
+***/
+var establecerPosiciones = function(cod, edit, esBusqueda){
+    if (cod != null && cod != ''){
+        $.ajax({
+            type: "GET",
+            url: "/get_posiciones/"+ cod + "?edit=" + edit,
+            success: function (data) {
+                if (esBusqueda){
+                    $("#posicionDropdownMultiple").html(data.lista_posiciones);
+                    $('.selectpicker').selectpicker('refresh');
+                }
+                else{
+                    if (data.multiple){
+                        $('.divPositionsSimple').attr('hidden', '');
+                        $('.divMultiplePositions').removeAttr('hidden');
+                        $("#posicionDropdownMultiple").html(data.lista_posiciones);
+                        $('.selectpicker').selectpicker('refresh');
+                    }else{
+                        $('.divMultiplePositions').attr('hidden', '');
+                        $('.divPositionsSimple').removeAttr('hidden', '');
+                        $("#posicionDropdown").html(data.lista_posiciones);
+                    }
+                }
             }
-        }
-    });
+        });
+    }
 }

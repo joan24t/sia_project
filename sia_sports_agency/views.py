@@ -7,6 +7,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.core.files.storage import FileSystemStorage
 from django.conf import settings
 from django.core.files.base import ContentFile
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from datetime import date
 import json
 import os
 import base64
@@ -44,12 +46,12 @@ def index(request):
 """ Comprueba si el email existe en base de datos """
 def comprobar_email(email, password):
     try:
-        usuario = Usuario.objects.get(
+        usuario = Usuario.objects.filter(
             email=email,
             activo=1
-        )
+        ).first()
     except Exception as e:
-        logger.error('Error al comprobar el email: ' + e.message)
+        logger.error('Error al comprobar el email: ' + e)
     return usuario
 
 """ Comprueba existe el usuario en la sesión """
@@ -235,7 +237,7 @@ def actualizar_usuario(request, seccion):
                 deporte = diccionario.get('deporte').id
             usuario = Usuario.objects.create(
                 nombre=diccionario.get('nombre'),
-                fnacimiento=diccionario.get('fnacimiento'),
+                fnacimiento=fnacimiento,
                 email=diccionario.get('email'),
                 genero=diccionario.get('genero'),
                 tipo_deporte=diccionario.get('tipo_deporte'),
@@ -245,7 +247,15 @@ def actualizar_usuario(request, seccion):
                 contrasena_1=diccionario.get('contrasena_1'),
                 contrasena_2=diccionario.get('contrasena_2')
             )
-            set_posiciones(usuario, diccionario.get('deporte'), diccionario)
+            usuario.ruta_cromo = os.path.join(
+                'users',
+                'cromos',
+                str(usuario.id),
+                'cromo-' + str(usuario.id) + '.png'
+            )
+            usuario.save()
+            if diccionario.get('posiciones'):
+                set_posiciones(usuario, diccionario.get('deporte'), diccionario)
         elif seccion == 'db':
             usuario.nombre = diccionario.get('nombre')
             if diccionario.get('fnacimiento'):
@@ -289,6 +299,7 @@ def actualizar_usuario(request, seccion):
             )
             usuario.save()
     except:
+        logger.error('Error al crear usuario: ' + e)
         return False
     return True
 
@@ -743,3 +754,102 @@ def subir_img_cromo(request):
             return HttpResponse('Error en la subida de la imagen del cromo')
     else:
         return HttpResponseRedirect('/')
+
+""" Busqueda de cromos """
+@csrf_exempt
+def busqueda_cromo(request):
+    usuario = get_usuario(request).get('usuario')
+    if usuario:
+        try:
+            eini = int(request.POST.get('busquedaEdadIni'))
+            efin = int(request.POST.get('busquedaEdadFin'))
+            lista_usuarios = Usuario.objects.filter(
+                primer_acceso=0,
+                id__in = get_usuario_por_edad(eini, efin)
+            )
+            nombre = request.POST.get('busquedaNombre', '')
+            posiciones = Posicion.objects.filter(
+                codigo__in=request.POST.getlist('busquedaPosicionMulti', '')
+            )
+            deporte = Deporte.objects.filter(
+                codigo=request.POST.get('busquedaDeporte', '')
+            ).first()
+            genero_deporte = request.POST.get('busquedaGenero', '')
+            pais = Pais.objects.filter(
+                codigo=request.POST.get('busquedaPais', '')
+            ).first()
+            eactual = request.POST.get('busquedaEActual', '')
+            tipo_jugador = Tipo_jugador.objects.filter(
+                codigo=request.POST.get('busquedaTipoUsuario', '')
+            ).first()
+            if tipo_jugador:
+                lista_usuarios = lista_usuarios.filter(
+                    tipo=tipo_jugador
+                )
+            if nombre:
+                lista_usuarios = lista_usuarios.filter(
+                    nombre__contains=nombre
+                )
+            if posiciones:
+                lista_usuarios = lista_usuarios.filter(
+                    posiciones__in=posiciones
+                )
+            if deporte:
+                lista_usuarios = lista_usuarios.filter(
+                    deporte=deporte
+                )
+            if genero_deporte:
+                lista_usuarios = lista_usuarios.filter(
+                    tipo_deporte=genero_deporte
+                )
+            if pais:
+                lista_usuarios = lista_usuarios.filter(
+                    pais=pais
+                )
+            if eactual:
+                lista_usuarios = lista_usuarios.filter(
+                    eactual__contains=nombre
+                )
+            pagina = request.POST.get('busquedaPagina', '1')
+            lista_usuarios = lista_usuarios.order_by('-nombre')
+            lista_usuarios = paginar_resultados(lista_usuarios, pagina)
+            total_registros = len(lista_usuarios)
+            dict = {
+                'lista_usuarios': [u.ruta_cromo for u in lista_usuarios],
+                'total_registros': total_registros
+            }
+            return HttpResponse(json.dumps(dict), content_type='application/json')
+        except Exception as e:
+            return HttpResponse(e)
+    else:
+        return HttpResponseRedirect('/')
+
+""" Pagina los resultados """
+def paginar_resultados(lista_usuarios, pagina):
+    paginator = Paginator(lista_usuarios, 9)
+    try:
+        return paginator.page(pagina)
+    except PageNotAnInteger:
+        return paginator.page(1)
+    except EmptyPage:
+        return paginator.page(paginator.num_pages)
+
+""" Devuleve los usuarios cuya edad esté entre en el rango de valores dado """
+def get_usuario_por_edad(inicio, fin):
+    usuarios = Usuario.objects.all()
+    lista = [
+        u.id for u in usuarios if (
+            u.fnacimiento and inicio <= get_edad(u.fnacimiento) <= fin
+        )
+    ]
+    lista_sin_fnacimiento = [
+        u.id for u in usuarios if not u.fnacimiento
+    ]
+    return list(set(lista)) + list(set(lista_sin_fnacimiento))
+
+""" Calcula la edad a partir de la fecha de nacmiento """
+def get_edad(fnacimiento):
+    hoy = date.today()
+    return hoy.year - fnacimiento.year - (
+        (hoy.month, hoy.day) < (fnacimiento.month, fnacimiento.day)
+    )

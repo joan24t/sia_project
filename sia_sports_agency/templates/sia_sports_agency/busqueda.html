@@ -1,123 +1,141 @@
 {% extends 'sia_sports_agency/base.html' %}
 {% block content %}
 {% load static %}
+<script type="text/javascript">
+
+</script>
 <div class="busqueda">
     <div class="row titulo" >
         <h2>Filtros de búsqueda</h2>
     </div>
-    <div class="row form-group justify-content-center">
-        <div class="col-5">
-            <div class="row">
-                <div class="col-4">
-                    <h4>Qué buscas</h4>
+    <form id="form-busqueda">
+        <div class="row form-group justify-content-center">
+            <div class="col-5">
+                <div class="row">
+                    <div class="col-4">
+                        <h4>Qué buscas</h4>
+                    </div>
+                    <div class="col-8">
+                        <select class="form-control busqueda-tipo" name="busquedaTipoUsuario">
+                                <option value="">Elige tipo de jugador</option>
+                            {% for tipo in tipo_jugadores %}
+                                <option value="{{tipo.codigo|default:''}}">{{tipo.nombre}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
                 </div>
-                <div class="col-8">
-                    <select class="form-control busqueda-tipo">
-                            <option value="">Elige tipo de jugador</option>
-                        {% for tipo in tipo_jugadores %}
-                            <option value="{{tipo.codigo|default:''}}">{{tipo.nombre}}</option>
-                        {% endfor %}
-                    </select>
+                <div class="row">
+                    <div class="col-4">
+                        <h4>Nombre</h4>
+                    </div>
+                    <div class="col-8">
+                        <input class="form-control busqueda-nombre" type="text" name="busquedaNombre">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <h4>Deporte</h4>
+                    </div>
+                    <div class="col-8">
+                        <select class="form-control busqueda-deporte" name="busquedaDeporte">
+                            <option value="">Elige deporte</option>
+                            {% for deporte in deportes %}
+                            <option value="{{deporte.codigo|default:''}}" {% if deporte.codigo == usuario.deporte.codigo %} selected {% endif %}>{{deporte.nombre}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <h4>Posición</h4>
+                    </div>
+                    <div class="col-8">
+                        <select class="form-control selectpicker busqueda-posicion" name="busquedaPosicionMulti" id="posicionDropdownMultiple" multiple data-live-search="true" hidden>
+                        </select>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-4">
-                    <h4>Nombre</h4>
+            <div class="col-5">
+                <div class="row">
+                    <div class="col-4">
+                        <h4>Género</h4>
+                    </div>
+                    <div class="col-8">
+                        <select class="form-control busqueda-genero" name="busquedaGenero">
+                            <option value="a">Ambos</option>
+                            <option value="m">Masculino</option>
+                            <option value="f">Femenino</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="col-8">
-                    <input class="form-control busqueda-nombre" type="text">
+                <div class="row">
+                    <div class="col-4">
+                        <h4>País</h4>
+                    </div>
+                    <div class="col-8">
+                        <select class="form-control selectpicker busqueda-pais" name="busquedaPais" data-live-search="true" hidden>
+                            <option value="">Seleccione país</option>
+                            {% for pais in paises %}
+                            <option value="{{pais.codigo|default:''}}" data-content="<span class='flag-icon flag-icon-{{pais.codigo|lower}}'></span>&ensp;&ensp;{{pais.nombre}}"></option>
+                            {% endfor %}
+                        </select>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-4">
-                    <h4>Deporte</h4>
+                <div class="row">
+                    <div class="col-4">
+                        <h4>Rango edad</h4>
+                    </div>
+                    <div class="col-2">
+                        <h5 style="margin-top: 4px;">Desde</h5>
+                    </div>
+                    <div class="col-2">
+                        <select class="form-control busqueda-edad" name="busquedaEdadIni">
+                            {% for r in rango_edad %}
+                                <option value="{{r}}">{{r}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-2">
+                        <h5 style="margin-top: 4px;">hasta</h5>
+                    </div>
+                    <div class="col-2">
+                        <select class="form-control busqueda-edad" name="busquedaEdadFin">
+                            {% for r in rango_edad %}
+                                <option value="{{r}}">{{r}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
                 </div>
-                <div class="col-8">
-                    <select class="form-control busqueda-deporte">
-                        <option value="">Elige deporte</option>
-                        {% for deporte in deportes %}
-                        <option value="{{deporte.codigo|default:''}}" {% if deporte.codigo == usuario.deporte.codigo %} selected {% endif %}>{{deporte.nombre}}</option>
-                        {% endfor %}
-                    </select>
+                <div class="row">
+                    <div class="col-4">
+                        <h4>Equipo actual</h4>
+                    </div>
+                    <div class="col-8">
+                        <input class="form-control busqueda-eactual" type="text" name="busquedaEActual">
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-4">
-                    <h4>Posición</h4>
-                </div>
-                <div class="col-8">
-                    <select class="form-control selectpicker busqueda-posicion" name="inputPosicionMulti" id="posicionDropdownMultiple" multiple data-live-search="true" hidden>
-                    </select>
+                <div class="row botones">
+                    <div class="col-6">
+                        <button type="submit" class="form-control"><i class="fas fa-search"></i> Buscar</button>
+                    </div>
+                    <div class="col-6">
+                        <button class="form-control" onclick="limpiarFiltros()"><i class="fas fa-eraser"></i> Limpiar</button>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-5">
-            <div class="row">
-                <div class="col-4">
-                    <h4>Género</h4>
-                </div>
-                <div class="col-8">
-                    <select class="form-control busqueda-genero">
-                        <option value="">Selecciona género del deporte</option>
-                        <option value="m">Masculino</option>
-                        <option value="f">Femenino</option>
-                    </select>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-4">
-                    <h4>País</h4>
-                </div>
-                <div class="col-8">
-                    <select class="form-control selectpicker busqueda-pais" data-live-search="true" hidden>
-                        <option value="">Seleccione país</option>
-                        {% for pais in paises %}
-                        <option value="{{pais.codigo|default:''}}" data-content="<span class='flag-icon flag-icon-{{pais.codigo|lower}}'></span>&ensp;&ensp;{{pais.nombre}}"></option>
-                        {% endfor %}
-                    </select>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-4">
-                    <h4>Rango edad</h4>
-                </div>
-                <div class="col-2">
-                    <h5 style="margin-top: 4px;">Desde</h5>
-                </div>
-                <div class="col-2">
-                    <select class="form-control busqueda-edad">
-                        {% for r in rango_edad %}
-                            <option value="{{r}}">{{r}}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-                <div class="col-2">
-                    <h5 style="margin-top: 4px;">hasta</h5>
-                </div>
-                <div class="col-2">
-                    <select class="form-control busqueda-edad">
-                        {% for r in rango_edad %}
-                            <option value="{{r}}">{{r}}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-4">
-                    <h4>Equipo actual</h4>
-                </div>
-                <div class="col-8">
-                    <input class="form-control busqueda-eactual" type="text">
-                </div>
-            </div>
-            <div class="row botones">
-                <div class="col-6">
-                    <button class="form-control"><i class="fas fa-search"></i> Buscar</button>
-                </div>
-                <div class="col-6">
-                    <button class="form-control" onclick="limpiarFiltros()"><i class="fas fa-eraser"></i> Limpiar</button>
-                </div>
-            </div>
+        <input class="busquedaPagina" type="text" hidden/>
+    </form>
+</div>
+<div class="resultados">
+    <div class="row">
+    </div>
+</div>
+<div class="botones-busqueda"/>
+    <div class="row">
+        <div class="col-12">
+            <ul class="pagination pagination-lg" style="justify-content: center">
+            </ul>
         </div>
     </div>
 </div>
