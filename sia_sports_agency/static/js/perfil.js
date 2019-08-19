@@ -540,10 +540,22 @@ var envioDatosEspecificos = function(){
         $('.datosEspecificosForm :input').removeAttr('disabled');
         //Ocultamos el botón de editar y mostramos el botón de guardar
         $(this).attr('hidden', '');
-        $('.datosEspecificosForm .enlace-cpresentacion').attr('hidden', '');
-        $('.datosEspecificosForm .enlace-curriculum').attr('hidden', '');
-        $('.datosEspecificosForm .custom-file').removeAttr('hidden');
+        $('.datosEspecificosForm .cpresentacion-elimina, .datosEspecificosForm .curriculum-elimina').removeAttr('hidden');
         $('.datosEspecificosForm .btn-guardar, .datosEspecificosForm .btn-cancelar').removeAttr('hidden');
+    });
+
+    /* Eliminamos el curriculum y la carta si se pulsa sobre el icono de la papelera*/
+    $(document).on("click", ".datosEspecificosForm .cpresentacion-elimina", function (e) {
+        e.preventDefault();
+        $('#cpresentacion #customFileCarta').val('');
+        $('#cpresentacion .custom-file-label').text('Seleccionar Archivo');
+        $('#emptyFileCarta').val('1');
+    });
+    $(document).on("click", ".datosEspecificosForm .curriculum-elimina", function (e) {
+        e.preventDefault();
+        $('#curriculum #customFileCurriculum').val('');
+        $('#curriculum .custom-file-label').text('Seleccionar Archivo');
+        $('#emptyCurriculum').val('1');
     });
 
     /* Habilitamos el formulario de los datos específicos */
@@ -551,6 +563,8 @@ var envioDatosEspecificos = function(){
         e.preventDefault();
         //Disparamos la función de submit
         $('#form-datos-especificos').trigger('submit');
+        $('#emptyFileCarta').val('0');
+        $('#emptyCurriculum').val('0');
         habilitarFormulario(e);
     });
     $(document).on("click", ".datosEspecificosForm .btn-cancelar", function (e) {
@@ -562,11 +576,9 @@ var envioDatosEspecificos = function(){
     var habilitarFormulario = function(e) {
         //Deshabilitamos todos los inputs y los select picker
         $('.datosEspecificosForm :input:not(.btn-editar)').attr('disabled', '');
-        $('.datosEspecificosForm .enlace-cpresentacion').removeAttr('hidden');
-        $('.datosEspecificosForm .enlace-curriculum').removeAttr('hidden');
-        $('.datosEspecificosForm .custom-file').attr('hidden', '');
         //Ocultamos el botón de guardar y mostramos el botón de editar
         $(".datosEspecificosForm .btn-cancelar, .datosEspecificosForm .btn-guardar").attr('hidden', '');
+        $('.datosEspecificosForm .cpresentacion-elimina, .datosEspecificosForm .curriculum-elimina').attr('hidden', '');
         $('.datosEspecificosForm .btn-editar').removeAttr('hidden');
     }
 }

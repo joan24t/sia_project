@@ -194,6 +194,8 @@ def get_diccionario(request, seccion):
             'tipo_peso': request.POST.get('inputTipoPeso', ''),
             'carta_presentacion': request.FILES.get('inputCpresentacion', ''),
             'curriculum': request.FILES.get('inputCurriculum', ''),
+            'empty_curriculum': request.POST.get('emptyCurriculum', ''),
+            'empty_cpresentacion': request.POST.get('emptyFileCarta', ''),
         }
     return diccionario
 
@@ -231,7 +233,7 @@ def modificar_usuario(request, tipo):
             dict = {'exito': True}
         else:
             dict = {'exito': False}
-    except Excpetion as e:
+    except Exception as e:
         logger.error("Error al modificar usuario: {}".format(e))
         dict = {'exito': False}
     return HttpResponse(json.dumps(dict), content_type='application/json')
@@ -316,17 +318,19 @@ def actualizar_de(usuario, diccionario):
     usuario.tipo_peso = diccionario.get('tipo_peso')
     guardar_curriculum(
         diccionario.get('curriculum'),
+        diccionario.get('empty_curriculum'),
         usuario
     )
     guardar_cpresentacion(
         diccionario.get('carta_presentacion'),
+        diccionario.get('empty_cpresentacion'),
         usuario
     )
     usuario.save()
 
 """ Guarda el curriculum """
-def guardar_curriculum(curriculum, usuario):
-    filename = str(usuario.id) + '.pdf'
+def guardar_curriculum(curriculum, vacio, usuario):
+    filename = "curriculum-" + str(usuario.id) + ".pdf"
     path = os.path.join(
         settings.BASE_DIR,
         settings.BASE_DIR_CURRICULUM,
@@ -341,12 +345,12 @@ def guardar_curriculum(curriculum, usuario):
             str(usuario.id),
             filename
         )
-    else:
+    if vacio == '1':
         usuario.curriculum = None
 
 """ Guarda la carta de presentacion """
-def guardar_cpresentacion(cpresentacion, usuario):
-    filename = str(usuario.id) + '.pdf'
+def guardar_cpresentacion(cpresentacion, vacio, usuario):
+    filename = "carta-" + str(usuario.id) + ".pdf"
     path = os.path.join(
         settings.BASE_DIR,
         settings.BASE_DIR_CPRESENTACION,
@@ -361,7 +365,7 @@ def guardar_cpresentacion(cpresentacion, usuario):
             str(usuario.id),
             filename
         )
-    else:
+    if vacio == '1':
         usuario.cpresentacion = None
 
 """ Eliminamos el cromo para volverlo a reestablecer """
@@ -897,5 +901,5 @@ def reactivar_cuenta(request):
             return HttpResponseRedirect('/perfil')
         else:
             return HttpResponseRedirect('/')
-    except Excpetion as e:
+    except Exception as e:
         logger.error("Error al reactivar cuenta: {}".format(e))
