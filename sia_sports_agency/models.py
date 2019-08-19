@@ -234,10 +234,6 @@ class Usuario(models.Model):
         max_length=150,
         null=True
     )
-    contrasena_2 = models.CharField(
-        max_length=150,
-        null=True
-    )
     activo = models.IntegerField(
         null=False,
         default=1

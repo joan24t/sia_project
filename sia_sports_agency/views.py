@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Tipo_jugador, Deporte, Posicion, Pais, Video
 from .models import Usuario, Extremidad_dominante, Red_social, Mensaje
-from django.contrib.auth.hashers import make_password
+from django.contrib.auth.hashers import make_password, check_password
 from django.views.decorators.csrf import csrf_exempt
 from django.core.files.storage import FileSystemStorage
 from django.conf import settings
@@ -47,11 +47,13 @@ def index(request):
 def comprobar_email(email, password):
     try:
         usuario = Usuario.objects.filter(
-            email=email,
-            activo=1
+            email=email
         ).first()
+        if not usuario or not check_password(password, usuario.contrasena_1):
+            return None
     except Exception as e:
-        logger.error('Error al comprobar el email: ' + e)
+        logger.error("Error al comprobar el email: {}".format(e))
+        return None
     return usuario
 
 """ Comprueba existe el usuario en la sesión """
@@ -70,11 +72,18 @@ def login(request):
     email = request.POST.get("email", "")
     password = request.POST.get("password", "")
     usuario = comprobar_email(email, password)
-    if usuario is not None:
-        request.session['email'] = usuario.email
+    dict = {
+        'errorActivacion': False,
+        'errorLogin': False
+    }
+    if usuario:
+        if usuario.activo == 1:
+            request.session['email'] = usuario.email
+        else:
+            dict['errorActivacion'] = True
     else:
-        context = {'errorLogin': True}
-    return HttpResponseRedirect('/perfil/')
+        dict['errorLogin'] = True
+    return HttpResponse(json.dumps(dict), content_type='application/json')
 
 """ Cerrar sesión """
 def logout(request):
@@ -205,103 +214,115 @@ PARTE PRIVADA
 """ Registro de un usuario """
 def registrar_usuario(request):
     try:
-        actualizar_usuario(request, 'r')
+        crear_usuario(request)
         dict={'exito':True}
-    except:
+    except Exception as e:
         dict={'exito':False}
-        return HttpResponse('Error al registrar')
+        return HttpResponse("Error al registrar: {}".format(e))
     return HttpResponseRedirect('/perfil/')
 
-""" Eliminamos el cromo para volverlo a reestablecer """
-def eliminar_cromo(usuario):
-    path = os.path.join(
-        settings.BASE_DIR, settings.BASE_DIR_CROMO, str(usuario.id)
-    )
-    eliminar_fichero(
-        path,
-        "cromo-" + str(usuario.id) + ".png"
-    )
+""" Modificación de los datos de un usuario """
+@csrf_exempt
+def modificar_usuario(request, tipo):
+    try:
+        usuario = get_usuario(request).get('usuario')
+        if usuario:
+            actualizar_usuario(request, tipo)
+            dict = {'exito': True}
+        else:
+            dict = {'exito': False}
+    except Excpetion as e:
+        logger.error("Error al modificar usuario: {}".format(e))
+        dict = {'exito': False}
+    return HttpResponse(json.dumps(dict), content_type='application/json')
 
 """ Creación/Modificación de un usuario """
 def actualizar_usuario(request, seccion):
-    try:
-        diccionario = get_diccionario(request, seccion)
-        email = request.session.get('email')
-        usuario = Usuario.objects.get(email=email)
-        fnacimiento = None
-        deporte = None
-        if seccion == 'r':
-            if diccionario.get('fnacimiento'):
-                fnacimiento = diccionario.get('fnacimiento')
-            if diccionario.get('deporte'):
-                deporte = diccionario.get('deporte').id
-            usuario = Usuario.objects.create(
-                nombre=diccionario.get('nombre'),
-                fnacimiento=fnacimiento,
-                email=diccionario.get('email'),
-                genero=diccionario.get('genero'),
-                tipo_deporte=diccionario.get('tipo_deporte'),
-                deporte_id=deporte,
-                tipo_id=diccionario.get('tipo').id,
-                pais_id=diccionario.get('pais').id,
-                contrasena_1=diccionario.get('contrasena_1'),
-                contrasena_2=diccionario.get('contrasena_2')
-            )
-            usuario.ruta_cromo = os.path.join(
-                'users',
-                'cromos',
-                str(usuario.id),
-                'cromo-' + str(usuario.id) + '.png'
-            )
-            usuario.save()
-            if diccionario.get('posiciones'):
-                set_posiciones(usuario, diccionario.get('deporte'), diccionario)
-        elif seccion == 'db':
-            usuario.nombre = diccionario.get('nombre')
-            if diccionario.get('fnacimiento'):
-                fnacimiento = diccionario.get('fnacimiento')
-            usuario.fnacimiento = fnacimiento
-            usuario.email = diccionario.get('email')
-            usuario.genero = diccionario.get('genero')
-            usuario.tipo_deporte = diccionario.get('tipo_deporte')
-            if diccionario.get('deporte'):
-                deporte = diccionario.get('deporte').id
-            usuario.deporte_id = deporte
-            usuario.tipo_id = diccionario.get('tipo').id
-            usuario.pais_id = diccionario.get('pais').id
-            usuario.posiciones.clear()
-            if diccionario.get('posiciones'):
-                set_posiciones(
-                    usuario, diccionario.get('deporte'), diccionario
-                )
-            else:
-                eliminar_posiciones(usuario)
-            usuario.save()
-            eliminar_cromo(usuario)
-        elif seccion == 'de':
-            usuario.telefono = diccionario.get('telefono')
-            usuario.ubicacion = diccionario.get('ubicacion')
-            usuario.peso = diccionario.get('peso')
-            usuario.altura = diccionario.get('altura')
-            usuario.nacionalidad = diccionario.get('nacionalidad')
-            usuario.eactual = diccionario.get('eactual')
-            usuario.extremidad_id = diccionario.get('extremidad').id
-            usuario.interesadoen = diccionario.get('interesadoen')
-            usuario.tipo_altura = diccionario.get('tipo_altura')
-            usuario.tipo_peso = diccionario.get('tipo_peso')
-            guardar_curriculum(
-                diccionario.get('curriculum'),
-                usuario
-            )
-            guardar_cpresentacion(
-                diccionario.get('carta_presentacion'),
-                usuario
-            )
-            usuario.save()
-    except:
-        logger.error('Error al crear usuario: ' + e)
-        return False
-    return True
+    email = request.session.get('email')
+    usuario = Usuario.objects.get(email=email)
+    diccionario = get_diccionario(request, seccion)
+    if seccion == 'db':
+        actualizar_db(usuario, diccionario)
+    elif seccion == 'de':
+        actualizar_de(usuario, diccionario)
+
+""" Creación usuario """
+def crear_usuario(request):
+    diccionario = get_diccionario(request, 'r')
+    fnacimiento = None
+    deporte = None
+    if diccionario.get('fnacimiento'):
+        fnacimiento = diccionario.get('fnacimiento')
+    if diccionario.get('deporte'):
+        deporte = diccionario.get('deporte').id
+    usuario = Usuario.objects.create(
+        nombre=diccionario.get('nombre'),
+        fnacimiento=fnacimiento,
+        email=diccionario.get('email'),
+        genero=diccionario.get('genero'),
+        tipo_deporte=diccionario.get('tipo_deporte'),
+        deporte_id=deporte,
+        tipo_id=diccionario.get('tipo').id,
+        pais_id=diccionario.get('pais').id,
+        contrasena_1=diccionario.get('contrasena_1')
+    )
+    usuario.ruta_cromo = os.path.join(
+        'users',
+        'cromos',
+        str(usuario.id),
+        'cromo-' + str(usuario.id) + '.png'
+    )
+    usuario.save()
+    if diccionario.get('posiciones'):
+        set_posiciones(usuario, diccionario.get('deporte'), diccionario)
+
+""" Actualizar datos basicos del usuario """
+def actualizar_db(usuario, diccionario):
+    fnacimiento = None
+    deporte = None
+    usuario.nombre = diccionario.get('nombre')
+    if diccionario.get('fnacimiento'):
+        fnacimiento = diccionario.get('fnacimiento')
+    usuario.fnacimiento = fnacimiento
+    usuario.email = diccionario.get('email')
+    usuario.genero = diccionario.get('genero')
+    usuario.tipo_deporte = diccionario.get('tipo_deporte')
+    if diccionario.get('deporte'):
+        deporte = diccionario.get('deporte').id
+    usuario.deporte_id = deporte
+    usuario.tipo_id = diccionario.get('tipo').id
+    usuario.pais_id = diccionario.get('pais').id
+    usuario.posiciones.clear()
+    if diccionario.get('posiciones'):
+        set_posiciones(
+            usuario, diccionario.get('deporte'), diccionario
+        )
+    else:
+        eliminar_posiciones(usuario)
+    eliminar_cromo(usuario)
+    usuario.save()
+
+""" Actualizar datos especificos del usuario """
+def actualizar_de(usuario, diccionario):
+    usuario.telefono = diccionario.get('telefono')
+    usuario.ubicacion = diccionario.get('ubicacion')
+    usuario.peso = diccionario.get('peso')
+    usuario.altura = diccionario.get('altura')
+    usuario.nacionalidad = diccionario.get('nacionalidad')
+    usuario.eactual = diccionario.get('eactual')
+    usuario.extremidad_id = diccionario.get('extremidad').id
+    usuario.interesadoen = diccionario.get('interesadoen')
+    usuario.tipo_altura = diccionario.get('tipo_altura')
+    usuario.tipo_peso = diccionario.get('tipo_peso')
+    guardar_curriculum(
+        diccionario.get('curriculum'),
+        usuario
+    )
+    guardar_cpresentacion(
+        diccionario.get('carta_presentacion'),
+        usuario
+    )
+    usuario.save()
 
 """ Guarda el curriculum """
 def guardar_curriculum(curriculum, usuario):
@@ -343,6 +364,15 @@ def guardar_cpresentacion(cpresentacion, usuario):
     else:
         usuario.cpresentacion = None
 
+""" Eliminamos el cromo para volverlo a reestablecer """
+def eliminar_cromo(usuario):
+    path = os.path.join(
+        settings.BASE_DIR, settings.BASE_DIR_CROMO, str(usuario.id)
+    )
+    eliminar_fichero(
+        path,
+        "cromo-" + str(usuario.id) + ".png"
+    )
 
 """ Acceder a la pantalla de busqueda """
 def busqueda(request):
@@ -425,18 +455,6 @@ def insertar_correos_contexto(contexto):
         'correos_enviados': lista_correos_env,
         'correos_nuevos': correos_nuevos
     })
-
-""" Modificación de los datos de un usuario """
-@csrf_exempt
-def modificar_usuario(request, tipo):
-    try:
-        usuario = get_usuario(request).get('usuario')
-        if usuario:
-            exito = actualizar_usuario(request, tipo)
-            dict = {'exito': exito}
-    except:
-        dict = {'exito': False}
-    return HttpResponse(json.dumps(dict), content_type='application/json')
 
 """ Actulización de las redes sociales de un usuario """
 @csrf_exempt
@@ -861,3 +879,23 @@ def get_edad(fnacimiento):
     return hoy.year - fnacimiento.year - (
         (hoy.month, hoy.day) < (fnacimiento.month, fnacimiento.day)
     )
+
+""" Reactiva una cuenta que estava desactivada """
+@csrf_exempt
+def reactivar_cuenta(request):
+    try:
+        usuario = Usuario.objects.filter(
+            email=request.POST.get('emailInput', '')
+        ).first()
+        if usuario and check_password(
+            request.POST.get('passwordInput', ''),
+            usuario.contrasena_1
+        ):
+            usuario.activo = 1
+            usuario.save()
+            request.session['email'] = usuario.email
+            return HttpResponseRedirect('/perfil')
+        else:
+            return HttpResponseRedirect('/')
+    except Excpetion as e:
+        logger.error("Error al reactivar cuenta: {}".format(e))

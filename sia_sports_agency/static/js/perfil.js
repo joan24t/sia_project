@@ -42,6 +42,8 @@ $(document).ready(function(){
     consultaCromos(true);
     /*Disparar input de tipo file para la subida de la img del cromo*/
     triggerImgCromo();
+    /*Dispara el form del login*/
+    triggerLogin();
     /* Funcion que pone ivisible los toats cuando se ocultan*/
     $('.toast').on('hidden.bs.toast', function () {
         $(this).attr('hidden', '');
@@ -68,6 +70,41 @@ var limpiarFiltros = function(){
     $(".busqueda .busqueda-posicion .filter-option-inner-inner").text("Selecciona posiciones");
     $(".busqueda .busqueda-edad").val("14");
     $(".busqueda .busqueda-eactual").val("");
+}
+
+/* Submit del de la subida del video */
+var triggerLogin = function(){
+    //Envio de de datos del formulario
+    $('#form-login').submit(function(e) {
+        mostrarElemento($('.loader-inicio'));
+        e.preventDefault();
+        $.ajax({
+            url: '/login/',
+            async: false,
+            type: 'POST',
+            dataType: 'json',
+            data: $(this).serialize(),
+            success: function(data) {
+                ocultarElemento($('.loader-inicio'));
+                if(data.errorLogin){
+                    $('#form-login .correo-invalido').removeAttr('hidden');
+                }else if (data.errorActivacion){
+                    $('#activacionModalCenter #reactivar-email').val(
+                        $('#form-login .emailInput').val()
+                    );
+                    $('#activacionModalCenter #reactivar-password').val(
+                        $('#form-login .passwordInput').val()
+                    );
+                    $('#activacionModalCenter').modal({
+                        backdrop: 'static',
+                        keyboard: false
+                    });
+                }else{
+                    window.location.href = '/perfil';
+                }
+            }
+        });
+    });
 }
 
 /* Submit del de la subida del video */
@@ -129,6 +166,8 @@ var guardarCromo = function(imageData){
                 $('.toast-error .content').text('Error en la carga del cromo.');
                 $('.toast-error').toast('show');
             }
+            //Refrescamos la imagen
+            refrescarCromo();
         },error: function(data){
             $('.toast-error .content').text('Error en la carga del cromo.');
             $('.toast-error').toast('show');
@@ -162,8 +201,6 @@ var primerAcceso = function(canvas){
                 var imageData = canvas.toDataURL("image/png");
                 guardarCromo(imageData);
                 setAcceso();
-                //Refrescamos la imagen
-                refrescarCromo();
             }
             else if(!data.exito){
                 $('.toast-error .content').text('Error en la carga del cromo.');

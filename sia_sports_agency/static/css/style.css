@@ -1066,9 +1066,10 @@ margin-right: 5px;
 }
 
 .login_btn{
-color: black;
+color: white;
+font-weight: bold;
 background-color: #9A8056;
-width: 120px;
+width: 170px;
 }
 
 .login_btn:hover{
@@ -1210,15 +1211,24 @@ margin-left: 4px;
     SPINNER LOADING
 ****************************************************************************************************
 */
-
-.loader {
-  border: 16px solid  white;
-  border-radius: 50%;
-  border-top: 16px solid  #b56b0d ;
+.loader{
+	-webkit-animation: spin 2s linear infinite; /* Safari */
+	animation: spin 2s linear infinite;
+}
+.loader-inicio{
+    width: 22px;
+    height: 22px;
+	border: 2px solid  white;
+	border-radius: 50%;
+	border-top: 2px solid  #5e3010;
+	margin-left: 5px;
+}
+.loader-cromo {
   width: 120px;
   height: 120px;
-  -webkit-animation: spin 2s linear infinite; /* Safari */
-  animation: spin 2s linear infinite;
+  border: 16px solid  white;
+  border-radius: 50%;
+  border-top: 16px solid  #b56b0d
 }
 .content-loader{
 	width: 100%;
