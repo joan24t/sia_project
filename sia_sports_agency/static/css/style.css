@@ -555,12 +555,11 @@ section{
 	position: absolute;
 	left: 8.5%;
 	top: 200px;
-	padding: 360px 0px 0px 15px;
+	padding: 355px 0px 0px 20px;
 }
 
 .cromo .img-icono-logo{
 	width: 80px;
-	opacity: 0.8;
 }
 
 /* Fin atributos cromo */
