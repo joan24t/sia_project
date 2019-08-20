@@ -378,6 +378,23 @@ def eliminar_cromo(usuario):
         "cromo-" + str(usuario.id) + ".png"
     )
 
+""" Cambia la contrasena """
+@csrf_exempt
+def cambiar_contrasena(request):
+    dict = {'exito': False}
+    try:
+        usuario = get_usuario(request).get('usuario')
+        if usuario:
+            contrasena = request.POST.get('inputPassword', '')
+            if contrasena:
+                usuario.contrasena_1 = make_password(contrasena)
+                usuario.save()
+                dict['exito'] = True
+    except Excpetion as e:
+        logger.error("Error al cambiar contrasena: {}".format(e))
+    return HttpResponse(json.dumps(dict), content_type='application/json')
+
+
 """ Acceder a la pantalla de busqueda """
 def busqueda(request):
     if not get_usuario(request):
@@ -386,6 +403,7 @@ def busqueda(request):
     context.update({
         'rango_edad': range(14, 81)
     })
+    contexto.update(get_usuario(request))
     return render(
         request,
         'sia_sports_agency/busqueda.html',

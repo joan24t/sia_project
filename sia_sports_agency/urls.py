@@ -48,5 +48,10 @@ urlpatterns = [
         r'reactivar_cuenta/',
         views.reactivar_cuenta,
         name='Reactivar cuenta'
+    ),
+    url(
+        r'cambiar_contrasena/',
+        views.cambiar_contrasena,
+        name='Cambiar contrasena'
     )
 ]
