@@ -475,8 +475,7 @@ section{
 }
 .div-cromo{
 	position: absolute;
-	left: 10px;
-	top: 100px;
+	left: 8.5%;
 }
 .cromo .plantilla{
 	position: absolute;
@@ -988,6 +987,10 @@ section{
 	z-index:2147483647;
 	background-color: #46433E;
 	color: white;
+	max-height: 200px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	padding-right: 20px;
 }
 
 .ui-menu-item .ui-menu-item-wrapper:hover {

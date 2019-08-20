@@ -13,7 +13,7 @@
                     {% csrf_token %}
                     <div>
                         <label>Remitente: </label>
-                        <input type="text" class="form-control destinatario destinatarios-res" name="remitente" value="{{correo.remitente.email}}">
+                        <input type="text" id="lista-destinatarios" class="form-control destinatarios-res" name="remitente" value="{{correo.remitente.email}}">
                     </div>
                     <div>
                         <label>Asunto: </label>

@@ -303,6 +303,7 @@ var responderCorreo = function(){
       var asunto = $(".asunto-res").val();
       var cuerpo = $(".cuerpo-res").val();
       enviarCorreo(listadoCorreos, asunto, cuerpo);
+      $('#emailModalCenter').modal('toggle');
     });
 }
 var nuevoCorreo = function(){
@@ -311,6 +312,7 @@ var nuevoCorreo = function(){
       var asunto = $(".asunto-nuevo").val();
       var cuerpo = $(".cuerpo-nuevo").val();
       enviarCorreo(listadoCorreos, asunto, cuerpo);
+      $('#nuevoEmailModalCenter').modal('toggle');
     });
 }
 
@@ -338,7 +340,7 @@ var enviarCorreo = function(listadoCorreos, asunto, cuerpo){
 }
 
 var eliminarCorreo = function(listOriginal){
-    var destinatarios = $( ".destinatario" ).val().split( /;\s*/ )
+    var destinatarios = $("#nuevoEmailModalCenter .destinatario, #emailModalCenter .destinatario").val().split( /;\s*/ )
                          .filter(x => listOriginal.includes(x));
     var difference = listOriginal
                  .filter(x => !destinatarios.includes(x));
@@ -382,7 +384,7 @@ var responderMensaje = function(){
             $('.modal-email .destinatarios-res').attr('disabled', true);
             $('.modal-email .asunto-res').attr('disabled', true);
             $('.modal-email .cuerpo-res').removeAttr('disabled');
-            $(".modal-email .destinatario").val(
+            $('#lista-destinatarios').val(
                 data.remitente_nombre + " <"+ data.remitente + ">"
             );
             $(".modal-email .asunto-res").val("Re: " + data.asunto);
@@ -407,7 +409,7 @@ var verCorreo = function(id){
           $('.modal-email .destinatarios-res').attr('disabled', true);
           $('.modal-email .asunto-res').attr('disabled', true);
           $('.modal-email .cuerpo-res').attr('disabled', true);
-          $(".modal-email .destinatario").val(
+          $('#lista-destinatarios').val(
               data.remitente_nombre + " <"+ data.remitente + ">"
           );
           $(".modal-email .asunto-res").val(data.asunto);

@@ -650,7 +650,8 @@ def enviar_correo(request):
             ]
             for l in lista_correos:
                 email_dest = l[l.find("<")+1:l.find(">")] or None
-                destinatario = Usuario.objects.get(email=email_dest) or None
+                print('AAAA: ' + str(email_dest))
+                destinatario = Usuario.objects.filter(email=email_dest).first()
                 if destinatario and email_dest:
                     Mensaje.objects.create(
                         asunto=asunto,
@@ -660,8 +661,9 @@ def enviar_correo(request):
                         leido=0,
                     )
             dict = {'exito': True}
-        except:
+        except Exception as e:
             dict = {'exito': False}
+            logger.error("Error al enviar el correo: {}".format(e))
         return HttpResponse(json.dumps(dict), content_type='application/json')
     else:
         return HttpResponseRedirect('/')
