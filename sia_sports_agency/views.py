@@ -60,10 +60,10 @@ def comprobar_email(email, password):
 def get_usuario(request):
     email = request.session.get('email')
     if email:
-        usuario = Usuario.objects.get(
+        usuario = Usuario.objects.filter(
             email=email,
             activo=1
-        )
+        ).first()
         return {'usuario': usuario} if usuario is not None else {}
     return {}
 
@@ -403,7 +403,7 @@ def busqueda(request):
     context.update({
         'rango_edad': range(14, 81)
     })
-    contexto.update(get_usuario(request))
+    context.update(get_usuario(request))
     return render(
         request,
         'sia_sports_agency/busqueda.html',

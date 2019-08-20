@@ -61,7 +61,7 @@ section{
 }
 .baraja-text{
 	color: white;
-	font-size: 50px;
+	font-size: 200%;
 }
 #fotoHome{
     float: right;
@@ -69,7 +69,7 @@ section{
 }
 /* Boton registro */
 .registration-btn{
-    font-size: 55px;
+    font-size: 200%;
     background: linear-gradient(to right, #9A8056, #CFAB71, #9A8056);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -551,6 +551,18 @@ section{
 	width: 70px;
 }
 
+.cromo .icono-logo{
+	position: absolute;
+	left: 8.5%;
+	top: 200px;
+	padding: 360px 0px 0px 15px;
+}
+
+.cromo .img-icono-logo{
+	width: 80px;
+	opacity: 0.8;
+}
+
 /* Fin atributos cromo */
 .menu-lateral{
 	margin: 0px 20px 20px 20px;
@@ -991,12 +1003,17 @@ section{
 }
 /*Logo responsive*/
 img.logo-responsive{
-  height: 150px;
-  width: 190px;
+  width: 55px;
 }
-.caja{
-   float: right;
-   text-align: center;
+.navbar-toggler {
+	height: 40px;
+	width: 40px;
+}
+span.navbar-toggler-icon{
+	width: 30px;
+	position: absolute;
+	top: -40px;
+	left: 20px;
 }
 .navbar-toggler-icon{
   height: 120px;
