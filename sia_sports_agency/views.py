@@ -921,3 +921,16 @@ def reactivar_cuenta(request):
             return HttpResponseRedirect('/')
     except Exception as e:
         logger.error("Error al reactivar cuenta: {}".format(e))
+
+""" Reactiva una cuenta que estava desactivada """
+@csrf_exempt
+def desactivar_cuenta(request):
+    try:
+        usuario = get_usuario(request).get('usuario')
+        if usuario:
+            usuario.activo = 0
+            usuario.save()
+            del request.session['email']
+        return HttpResponseRedirect('/')
+    except Exception as e:
+        logger.error("Error al desactivar la cuenta: {}".format(e))
