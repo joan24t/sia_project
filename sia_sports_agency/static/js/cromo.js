@@ -102,9 +102,10 @@ var consultaCromos = function(busqueda){
             success: function(data) {
                 var content = "";
                 for (var i in data.lista_usuarios) {
-                    var url = data.lista_usuarios[i];
+                    var id = data.lista_usuarios[i][0];
+                    var url = data.lista_usuarios[i][1];
                     var src = "/static/" + url;
-                    content += "<div class='col-4' data-aos='zoom-in' data-aos-duration='500' style='text-align: center; margin-top: 50px;'><img width='400px' src='" + src + "' /></div>";
+                    content += "<div class='col-3'" + " onclick='verDetalle(" + id.toString() + ");' data-aos='zoom-in' data-aos-duration='500' style='text-align: center; margin-top: 50px;'><img width='400px' src='" + src + "' /></div>";
                 }
                 $('.resultados .row').html(content);
                 if(busqueda){

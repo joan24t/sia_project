@@ -865,7 +865,7 @@ def busqueda_cromo(request):
             lista_usuarios = paginar_resultados(lista_usuarios, pagina)
             total_registros = len(lista_usuarios)
             dict = {
-                'lista_usuarios': [u.ruta_cromo for u in lista_usuarios],
+                'lista_usuarios': [(u.id, u.ruta_cromo) for u in lista_usuarios],
                 'total_registros': total_registros
             }
             return HttpResponse(json.dumps(dict), content_type='application/json')

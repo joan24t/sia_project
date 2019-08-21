@@ -101,7 +101,7 @@
                     <div class="col-2">
                         <select class="form-control busqueda-edad" name="busquedaEdadFin">
                             {% for r in rango_edad %}
-                                <option value="{{r}}">{{r}}</option>
+                                <option value="{{r}}" {% if r == 80 %} selected {% endif %}>{{r}}</option>
                             {% endfor %}
                         </select>
                     </div>
