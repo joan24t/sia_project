@@ -848,7 +848,7 @@ def busqueda_cromo(request):
                 lista_usuarios = lista_usuarios.filter(
                     deporte=deporte
                 )
-            if genero_deporte:
+            if genero_deporte and genero_deporte != 'a':
                 lista_usuarios = lista_usuarios.filter(
                     tipo_deporte=genero_deporte
                 )
