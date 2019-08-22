@@ -5,7 +5,7 @@
 
 <div class="row" style="max-width: 100%;">
     <!-- *** CABECERA DE LA BARRA LATERAL *** -->
-    <div class="col-3 sidebar-header">
+    <div class="col-12 col-xl-3 sidebar-header">
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="row" style="padding: 0px 0px 40px 0px; border-bottom: 5px solid #41494d;">
             <div class="notif-msj col col-12 col-xl-6">
@@ -52,18 +52,20 @@
         </div>
     </div>
     <!-- *** DATOS BASICOS *** -->
-    <div class="col-9">
-        <ul class="nav nav-tabs nav-justified tabs" style:"color: black;">
-            <li class="nav-item">
-                <a class="nav-link active datosBasicosTab" href="javascript:hideOrShowTabs('db')"><span style="font-size: 20px;">DATOS BÁSICOS</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link datosAdicionaleTab" href="javascript:hideOrShowTabs('da')"><span style="font-size: 20px;">DATOS ADICIONALES</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link mensajesTab" href="javascript:hideOrShowTabs('me')"><span style="font-size: 20px;">MENSAJES</span></a>
-            </li>
-        </ul>
+    <div class="col col-12 col-xl-9">
+        <div>
+            <ul class="nav flex-column flex-sm-row nav-tabs nav-justified tabs" style:"color: black;">
+                <li class="nav-item">
+                    <a class="nav-link active datosBasicosTab" href="javascript:hideOrShowTabs('db')"><span style="font-size: 20px;">DATOS BÁSICOS</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link datosAdicionaleTab" href="javascript:hideOrShowTabs('da')"><span style="font-size: 20px;">DATOS ADICIONALES</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mensajesTab" href="javascript:hideOrShowTabs('me')"><span style="font-size: 20px;">MENSAJES</span></a>
+                </li>
+            </ul>
+        </div>
         <!-- *** DATOS BASICOS *** -->
         <div class="row col-12" id="datosBasicos">
             <section class="panel panel-datos-basicos">

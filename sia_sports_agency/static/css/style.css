@@ -465,30 +465,26 @@ section{
 }
 /* Atributos cromo */
 .cromo{
-	height: 700px;
-	width: 450px;
-	z-index: 20;
+	height: 575px;
+	width: 385px;
 	opacity: 0.0;
 }
 .cromo-img{
 	width: 100%;
+	margin: -30px 0px 0px 0px;
 }
 .div-cromo{
 	position: absolute;
-	left: 8.5%;
+	top: 250px;
 }
 .cromo .plantilla{
 	position: absolute;
-	left: 8.5%;
-	top: 200px;
 }
 .cromo .img-plantilla{
 	width: 382px;
 }
 .cromo .foto{
 	position: absolute;
-	left: 8.5%;
-	top: 200px;
 	padding: 15px 0px 0px 15px;
 }
 .cromo .img-foto{
@@ -497,9 +493,6 @@ section{
 }
 .cromo .icono-redes{
 	position: absolute;
-	left: 8.5%;
-	margin-left: 1px;
-	top: 200px;
 	padding: 230px 0px 0px 300px;
 }
 .cromo .img-icono-instagram,
@@ -512,8 +505,6 @@ section{
 }
 .cromo .icono-deporte{
 	position: absolute;
-	left: 8.5%;
-	top: 200px;
 	padding: 88px 0px 0px 302px;
 }
 .cromo .img-icono-deporte{
@@ -523,8 +514,6 @@ section{
 	font-family: 'Good Times', arial;
 	font-size: 20px;
 	position: absolute;
-	left: 8.5%;
-	top: 200px;
 	margin-left: 1px;
 	padding: 470px 0px 0px 110px;
 	color: #89742E;
@@ -534,16 +523,12 @@ section{
 .cromo .tipo-cromo{
 	font-family: 'Good Times', arial;
 	position: absolute;
-	left: 8.5%;
-	top: 200px;
 	padding: 550px 0px 0px 102px;
 	color: #89742E;
 	margin-left: 1px;
 }
 .cromo .bandera-cromo{
 	position: absolute;
-	left: 8.5%;
-	top: 200px;
 	padding: 470px 0px 0px 30px;
 }
 .cromo .img-bandera{
@@ -552,8 +537,6 @@ section{
 
 .cromo .icono-logo{
 	position: absolute;
-	left: 8.5%;
-	top: 200px;
 	padding: 355px 0px 0px 20px;
 }
 

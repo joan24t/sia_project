@@ -207,7 +207,7 @@ var guardarCromo = function(imageData){
                 mostrarNotificacionError('Error en la carga del cromo.');
             }
             //Refrescamos la imagen
-            refrescarCromo();
+            location.reload(true);
         },error: function(data){
             mostrarNotificacionError('Error en la carga del cromo.');
         }
@@ -259,8 +259,8 @@ var cargarCromo = function(datos) {
         }
         var getCanvas;
         html2canvas(element, {
-            width: 450,
-            height: 700,
+            width: 385,
+            height: 575,
             onrendered: function (canvas) {
                 getCanvas = canvas;
                 primerAcceso(getCanvas);
