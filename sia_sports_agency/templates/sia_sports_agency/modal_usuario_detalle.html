@@ -1,6 +1,6 @@
 {% load static %}
 <div class="modal fade" id="detalleUsuarioModal" tabindex="-1" role="dialog" aria-labelledby="detalleUsuarioModalTitle" aria-hidden="true">
-    <div class="modal-dialog mw-100 w-100" role="document">
+    <div class="modal-dialog mw-100" role="document">
         <div class="modal-content modal-registration">
             <div class="modal-header">
                 <h2 class="modal-title" id="registrationLongTitle">Detalle de </h2>
@@ -10,9 +10,119 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="seccion-cromo col-4" style="text-align: center;">
+                    </div>
+                    <div class="col-8">
                         <h2> Datos básicos </h2>
-                        <hr/>
+                        <hr class="fila"/>
+                        <div class="row" style="padding-left: 15px;">
+                            <div class="col-12">
+                                <span id="detalleNombre"></span>
+                            </div>
+                            <div class="col-12">
+                                <span id="detalleGenero"></span>
+                            </div>
+                            <div class="col-12">
+                                <span id="detalleRol"></span>
+                            </div>
+                            <div class="col-12">
+                                <span id="detalleDeporte"></span>
+                            </div>
+                            <div class="col-12">
+                                <span id="detalleGeneroDeporte"></span>
+                            </div>
+                            <div class="col-12">
+                                <span id="detalleEmail"></span>
+                            </div>
+                            <div class="col-12">
+                                <span id="detalleFNacimiento"></span>
+                            </div>
+                            <div class="col-12">
+                                <span id="detallePais"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="row col-12">
+                        <div class="col-12">
+                            <h2>Datos específicos</h2>
+                            <hr class="fila"/>
+                        </div>
+                        <div class="col-6">
+                            <div class="col-12">
+                                <span id="detalleTelefono"></span>
+                            </div>
+                            <div class="col-12">
+                                <span id="detalleUbicacion"></span>
+                            </div>
+                            <div class="col-12">
+                                <span id="detallePeso"></span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="col-12">
+                                <span id="detalleEdominante"></span>
+                            </div>
+                            <div class="col-12">
+                                <span id="detalleNacionalidad"></span>
+                            </div>
+                            <div class="col-12">
+                                <span id="detalleAltura"></span>
+                            </div>
+                            <div class="col-12">
+                                <span id="detalleTipoAltura"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="row col-12">
+                        <div class="col-12">
+                            <h2>Interesado en</h2>
+                            <hr class="fila"/>
+                        </div>
+                        <div class="col-12">
+                            <div style="border: 2px solid grey !important; padding: 10px; margin-bottom: 20px;">
+                                <span id="detalleInteresadoEn"></span>
+                            </div>
+                        </div>
+                        <div class="col-6" style="text-align: center;">
+                            Carta de presentación:<a id="detalleCPresentacion" href="" download>&nbsp;&nbsp;<i class="fas fa-download"></i></a>
+                        </div>
+                        <div class="col-6" style="text-align: center;">
+                            Curriculum:<a id="detalleCurriculum" href="" download>&nbsp;&nbsp;<i class="fas fa-download"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="row col-12">
+                        <div class="col-12" style="margin-bottom: 20px;">
+                            <h2>Redes sociales</h2>
+                            <hr class="fila"/>
+                        </div>
+                        <div class="col-3" style="text-align: center;">
+                            <a id="detalleFacebook" target="_blank">&nbsp;&nbsp;<i class="fab fa-facebook-f fa-lg white-text fa-2x red-social red-social-fb"> </i></a>
+                        </div>
+                        <div class="col-3" style="text-align: center;">
+                            <a id="detalleInstagram" target="_blank">&nbsp;&nbsp;<i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x red-social red-social-ig"> </i></a>
+                        </div>
+                        <div class="col-3" style="text-align: center;">
+                            <a id="detalleTwitter" target="_blank">&nbsp;&nbsp;<i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x red-social red-social-tt"> </i></a>
+                        </div>
+                        <div class="col-3" style="text-align: center;">
+                            <a id="detalleYouTube" target="_blank">&nbsp;&nbsp;<i class="fab fa-youtube fa-lg white-text mr-md-5 mr-3 fa-2x red-social red-social-yt"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="row col-12">
+                        <div class="col-12" style="margin-bottom: 20px;">
+                            <h2>Vídeos</h2>
+                            <hr class="fila"/>
+                        </div>
+                        <div id="detalleVideos" class="row col-12">
+                        </div>
                     </div>
                 </div>
             </div>

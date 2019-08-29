@@ -70,7 +70,8 @@ var limpiarFiltros = function(){
     $(".busqueda .busqueda-genero").val("");
     $(".busqueda .busqueda-pais .filter-option-inner-inner").text("Seleccione un país");
     $(".busqueda .busqueda-posicion .filter-option-inner-inner").text("Selecciona posiciones");
-    $(".busqueda .busqueda-edad").val("14");
+    $(".busqueda .busqueda-edad-ini").val("16");
+    $(".busqueda .busqueda-edad-fin").val("90");
     $(".busqueda .busqueda-eactual").val("");
 }
 

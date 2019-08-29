@@ -19,6 +19,15 @@ import logging
 PARTE PUBLICA
 """""""""""""""""""""""""""""""""""""""""""""
 logger = logging.getLogger(__name__)
+GENDER_CHOICES = {
+    'm': 'Masculino',
+    'f': 'Femenino',
+}
+SPORT_TYPE_CHOICES = {
+    'a': 'Ambos',
+    'm': 'Masculino',
+    'f': 'Femenino',
+}
 def global_contexto():
     lista_tipo_jugadores = Tipo_jugador.objects.all()
     lista_deportes = Deporte.objects.all()
@@ -401,7 +410,7 @@ def busqueda(request):
         return HttpResponseRedirect('/')
     context = global_contexto()
     context.update({
-        'rango_edad': range(14, 81)
+        'rango_edad': range(16, 91)
     })
     context.update(get_usuario(request))
     return render(
@@ -689,10 +698,10 @@ def guardar_cromo(request):
     dict={'exito':False}
     try:
         email = request.session.get('email')
-        usuario = Usuario.objects.get(
+        usuario = Usuario.objects.filter(
             email=email,
             activo=1
-        )
+        ).first()
         if usuario:
             eliminar_cromo(usuario)
             path = os.path.join(
@@ -865,7 +874,9 @@ def busqueda_cromo(request):
             lista_usuarios = paginar_resultados(lista_usuarios, pagina)
             total_registros = len(lista_usuarios)
             dict = {
-                'lista_usuarios': [(u.id, u.ruta_cromo) for u in lista_usuarios],
+                'lista_usuarios': [(
+                    u.id, os.path.join('/static', u.ruta_cromo)
+                ) for u in lista_usuarios],
                 'total_registros': total_registros
             }
             return HttpResponse(json.dumps(dict), content_type='application/json')
@@ -936,3 +947,77 @@ def desactivar_cuenta(request):
         return HttpResponseRedirect('/')
     except Exception as e:
         logger.error("Error al desactivar la cuenta: {}".format(e))
+
+""" Devuelve el detalle de un usuario """
+@csrf_exempt
+def detalle_usuario(request):
+    dict={'exito':False}
+    try:
+        email = request.session.get('email')
+        usuario = Usuario.objects.filter(
+            email=email,
+            activo=1
+        ).first()
+        if usuario:
+            usuario_id = request.POST.get("usuario_id")
+            usu_seleccionado = Usuario.objects.filter(
+                id=usuario_id,
+            ).first()
+            dict['exito'] = True
+            dict.update({
+                'url_img': os.path.join('/static', usu_seleccionado.ruta_cromo),
+                'nombre': usu_seleccionado.nombre,
+                'rol': usu_seleccionado.tipo.nombre,
+                'deporte': (
+                    usu_seleccionado.deporte.nombre if
+                    usu_seleccionado.deporte else ''
+                ),
+                'email': usu_seleccionado.email,
+                'genero_deporte': SPORT_TYPE_CHOICES.get(
+                    usu_seleccionado.tipo_deporte
+                )
+                ,
+                'sexo': GENDER_CHOICES.get(
+                    usu_seleccionado.genero
+                ),
+                'fnacimiento': usu_seleccionado.fnacimiento.strftime(
+                    "%d/%m/%Y"
+                ) if usu_seleccionado.fnacimiento else '',
+                'pais': usu_seleccionado.pais.nombre,
+                'telefono': str(usu_seleccionado.telefono),
+                'ubicacion': usu_seleccionado.ubicacion,
+                'peso': str(usu_seleccionado.peso),
+                'tipo_peso': usu_seleccionado.tipo_peso,
+                'extremidad': usu_seleccionado.extremidad.nombre
+                    if usu_seleccionado.extremidad else '',
+                'nacionalidad': usu_seleccionado.nacionalidad,
+                'altura': str(usu_seleccionado.altura),
+                'tipo_altura': usu_seleccionado.tipo_altura,
+                'interesadoen': usu_seleccionado.interesadoen,
+                'url_curriculum': os.path.join(
+                    '/static', usu_seleccionado.curriculum
+                ) if usu_seleccionado.curriculum else '',
+                'url_cpresentacion': os.path.join(
+                    '/static', usu_seleccionado.cpresentacion
+                ) if usu_seleccionado.cpresentacion else '',
+                'url_videos': [
+                    os.path.join(
+                        '/static', v.path
+                    ) for v in Video.objects.filter(
+                        usuario=usu_seleccionado
+                    )
+                ],
+            })
+            return HttpResponse(
+                json.dumps(dict), content_type='application/json'
+            )
+        else:
+            return HttpResponse(
+                json.dumps(dict), content_type='application/json'
+            )
+    except Exception as e:
+        dict['exito'] = False
+        logger.error("Error al ver el detalle del usuario: {}".format(e))
+        return HttpResponse(
+            json.dumps(dict), content_type='application/json'
+        )

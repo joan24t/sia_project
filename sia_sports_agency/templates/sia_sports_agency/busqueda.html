@@ -1,9 +1,7 @@
 {% extends 'sia_sports_agency/base.html' %}
 {% block content %}
 {% load static %}
-<script type="text/javascript">
-
-</script>
+{% include "sia_sports_agency/modal_usuario_detalle.html" %}
 <div class="busqueda">
     <div class="row titulo" >
         <h2>Filtros de búsqueda</h2>
@@ -89,7 +87,7 @@
                         <h5 style="margin-top: 4px;">Desde</h5>
                     </div>
                     <div class="col-2">
-                        <select class="form-control busqueda-edad" name="busquedaEdadIni">
+                        <select class="form-control busqueda-edad-ini" name="busquedaEdadIni">
                             {% for r in rango_edad %}
                                 <option value="{{r}}">{{r}}</option>
                             {% endfor %}
@@ -99,9 +97,9 @@
                         <h5 style="margin-top: 4px;">hasta</h5>
                     </div>
                     <div class="col-2">
-                        <select class="form-control busqueda-edad" name="busquedaEdadFin">
+                        <select class="form-control busqueda-edad-fin" name="busquedaEdadFin">
                             {% for r in rango_edad %}
-                                <option value="{{r}}" {% if r == 80 %} selected {% endif %}>{{r}}</option>
+                                <option value="{{r}}" {% if r == 90 %} selected {% endif %}>{{r}}</option>
                             {% endfor %}
                         </select>
                     </div>
@@ -119,7 +117,7 @@
                         <button type="submit" class="form-control"><i class="fas fa-search"></i> Buscar</button>
                     </div>
                     <div class="col-6">
-                        <button class="form-control" onclick="limpiarFiltros()"><i class="fas fa-eraser"></i> Limpiar</button>
+                        <button type="button" class="form-control" onclick="limpiarFiltros()"><i class="fas fa-eraser"></i> Limpiar</button>
                     </div>
                 </div>
             </div>

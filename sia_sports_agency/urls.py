@@ -58,5 +58,10 @@ urlpatterns = [
         r'desactivar_cuenta/',
         views.desactivar_cuenta,
         name='Desactivar cuenta'
+    ),
+    url(
+        r'detalle_usuario/',
+        views.detalle_usuario,
+        name='Detalle usuario'
     )
 ]
