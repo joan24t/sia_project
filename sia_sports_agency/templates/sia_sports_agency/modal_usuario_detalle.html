@@ -1,23 +1,35 @@
 {% load static %}
 <div class="modal fade" id="detalleUsuarioModal" tabindex="-1" role="dialog" aria-labelledby="detalleUsuarioModalTitle" aria-hidden="true">
     <div class="modal-dialog mw-100" role="document">
-        <div class="modal-content modal-registration">
+        <div class="modal-content modal-detalle">
             <div class="modal-header">
-                <h2 class="modal-title" id="registrationLongTitle">Detalle de </h2>
+                <h2 class="modal-title" id="detalleLongTitle">Detalle de </h2>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="seccion-cromo col-4" style="text-align: center;">
+                    <div class="col-4"/>
+                        <div class="seccion-cromo" style="text-align: center;">
+                        </div>
                     </div>
                     <div class="col-8">
-                        <h2> Datos básicos </h2>
+                        <div class="row">
+                            <div class="col-6">
+                                <h2> Datos básicos </h2>
+                            </div>
+                            <div class="seccion-mensaje col-6" style="text-align: right;">
+                                <button class="btn btn-outline-light detalle-btn rounded btn-nuevo-correo"> Enviar mensaje </button>
+                            </div>
+                        </div>
                         <hr class="fila"/>
                         <div class="row" style="padding-left: 15px;">
                             <div class="col-12">
-                                <span id="detalleNombre"></span>
+                                <h4>
+                                    <span style="float:left; color: grey;">Nombre:&nbsp;</span>
+                                    <span style="float:left;" id="detalleNombre"></span>
+                                </h4>
                             </div>
                             <div class="col-12">
                                 <span id="detalleGenero"></span>
@@ -32,7 +44,10 @@
                                 <span id="detalleGeneroDeporte"></span>
                             </div>
                             <div class="col-12">
-                                <span id="detalleEmail"></span>
+                                <h4>
+                                    <span style="float:left; color: grey;">Email:&nbsp;</span>
+                                    <span style="float:left;" id="detalleEmail"></span>
+                                </h4>
                             </div>
                             <div class="col-12">
                                 <span id="detalleFNacimiento"></span>

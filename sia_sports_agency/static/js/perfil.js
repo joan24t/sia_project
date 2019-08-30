@@ -27,7 +27,9 @@ $(document).ready(function(){
     /*Autocomplete de correos existentes*/
     autocompleteCorreos();
     /*Respuesta de correo*/
-    responderCorreo()
+    responderCorreo();
+    /*Nuevo correo desde el detalle de un usuario*/
+    nuevoCorreoDesdeDetalle();
     /*Nuevo correo*/
     nuevoCorreo();
     /*Cambia de sección en el apartado de mensajes*/
@@ -172,6 +174,7 @@ var triggerImgCromo = function(){
     });
 }
 var enviarImgCromo = function(){
+    $('.cromo-img').attr('hidden', '');
     var form = $('#form-subida-img')[0];
     var data = new FormData(form);
     $.ajax({
@@ -236,6 +239,7 @@ var primerAcceso = function(canvas){
         async:false,
         success: function(data) {
             if(data.exito && (data.primer_acceso == 1 || data.vacio)){
+                $('.cromo-img').attr('hidden', '');
                 var imageData = canvas.toDataURL("image/png");
                 guardarCromo(imageData);
                 setAcceso();
@@ -308,12 +312,24 @@ var responderCorreo = function(){
     });
 }
 var nuevoCorreo = function(){
-    $(".btn-nuevo-correo").on("click", function() {
+    $("#nuevoEmailModalCenter .btn-nuevo-correo").on("click", function() {
       var listadoCorreos = $(".destinatarios-nuevo").val();
       var asunto = $(".asunto-nuevo").val();
       var cuerpo = $(".cuerpo-nuevo").val();
       enviarCorreo(listadoCorreos, asunto, cuerpo);
       $('#nuevoEmailModalCenter').modal('toggle');
+    });
+}
+
+var nuevoCorreoDesdeDetalle = function(){
+    $("#detalleUsuarioModal .btn-nuevo-correo").on("click", function() {
+        var destinatario = $('#detalleUsuarioModal #detalleNombre').text() + " <"+ $('#detalleUsuarioModal #detalleEmail').text() + ">;"
+        $(".destinatarios-nuevo").attr('disabled', true);
+        $('#nuevoEmailModalCenter').modal({
+            backdrop: 'static',
+            keyboard: false
+        });
+        $("#nuevoEmailModalCenter .destinatario").val(destinatario);
     });
 }
 

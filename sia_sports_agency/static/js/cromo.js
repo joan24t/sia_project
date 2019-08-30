@@ -133,10 +133,10 @@ var verDetalle = function(usuarioId){
             if(data.exito){
                 var url = data.url_img;
                 $('#detalleUsuarioModal .seccion-cromo').html("<img width='70%;' src='" + url + "'/>");
-                $('#detalleUsuarioModal #detalleNombre').html("<h4><span style='color: grey;'>Nombre:</span> " + data.nombre + "</h4>");
+                $('#detalleUsuarioModal #detalleNombre').html(data.nombre);
                 $('#detalleUsuarioModal #detalleRol').html("<h4><span style='color: grey;'>Rol:</span> " + data.rol + "</h4>");
                 $('#detalleUsuarioModal #detalleDeporte').html("<h4><span style='color: grey;'>Deporte:</span> " + data.deporte + "</h4>");
-                $('#detalleUsuarioModal #detalleEmail').html("<h4><span style='color: grey;'>Email:</span> " + data.email + "</h4>");
+                $('#detalleUsuarioModal #detalleEmail').html(data.email);
                 $('#detalleUsuarioModal #detalleGeneroDeporte').html("<h4><span style='color: grey;'>Género deporte:</span> " + data.genero_deporte + "</h4>");
                 $('#detalleUsuarioModal #detalleGenero').html("<h4><span style='color: grey;'>Género:</span> " + data.sexo + "</h4>");
                 $('#detalleUsuarioModal #detalleFNacimiento').html("<h4><span style='color: grey;'>Fecha Nacimiento:</span> " + data.fnacimiento + "</h4>");

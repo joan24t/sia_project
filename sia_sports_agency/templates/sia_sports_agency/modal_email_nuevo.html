@@ -1,5 +1,5 @@
 {% load static %}
-<div class="modal fade" id="nuevoEmailModalCenter" tabindex="-1" role="dialog" aria-labelledby="nuevoEmailCenterTitle" aria-hidden="true">
+<div class="modal fade" id="nuevoEmailModalCenter" style="z-index:100000" tabindex="-1" role="dialog" aria-labelledby="nuevoEmailCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content modal-email">
             <div class="modal-header">
@@ -13,7 +13,7 @@
                     {% csrf_token %}
                     <div>
                         <label>Destinatarios: </label>
-                        <input type="text" class="form-control destinatario destinatarios-nuevo" name="remitente">
+                        <input type="text" class="form-control destinatario destinatarios-nuevo" id="pepe" name="remitente">
                     </div>
                     <div>
                         <label>Asunto: </label>

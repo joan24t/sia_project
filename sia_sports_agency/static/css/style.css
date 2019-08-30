@@ -790,14 +790,16 @@ section{
 	color: white;
 	width: 100%;
 }
-.form-upload-btn{
+.form-upload-btn,
+.detalle-btn{
     font-size: 20px;
     font-weight: bold;
     background: linear-gradient(to right, #9A8056, #CFAB71, #9A8056);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-.form-upload-btn:hover{
+.form-upload-btn:hover,
+.detalle-btn:hover{
   box-shadow: 0 0.5em 0.5em -0.4em white;
   transform: translateY(-0.25em);
 }
@@ -960,7 +962,10 @@ section{
 	  max-width: 80% !important;
 	  margin-left: 12%;
    }
-
+   .modal-detalle{
+	  max-width: 80% !important;
+	  margin-left: 12%;
+   }
 }
 /*
 ****************************************************************************************************
@@ -984,6 +989,9 @@ section{
 
 @media(max-width:1199px){
    .modal-registration{
+	   max-width: 100% !important;
+   }
+   .modal-detalle{
 	   max-width: 100% !important;
    }
 }
