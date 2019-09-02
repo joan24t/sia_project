@@ -4,7 +4,6 @@
 <!-- Modal -->
 {% load static %}
 {% load i18n %}
-{% get_current_language as LANGUAGE_CODE %}
 <div id="home">
     <!--Carousel Wrapper-->
     <div id="video-carousel" class="carousel slide carousel-fade" data-ride="carousel">
@@ -28,12 +27,12 @@
             </div>
             <div class="col-md-12 col-xl-6 baraja-text div-registration">
                 <div data-aos="flip-right" data-aos-duration="1500">
-                    <span><b>Reg&iacute;strate GRATIS y crea tu perfil de forma f&aacute;cil y sencilla</b></span>
+                    <span><b>{% trans "Reg&iacute;strate GRATIS y crea tu perfil de forma f&aacute;cil y sencilla"%}</b></span>
                 </div>
                 <!-- Registration button -->
                 <div class="row justify-content-center" style="margin-top: 100px;" data-aos="zoom-in" data-aos-duration="1000">
                     <div class="col-6 registration-btn" data-toggle="modal" data-target="#registrationModalCenter">
-                        ¡Reg&iacute;strate!
+                        {% trans "¡Reg&iacute;strate!"%}
                     </div>
                 </div>
             </div>
@@ -45,15 +44,15 @@
         <div class="row col-12">
             <div class="col-12 col-xl-4 home-text" data-aos="zoom-in" data-aos-duration="2000">
                 <img src="{% static 'img/home/quienes/profile.png' %}" /><br/>
-                <p>Edita tu perfil con tus habilidades, v&iacute;deos, curr&iacute;culum, proyectos...</p>
+                <p>{% trans "Edita tu perfil con tus habilidades, v&iacute;deos, curr&iacute;culum, proyectos..."%}</p>
             </div>
             <div class="col-12 col-xl-4 home-text" style="padding-top: 80px;" data-aos="zoom-in" data-aos-duration="2000">
-                <span>Accede a la b&uacute;squeda de otros usuarios, comun&iacute;cate con ellos y recibir o env&iacute;ar ofertas. </span><br/>
+                <span>{% trans "Accede a la b&uacute;squeda de otros usuarios, comun&iacute;cate con ellos y recibir o env&iacute;ar ofertas."%}</span><br/>
                 <img src="{% static 'img/home/quienes/punto.png' %}" /><br>
             </div>
             <div class="col-12 col-xl-4 home-text" data-aos="zoom-in" data-aos-duration="2000" >
                 <img src="{% static 'img/home/quienes/register.png' %}" /><br />
-                <span id="quienes">Seas del deporte que seas, si buscas mejorar en el ámbito deportivo, ¡este es tu lugar! </span>
+                <span id="quienes">{% trans "Seas del deporte que seas, si buscas mejorar en el ámbito deportivo, ¡este es tu lugar!"%}</span>
             </div>
         </div>
     </div>
@@ -89,14 +88,14 @@
             <div class="row">
                 <div class="col-sm-12 col-lg-12">
                     <h1 class="h1">
-                        <small>Formulario de contacto</small>
+                        <small>{% trans "Formulario de contacto" %}</small>
                     </h1>
                 </div>
             </div>
         </div>
     </div>
     <div class="container">
-        <h2 class="text-center">Contáctanos</h2>
+        <h2 class="text-center">{% trans "Contáctanos" %}</h2>
         <div class="errors">
         </div>
         <form class="contact-form" method="POST">

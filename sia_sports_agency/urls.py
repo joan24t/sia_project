@@ -63,5 +63,10 @@ urlpatterns = [
         r'detalle_usuario/',
         views.detalle_usuario,
         name='Detalle usuario'
+    ),
+    url(
+        r'cambiar_idioma/',
+        views.cambiar_idioma,
+        name='Cambiar idioma'
     )
 ]

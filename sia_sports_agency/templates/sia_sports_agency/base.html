@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+{% load i18n %}
+{% language dyn_language %}
 <html lang="es">
     {% block title %}
         <title>Inicio | SIA Sports Agency</title>
@@ -122,23 +124,23 @@
                     </div>
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active"  href="/#home"> HOME<span class="sr-only">(current)</span></a>
+                            <a class="nav-link active"  href="/#home"> {% trans "HOME" %}<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#queModalCenter" data-toggle="modal" data-target="#queModalCenter">QU&Eacute; OFRECEMOS<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="#queModalCenter" data-toggle="modal" data-target="#queModalCenter">{% trans "QU&Eacute; OFRECEMOS" %}<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/#contacto-form">CONTACTO<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="/#contacto-form">{% trans "CONTACTO" %}<span class="sr-only">(current)</span></a>
                         </li>
                         {% if usuario %}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                CUENTA
+                                {% trans "CUENTA" %}
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="/perfil">Perfil</a>
-                                <a class="dropdown-item" href="/busqueda">B&uacute;squeda</a>
-                                <a class="dropdown-item" href="/logout">Cerrar sesi&oacute;n</a>
+                                <a class="dropdown-item" href="/perfil">{% trans "Perfil" %}</a>
+                                <a class="dropdown-item" href="/busqueda">{% trans "B&uacute;squeda" %}</a>
+                                <a class="dropdown-item" href="/logout">{% trans "Cerrar sesi&oacute;n" %}</a>
                             </div>
                         </li>
                         {% else %}
@@ -147,6 +149,18 @@
                         </li>
                         {% endif %}
                     </ul>
+                </div>
+                <div class="lista-idiomas">
+                    <form id="form-idioma-es" action="cambiar_idioma/" method="POST">
+                        {% csrf_token %}
+                        <input name="idioma" value="es-es" hidden/>
+                        <img onclick="cambiarIdioma('es');" class="idioma idioma-es {% if dyn_language == 'es-es' %} active {% endif %}" src="{% static 'img/idiomas/es.png' %}"/>
+                    </form>
+                    <form id="form-idioma-en" action="cambiar_idioma/" method="POST">
+                        {% csrf_token %}
+                        <input name="idioma" value="en-en" hidden/>
+                        <img onclick="cambiarIdioma('en');" class="idioma idioma-en {% if dyn_language == 'en-en' %} active {% endif %}" src="{% static 'img/idiomas/en.png' %}"/>
+                    </form>
                 </div>
             </nav>
             {% block content %}
@@ -200,3 +214,4 @@
     <!-- Footer -->
 
 </html>
+{% endlanguage %}

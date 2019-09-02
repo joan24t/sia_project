@@ -1,0 +1,82 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-02 21:55+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:127
+msgid "HOME"
+msgstr "HOME"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:130
+msgid "QU&Eacute; OFRECEMOS"
+msgstr "QU&Eacute; OFRECEMOS"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:133
+msgid "CONTACTO"
+msgstr "CONTACTO"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:138
+msgid "CUENTA"
+msgstr "CUENTA"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:141
+msgid "Perfil"
+msgstr "Perfil"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:142
+msgid "B&uacute;squeda"
+msgstr "B&uacute;squeda"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:143
+msgid "Cerrar sesi&oacute;n"
+msgstr "Cerrar sesi&oacute;n"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\index.html:30
+msgid ""
+"Reg&iacute;strate GRATIS y crea tu perfil de forma f&aacute;cil y sencilla"
+msgstr "Reg&iacute;strate GRATIS y crea tu perfil de forma f&aacute;cil y sencilla"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\index.html:35
+msgid "¡Reg&iacute;strate!"
+msgstr "¡Reg&iacute;strate!"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\index.html:47
+msgid ""
+"Edita tu perfil con tus habilidades, v&iacute;deos, curr&iacute;culum, "
+"proyectos..."
+msgstr ""
+
+#: .\sia_sports_agency\templates\sia_sports_agency\index.html:50
+msgid ""
+"Accede a la b&uacute;squeda de otros usuarios, comun&iacute;cate con ellos y "
+"recibir o env&iacute;ar ofertas."
+msgstr ""
+
+#: .\sia_sports_agency\templates\sia_sports_agency\index.html:55
+msgid ""
+"Seas del deporte que seas, si buscas mejorar en el ámbito deportivo, ¡este "
+"es tu lugar!"
+msgstr ""
+
+#: .\sia_sports_agency\templates\sia_sports_agency\index.html:62
+msgid "DEPORTISTAS SIA"
+msgstr "DEPORTISTAS SIA"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\index.html:91
+msgid "Formulario de contacto"
+msgstr ""

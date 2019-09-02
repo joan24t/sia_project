@@ -240,3 +240,8 @@ var establecerPosiciones = function(cod, edit, esBusqueda){
         });
     }
 }
+
+/* Función que cambia el idioma de la pagina */
+var cambiarIdioma = function(idioma){
+    $( "#form-idioma-" + idioma ).submit();
+}

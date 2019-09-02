@@ -28,6 +28,7 @@ SPORT_TYPE_CHOICES = {
     'm': 'Masculino',
     'f': 'Femenino',
 }
+LANGUAGE_DEFAULT = 'es-es'
 def global_contexto():
     lista_tipo_jugadores = Tipo_jugador.objects.all()
     lista_deportes = Deporte.objects.all()
@@ -46,6 +47,9 @@ def global_contexto():
 def index(request):
     contexto = global_contexto()
     contexto.update(get_usuario(request))
+    contexto.update({
+        'dyn_language': request.session.get('language') or LANGUAGE_DEFAULT
+    })
     return render(
         request,
         'sia_sports_agency/index.html',
@@ -73,7 +77,8 @@ def get_usuario(request):
             email=email,
             activo=1
         ).first()
-        return {'usuario': usuario} if usuario is not None else {}
+        dict = {'usuario': usuario}
+        return dict if usuario is not None else {}
     return {}
 
 """ Inicio de sesión """
@@ -1021,3 +1026,8 @@ def detalle_usuario(request):
         return HttpResponse(
             json.dumps(dict), content_type='application/json'
         )
+
+""" Cambiamos el idioma en la sesión """
+def cambiar_idioma(request):
+    request.session['language'] = request.POST.get('idioma')
+    return HttpResponseRedirect('/')
