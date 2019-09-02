@@ -3,6 +3,8 @@
 {% include "sia_sports_agency/modal_window_user.html" %}
 <!-- Modal -->
 {% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 <div id="home">
     <!--Carousel Wrapper-->
     <div id="video-carousel" class="carousel slide carousel-fade" data-ride="carousel">
@@ -58,7 +60,7 @@
 
     <!-- Deportistas SIA -->
     <div class="container text-center col-10" style="margin-top: 100px;" data-aos="zoom-out-up">
-        <h2>DEPORTISTAS SIA</h2>
+        <h2>{% trans "DEPORTISTAS SIA" %}</h2>
         <div id="recipeCarousel" class="carousel slide w-100 " data-ride="carousel">
             <div class="carousel-inner w-100" role="listbox">
                 <div class="carousel-item row no-gutters active">
