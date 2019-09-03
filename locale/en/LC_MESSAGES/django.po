@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-02 21:55+0200\n"
+"POT-Creation-Date: 2019-09-03 22:50+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,31 +18,71 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\base.html:127
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:65
+msgid "Mostrar _MENU_"
+msgstr "Show _MENU_"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:66
+msgid "No hay registros"
+msgstr "No rows"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:67
+msgid "Mostrando _PAGE_ de _PAGES_"
+msgstr "Showing _PAGE_ from _PAGES_"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:68
+msgid "No hay registros disponibles"
+msgstr "No rows"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:69
+msgid "Buscar:"
+msgstr "Search:"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:70
+msgid "Procesando..."
+msgstr "Processing..."
+
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:72
+msgid "Primero"
+msgstr "First"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:73
+msgid "Último"
+msgstr "Last"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:74
+msgid "Siguiente"
+msgstr "Next"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:75
+msgid "Anterior"
+msgstr "Previous"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:141
 msgid "HOME"
 msgstr "HOME"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\base.html:130
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:144
 msgid "QU&Eacute; OFRECEMOS"
 msgstr "BENEFITS"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\base.html:133
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:147
 msgid "CONTACTO"
 msgstr "CONTACT"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\base.html:138
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:152
 msgid "CUENTA"
 msgstr "ACCOUNT"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\base.html:141
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:155
 msgid "Perfil"
 msgstr "Profile"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\base.html:142
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:156
 msgid "B&uacute;squeda"
 msgstr "Searcher"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\base.html:143
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:157
 msgid "Cerrar sesi&oacute;n"
 msgstr "Logout"
 
@@ -53,25 +93,30 @@ msgstr "Sign up for FREE and create your profile easily"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\index.html:35
 msgid "¡Reg&iacute;strate!"
-msgstr "Sign up"
+msgstr "¡Sign up!"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\index.html:47
 msgid ""
 "Edita tu perfil con tus habilidades, v&iacute;deos, curr&iacute;culum, "
 "proyectos..."
-msgstr "Edit your profile with yout habilities, videos, curriculum, projects..."
+msgstr ""
+"Edit your profile with your habilities, videos, curriculum, projects..."
 
 #: .\sia_sports_agency\templates\sia_sports_agency\index.html:50
 msgid ""
 "Accede a la b&uacute;squeda de otros usuarios, comun&iacute;cate con ellos y "
 "recibir o env&iacute;ar ofertas."
-msgstr "Access to the searcher to look for other users so that you can talk to them and send receive offers"
+msgstr ""
+"Access to the searcher to look for other users so that you can talk to them "
+"or send them offers"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\index.html:55
 msgid ""
 "Seas del deporte que seas, si buscas mejorar en el ámbito deportivo, ¡este "
 "es tu lugar!"
-msgstr "Independently of your sport, if you are looking for how you can improve. ¡This is your place!"
+msgstr ""
+"Independently of your sport, if you are looking for how you can improve. "
+"¡This is your place!"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\index.html:62
 msgid "DEPORTISTAS SIA"
@@ -80,3 +125,287 @@ msgstr "SIA ATHLETES"
 #: .\sia_sports_agency\templates\sia_sports_agency\index.html:91
 msgid "Formulario de contacto"
 msgstr "Contact form"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\index.html:98
+msgid "Contáctanos"
+msgstr "Contact us"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\index.html:107
+msgid "Nombre"
+msgstr "Name"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\index.html:115
+msgid "Email"
+msgstr "Email"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\index.html:123
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:450
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:493
+msgid "Asunto"
+msgstr "Subject"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\index.html:131
+msgid "Mensaje"
+msgstr "Message"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\index.html:136
+msgid "Enviar"
+msgstr "Send"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_que.html:7
+msgid "Qué ofrecemos"
+msgstr "Benefits"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_que.html:22
+msgid ""
+" SIA Sports Agency es un punto de encuentro entre usuarios vinculados al\n"
+"                                        mundo del deporte, tanto amateur "
+"como profesional."
+msgstr ""
+"SIA Sports Agency is a meeting point between users who are linked to the "
+"world of sports, both amateur and professional."
+
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_que.html:35
+msgid ""
+" Crea tu perfil de forma fácil y sencilla, y podrás acceder a la búsqueda de "
+"otros usuarios,\n"
+"                                        comunicarte con ellos, y recibir o "
+"enviar ofertas."
+msgstr ""
+"Create your profile easily so that you can access in search of other users, "
+"communicate with them, and receive or send offers."
+
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_que.html:52
+msgid ""
+"Regístrate GRATIS y edita tu perfil con tus habilidades, vídeos, currículum, "
+"proyectos..."
+msgstr ""
+"Sign up for free and edit your profile with you habilities, videos, "
+"curriculum, projects..."
+
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_que.html:64
+msgid ""
+" No somos representantes,\n"
+"                                        somos una plataforma online creada "
+"por deportistas para deportistas."
+msgstr ""
+"We are not representatives, we are an online platform created by athletes "
+"and for athletes."
+
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_que.html:81
+msgid ""
+" En SIA Sports Agency englobamos todos los deportes, todos los géneros y "
+"todas las personas."
+msgstr ""
+"At SIA Sports Agency we include all sports, all genders and all people."
+
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_que.html:93
+msgid ""
+" Si buscas mejorar en el ámbito deportivo este es tu lugar.\n"
+"                                        Tenemos un objetivo: ayudarte a "
+"alcanzar tus metas!"
+msgstr ""
+"If you are looking to improve in the sports field this is your place. We "
+"have one goal: to help you reach your goals!"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:24
+msgid "Tiene"
+msgstr "You have"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:24
+msgid "mensajes nuevos."
+msgstr "new messages"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:46
+msgid "visitas"
+msgstr "visits"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:59
+msgid "DATOS BÁSICOS"
+msgstr "BASIC DATA"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:62
+msgid "DATOS ADICIONALES"
+msgstr "SPECIFIC DATA"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:65
+msgid "MENSAJES"
+msgstr "MESSAGES"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:73
+msgid "Tus datos básicos"
+msgstr "Your basic data"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:81
+msgid "Rol"
+msgstr "Role"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:89
+msgid "Direcci&oacute;n email"
+msgstr "Email"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:93
+msgid "Nombre y apellidos"
+msgstr "Name"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:98
+msgid "Sexo"
+msgstr "Gender"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:101
+msgid "Hombre"
+msgstr "Male"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:102
+msgid "Mujer"
+msgstr "Female"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:107
+msgid "F. Nacimiento"
+msgstr "Birthdate"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:112
+msgid "País"
+msgstr "Country"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:124
+msgid "Deporte"
+msgstr "Sport"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:133
+msgid "G&eacute;nero"
+msgstr "Gender"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:136
+msgid "Masculino"
+msgstr "Male"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:137
+msgid "Femenino"
+msgstr "Female"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:144
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:151
+msgid "Posici&oacute;n"
+msgstr "Position"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:161
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:309
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:369
+msgid "Editar"
+msgstr "Edit"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:164
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:312
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:372
+msgid "Cancelar"
+msgstr "Cancel"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:167
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:315
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:375
+msgid "Guardar"
+msgstr "Save"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:179
+msgid "Tus datos específicos"
+msgstr "Your specific data"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:187
+msgid "Tel&eacute;fono"
+msgstr "Phone"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:191
+msgid "Ubicaci&oacute;n"
+msgstr "Location"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:199
+msgid "Peso"
+msgstr "Weight"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:220
+msgid "Altura"
+msgstr "Height"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:229
+msgid "pulgadas"
+msgstr "inches"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:238
+msgid "Extremidad dominante"
+msgstr "Dominant limb"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:248
+msgid "Nacionalidad"
+msgstr "Nacionality"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:252
+msgid "Equipo actual"
+msgstr "Current team"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:256
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:266
+msgid "Carta de presentaci&oacute;n"
+msgstr "Cover letter"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:268
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:290
+msgid "Seleccionar Archivo"
+msgstr "Select file"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:302
+msgid "Interesado en"
+msgstr "Interested in"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:323
+msgid "Tus redes sociales"
+msgstr "Your social networks"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:384
+msgid "Tus v&iacute;deos"
+msgstr "Your videos"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:429
+msgid "Bandeja de entrada"
+msgstr "Inbox"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:432
+msgid "Elementos enviados"
+msgstr "Sent"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:440
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:483
+msgid "Nuevo mensaje"
+msgstr "New message"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:443
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:486
+msgid "Tus mensajes"
+msgstr "Your messages"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:449
+msgid "Remitente"
+msgstr "Sender"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:451
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:494
+msgid "Fecha"
+msgstr "Date"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:452
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:495
+msgid "Cuerpo"
+msgstr "Body"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:466
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:509
+msgid "Abrir"
+msgstr "Open"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:469
+msgid "Responder"
+msgstr "Reply"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:492
+msgid "Destinatario"
+msgstr "Receiver"

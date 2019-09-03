@@ -434,9 +434,9 @@ def perfil(request):
         'extremidades': lista_extremidades,
         'n_visitas': get_usuario(request).get('usuario').n_visitas,
         'img_perfil': get_usuario(request).get('usuario').img_perfil,
-        'ruta_cromo': get_usuario(request).get('usuario').ruta_cromo
+        'ruta_cromo': get_usuario(request).get('usuario').ruta_cromo,
+        'dyn_language': request.session.get('language') or LANGUAGE_DEFAULT
     })
-
     contexto.update(get_usuario(request))
     insertar_redes_contexto(contexto)
     insertar_videos_contexto(contexto)

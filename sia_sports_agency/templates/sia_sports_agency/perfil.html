@@ -2,7 +2,7 @@
 {% block content %}
 {% load static %}
 {% static "" as baseUrl %}
-
+{% load i18n %}
 <div class="row" style="max-width: 100%;">
     <!-- *** CABECERA DE LA BARRA LATERAL *** -->
     <div class="col-12 col-xl-3 sidebar-header">
@@ -21,7 +21,7 @@
                             <ul class="dropdown-menu menu-top menu-messages hidden">
                                 <li class="header-msg-info">
                                     <small>
-                                        <span class="float-left" style="margin-right: 50px; color: white;">Tiene <strong>{{correos_nuevos.count}}</strong> mensajes nuevos.</span>
+                                        <span class="float-left" style="margin-right: 50px; color: white;">{% trans "Tiene" %} <strong>{{correos_nuevos.count}}</strong> {% trans "mensajes nuevos." %}</span>
                                     </small>
                                 </li>
                                 <hr class="hr-msg" style="margin-top: 40px;"/>
@@ -43,7 +43,7 @@
             </div>
             <div class="notif-visitas col col-12 col-xl-6">
                 <a href="#" class="dropdown-toggle msg-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-eye fa-2x"></i><span>{{n_visitas}} visitas</span>
+                    <i class="fas fa-eye fa-2x"></i><span>{{n_visitas}} {% trans "visitas" %}</span>
                 </a>
             </div>
         </div>
@@ -56,13 +56,13 @@
         <div>
             <ul class="nav flex-column flex-sm-row nav-tabs nav-justified tabs" style:"color: black;">
                 <li class="nav-item">
-                    <a class="nav-link active datosBasicosTab" href="javascript:hideOrShowTabs('db')"><span style="font-size: 20px;">DATOS BÁSICOS</span></a>
+                    <a class="nav-link active datosBasicosTab" href="javascript:hideOrShowTabs('db')"><span style="font-size: 20px;">{% trans "DATOS BÁSICOS" %}</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link datosAdicionaleTab" href="javascript:hideOrShowTabs('da')"><span style="font-size: 20px;">DATOS ADICIONALES</span></a>
+                    <a class="nav-link datosAdicionaleTab" href="javascript:hideOrShowTabs('da')"><span style="font-size: 20px;">{% trans "DATOS ADICIONALES" %}</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mensajesTab" href="javascript:hideOrShowTabs('me')"><span style="font-size: 20px;">MENSAJES</span></a>
+                    <a class="nav-link mensajesTab" href="javascript:hideOrShowTabs('me')"><span style="font-size: 20px;">{% trans "MENSAJES" %}</span></a>
                 </li>
             </ul>
         </div>
@@ -70,7 +70,7 @@
         <div class="row col-12" id="datosBasicos">
             <section class="panel panel-datos-basicos">
                 <header class="panel panel-heading">
-                    <h2 class="panel-title pull-left">Tus datos básicos</h2>
+                    <h2 class="panel-title pull-left">{% trans "Tus datos básicos" %}</h2>
                 </header>
                 <div class="panel-body">
                     <form id="form-datos-basicos">
@@ -78,7 +78,7 @@
                             <div class="row">
                                 <div class="col col-12 col-xl-6">
                                     <label for="queEresDropdown">
-                                        <h4>Rol</h4>
+                                        <h4>{% trans "Rol" %}</h4>
                                     </label>
                                     <select class="form-control" id="queEresDropdown" name="inputTipoUsuario">
                                         {% for tipo in tipo_jugadores %}
@@ -86,30 +86,30 @@
                                         {% endfor %}
                                     </select>
                                     <label for="FormControlInputEmail">
-                                        <h4>Direcci&oacute;n email</h4>
+                                        <h4>{% trans "Direcci&oacute;n email" %}</h4>
                                     </label>
                                     <input type="email" value="{{usuario.email}}" name="inputEmail" class="form-control" id="FormControlInputEmail">
                                     <label for="FormControlInputNombre">
-                                        <h4>Nombre y apellidos</h4>
+                                        <h4>{% trans "Nombre y apellidos" %}</h4>
                                     </label>
                                     <input class="form-control" value="{{usuario.nombre}}" name="inputNombre" type="text" id="FormControlInputNombre">
                                     <div class="grupoSexo">
                                         <label for="sexoDropdown">
-                                            <h4>Sexo</h4>
+                                            <h4>{% trans "Sexo" %}</h4>
                                         </label>
                                         <select class="form-control" id="sexoDropdown" name="inputSexo">
-                                            <option value="m" {% if usuario.genero == 'm' %} selected {% endif %}>Hombre</option>
-                                            <option value="f" {% if usuario.genero == 'f' %} selected {% endif %}>Mujer</option>
+                                            <option value="m" {% if usuario.genero == 'm' %} selected {% endif %}>{% trans "Hombre" %}</option>
+                                            <option value="f" {% if usuario.genero == 'f' %} selected {% endif %}>{% trans "Mujer" %}</option>
                                         </select>
                                     </div>
                                     <div class="grupoFechaNacimiento" >
                                         <label for="datepicker">
-                                            <h4>F. Nacimiento</h4>
+                                            <h4>{% trans "F. Nacimiento" %}</h4>
                                         </label>
                                         <input class="form-control" name="inputNacimiento" value="{{ usuario.fnacimiento|date:'d/m/Y' }}" id="datepicker" autocomplete="off">
                                     </div>
                                     <label for="paisDropdown">
-                                        <h4>País</h4>
+                                        <h4>{% trans "País" %}</h4>
                                     </label>
                                     <select class="form-control selectpicker" id="paisDropdown" name="inputPais" data-live-search="true" hidden>
                                         {% for pais in paises %}
@@ -121,7 +121,7 @@
                                 <div class="col col-12 col-xl-6">
                                     <div class="grupoAQueJuegas">
                                         <label for="deporteInput">
-                                            <h4>Deporte</h4>
+                                            <h4>{% trans "Deporte" %}</h4>
                                         </label>
                                         <select class="form-control" id="deporteInput" name="inputDeporte">
                                             {% for deporte in deportes %}
@@ -130,25 +130,25 @@
                                         </select>
                                         <div class="grupoGeneroDeporte">
                                             <label for="generoInput">
-                                                <h4>G&eacute;nero</h4>
+                                                <h4>{% trans "G&eacute;nero" %}</h4>
                                             </label>
                                             <select class="form-control" id="generoInput" name="inputTipoDeporte">
-                                                <option value="m" {% if usuario.tipo_deporte == 'm' %} selected {% endif %}>Masculino</option>
-                                                <option value="f" {% if usuario.tipo_deporte == 'f' %} selected {% endif %}>Femenino</option>
+                                                <option value="m" {% if usuario.tipo_deporte == 'm' %} selected {% endif %}>{% trans "Masculino" %}</option>
+                                                <option value="f" {% if usuario.tipo_deporte == 'f' %} selected {% endif %}>{% trans "Femenino" %}</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="grupoPosiciones">
                                         <div class="divPositionsSimple">
                                             <label for="posicionDropdown">
-                                                <h4>Posici&oacute;n</h4>
+                                                <h4>{% trans "Posici&oacute;n" %}</h4>
                                             </label>
                                             <select class="form-control" id="posicionDropdown" name="inputPosicion">
                                             </select>
                                         </div>
                                         <div class="divMultiplePositions" hidden>
                                             <label for="posicionDropdownMultiple">
-                                                <h4>Posici&oacute;n</h4>
+                                                <h4>{% trans "Posici&oacute;n" %}</h4>
                                             </label>
                                             <select class="form-control selectpicker" name="inputPosicionMulti" id="posicionDropdownMultiple" multiple data-live-search="true" hidden>
                                                 {% for posicion in posiciones %}
@@ -158,13 +158,13 @@
                                         </div>
                                     </div>
                                     <button class="btn btn-db btn-outline-light float-right btn-editar rounded">
-                                        <h5>Editar</h5>
+                                        <h5>{% trans "Editar" %}</h5>
                                     </button>
                                     <button class="btn btn-db btn-outline-light float-right btn-cancelar rounded" hidden>
-                                        <h5>Cancelar</h5>
+                                        <h5>{% trans "Cancelar" %}</h5>
                                     </button>
                                     <button type="submit" class="btn btn-db btn-outline-light float-right btn-guardar rounded" hidden>
-                                        <h5>Guardar</h5>
+                                        <h5>{% trans "Guardar" %}</h5>
                                     </button>
                                 </div>
                         </fieldset>
@@ -176,7 +176,7 @@
         <div class="row col-12" id="datosEspecificos" style="display: none;">
             <section class="panel panel-datos-especificos">
                 <header class="panel panel-heading">
-                    <h2 class="panel-title pull-left">Tus datos específicos</h2>
+                    <h2 class="panel-title pull-left">{% trans "Tus datos específicos" %}</h2>
                 </header>
                 <div class="panel-body">
                     <form id="form-datos-especificos">
@@ -184,11 +184,11 @@
                             <div class="row">
                                 <div class="col col-12 col-xl-6">
                                     <label for="telefono">
-                                        <h4>Telefono</h4>
+                                        <h4>{% trans "Tel&eacute;fono" %}</h4>
                                     </label>
                                     <input type="text" value="{{usuario.telefono|default:''}}" name="inputTelefono" id="telefono" class="form-control">
                                     <label for="ubicacion">
-                                        <h4>Ubicación</h4>
+                                        <h4>{% trans "Ubicaci&oacute;n" %}</h4>
                                     </label>
                                     <input type="text" value="{{usuario.ubicacion|default:''}}" name="inputUbicacion" id="ubicacion" class="form-control">
                                     <div class="row">
@@ -196,7 +196,7 @@
                                             <div class="row">
                                                 <div class="col-12">
                                                     <label for="peso">
-                                                        <h4>Peso</h4>
+                                                        <h4>{% trans "Peso" %}</h4>
                                                     </label>
                                                     <div class="row">
                                                         <div class="col-8">
@@ -217,7 +217,7 @@
                                             <div class="row">
                                                 <div class="col-12">
                                                     <label for="altura">
-                                                        <h4>Altura</h4>
+                                                        <h4>{% trans "Altura" %}</h4>
                                                     </label>
                                                     <div class="row">
                                                         <div class="col-8">
@@ -226,7 +226,7 @@
                                                         <div class="col-4">
                                                             <select class="form-control" name="inputTipoAltura">
                                                                 <option value="cm" {% if usuario.tipo_altura == 'cm' %} selected {% endif %}>cm</option>
-                                                                <option value="pulgadas" {% if usuario.tipo_altura == 'pulgadas' %} selected {% endif %}>pulgadas</option>
+                                                                <option value="pulgadas" {% if usuario.tipo_altura == 'pulgadas' %} selected {% endif %}>{% trans "pulgadas" %}</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -235,7 +235,7 @@
                                         </div>
                                     </div>
                                     <label for="edominante">
-                                        <h4>Extremidad dominante</h4>
+                                        <h4>{% trans "Extremidad dominante" %}</h4>
                                     </label>
                                     <select class="form-control" id="edominante" name="inputEdominante">
                                         {% for extremidad in extremidades %}
@@ -245,15 +245,15 @@
                                 </div>
                                 <div class="col col-12 col-xl-6">
                                     <label for="nacionalidad">
-                                        <h4>Nacionalidad</h4>
+                                        <h4>{% trans "Nacionalidad" %}</h4>
                                     </label>
                                     <input type="text" value="{{usuario.nacionalidad|default:''}}" name="inputNacionalidad" id="nacionalidad" class="form-control">
                                     <label for="eactual">
-                                        <h4>Equipo actual</h4>
+                                        <h4>{% trans "Equipo actual" %}</h4>
                                     </label>
                                     <input type="text" value="{{usuario.eactual|default:''}}" name="inputEactual" id="eactual" class="form-control">
                                     <label for="cpresentacion">
-                                        <h4>Carta de presentación</h4>
+                                        <h4>{% trans "Carta de presentaci&oacute;n" %}</h4>
                                     </label>
                                     <!--div class="enlace-cpresentacion" hidden>
                                         <a href="{{ baseUrl }}{{usuario.cpresentacion}}" download>Descargar carta de presentación</a>
@@ -263,9 +263,9 @@
                                             <div class="custom-file" id="cpresentacion">
                                                 <input type="file" class="custom-file-input" accept=".pdf" id="customFileCarta" lang="es" name="inputCpresentacion" hidden>
                                                 {% if usuario.cpresentacion %}
-                                                    <label class="custom-file-label form-control" for="customFileCarta">Carta de presentación</label>
+                                                    <label class="custom-file-label form-control" for="customFileCarta">{% trans "Carta de presentaci&oacute;n" %}</label>
                                                 {% else %}
-                                                    <label class="custom-file-label form-control" for="customFileCarta">Seleccionar Archivo</label>
+                                                    <label class="custom-file-label form-control" for="customFileCarta">{% trans "Seleccionar Archivo" %}</label>
                                                 {% endif %}
                                             </div>
                                             <input type="text" id="emptyFileCarta" name="emptyFileCarta" hidden>
@@ -287,7 +287,7 @@
                                                 {% if usuario.curriculum %}
                                                     <label class="custom-file-label form-control" for="customFileCurriculum">Curriculum</label>
                                                 {% else %}
-                                                    <label class="custom-file-label form-control" for="customFileCurriculum">Seleccionar Archivo</label>
+                                                    <label class="custom-file-label form-control" for="customFileCurriculum">{% trans "Seleccionar Archivo" %}</label>
                                                 {% endif %}
                                             </div>
                                             <input type="text" value="0" id="emptyCurriculum" name="emptyCurriculum" hidden>
@@ -299,20 +299,20 @@
                                 </div>
                                 <div class="col col-12 col-xl-6">
                                     <label for="interesadoen">
-                                        <h4>Interesado en</h4>
+                                        <h4>{% trans "Interesado en" %}</h4>
                                     </label>
                                     <textarea id="interesadoen" class="form-control" name="inputInteresadoen" rows="6" cols="50">{{usuario.interesadoen|default:''}}</textarea>
                                 </div>
                             </div>
 
                             <button class="btn btn-de btn-outline-light float-right btn-editar rounded">
-                                <h5>Editar</h5>
+                                <h5>{% trans "Editar" %}</h5>
                             </button>
                             <button class="btn btn-de btn-outline-light float-right btn-cancelar rounded" hidden>
-                                <h5>Cancelar</h5>
+                                <h5>{% trans "Cancelar" %}</h5>
                             </button>
                             <button type="submit" class="btn btn-de btn-outline-light float-right btn-guardar rounded" hidden>
-                                <h5>Guardar</h5>
+                                <h5>{% trans "Guardar" %}</h5>
                             </button>
                         </fieldset>
                     </form>
@@ -320,7 +320,7 @@
             </section>
             <section class="panel panel-networks">
                 <header class="panel panel-heading">
-                    <h2 class="panel-title pull-left">Tus redes sociales</h2>
+                    <h2 class="panel-title pull-left">{% trans "Tus redes sociales" %}</h2>
                 </header>
                 <div class="panel-body">
                     <form id="form-redes-sociales">
@@ -366,13 +366,13 @@
                                 </div>
                             </div>
                             <button class="btn btn-de btn-outline-light float-right btn-editar rounded">
-                                <h5>Editar</h5>
+                                <h5>{% trans "Editar" %}</h5>
                             </button>
                             <button class="btn btn-de btn-outline-light float-right btn-cancelar rounded" hidden>
-                                <h5>Cancelar</h5>
+                                <h5>{% trans "Cancelar" %}</h5>
                             </button>
                             <button type="submit" class="btn btn-de btn-outline-light float-right btn-guardar rounded" hidden>
-                                <h5>Guardar</h5>
+                                <h5>{% trans "Guardar" %}</h5>
                             </button>
                         </fieldset>
                     </form>
@@ -381,7 +381,7 @@
             <!-- *** GALERIA DE VIDEOS *** -->
             <section class="panel">
                 <header class="panel panel-heading">
-                    <h2 class="panel-title pull-left">Tus vídeos</h2>
+                    <h2 class="panel-title pull-left">{% trans "Tus v&iacute;deos" %}</h2>
                 </header>
                 <div class="video-gallery panel-body">
                     <div class="row video-list">
@@ -426,10 +426,10 @@
             <div style="margin-bottom: 20px;">
                 <ul class="nav">
                     <li class="btn-bandeja-entrada active">
-                        <a class="nav-link" href="#">Bandeja de entrada ({{correos_nuevos.count}})</a>
+                        <a class="nav-link" href="#">{% trans "Bandeja de entrada" %} ({{correos_nuevos.count}})</a>
                     </li>
                     <li class="btn-elementos-enviados">
-                        <a class="nav-link" href="#">Elementos enviados</a>
+                        <a class="nav-link" href="#">{% trans "Elementos enviados" %}</a>
                     </li>
                 </ul>
             </div>
@@ -437,19 +437,19 @@
                 <header class="panel panel-heading">
                     <div class="enviar-msj">
                         <a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#nuevoEmailModalCenter">
-                            <i class="fas fa-paper-plane"></i> Nuevo mensaje
+                            <i class="fas fa-paper-plane"></i> {% trans "Nuevo mensaje" %}
                         </a>
                     </div>
-                    <h2 class="panel-title pull-left">Tus mensajes</h2>
+                    <h2 class="panel-title pull-left">{% trans "Tus mensajes" %}</h2>
                 </header>
                 <div class="panel-body">
                     <table class="table table-striped tabla-correos">
                         <thead class="mail-header">
                             <tr>
-                                <th>Remitente</th>
-                                <th>Asunto</th>
-                                <th>Fecha</th>
-                                <th>Cuerpo</th>
+                                <th>{% trans "Remitente" %}</th>
+                                <th>{% trans "Asunto" %}</th>
+                                <th>{% trans "Fecha" %}</th>
+                                <th>{% trans "Cuerpo" %}</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -463,10 +463,10 @@
                                 <td class="columna-botones">
                                     <div style="float: right;">
                                         <a href="#" style="margin-right: 10px;" class="btn btn-primary btn-xs mail-ver" id="{{correo.id}}" data-toggle="modal" data-target="#emailModalCenter">
-                                            <i class="fas fa-eye"></i> Abrir
+                                            <i class="fas fa-eye"></i> {% trans "Abrir" %}
                                         </a>
                                         <a href="#" style="float: right;" class="btn btn-primary btn-xs mail-responder" id="{{correo.id}}" data-toggle="modal" data-target="#emailModalCenter">
-                                            <i class="fas fa-reply"></i> Responder
+                                            <i class="fas fa-reply"></i> {% trans "Responder" %}
                                         </a>
                                     </div>
                                 </td>
@@ -480,19 +480,19 @@
                 <header class="panel panel-heading">
                     <div class="enviar-msj">
                         <a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#nuevoEmailModalCenter">
-                            <i class="fas fa-paper-plane"></i> Nuevo mensaje
+                            <i class="fas fa-paper-plane"></i> {% trans "Nuevo mensaje" %}
                         </a>
                     </div>
-                    <h2 class="panel-title pull-left">Tus mensajes</h2>
+                    <h2 class="panel-title pull-left">{% trans "Tus mensajes" %}s</h2>
                 </header>
                 <div class="panel-body">
                     <table class="table table-striped tabla-correos">
                         <thead class="mail-header">
                             <tr>
-                                <th>Destinatario</th>
-                                <th>Asunto</th>
-                                <th>Fecha</th>
-                                <th>Cuerpo</th>
+                                <th>{% trans "Destinatario" %}</th>
+                                <th>{% trans "Asunto" %}</th>
+                                <th>{% trans "Fecha" %}</th>
+                                <th>{% trans "Cuerpo" %}</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -506,7 +506,7 @@
                                 <td class="columna-botones">
                                     <div style="float: right;">
                                         <a href="#" class="btn btn-primary btn-xs mail-ver" id="{{correo.id}}" data-toggle="modal" data-target="#emailModalCenter">
-                                            <i class="fas fa-eye"></i> Abrir
+                                            <i class="fas fa-eye"></i> {% trans "Abrir" %}
                                         </a>
                                     </div>
                                 </td>

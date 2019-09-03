@@ -60,7 +60,21 @@
         <script>
             $(document).ready(function(){
                 $('.tabla-correos').DataTable({
-                    "order": [[ 2, "desc" ]]
+                    "order": [[ 2, "desc" ]],
+                    "language": {
+                        "lengthMenu": "{% trans 'Mostrar _MENU_' %}",
+                        "zeroRecords": "{% trans 'No hay registros' %}",
+                        "info": "{% trans 'Mostrando _PAGE_ de _PAGES_' %}",
+                        "infoEmpty": "{% trans 'No hay registros disponibles' %}",
+                        "sSearch": "{% trans 'Buscar:' %}",
+                        "sProcessing": "{% trans 'Procesando...' %}",
+                        "oPaginate": {
+                                "sFirst": "{% trans 'Primero' %}",
+                                "sLast": "{% trans 'Último' %}",
+                                "sNext": "{% trans 'Siguiente' %}",
+                                "sPrevious": "{% trans 'Anterior' %}"
+                            },
+                        }
                 });
                 $('.toast').toast({delay: 3000});
                 $('.selectpicker').selectpicker({
