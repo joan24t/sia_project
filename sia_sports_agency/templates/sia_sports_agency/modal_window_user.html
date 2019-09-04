@@ -1,9 +1,10 @@
 {% load static %}
+{% load i18n %}
 <div class="modal fade" id="registrationModalCenter" tabindex="-1" role="dialog" aria-labelledby="registrationModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog mw-100 w-100" role="document">
         <div class="modal-content modal-registration">
             <div class="modal-header">
-                <h2 class="modal-title" id="registrationLongTitle">Nueva cuenta</h2>
+                <h2 class="modal-title" id="registrationLongTitle">{% trans "Nueva cuenta" %}</h2>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -15,7 +16,7 @@
                         <div class="col-xl-6 col-sm-12">
                             <div class="form-group">
                                 <label class="qform" for="queEresDropdown">
-                                    <h4 class="titulo" >&iquest;Qu&eacute; eres?</h4>
+                                    <h4 class="titulo" >{% trans "Qu&eacute; eres?" %}</h4>
                                 </label>
                                 <select class="form-control" name="inputTipoUsuario" id="queEresDropdown">
                                     {% for tipo in tipo_jugadores %}
@@ -25,23 +26,23 @@
                             </div>
                             <div class="form-group">
                                 <label>
-                                    <h4 class="titulo">Tus datos</h4>
+                                    <h4 class="titulo">{% trans "Tus datos" %}</h4>
                                 </label>
                                 <div>
-                                    <label for="FormControlInputNombre">Nombre y apellidos</label>
-                                    <input class="form-control" name="inputNombre" type="text" id="FormControlInputNombre" placeholder="Nombre y apellidos">
+                                    <label for="FormControlInputNombre">{% trans "Nombre y apellidos" %}</label>
+                                    <input class="form-control" name="inputNombre" type="text" id="FormControlInputNombre" placeholder="{% trans 'Nombre y apellidos' %}">
                                     <div class="grupoSexo">
-                                        <label for="sexoDropdown">Sexo</label>
+                                        <label for="sexoDropdown">{% trans "Sexo" %}</label>
                                         <select class="form-control" id="sexoDropdown" name="inputSexo">
-                                            <option value="m">Hombre</option>
-                                            <option value="f">Mujer</option>
+                                            <option value="m">{% trans "Hombre" %}</option>
+                                            <option value="f">{% trans "Mujer" %}</option>
                                         </select>
                                     </div>
                                     <div class="grupoFechaNacimiento">
-                                        <label for="datepicker">F. Nacimiento</label>
+                                        <label for="datepicker">{% trans "F. Nacimiento" %}</label>
                                         <input name="inputNacimiento" id="datepicker" class="form-control" autocomplete="off">
                                     </div>
-                                    <label for="paisDropdown">País</label>
+                                    <label for="paisDropdown">{% trans "País" %}</label>
                                     <div class="divPais" id="paisDropdown">
                                         <select class="form-control selectpicker" name="inputPais" data-live-search="true" hidden>
                                             {% for pais in paises %}
@@ -53,20 +54,20 @@
                             </div>
                             <div class="form-group grupoAQueJuegas">
                                 <label>
-                                    <h4 class="titulo">&iquest;A qu&eacute; juegas?</h4>
+                                    <h4 class="titulo">{% trans "A qu&eacute; juegas?" %}</h4>
                                 </label>
                                 <div class="data-div">
-                                    <label for="aQueJuegasDropdown">Deporte</label>
+                                    <label for="aQueJuegasDropdown">{% trans "Deporte" %}</label>
                                     <select class="form-control" id="aQueJuegasDropdown" name="inputDeporte">
                                         {% for deporte in deportes %}
                                             <option value="{{deporte.codigo|default:''}}">{{deporte.nombre}}</option>
                                         {% endfor %}
                                     </select>
                                     <div class="grupoGeneroDeporte">
-                                        <label for="generoDropdown">G&eacute;nero</label>
+                                        <label for="generoDropdown">{% trans "G&eacute;nero" %}</label>
                                         <select class="form-control" id="generoDropdown" name="inputTipoDeporte">
-                                            <option value="m">Masculino</option>
-                                            <option value="f">Femenino</option>
+                                            <option value="m">{% trans "Masculino" %}</option>
+                                            <option value="f">{% trans "Femenino" %}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -76,14 +77,14 @@
                             <div class="form-group grupoPosiciones">
                                 <div class="divPositionsSimple">
                                     <label for="posicionDropdown">
-                                        <h4 class="titulo">&iquest;Qu&eacute; posici&oacute;n ocupas?</h4>
+                                        <h4 class="titulo">{% trans "Qu&eacute; posici&oacute;n ocupas?" %}</h4>
                                     </label>
                                     <select class="form-control" id="posicionDropdown" name="inputPosicion">
                                     </select>
                                 </div>
                                 <div class="divMultiplePositions" hidden>
                                     <label for="posicionDropdownMultiple">
-                                        <h4 class="titulo">&iquest;Qu&eacute; posici&oacute;n ocupas?</h4>
+                                        <h4 class="titulo">&iquest;{% trans "Qu&eacute; posici&oacute;n ocupas?" %}</h4>
                                     </label>
                                     <select class="form-control selectpicker" name="inputPosicionMulti" id="posicionDropdownMultiple" multiple data-live-search="true" hidden>
                                     </select>
@@ -91,26 +92,26 @@
                             </div>
                             <div class="form-group">
                                 <label>
-                                    <h4 class="titulo">Datos de acceso</h4>
+                                    <h4 class="titulo">{% trans "Datos de acceso" %}</h4>
                                 </label>
                                 <div>
-                                    <label for="FormControlInputEmail">Direcci&oacute;n email</label>
-                                    <input type="email" class="form-control" name="inputEmail" id="FormControlInputEmail" placeholder="nombre@siasportsagency.com">
+                                    <label for="FormControlInputEmail">{% trans "Direcci&oacute;n email" %}</label>
+                                    <input type="email" class="form-control" name="inputEmail" id="FormControlInputEmail" placeholder="{% trans 'nombre@siasportsagency.com' %}">
                                     <input type="text" style="display:none;">
                                     <div class="form-group">
-                                        <label for="password1">Contraseña</label>
+                                        <label for="password1">{% trans "Contraseña" %}</label>
                                         <input type="password" style="display:none;">
-                                        <input type="password" name="inputPassword1" class="form-control" id="password1" placeholder="Contraseña">
+                                        <input type="password" name="inputPassword1" class="form-control" id="password1" placeholder="{% trans 'Contraseña' %}">
                                     </div>
                                     <div class="form-group">
-                                      <label for="password2">Repite contraseña</label>
-                                      <input type="password" name="inputPassword2" class="form-control" id="password2" placeholder="Contraseña">
+                                      <label for="password2">{% trans "Repita contraseña" %}</label>
+                                      <input type="password" name="inputPassword2" class="form-control" id="password2" placeholder="{% trans 'Contraseña' %}">
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-outline-light form-registration-btn rounded">Registrar</button>
+                    <button type="submit" class="btn btn-outline-light form-registration-btn rounded">{% trans "Registrar" %}</button>
                 </form>
             </div>
         </div>

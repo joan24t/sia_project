@@ -1,26 +1,27 @@
 {% load static %}
+{% load i18n %}
 <div class="modal fade" id="cambioContraModalCenter" tabindex="-1" role="dialog" aria-labelledby="cambioContraModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-md modal-dialog-centered" role="document">
         <div class="modal-content modal-cambio-contra">
             <div class="modal-header">
-                <h5 class="modal-title">Cambio de contraseña</h5>
+                <h5 class="modal-title">{% trans "Cambio de contraseña" %}</h5>
             </div>
             <form id="form-cambio-contrasena">
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="password1">
-                            <h5>Contraseña nueva:</h5>
+                            <h5>{% trans "Contraseña nueva:" %}</h5>
                         </label>
                         <input class="form-control" type="password" name="inputPassword" id="password1">
                         <label for="password2">
-                            <h5>Repita contraseña:</h5>
+                            <h5>{% trans "Repita contraseña:" %}</h5>
                         </label>
                         <input class="form-control" type="password" id="password2">
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button type="submit" class="btn btn-primary">Cambiar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{% trans "Cerrar" %}</button>
+                    <button type="submit" class="btn btn-primary">{% trans "Cambiar" %}</button>
                 </div>
             </form>
         </div>

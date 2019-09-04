@@ -2,6 +2,7 @@
 {% static "" as baseCromo %}
 {% static "img/cromo/iconos_deporte/" as baseLogoDeporte %}
 {% static "flags/png/" as baseLogoPais %}
+{% load i18n %}
 <script>
     /* Establecemos los nuevos valores */
     var establecerDatosCromo = function(){
@@ -145,10 +146,10 @@
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
         <div class="list-group list-group-flush">
-            <a href="{{ baseCromo }}{{ruta_cromo}}" class="list-group-item list-group-item-action btn-descargar-cromo" download>Descargar</a>
-            <a href="#" class="cambiar-img-cromo list-group-item list-group-item-action">Cambiar imagen</a>
-            <a href="#" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#cambioContraModalCenter">Cambiar contraseña</a>
-            <a href="#" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#desactivarModal">Desactivar cuenta</a>
+            <a href="{{ baseCromo }}{{ruta_cromo}}" class="list-group-item list-group-item-action btn-descargar-cromo" download>{% trans "Descargar" %}</a>
+            <a href="#" class="cambiar-img-cromo list-group-item list-group-item-action">{% trans "Cambiar imagen" %}</a>
+            <a href="#" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#cambioContraModalCenter">{% trans "Cambiar contraseña" %}</a>
+            <a href="#" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#desactivarModal">{% trans "Desactivar cuenta" %}</a>
         </div>
     </div>
     <!-- /#sidebar-wrapper -->

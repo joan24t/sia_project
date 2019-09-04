@@ -1,16 +1,17 @@
 <!-- Modal Confirm-->
+{% load i18n %}
 <div class="modal fade" id="confirmModalCenter" tabindex="-1" role="dialog" aria-labelledby="confirmModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Confirmación</h5>
+                <h5 class="modal-title">{% trans "Confirmación" %}</h5>
             </div>
             <div class="modal-body">
-                ¿Está seguro de que quiere eliminar este vídeo?
+                {% trans "¿Está seguro de que quiere eliminar este vídeo?" %}
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Eliminar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">{% trans "Cerrar" %}</button>
+                <button type="button" class="btn btn-primary">{% trans "Eliminar" %}</button>
             </div>
         </div>
     </div>

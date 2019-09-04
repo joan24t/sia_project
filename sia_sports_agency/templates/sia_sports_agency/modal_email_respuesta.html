@@ -1,9 +1,10 @@
 {% load static %}
+{% load i18n %}
 <div class="modal fade" id="emailModalCenter" tabindex="-1" role="dialog" aria-labelledby="emailModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content modal-email">
             <div class="modal-header">
-                <h2 class="modal-title">Correo</h2>
+                <h2 class="modal-title">{% trans "Correo" %}</h2>
                 <button type="button" class="close" data-dismiss="modal">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -12,20 +13,20 @@
                 <form action="enviar_correo/" method="post" class="form-email">
                     {% csrf_token %}
                     <div>
-                        <label>Remitente: </label>
+                        <label>{% trans "Remitente:" %}</label>
                         <input type="text" id="lista-destinatarios" class="form-control destinatarios-res" name="remitente" value="{{correo.remitente.email}}">
                     </div>
                     <div>
-                        <label>Asunto: </label>
+                        <label>{% trans "Asunto:" %}</label>
                         <input type="text" class="form-control asunto-res" name="asunto" value="{{correo.asunto}}">
                     </div>
                     <div>
-                        <label>Mensaje: </label>
+                        <label>{% trans "Mensaje:" %}</label>
                         <textarea name="mensaje" class="form-control cuerpo-res" rows="5" cols="82" value="{{correo.cuerpo}}"></textarea>
                     </div>
                     <div class="enviar-msj">
                         <a href="#" class="btn btn-primary btn-xs btn-responder-correo">
-                            <i class="fas fa-paper-plane"></i> Enviar
+                            <i class="fas fa-paper-plane"></i> {% trans "Enviar" %}
                         </a>
                     </div>
                 </form>

@@ -1,9 +1,10 @@
 {% load static %}
+{% load i18n %}
 <div class="modal fade" id="detalleUsuarioModal" tabindex="-1" role="dialog" aria-labelledby="detalleUsuarioModalTitle" aria-hidden="true">
     <div class="modal-dialog mw-100" role="document">
         <div class="modal-content modal-detalle">
             <div class="modal-header">
-                <h2 class="modal-title" id="detalleLongTitle">Detalle de <span id="detalleNombre"></span></h2>
+                <h2 class="modal-title" id="detalleLongTitle">{% trans "Detalle de" %} <span id="detalleNombre"></span></h2>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -17,17 +18,17 @@
                     <div class="col-8">
                         <div class="row">
                             <div class="col-6">
-                                <h2> Datos básicos </h2>
+                                <h2> {% trans "Datos básicos" %} </h2>
                             </div>
                             <div class="seccion-mensaje col-6" style="text-align: right;">
-                                <button class="btn btn-outline-light detalle-btn rounded btn-nuevo-correo"> Enviar mensaje </button>
+                                <button class="btn btn-outline-light detalle-btn rounded btn-nuevo-correo"> {% trans "Enviar mensaje" %} </button>
                             </div>
                         </div>
                         <hr class="fila"/>
                         <div class="row" style="padding-left: 15px;">
                             <div class="col-12">
                                 <h4>
-                                    <span style="float:left; color: grey;">Nombre:&nbsp;</span>
+                                    <span style="float:left; color: grey;">{% trans "Nombre:" %}&nbsp;</span>
                                     <span style="float:left;" id="detalleNombre"></span>
                                 </h4>
                             </div>
@@ -45,7 +46,7 @@
                             </div>
                             <div class="col-12">
                                 <h4>
-                                    <span style="float:left; color: grey;">Email:&nbsp;</span>
+                                    <span style="float:left; color: grey;">{% trans "Email:&nbsp;" %}</span>
                                     <span style="float:left;" id="detalleEmail"></span>
                                 </h4>
                             </div>
@@ -61,7 +62,7 @@
                 <div class="row">
                     <div class="row col-12">
                         <div class="col-12">
-                            <h2>Datos específicos</h2>
+                            <h2>{% trans "Datos específicos" %}</h2>
                             <hr class="fila"/>
                         </div>
                         <div class="col-6">
@@ -94,7 +95,7 @@
                 <div class="row">
                     <div class="row col-12">
                         <div class="col-12">
-                            <h2>Interesado en</h2>
+                            <h2>{% trans "Interesado en" %}</h2>
                             <hr class="fila"/>
                         </div>
                         <div class="col-12">
@@ -103,17 +104,17 @@
                             </div>
                         </div>
                         <div class="col-6" style="text-align: center;">
-                            Carta de presentación:<a id="detalleCPresentacion" href="" download>&nbsp;&nbsp;<i class="fas fa-download"></i></a>
+                            {% trans "Carta de presentación:" %}<a id="detalleCPresentacion" href="" download>&nbsp;&nbsp;<i class="fas fa-download"></i></a>
                         </div>
                         <div class="col-6" style="text-align: center;">
-                            Curriculum:<a id="detalleCurriculum" href="" download>&nbsp;&nbsp;<i class="fas fa-download"></i></a>
+                            {% trans "Curriculum:" %}<a id="detalleCurriculum" href="" download>&nbsp;&nbsp;<i class="fas fa-download"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="row col-12">
                         <div class="col-12" style="margin-bottom: 20px;">
-                            <h2>Redes sociales</h2>
+                            <h2>{% trans "Redes sociales" %}</h2>
                             <hr class="fila"/>
                         </div>
                         <div class="col-3" style="text-align: center;">
@@ -133,7 +134,7 @@
                 <div class="row">
                     <div class="row col-12">
                         <div class="col-12" style="margin-bottom: 20px;">
-                            <h2>Vídeos</h2>
+                            <h2>{% trans "Vídeos" %}</h2>
                             <hr class="fila"/>
                         </div>
                         <div id="detalleVideos" class="row col-12">

@@ -415,7 +415,8 @@ def busqueda(request):
         return HttpResponseRedirect('/')
     context = global_contexto()
     context.update({
-        'rango_edad': range(16, 91)
+        'rango_edad': range(16, 91),
+        'dyn_language': request.session.get('language') or LANGUAGE_DEFAULT
     })
     context.update(get_usuario(request))
     return render(

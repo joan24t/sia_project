@@ -1,21 +1,22 @@
 {% extends 'sia_sports_agency/base.html' %}
 {% block content %}
 {% load static %}
+{% load i18n %}
 {% include "sia_sports_agency/modal_usuario_detalle.html" %}
 <div class="busqueda">
     <div class="row titulo" >
-        <h2>Filtros de búsqueda</h2>
+        <h2>{% trans "Filtros de b&uacute;squeda" %}</h2>
     </div>
     <form id="form-busqueda">
         <div class="row form-group justify-content-center">
             <div class="col-5">
                 <div class="row">
                     <div class="col-4">
-                        <h4>Qué buscas</h4>
+                        <h4>{% trans "Qu&eacute; buscas" %}</h4>
                     </div>
                     <div class="col-8">
                         <select class="form-control busqueda-tipo" name="busquedaTipoUsuario">
-                                <option value="">Elige tipo de jugador</option>
+                                <option value="">{% trans "Elige tipo de jugador" %}</option>
                             {% for tipo in tipo_jugadores %}
                                 <option value="{{tipo.codigo|default:''}}">{{tipo.nombre}}</option>
                             {% endfor %}
@@ -24,7 +25,7 @@
                 </div>
                 <div class="row">
                     <div class="col-4">
-                        <h4>Nombre</h4>
+                        <h4>{% trans "Nombre" %}</h4>
                     </div>
                     <div class="col-8">
                         <input class="form-control busqueda-nombre" type="text" name="busquedaNombre">
@@ -32,11 +33,11 @@
                 </div>
                 <div class="row">
                     <div class="col-4">
-                        <h4>Deporte</h4>
+                        <h4>{% trans "Deporte" %}</h4>
                     </div>
                     <div class="col-8">
                         <select class="form-control busqueda-deporte" name="busquedaDeporte">
-                            <option value="">Elige deporte</option>
+                            <option value="">{% trans "Elige deporte" %}</option>
                             {% for deporte in deportes %}
                             <option value="{{deporte.codigo|default:''}}" {% if deporte.codigo == usuario.deporte.codigo %} selected {% endif %}>{{deporte.nombre}}</option>
                             {% endfor %}
@@ -45,7 +46,7 @@
                 </div>
                 <div class="row">
                     <div class="col-4">
-                        <h4>Posición</h4>
+                        <h4>{% trans "Posición" %}</h4>
                     </div>
                     <div class="col-8">
                         <select class="form-control selectpicker busqueda-posicion" name="busquedaPosicionMulti" id="posicionDropdownMultiple" multiple data-live-search="true" hidden>
@@ -56,23 +57,23 @@
             <div class="col-5">
                 <div class="row">
                     <div class="col-4">
-                        <h4>Género</h4>
+                        <h4>{% trans "Género" %}</h4>
                     </div>
                     <div class="col-8">
                         <select class="form-control busqueda-genero" name="busquedaGenero">
-                            <option value="a">Ambos</option>
-                            <option value="m">Masculino</option>
-                            <option value="f">Femenino</option>
+                            <option value="a">{% trans "Ambos" %}</option>
+                            <option value="m">{% trans "Masculino" %}</option>
+                            <option value="f">{% trans "Femenino" %}</option>
                         </select>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-4">
-                        <h4>País</h4>
+                        <h4>{% trans "País" %}</h4>
                     </div>
                     <div class="col-8">
                         <select class="form-control selectpicker busqueda-pais" name="busquedaPais" data-live-search="true" hidden>
-                            <option value="">Seleccione país</option>
+                            <option value="">{% trans "Seleccione país" %}</option>
                             {% for pais in paises %}
                             <option value="{{pais.codigo|default:''}}" data-content="<span class='flag-icon flag-icon-{{pais.codigo|lower}}'></span>&ensp;&ensp;{{pais.nombre}}"></option>
                             {% endfor %}
@@ -81,10 +82,10 @@
                 </div>
                 <div class="row">
                     <div class="col-4">
-                        <h4>Rango edad</h4>
+                        <h4>{% trans "Rango edad" %}</h4>
                     </div>
                     <div class="col-2">
-                        <h5 style="margin-top: 4px;">Desde</h5>
+                        <h5 style="margin-top: 4px;">{% trans "Desde" %}</h5>
                     </div>
                     <div class="col-2">
                         <select class="form-control busqueda-edad-ini" name="busquedaEdadIni">
@@ -94,7 +95,7 @@
                         </select>
                     </div>
                     <div class="col-2">
-                        <h5 style="margin-top: 4px;">hasta</h5>
+                        <h5 style="margin-top: 4px;">{% trans "hasta" %}</h5>
                     </div>
                     <div class="col-2">
                         <select class="form-control busqueda-edad-fin" name="busquedaEdadFin">
@@ -106,7 +107,7 @@
                 </div>
                 <div class="row">
                     <div class="col-4">
-                        <h4>Equipo actual</h4>
+                        <h4>{% trans "Equipo actual" %}</h4>
                     </div>
                     <div class="col-8">
                         <input class="form-control busqueda-eactual" type="text" name="busquedaEActual">
@@ -114,10 +115,10 @@
                 </div>
                 <div class="row botones">
                     <div class="col-6">
-                        <button type="submit" class="form-control"><i class="fas fa-search"></i> Buscar</button>
+                        <button type="submit" class="form-control"><i class="fas fa-search"></i> {% trans "Buscar" %}</button>
                     </div>
                     <div class="col-6">
-                        <button type="button" class="form-control" onclick="limpiarFiltros()"><i class="fas fa-eraser"></i> Limpiar</button>
+                        <button type="button" class="form-control" onclick="limpiarFiltros()"><i class="fas fa-eraser"></i> {% trans "Limpiar" %}</button>
                     </div>
                 </div>
             </div>

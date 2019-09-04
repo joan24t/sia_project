@@ -1,9 +1,10 @@
 {% load static %}
+{% load i18n %}
 <div class="modal fade" id="uploadModalCenter" tabindex="-1" role="dialog" aria-labelledby="uploadModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content modal-upload">
             <div class="modal-header">
-                <h2 class="modal-title">Sube tu vídeo</h2>
+                <h2 class="modal-title">{% trans "Sube tu vídeo" %}</h2>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -15,7 +16,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <label for="inputNombre">
-                                    <h5>Nombre del vídeo:</h5>
+                                    <h5>{% trans "Nombre del vídeo:" %}</h5>
                                 </label>
                             </div>
                             <div class="col-12" style="margin-bottom: 20px;">
@@ -23,17 +24,17 @@
                             </div>
                             <div class="col-12">
                                 <label for="inputFile">
-                                    <h5>Archivo:</h5>
+                                    <h5>{% trans "Archivo:" %}</h5>
                                 </label>
                             </div>
                             <div class="col-12">
                                 <div class="custom-file" id="inputFile" style="margin-bottom: 20px;">
                                     <input type="file" class="custom-file-input" name="inputFile" id="customFileVideo" lang="es" hidden>
-                                    <label class="custom-file-label form-control" for="customFileVideo">Seleccionar Archivo</label>
+                                    <label class="custom-file-label form-control" for="customFileVideo">{% trans "Seleccionar Archivo" %}</label>
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-outline-light form-upload-btn rounded float-right">Subir</button>
+                        <button type="submit" class="btn btn-outline-light form-upload-btn rounded float-right">{% trans "Subir" %}</button>
                     </form>
                 </div>
             </div>

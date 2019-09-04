@@ -1,20 +1,21 @@
 {% load static %}
+{% load i18n %}
 <div class="modal fade" id="activacionModalCenter" tabindex="-1" role="dialog" aria-labelledby="activacionModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-md modal-dialog-centered" role="document">
         <div class="modal-content modal-activacion">
             <div class="modal-header">
-                <h5 class="modal-title">Confirmación</h5>
+                <h5 class="modal-title">{% trans "Confirmación" %}</h5>
             </div>
             <div class="modal-body">
-                Esta cuenta se encuentra en un estado inactivo. ¿Desea reactivar la cuenta?
+                {% trans "Esta cuenta se encuentra en un estado inactivo. ¿Desea reactivar la cuenta?" %}
             </div>
             <div class="modal-footer">
                 <form action="reactivar_cuenta/" method="POST">
                     {% csrf_token %}
                     <input id="reactivar-email" type="email" name="emailInput" hidden>
                     <input id="reactivar-password" type="password" name="passwordInput" hidden>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                    <button type="submit" class="btn btn-primary">Sí</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{% trans "No" %}</button>
+                    <button type="submit" class="btn btn-primary">{% trans "Sí" %}</button>
                 </form>
             </div>
         </div>
