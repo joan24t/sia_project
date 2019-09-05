@@ -49,7 +49,7 @@
                         <h4>{% trans "Posición" %}</h4>
                     </div>
                     <div class="col-8">
-                        <select class="form-control selectpicker busqueda-posicion" name="busquedaPosicionMulti" id="posicionDropdownMultiple" multiple data-live-search="true" hidden>
+                        <select class="form-control selectpicker busqueda-posicion" title="{% trans 'Ninguno seleccionado' %}" name="busquedaPosicionMulti" id="posicionDropdownMultiple" multiple data-live-search="true" hidden>
                         </select>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
                         <h4>{% trans "País" %}</h4>
                     </div>
                     <div class="col-8">
-                        <select class="form-control selectpicker busqueda-pais" name="busquedaPais" data-live-search="true" hidden>
+                        <select class="form-control selectpicker busqueda-pais" title="{% trans 'Ninguno seleccionado' %}" name="busquedaPais" data-live-search="true" hidden>
                             <option value="">{% trans "Seleccione país" %}</option>
                             {% for pais in paises %}
                             <option value="{{pais.codigo|default:''}}" data-content="<span class='flag-icon flag-icon-{{pais.codigo|lower}}'></span>&ensp;&ensp;{{pais.nombre}}"></option>

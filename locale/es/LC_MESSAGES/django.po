@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-04 21:49+0200\n"
+"POT-Creation-Date: 2019-09-05 21:17+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -58,31 +58,31 @@ msgstr "Siguiente"
 msgid "Anterior"
 msgstr "Anterior"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\base.html:141
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:142
 msgid "HOME"
 msgstr "HOME"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\base.html:144
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:145
 msgid "QU&Eacute; OFRECEMOS"
 msgstr "QU&Eacute; OFRECEMOS"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\base.html:147
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:148
 msgid "CONTACTO"
 msgstr "CONTACTO"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\base.html:152
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:153
 msgid "CUENTA"
 msgstr "CUENTA"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\base.html:155
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:156
 msgid "Perfil"
 msgstr "Perfil"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\base.html:156
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:157
 msgid "B&uacute;squeda"
 msgstr "B&uacute;squeda"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\base.html:157
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:158
 msgid "Cerrar sesi&oacute;n"
 msgstr "Cerrar sesi&oacute;n"
 
@@ -116,6 +116,15 @@ msgstr "Elige deporte"
 #: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:49
 msgid "Posición"
 msgstr "Posici&oacute;n"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:52
+#: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:75
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html:47
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html:89
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:114
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:153
+msgid "Ninguno seleccionado"
+msgstr "Ninguno seleccionado"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:60
 msgid "Género"

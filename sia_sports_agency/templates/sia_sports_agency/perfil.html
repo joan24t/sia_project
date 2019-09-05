@@ -3,7 +3,7 @@
 {% load static %}
 {% static "" as baseUrl %}
 {% load i18n %}
-<div class="row" style="max-width: 100%;">
+<div class="row">
     <!-- *** CABECERA DE LA BARRA LATERAL *** -->
     <div class="col-12 col-xl-3 sidebar-header">
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -67,7 +67,7 @@
             </ul>
         </div>
         <!-- *** DATOS BASICOS *** -->
-        <div class="row col-12" id="datosBasicos">
+        <div class="col-12" id="datosBasicos" >
             <section class="panel panel-datos-basicos">
                 <header class="panel panel-heading">
                     <h2 class="panel-title pull-left">{% trans "Tus datos básicos" %}</h2>
@@ -82,7 +82,7 @@
                                     </label>
                                     <select class="form-control" id="queEresDropdown" name="inputTipoUsuario">
                                         {% for tipo in tipo_jugadores %}
-                                        <option value="{{tipo.codigo|default:''}}" {% if tipo.codigo == usuario.tipo.codigo %} selected {% endif %}>{{tipo.nombre}}</option>
+                                        <option value="{{tipo.codigo|default:''}}" {% if tipo.codigo == usuario.tipo.codigo %} selected {% endif %}>{% trans tipo.nombre %}</option>
                                         {% endfor %}
                                     </select>
                                     <label for="FormControlInputEmail">
@@ -111,7 +111,7 @@
                                     <label for="paisDropdown">
                                         <h4>{% trans "País" %}</h4>
                                     </label>
-                                    <select class="form-control selectpicker" id="paisDropdown" name="inputPais" data-live-search="true" hidden>
+                                    <select class="form-control selectpicker" id="paisDropdown" name="inputPais" title="{% trans 'Ninguno seleccionado' %}" data-live-search="true" hidden>
                                         {% for pais in paises %}
                                         <option value="{{pais.codigo|default:''}}" {% if pais.codigo == usuario.pais.codigo %} selected {% endif %}
                                             data-content="<span class='flag-icon flag-icon-{{pais.codigo|lower}}'></span>&ensp;&ensp;{{pais.nombre}}"></option>
@@ -125,7 +125,7 @@
                                         </label>
                                         <select class="form-control" id="deporteInput" name="inputDeporte">
                                             {% for deporte in deportes %}
-                                            <option value="{{deporte.codigo|default:''}}" {% if deporte.codigo == usuario.deporte.codigo %} selected {% endif %}>{{deporte.nombre}}</option>
+                                            <option value="{{deporte.codigo|default:''}}" {% if deporte.codigo == usuario.deporte.codigo %} selected {% endif %}>{% trans deporte.nombre %}</option>
                                             {% endfor %}
                                         </select>
                                         <div class="grupoGeneroDeporte">
@@ -150,7 +150,7 @@
                                             <label for="posicionDropdownMultiple">
                                                 <h4>{% trans "Posici&oacute;n" %}</h4>
                                             </label>
-                                            <select class="form-control selectpicker" name="inputPosicionMulti" id="posicionDropdownMultiple" multiple data-live-search="true" hidden>
+                                            <select class="form-control selectpicker" name="inputPosicionMulti" id="posicionDropdownMultiple" title="{% trans 'Ninguno seleccionado' %}" multiple data-live-search="true" hidden>
                                                 {% for posicion in posiciones %}
                                                 <option value="{{posicion.codigo}}|default:''">{{posicion.nombre}}</option>
                                                 {% endfor %}
@@ -173,7 +173,7 @@
             </section>
         </div>
         <!-- *** DATOS ESPECIFICOS *** -->
-        <div class="row col-12" id="datosEspecificos" style="display: none;">
+        <div class="col-12" id="datosEspecificos" style="display: none;">
             <section class="panel panel-datos-especificos">
                 <header class="panel panel-heading">
                     <h2 class="panel-title pull-left">{% trans "Tus datos específicos" %}</h2>
@@ -422,7 +422,7 @@
             </section>
         </div>
         <!-- *** MENSAJES *** -->
-        <div class="row col-12" id="mensajes" style="display: none;">
+        <div class="col-12" id="mensajes" style="display: none;">
             <div style="margin-bottom: 20px;">
                 <ul class="nav">
                     <li class="btn-bandeja-entrada active">
@@ -443,7 +443,7 @@
                     <h2 class="panel-title pull-left">{% trans "Tus mensajes" %}</h2>
                 </header>
                 <div class="panel-body">
-                    <table class="table table-striped tabla-correos">
+                    <table class="table table-striped tabla-correos table-responsive">
                         <thead class="mail-header">
                             <tr>
                                 <th>{% trans "Remitente" %}</th>
@@ -486,7 +486,7 @@
                     <h2 class="panel-title pull-left">{% trans "Tus mensajes" %}s</h2>
                 </header>
                 <div class="panel-body">
-                    <table class="table table-striped tabla-correos">
+                    <table class="table table-striped tabla-correos table-responsive">
                         <thead class="mail-header">
                             <tr>
                                 <th>{% trans "Destinatario" %}</th>

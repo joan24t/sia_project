@@ -20,7 +20,7 @@
                                 </label>
                                 <select class="form-control" name="inputTipoUsuario" id="queEresDropdown">
                                     {% for tipo in tipo_jugadores %}
-                                        <option value="{{tipo.codigo|default:''}}">{{tipo.nombre}}</option>
+                                        <option value="{{tipo.codigo|default:''}}">{% trans tipo.nombre %}</option>
                                     {% endfor %}
                                 </select>
                             </div>
@@ -44,7 +44,7 @@
                                     </div>
                                     <label for="paisDropdown">{% trans "País" %}</label>
                                     <div class="divPais" id="paisDropdown">
-                                        <select class="form-control selectpicker" name="inputPais" data-live-search="true" hidden>
+                                        <select class="form-control selectpicker" title="{% trans 'Ninguno seleccionado' %}" name="inputPais" data-live-search="true" hidden>
                                             {% for pais in paises %}
                                             <option value="{{pais.codigo|default:''}}" data-content="<span class='flag-icon flag-icon-{{pais.codigo|lower}}'></span>&ensp;&ensp;{{pais.nombre}}"></option>
                                             {% endfor %}
@@ -60,7 +60,7 @@
                                     <label for="aQueJuegasDropdown">{% trans "Deporte" %}</label>
                                     <select class="form-control" id="aQueJuegasDropdown" name="inputDeporte">
                                         {% for deporte in deportes %}
-                                            <option value="{{deporte.codigo|default:''}}">{{deporte.nombre}}</option>
+                                            <option value="{{deporte.codigo|default:''}}">{% trans deporte.nombre %}</option>
                                         {% endfor %}
                                     </select>
                                     <div class="grupoGeneroDeporte">
@@ -84,9 +84,9 @@
                                 </div>
                                 <div class="divMultiplePositions" hidden>
                                     <label for="posicionDropdownMultiple">
-                                        <h4 class="titulo">&iquest;{% trans "Qu&eacute; posici&oacute;n ocupas?" %}</h4>
+                                        <h4 class="titulo">{% trans "Qu&eacute; posici&oacute;n ocupas?" %}</h4>
                                     </label>
-                                    <select class="form-control selectpicker" name="inputPosicionMulti" id="posicionDropdownMultiple" multiple data-live-search="true" hidden>
+                                    <select class="form-control selectpicker" title="{% trans 'Ninguno seleccionado' %}" name="inputPosicionMulti" id="posicionDropdownMultiple" multiple data-live-search="true" hidden>
                                     </select>
                                 </div>
                             </div>
