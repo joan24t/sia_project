@@ -23,7 +23,7 @@
     <div class="row justify-content-center seccion-baraja">
         <div class="baraja-home justify-content-center row col-12">
             <div class="col-md-12 col-xl-6" style="text-align: center;" data-aos="flip-right" data-aos-duration="1500">
-                <img src="{% static 'img/home/home/baraja.png' %}" style="max-width: 100%;" />
+                <img src="{% static 'img/home/home/baraja.png' %}" style="max-width: 70%;" />
             </div>
             <div class="col-md-12 col-xl-6 baraja-text div-registration">
                 <div data-aos="flip-right" data-aos-duration="1500">
@@ -40,19 +40,41 @@
     </div>
 
     <!-- Info -->
-    <div class="seccion-info row" style="max-width:100% !important;">
-        <div class="row col-12">
-            <div class="col-12 col-xl-4 home-text" data-aos="zoom-in" data-aos-duration="2000">
-                <img src="{% static 'img/home/quienes/profile.png' %}" /><br/>
-                <p>{% trans "Edita tu perfil con tus habilidades, v&iacute;deos, curr&iacute;culum, proyectos..."%}</p>
+    <div class="d-none d-xl-block">
+        <div class="seccion-info row" style="max-width:100% !important;">
+            <div class="row col-12">
+                <div class="col-12 col-xl-4 home-text" data-aos="zoom-in" data-aos-duration="2000">
+                    <img src="{% static 'img/home/quienes/profile.png' %}" /><br/>
+                    <p>{% trans "Edita tu perfil con tus habilidades, v&iacute;deos, curr&iacute;culum, proyectos..."%}</p>
+                </div>
+                <div class="col-12 col-xl-4 home-text" style="padding-top: 80px;" data-aos="zoom-in" data-aos-duration="2000">
+                    <span>{% trans "Accede a la b&uacute;squeda de otros usuarios, comun&iacute;cate con ellos y recibir o env&iacute;ar ofertas."%}</span><br/>
+                    <img src="{% static 'img/home/quienes/punto.png' %}" /><br>
+                </div>
+                <div class="col-12 col-xl-4 home-text" data-aos="zoom-in" data-aos-duration="2000" >
+                    <img src="{% static 'img/home/quienes/register.png' %}" /><br />
+                    <span id="quienes">{% trans "Seas del deporte que seas, si buscas mejorar en el ámbito deportivo, ¡este es tu lugar!"%}</span>
+                </div>
             </div>
-            <div class="col-12 col-xl-4 home-text" style="padding-top: 80px;" data-aos="zoom-in" data-aos-duration="2000">
-                <span>{% trans "Accede a la b&uacute;squeda de otros usuarios, comun&iacute;cate con ellos y recibir o env&iacute;ar ofertas."%}</span><br/>
-                <img src="{% static 'img/home/quienes/punto.png' %}" /><br>
-            </div>
-            <div class="col-12 col-xl-4 home-text" data-aos="zoom-in" data-aos-duration="2000" >
-                <img src="{% static 'img/home/quienes/register.png' %}" /><br />
-                <span id="quienes">{% trans "Seas del deporte que seas, si buscas mejorar en el ámbito deportivo, ¡este es tu lugar!"%}</span>
+        </div>
+    </div>
+
+    <!-- Pantallas estrechas -->
+    <div class="d-xl-none">
+        <div class="seccion-info row" style="max-width:100% !important;">
+            <div class="col-12">
+                <div class="col-12 col-xl-4 home-text" data-aos="zoom-in" data-aos-duration="2000">
+                    <img src="{% static 'img/home/quienes/profile.png' %}" /><br/>
+                    <p>{% trans "Edita tu perfil con tus habilidades, v&iacute;deos, curr&iacute;culum, proyectos..."%}</p>
+                </div>
+                <div class="col-12 col-xl-4 home-text" data-aos="zoom-in" data-aos-duration="2000">
+                    <img src="{% static 'img/home/quienes/punto.png' %}" /><br>
+                    <span>{% trans "Accede a la b&uacute;squeda de otros usuarios, comun&iacute;cate con ellos y recibir o env&iacute;ar ofertas."%}</span><br/>
+                </div>
+                <div class="col-12 col-xl-4 home-text" data-aos="zoom-in" data-aos-duration="2000" >
+                    <img src="{% static 'img/home/quienes/register.png' %}" /><br />
+                    <span id="quienes">{% trans "Seas del deporte que seas, si buscas mejorar en el ámbito deportivo, ¡este es tu lugar!"%}</span>
+                </div>
             </div>
         </div>
     </div>
@@ -60,24 +82,52 @@
     <!-- Deportistas SIA -->
     <div class="container text-center col-10" style="margin-top: 100px;" data-aos="zoom-out-up">
         <h2>{% trans "DEPORTISTAS SIA" %}</h2>
-        <div id="recipeCarousel" class="carousel slide w-100 " data-ride="carousel">
+        <div id="recipeCarousel1" class="carousel slide w-100 d-none d-xl-block" data-ride="carousel">
             <div class="carousel-inner w-100" role="listbox">
                 <div class="carousel-item row no-gutters active">
-                    <div class="col-4 float-left"><img class="img-fluid" src="{% static 'img/home/ej1.jpg' %}"></div>
-                    <div class="col-4 float-left"><img class="img-fluid" src="{% static 'img/home/ej2.png' %}"></div>
-                    <div class="col-4 float-left"><img class="img-fluid" src="{% static 'img/home/ej3.jpg' %}"></div>
+                    <div class="col-6 float-left" style="text-align: right;"><img class="img-fluid" src="{% static 'img/home/ej1.jpg' %}"></div>
+                    <div class="col-6 float-left" style="text-align: left;"><img class="img-fluid" src="{% static 'img/home/ej2.png' %}"></div>
                 </div>
                 <div class="carousel-item row no-gutters">
-                    <div class="col-4 float-left"><img class="img-fluid" src="{% static 'img/home/ej 4.jpg' %}"></div>
-                    <div class="col-4 float-left"><img class="img-fluid" src="{% static 'img/home/ej5.jpg' %}"></div>
-                    <div class="col-4 float-left"><img class="img-fluid" src="{% static 'img/home/ej6.jpg' %}"></div>
+                    <div class="col-6 float-left" style="text-align: right;"><img class="img-fluid" src="{% static 'img/home/ej4.jpg' %}"></div>
+                    <div class="col-6 float-left" style="text-align: left;"><img class="img-fluid" src="{% static 'img/home/ej5.jpg' %}"></div>
                 </div>
             </div>
-            <a class="carousel-control-prev" href="#recipeCarousel" role="button" data-slide="prev">
+            <a class="carousel-control-prev" href="#recipeCarousel1" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
             </a>
-            <a class="carousel-control-next" href="#recipeCarousel" role="button" data-slide="next">
+            <a class="carousel-control-next" href="#recipeCarousel1" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <div id="recipeCarousel2" class="carousel slide w-100 d-xl-none" data-ride="carousel">
+            <div class="carousel-inner w-100" role="listbox">
+                <div class="carousel-item row no-gutters active">
+                    <div class="col-12"><img class="img-fluid" src="{% static 'img/home/ej1.jpg' %}"></div>
+                </div>
+                <div class="carousel-item row no-gutters">
+                    <div class="col-12"><img class="img-fluid" src="{% static 'img/home/ej2.png' %}"></div>
+                </div>
+                <div class="carousel-item row no-gutters">
+                    <div class="col-12"><img class="img-fluid" src="{% static 'img/home/ej2.png' %}"></div>
+                </div>
+                <div class="carousel-item row no-gutters">
+                    <div class="col-12"><img class="img-fluid" src="{% static 'img/home/ej4.jpg' %}"></div>
+                </div>
+                <div class="carousel-item row no-gutters">
+                    <div class="col-12"><img class="img-fluid" src="{% static 'img/home/ej5.jpg' %}"></div>
+                </div>
+                <div class="carousel-item row no-gutters">
+                    <div class="col-12"><img class="img-fluid" src="{% static 'img/home/ej6.jpg' %}"></div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#recipeCarousel2" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#recipeCarousel2" role="button" data-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a>
@@ -100,39 +150,39 @@
         </div>
         <form class="contact-form" method="POST">
             <div class="row">
-                <div class="col-1">
+                <div class="col-2 col-xl-1">
                     <i class="fa fa-user fa-2x"></i>
                 </div>
-                <div class="col-11">
+                <div class="col-10 col-xl-11">
                     <input type="text" name="username" id="username" class="username form-control" placeholder="{% trans 'Nombre' %}" value="">
                 </div>
             </div>
             <div class="row">
-                <div class="col-1">
+                <div class="col-2 col-xl-1">
                     <i class="fa fa-envelope fa-2x"></i>
                 </div>
-                <div class="col-11">
+                <div class="col-10 col-xl-11">
                     <input type="text" name="email" class=" email form-control" placeholder="{% trans 'Email' %}" value="">
                 </div>
             </div>
             <div class="row">
-                <div class="col-1">
+                <div class="col-2 col-xl-1">
                     <i class="fas fa-pencil-alt fa-2x "></i>
                 </div>
-                <div class="col-11">
+                <div class="col-10 col-xl-11">
                     <input type="text" name="subject" class="subject form-control" placeholder="{% trans 'Asunto' %}" value="">
                 </div>
             </div>
             <div class="row">
-                <div class="col-1">
+                <div class="col-2 col-xl-1">
                     <i class="fa fa-comments message-icon fa-2x"></i>
                 </div>
-                <div class="col-11">
+                <div class="col-10 col-xl-11">
                     <textarea class=" message form-control" name="message" placeholder="{% trans 'Mensaje' %}"></textarea>
                 </div>
             </div>
             <div class="row justify-content-end" style="border: 1px">
-                <div class="col-11">
+                <div class="col-10 col-xl-11">
                     <input type="submit" value="{% trans 'Enviar' %}" class="btn btn-success btn-block button-contact" style="border: none">
                 </div>
             </div>

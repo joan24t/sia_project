@@ -9,10 +9,10 @@
     </div>
     <form id="form-busqueda">
         <div class="row form-group justify-content-center">
-            <div class="col-5">
+            <div class="col-12 col-xl-5">
                 <div class="row">
                     <div class="col-4">
-                        <h4>{% trans "Qu&eacute; buscas" %}</h4>
+                        <h5>{% trans "Qu&eacute; buscas" %}</h5>
                     </div>
                     <div class="col-8">
                         <select class="form-control busqueda-tipo" name="busquedaTipoUsuario">
@@ -25,7 +25,7 @@
                 </div>
                 <div class="row">
                     <div class="col-4">
-                        <h4>{% trans "Nombre" %}</h4>
+                        <h5>{% trans "Nombre" %}</h5>
                     </div>
                     <div class="col-8">
                         <input class="form-control busqueda-nombre" type="text" name="busquedaNombre">
@@ -33,7 +33,7 @@
                 </div>
                 <div class="row">
                     <div class="col-4">
-                        <h4>{% trans "Deporte" %}</h4>
+                        <h5>{% trans "Deporte" %}</h5>
                     </div>
                     <div class="col-8">
                         <select class="form-control busqueda-deporte" name="busquedaDeporte">
@@ -46,7 +46,7 @@
                 </div>
                 <div class="row">
                     <div class="col-4">
-                        <h4>{% trans "Posición" %}</h4>
+                        <h5>{% trans "Posición" %}</h5>
                     </div>
                     <div class="col-8">
                         <select class="form-control selectpicker busqueda-posicion" title="{% trans 'Ninguno seleccionado' %}" name="busquedaPosicionMulti" id="posicionDropdownMultiple" multiple data-live-search="true" hidden>
@@ -54,10 +54,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-5">
+            <div class="col-12 col-xl-5">
                 <div class="row">
                     <div class="col-4">
-                        <h4>{% trans "Género" %}</h4>
+                        <h5>{% trans "Género" %}</h5>
                     </div>
                     <div class="col-8">
                         <select class="form-control busqueda-genero" name="busquedaGenero">
@@ -69,7 +69,7 @@
                 </div>
                 <div class="row">
                     <div class="col-4">
-                        <h4>{% trans "País" %}</h4>
+                        <h5>{% trans "País" %}</h5>
                     </div>
                     <div class="col-8">
                         <select class="form-control selectpicker busqueda-pais" title="{% trans 'Ninguno seleccionado' %}" name="busquedaPais" data-live-search="true" hidden>
@@ -82,7 +82,7 @@
                 </div>
                 <div class="row">
                     <div class="col-4">
-                        <h4>{% trans "Rango edad" %}</h4>
+                        <h5>{% trans "Rango edad" %}</h5>
                     </div>
                     <div class="col-2">
                         <h5 style="margin-top: 4px;">{% trans "Desde" %}</h5>
@@ -107,7 +107,7 @@
                 </div>
                 <div class="row">
                     <div class="col-4">
-                        <h4>{% trans "Equipo actual" %}</h4>
+                        <h5>{% trans "Equipo actual" %}</h5>
                     </div>
                     <div class="col-8">
                         <input class="form-control busqueda-eactual" type="text" name="busquedaEActual">

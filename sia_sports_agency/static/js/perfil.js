@@ -187,7 +187,7 @@ var enviarImgCromo = function(){
         cache: false,
         type: 'POST',
         success: function(data) {
-            location.reload(true);
+            cargarCromo('todo');
         },
         error: function(data){
             mostrarNotificacionError('Error en la subida de la imagen. Intente de nuevo');
@@ -210,8 +210,10 @@ var guardarCromo = function(imageData){
             if(!data.exito){
                 mostrarNotificacionError('Error en la carga del cromo.');
             }
-            //Refrescamos la imagen
-            location.reload(true);
+            setTimeout(function(){
+                 refrescarCromo();
+                 $('.cromo-img').removeAttr('hidden');
+            }, 3000); 
         },error: function(data){
             mostrarNotificacionError('Error en la carga del cromo.');
         }

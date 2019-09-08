@@ -32,7 +32,7 @@ section{
 .home-text{
     padding-left: 20px;
     color: #BFB597  ;
-    font-size: 40px;
+    font-size: 30px;
 	text-align: center;
 	font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
 	text-shadow: 0 1px 0 black, 0 2px 0 black, 0 3px 0 black, 0 4px 0 black, 0 5px 0 black, 0 6px 1px black;
@@ -44,7 +44,6 @@ section{
 	 /*background-image: linear-gradient(to right, #2f3c45, #2E272E);*/
 	 background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../img/home/home/baraja-fondo.jpg");
 	 background-repeat: repeat-y;
-	 margin: 100px 0px 100px 0px;
 }
 .seccion-info{
 	background-color: #202020 !important;;
@@ -57,7 +56,7 @@ section{
 .baraja-home{
 	/*border: 10px solid #9A8056;*/
 	/*border-style: ridge;*/
-	padding: 80px;
+	padding: 80px 0px 80px 0px;
 }
 .baraja-text{
 	color: white;
@@ -69,15 +68,14 @@ section{
 }
 /* Boton registro */
 .registration-btn{
-    font-size: 200%;
+    font-size: 170%;
+	font-family: Metropolis,Inter,X-LocaleSpecific,sans-serif;
     background: linear-gradient(to right, #9A8056, #CFAB71, #9A8056);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    width: 500px;
-    height: 100px;
-	max-width: 100%;
 	border-radius: 25px;
 	border: 7px solid #9A8056;
+	min-width: 350px;
 }
 .registration-btn:hover{
 	border: 1px solid;
@@ -99,11 +97,8 @@ section{
 	text-align: center;
 	max-width: 100%;
 	padding-top: 80px;
-    /*margin-top: -50px;*/
-    /*z-index:15;*/
-    /*position:absolute;*/
-    /*margin-left: 50%;*/
-    /*left: -250px;*/
+	font-size: 35px;
+	font-family: Metropolis, Inter, X-LocaleSpecific, sans-serif;
 }
 /*
 ****************************************************************************************************
@@ -202,11 +197,23 @@ section{
 	 margin-bottom: 10px;
  }
  .jumbotron{
-	  background-color: #202020 !important;
+	 background-color: #202020 !important;
 	 margin-top: 50px;
  }
  .button-contact{
 	background-color: #202020 !important;
+ }
+ .carousel-control-prev-icon{
+ 	height: 50px;
+ 	width: 50px;
+ 	border-radius: 15px;
+ 	background-image: url(../img/icons/arrow-left.png);
+ }
+ .carousel-control-next-icon{
+ 	height: 50px;
+ 	width: 50px;
+ 	border-radius: 15px;
+ 	background-image: url(../img/icons/arrow-right.png);
  }
 /*
 ****************************************************************************************************
@@ -344,24 +351,11 @@ section{
  ****************************************************************************************************
  */
 .img-fluid{
-	max-width: 100%;
+	max-width: 80%;
 	height: 400px;
-	max-height: 400px;
 }
 .carusel-img{
 	margin-top:200px;
-}
-.carousel-control-prev-icon{
-	height: 100px;
-	width: 100px;
-	border-radius: 15px;
-	background-image: url(../img/icons/arrow-left.png);
-}
-.carousel-control-next-icon{
-	height: 100px;
-	width: 100px;
-	border-radius: 15px;
-	background-image: url(../img/icons/arrow-right.png);
 }
 /*
 ****************************************************************************************************
@@ -756,7 +750,7 @@ section{
 .video-gallery .video-add{
 	min-width: 200px;
 	min-height: 200px;
-	padding: 25%;
+	padding: 20% 0% 0% 45%;
 }
 .video-gallery .video-icon:hover{
 	box-shadow:  #000000;
@@ -868,7 +862,7 @@ section{
 	border-color:   #2c3e50;
 }
 .panel-email .tabla-correos td{
-	max-width: 200px;
+	max-width: 400px;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
@@ -881,7 +875,7 @@ section{
 	min-width: 220px;
 }
 .panel-email .dataTables_filter{
-	width: 80%;
+	width: 50%;
 	display: inline-block;
 	font-family: Arial;
 	font-size: 20px;
@@ -894,6 +888,7 @@ section{
 }
 .panel-email .dataTables_length{
 	width: 20%;
+	min-width: 200px;
 	display: inline-block;
 	font-family: Arial;
 	font-size: 20px;
@@ -903,9 +898,6 @@ section{
 	display: inline-block;
 	font-family: Arial;
 	font-size: 20px;
-}
-.panel-email .dataTables_filter input{
-	width: 600px;
 }
 .panel-email .dataTables_length select,
 .panel-email .dataTables_filter input{
@@ -992,6 +984,11 @@ section{
    }
    .modal-detalle{
 	   max-width: 100% !important;
+   }
+
+   .img-fluid{
+	   	max-width: 80%;
+	   	height: 200px;
    }
 }
 /*Logo responsive*/
@@ -1135,12 +1132,13 @@ margin-left: 4px;
 	margin-top: 50px;
 }
 .busqueda{
-	padding: 50px 100px 20px 100px;
+	padding: 50px 20px 20px 20px;
 	border-bottom: 6px solid #41494d !important;
 	border-top: 6px solid #41494d !important;
 }
 .busqueda .titulo{
 	text-decoration: underline;
+	margin-left: 10px;
 }
 .busqueda .form-control{
 	background-color: #46433F;
@@ -1327,9 +1325,4 @@ hr.fila{
 */
 .notif-msj, .notif-visitas{
 	text-align: center;
-}
-@media(max-width:1199px){
-	.notif-msj, .notif-visitas{
-		margin: 10px;
-	}
 }
