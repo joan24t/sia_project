@@ -128,6 +128,19 @@ section{
     transition-property: transform;
 
 }
+#queModalCenter .modal-body{
+	height: 610px;
+	overflow-y: auto;
+}
+@media(max-width:1199px){
+	.quienes-text{
+		color: white;
+		font-size: 16px;
+	}
+	.que-section{
+		height: 120px;
+	}
+}
 .que-section:hover{
 	box-shadow: 5px 5px 5px #aaaaaa;
 	cursor: pointer;
@@ -138,7 +151,7 @@ section{
 }
 
 #queModalCenter{
-	margin: 100px 0px 30px 0px;
+	margin: 50px 0px 30px 0px;
 }
 /*
 ****************************************************************************************************
@@ -634,6 +647,11 @@ section{
 	line-height: 50px;
 	text-transform: uppercase;
 }
+@media(max-width:1199px){
+	.panel-title {
+		font-size: 22px;
+	}
+}
 .panel-body {
 	padding: 10px 30px;
 }
@@ -750,7 +768,7 @@ section{
 .video-gallery .video-add{
 	min-width: 200px;
 	min-height: 200px;
-	padding: 20% 0% 0% 45%;
+	padding: 20% 0% 0% 42%;
 }
 .video-gallery .video-icon:hover{
 	box-shadow:  #000000;
@@ -993,20 +1011,20 @@ section{
 }
 /*Logo responsive*/
 img.logo-responsive{
-  width: 55px;
+  width: 85px;
 }
 .navbar-toggler {
-	height: 40px;
-	width: 40px;
+	height: 60px;
+	width: 60px;
 }
 span.navbar-toggler-icon{
-	width: 30px;
+	width: 50px;
 	position: absolute;
 	top: -40px;
 	left: 20px;
 }
 .navbar-toggler-icon{
-  height: 120px;
+  height: 140px;
   width: 120px;
 }
 form .form-control::-webkit-input-placeholder {
@@ -1288,7 +1306,7 @@ hr.fila{
 .content-loader{
 	width: 100%;
 	position: absolute;
-    left: 10px;
+    left: 50px;
     top: 200px;
     padding: 250px 0px 0px 35%;
 }
