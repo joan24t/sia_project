@@ -85,10 +85,10 @@
                                         <option value="{{tipo.codigo|default:''}}" {% if tipo.codigo == usuario.tipo.codigo %} selected {% endif %}>{% trans tipo.nombre %}</option>
                                         {% endfor %}
                                     </select>
-                                    <label for="FormControlInputEmail">
-                                        <h4>{% trans "Direcci&oacute;n email" %}</h4>
+                                    <label for="FormControlInputAlias">
+                                        <h4>{% trans "Alias" %}</h4>
                                     </label>
-                                    <input type="email" value="{{usuario.email}}" name="inputEmail" class="form-control" id="FormControlInputEmail">
+                                    <input type="text" value="{{usuario.alias|default:''}}" name="inputAlias" class="form-control" id="FormControlInputAlias" maxlength="10">
                                     <label for="FormControlInputNombre">
                                         <h4>{% trans "Nombre y apellidos" %}</h4>
                                     </label>

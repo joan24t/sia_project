@@ -174,7 +174,7 @@ def get_diccionario(request, seccion):
             'fnacimiento': change_format(
                 request.POST.get('inputNacimiento', '')
             ),
-            'email': request.POST.get('inputEmail', ''),
+            'alias': request.POST.get('inputAlias', ''),
             'genero': request.POST.get('inputSexo', ''),
             'tipo_deporte': request.POST.get('inputTipoDeporte', ''),
             'deporte': deporte,
@@ -184,6 +184,7 @@ def get_diccionario(request, seccion):
         }
         if seccion == 'r':
             diccionario.update({
+                'email': request.POST.get('inputEmail', ''),
                 'contrasena_1': make_password(
                     request.POST.get('inputPassword1', '')
                 ),
@@ -297,10 +298,10 @@ def actualizar_db(usuario, diccionario):
     fnacimiento = None
     deporte = None
     usuario.nombre = diccionario.get('nombre')
+    usuario.alias = diccionario.get('alias')
     if diccionario.get('fnacimiento'):
         fnacimiento = diccionario.get('fnacimiento')
     usuario.fnacimiento = fnacimiento
-    usuario.email = diccionario.get('email')
     usuario.genero = diccionario.get('genero')
     usuario.tipo_deporte = diccionario.get('tipo_deporte')
     if diccionario.get('deporte'):

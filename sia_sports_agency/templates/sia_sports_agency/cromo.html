@@ -25,13 +25,13 @@
         cromoImgDpte.replaceWith("<img class='img-icono-deporte' src='{{baseLogoDeporte}}" + deporte + ".png' />");
 
         /*Cambiamos texto del cromo*/
-        var texto = $('#form-datos-basicos #FormControlInputNombre').val() + "<br/>"
+        var texto = $('#form-datos-basicos #FormControlInputAlias').val() + "<br/>"
         if (deporte != ''){
             var requierMultiple = getRequiereMultiple(deporte);
             if (requierMultiple){
-                var texto = $('#form-datos-basicos #FormControlInputNombre').val() + "<br/>" + nombreMultipleDeporte();
+                var texto = $('#form-datos-basicos #FormControlInputAlias').val() + "<br/>" + nombreMultipleDeporte();
             }else{
-                var texto = $('#form-datos-basicos #FormControlInputNombre').val() + "<br/>" + $('#form-datos-basicos #posicionDropdown option:selected').text();
+                var texto = $('#form-datos-basicos #FormControlInputAlias').val() + "<br/>" + $('#form-datos-basicos #posicionDropdown option:selected').text();
             }
         }
         $('.cromo .texto-cromo').html('<p>' + texto + '</p>');
@@ -121,7 +121,7 @@
     </div>
     <div class="row texto-cromo">
         <p>
-            {{usuario.nombre}}<br/>
+            {{usuario.alias}}<br/>
             {{posicion_principal.nombre}}
         </p>
     </div>

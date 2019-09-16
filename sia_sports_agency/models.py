@@ -257,6 +257,10 @@ class Usuario(models.Model):
     ruta_cromo = models.CharField(
         max_length=150
     )
+    alias = models.CharField(
+        max_length=10,
+        null=True
+    )
 
 """
     Model Mensaje
