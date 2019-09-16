@@ -725,6 +725,12 @@ def guardar_cromo(request):
                 str(usuario.id),
                 nombre_fic
             )
+            url_completa = os.path.join(
+                path, "cromo-" + str(usuario.id) + ".png"
+            )
+            while not os.path.isfile(url_completa):
+                print(str(url_completa))
+                pass
             usuario.save()
             dict={'exito':True}
             return HttpResponse(
@@ -811,11 +817,20 @@ def subir_img_cromo(request):
                 str(usuario.id),
                 filename
             )
+            url_completa = os.path.join(path, str(usuario.id) + ".png")
+            while not os.path.isfile(url_completa):
+                pass
             usuario.img_perfil = url_imagen
             usuario.save()
-            return HttpResponseRedirect('/perfil/')
+            dict = {
+                'ruta_cromo': os.path.join('/static', url_imagen),
+                'error': False
+            }
         except:
-            return HttpResponse('Error en la subida de la imagen del cromo')
+            dict['error'] = True
+        return HttpResponse(
+            json.dumps(dict), content_type='application/json'
+        )
     else:
         return HttpResponseRedirect('/')
 

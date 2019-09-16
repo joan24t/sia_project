@@ -18,7 +18,7 @@
                                 <label class="qform" for="queEresDropdown">
                                     <h4 class="titulo" >{% trans "Qu&eacute; eres?" %}</h4>
                                 </label>
-                                <select class="form-control" name="inputTipoUsuario" id="queEresDropdown">
+                                <select class="form-control" name="inputTipoUsuario" id="queEresDropdown" required>
                                     {% for tipo in tipo_jugadores %}
                                         <option value="{{tipo.codigo|default:''}}">{% trans tipo.nombre %}</option>
                                     {% endfor %}
@@ -30,7 +30,7 @@
                                 </label>
                                 <div>
                                     <label for="FormControlInputNombre">{% trans "Nombre y apellidos" %}</label>
-                                    <input class="form-control" name="inputNombre" type="text" id="FormControlInputNombre" placeholder="{% trans 'Nombre y apellidos' %}">
+                                    <input class="form-control" name="inputNombre" type="text" id="FormControlInputNombre" placeholder="{% trans 'Nombre y apellidos' %}" required>
                                     <div class="grupoSexo">
                                         <label for="sexoDropdown">{% trans "Sexo" %}</label>
                                         <select class="form-control" id="sexoDropdown" name="inputSexo">
@@ -44,7 +44,7 @@
                                     </div>
                                     <label for="paisDropdown">{% trans "País" %}</label>
                                     <div class="divPais" id="paisDropdown">
-                                        <select class="form-control selectpicker" title="{% trans 'Ninguno seleccionado' %}" name="inputPais" data-live-search="true" hidden>
+                                        <select class="form-control selectpicker" title="{% trans 'Ninguno seleccionado' %}" name="inputPais" data-live-search="true" hidden required>
                                             {% for pais in paises %}
                                             <option value="{{pais.codigo|default:''}}" data-content="<span class='flag-icon flag-icon-{{pais.codigo|lower}}'></span>&ensp;&ensp;{{pais.nombre}}"></option>
                                             {% endfor %}
@@ -96,16 +96,16 @@
                                 </label>
                                 <div>
                                     <label for="FormControlInputEmail">{% trans "Direcci&oacute;n email" %}</label>
-                                    <input type="email" class="form-control" name="inputEmail" id="FormControlInputEmail" placeholder="{% trans 'nombre@siasportsagency.com' %}">
+                                    <input type="email" class="form-control" name="inputEmail" id="FormControlInputEmail" placeholder="{% trans 'nombre@siasportsagency.com' %}" required>
                                     <input type="text" style="display:none;">
                                     <div class="form-group">
                                         <label for="password1">{% trans "Contraseña" %}</label>
                                         <input type="password" style="display:none;">
-                                        <input type="password" name="inputPassword1" class="form-control" id="password1" placeholder="{% trans 'Contraseña' %}">
+                                        <input type="password" name="inputPassword1" class="form-control" id="password1" placeholder="{% trans 'Contraseña' %}" required>
                                     </div>
                                     <div class="form-group">
                                       <label for="password2">{% trans "Repita contraseña" %}</label>
-                                      <input type="password" name="inputPassword2" class="form-control" id="password2" placeholder="{% trans 'Contraseña' %}">
+                                      <input type="password" name="inputPassword2" class="form-control" id="password2" placeholder="{% trans 'Contraseña' %}" required>
                                     </div>
                                 </div>
                             </div>

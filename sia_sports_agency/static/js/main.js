@@ -56,6 +56,18 @@ var ocultarCampos = function(listaOcultar){
     });
 }
 
+var camposObligatorios = function(listaMostrar){
+    listaMostrar.forEach(function(element) {
+        element.attr('required', '');
+    });
+}
+
+var camposNoObligatorios = function(listaOcultar){
+    listaOcultar.forEach(function(element) {
+        element.removeAttr('required');
+    });
+}
+
 var mostrarOcultarComb1 = function(){
     var listaMostrar = [
         $('.grupoFechaNacimiento'),
@@ -65,6 +77,10 @@ var mostrarOcultarComb1 = function(){
         $('.grupoPosiciones')
     ];
     mostrarCampos(listaMostrar);
+    var listaObligatorios = [
+        $('.grupoFechaNacimiento > input')
+    ];
+    camposObligatorios(listaObligatorios);
 };
 
 var mostrarOcultarComb2 = function(){
@@ -82,6 +98,10 @@ var mostrarOcultarComb2 = function(){
     $('.grupoFechaNacimiento #datepicker').val('');
     $('.divPositionsSimple #posicionDropdown').val('');
     $('.divMultiplePositions #posicionDropdownMultiple').val('');
+    var listaNoObligatorios = [
+        $('.grupoFechaNacimiento > input')
+    ];
+    camposNoObligatorios(listaNoObligatorios);
 };
 
 var mostrarOcultarComb3 = function(){
@@ -98,6 +118,10 @@ var mostrarOcultarComb3 = function(){
     ocultarCampos(listaOcultar);
     $('.divPositionsSimple #posicionDropdown').val('');
     $('.divMultiplePositions #posicionDropdownMultiple').val('');
+    var listaObligatorios = [
+        $('.grupoFechaNacimiento > input')
+    ];
+    camposObligatorios(listaObligatorios);
 };
 
 var mostrarOcultarComb4 = function(){
@@ -114,6 +138,10 @@ var mostrarOcultarComb4 = function(){
     ocultarCampos(listaOcultar);
     $('.divPositionsSimple #posicionDropdown').val('');
     $('.divMultiplePositions #posicionDropdownMultiple').val('');
+    var listaObligatorios = [
+        $('.grupoFechaNacimiento > input')
+    ];
+    camposObligatorios(listaObligatorios);
 };
 
 var mostrarOcultarComb5 = function(){
@@ -131,6 +159,10 @@ var mostrarOcultarComb5 = function(){
     $('.grupoFechaNacimiento #datepicker').val('');
     $('.divPositionsSimple #posicionDropdown').val('');
     $('.divMultiplePositions #posicionDropdownMultiple').val('');
+    var listaNoObligatorios = [
+        $('.grupoFechaNacimiento > input')
+    ];
+    camposNoObligatorios(listaNoObligatorios);
 };
 
 var mostrarOcultarComb6 = function(){
@@ -147,6 +179,10 @@ var mostrarOcultarComb6 = function(){
     $('.divPositionsSimple #posicionDropdown').val('');
     $('.divMultiplePositions #posicionDropdownMultiple').val('');
     $('.grupoAQueJuegas #deporteInput').val('');
+    var listaObligatorios = [
+        $('.grupoFechaNacimiento > input')
+    ];
+    camposObligatorios(listaObligatorios);
 };
 
 var ocultarMostrarCampos = function(tipoJugador){
@@ -229,11 +265,15 @@ var establecerPosiciones = function(cod, edit, esBusqueda){
                         $('.divPositionsSimple').attr('hidden', '');
                         $('.divMultiplePositions').removeAttr('hidden');
                         $("#posicionDropdownMultiple").html(data.lista_posiciones);
+                        $('#posicionDropdown').removeAttr('required');
+                        $('#posicionDropdownMultiple').attr('required', '');
                         $('.selectpicker').selectpicker('refresh');
                     }else{
                         $('.divMultiplePositions').attr('hidden', '');
                         $('.divPositionsSimple').removeAttr('hidden', '');
                         $("#posicionDropdown").html(data.lista_posiciones);
+                        $('#posicionDropdown').attr('required', '');
+                        $('#posicionDropdownMultiple').removeAttr('required');
                     }
                 }
             }

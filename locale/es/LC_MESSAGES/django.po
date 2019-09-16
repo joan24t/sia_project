@@ -533,7 +533,7 @@ msgstr "Sexo"
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html:37
 #: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:101
 msgid "Hombre"
-msgstr "Nombre"
+msgstr "Hombre"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html:38
 #: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:102

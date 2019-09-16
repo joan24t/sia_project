@@ -187,7 +187,12 @@ var enviarImgCromo = function(){
         cache: false,
         type: 'POST',
         success: function(data) {
+            $(".img-foto").attr("src", data.ruta_cromo);
             cargarCromo('todo');
+            if(data.error){
+                mostrarNotificacionError('Error en la subida de la imagen. Intente de nuevo');
+                mostrarElemento($('.div-cromo'));                
+            }
         },
         error: function(data){
             mostrarNotificacionError('Error en la subida de la imagen. Intente de nuevo');
@@ -213,7 +218,7 @@ var guardarCromo = function(imageData){
             setTimeout(function(){
                  refrescarCromo();
                  $('.cromo-img').removeAttr('hidden');
-            }, 3000); 
+            }, 3000);
         },error: function(data){
             mostrarNotificacionError('Error en la carga del cromo.');
         }
