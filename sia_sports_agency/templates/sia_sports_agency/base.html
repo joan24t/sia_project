@@ -119,6 +119,7 @@
         {% include "sia_sports_agency/modal_email_respuesta.html" %}
         {% include "sia_sports_agency/modal_email_nuevo.html" %}
         {% include "sia_sports_agency/modal_desactivar_cuenta.html" %}
+        {% include "sia_sports_agency/modal_settings.html" %}
         <div class="content">
             <nav class="navbar navbar-expand-xl sticky-top navbar-dark bg-dark navbar-toggler-left fill">
                 <div class="d-xl-none row col-12">
@@ -155,6 +156,7 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="/perfil">{% trans "Perfil" %}</a>
                                 <a class="dropdown-item" href="/busqueda">{% trans "B&uacute;squeda" %}</a>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#settingsModalCenter">{% trans "Ajustes" %}</a>
                                 <a class="dropdown-item" href="/logout">{% trans "Cerrar sesi&oacute;n" %}</a>
                             </div>
                         </li>

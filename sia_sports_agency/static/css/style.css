@@ -1343,6 +1343,18 @@ hr.fila{
     color: white;
 	width: 100%;
 }
+#cambioContraModalCenter{
+	z-index:100000
+}
+/*
+****************************************************************************************************
+	DESACTIVAR CUENTA
+****************************************************************************************************
+*/
+#desactivarModal{
+	z-index:100000
+}
+
 /*
 ****************************************************************************************************
     AVISOS
@@ -1350,4 +1362,25 @@ hr.fila{
 */
 .notif-msj, .notif-visitas{
 	text-align: center;
+}
+
+/*
+****************************************************************************************************
+    AJUSTES
+****************************************************************************************************
+*/
+/* Fin atributos cromo */
+#settingsModalCenter a{
+	color: white;
+	font-size: 22px;
+	text-align: center;
+	background-color: #2A2A2A;
+	height: 60px;
+}
+#settingsModalCenter a:hover{
+	border-top: 2px solid white !important;
+	border-bottom: 2px solid white !important;
+	background-color: #2A2A2B;
+	color: white;
+	text-decoration: none;
 }

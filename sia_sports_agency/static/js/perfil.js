@@ -189,9 +189,10 @@ var enviarImgCromo = function(){
         success: function(data) {
             $(".img-foto").attr("src", data.ruta_cromo);
             cargarCromo('todo');
+            $('#settingsModalCenter').modal('toggle');
             if(data.error){
                 mostrarNotificacionError('Error en la subida de la imagen. Intente de nuevo');
-                mostrarElemento($('.div-cromo'));                
+                mostrarElemento($('.div-cromo'));
             }
         },
         error: function(data){
