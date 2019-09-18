@@ -334,7 +334,7 @@ class Video(models.Model):
     path = models.CharField(
         null=False,
         max_length=150,
-        unique=True
+        unique=False
     )
     usuario = models.ForeignKey(
         Usuario,

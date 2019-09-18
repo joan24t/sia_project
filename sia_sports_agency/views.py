@@ -568,13 +568,15 @@ def eliminar_red(codigo, usuario):
 
 
 """ Insertar video en el perfil """
+@csrf_exempt
 def insertar_video(request):
     usuario = get_usuario(request).get('usuario')
     if usuario:
-        dict = {'exito':False}
+        dict = {'exito':True}
         try:
             nombre = request.POST.get('inputNombre')
             video = request.FILES.get('inputFile')
+            print('HHHHHHHHHHHHHH: ' + str(nombre))
             path = os.path.join(
                 settings.BASE_DIR,
                 settings.BASE_DIR_VIDEO,
@@ -591,10 +593,12 @@ def insertar_video(request):
             crear_video(nombre, url_video, usuario)
             dict = {}
             return HttpResponseRedirect('/perfil/')
-        except:
-            return HttpResponse('Error en la subida del video')
+        except Exception as e:
+            logger.error("Error al insertar el video: {}".format(e))
+            dict['exito'] = False
     else:
-        return HttpResponseRedirect('/')
+        dict['exito'] = False
+    return HttpResponse(json.dumps(dict), content_type='application/json')
 
 """ Crea el video """
 def crear_video(nombre, path, usuario):

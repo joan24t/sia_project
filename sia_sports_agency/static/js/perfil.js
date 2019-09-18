@@ -38,14 +38,14 @@ $(document).ready(function(){
     abrirDesdeNotificaciones();
     /*Cargar y descargar cromo*/
     cargarCromo('todo');
-    /* Comprueba el tamaño del vídeo */
-    triggerSubidaVideo();
     /* Dispara el la búsqueda de los cromos */
     consultaCromos(true);
     /*Disparar input de tipo file para la subida de la img del cromo*/
     triggerImgCromo();
     /*Dispara el form del login*/
     triggerLogin();
+    /*Form que anade el video*/
+    anadirVideo()
     /*Cambia la contraseña*/
     cambiarContraseña();
     /* Funcion que pone ivisible los toats cuando se ocultan*/
@@ -150,20 +150,6 @@ var triggerLogin = function(){
                 }
             }
         });
-    });
-}
-
-/* Submit del de la subida del video */
-var triggerSubidaVideo = function(){
-    $('#form-subida-video').submit(function(e) {
-        var isOk = true;
-        var maxSize = 50;
-        var size = $('#form-subida-video #customFileVideo')[0].files[0].size / 1024 /1024;
-        isOk = maxSize > size;
-        if (!isOk){
-            mostrarNotificacionError('El archivo no puede superar los 50 MB.');
-        }
-        return isOk;
     });
 }
 
@@ -552,6 +538,39 @@ var envioDatosBasicos = function(){
         $(".datosBasicosForm .btn-cancelar, .datosBasicosForm .btn-guardar").attr('hidden', '');
         $('.datosBasicosForm .btn-editar').removeAttr('hidden');
     }
+}
+
+var anadirVideo = function(){
+    $('#form-subida-video').submit(function(){
+        var isOk = true;
+        var maxSize = 50;
+        var size = $('#form-subida-video #customFileVideo')[0].files[0].size / 1024 /1024;
+        isOk = maxSize > size;
+        if (!isOk){
+            mostrarNotificacionError('El archivo no puede superar los 50 MB.');
+        }else{
+            var form = $('#form-datos-especificos')[0];
+            var data = new FormData(form);
+            $.ajax({
+              url: $('#form-subida-video').attr('action'),
+              type: 'POST',
+              enctype: 'multipart/form-data',
+              async: false,
+              data : data,
+              success: function(data){
+                  if(data.exito){
+                      mostrarNotificacionExito('Vídeo subido correctamente.');
+                  }else{
+                      mostrarNotificacionError('Error al insertar el nuevo vídeo.');
+                  }
+              },
+              error: function(data){
+                  mostrarNotificacionError('Error al insertar el nuevo vídeo.');
+              }
+            });
+        }
+        return false;
+    });
 }
 
 /* Guarda datos específicos */
