@@ -137,9 +137,17 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+TEMPLATES_ROOT = os.path.join(BASE_DIR, 'sia_sports_agency', 'templates')
 USERS_ROOT = os.path.join('sia_sports_agency', 'static', 'users')
 BASE_DIR_VIDEO = os.path.join(USERS_ROOT, 'videos-perfil')
 BASE_DIR_IMG_PERFIL_DEF = os.path.join(USERS_ROOT, 'img-perfil')
 BASE_DIR_CROMO = os.path.join(USERS_ROOT, 'cromos')
 BASE_DIR_CURRICULUM = os.path.join(USERS_ROOT, 'curriculums')
 BASE_DIR_CPRESENTACION = os.path.join(USERS_ROOT, 'cartas-presentacion')
+
+#Configuración email
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'siasportsagency@gmail.com'
+EMAIL_HOST_PASSWORD = 'serivaaar2019'
+EMAIL_PORT = 587

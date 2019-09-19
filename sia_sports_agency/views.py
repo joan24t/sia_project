@@ -8,12 +8,15 @@ from django.core.files.storage import FileSystemStorage
 from django.conf import settings
 from django.core.files.base import ContentFile
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
 from datetime import date
 import json
 import os
 import base64
 import shutil
 import logging
+
 
 """""""""""""""""""""""""""""""""""""""""""""
 PARTE PUBLICA
@@ -444,6 +447,7 @@ def perfil(request):
     insertar_videos_contexto(contexto)
     insertar_correos_contexto(contexto)
     insertar_posicion_prin_contexto(contexto)
+    enviar_notificacion_mail()
     return render(
         request,
         'sia_sports_agency/perfil.html',
@@ -1052,3 +1056,20 @@ def detalle_usuario(request):
 def cambiar_idioma(request):
     request.session['language'] = request.POST.get('idioma')
     return HttpResponseRedirect('/')
+
+""" Envia un mail """
+def enviar_notificacion_mail():
+    path_templates = os.path.join(
+        settings.TEMPLATES_ROOT,
+        'mail'
+    )
+    msg_plain = render_to_string(os.path.join(path_templates, 'template_mail.txt'), {})
+    msg_html = render_to_string(os.path.join(path_templates, 'template_mail.html'), {})
+    send_mail(
+        'Registro correcto',
+        msg_plain,
+        'siasportsagency@gmail.com',
+        ['jchorda22@gmail.com'],
+        html_message=msg_html,
+    )
+    #'sergifutsal@hotmail.com', 'ipellicer1986@gmail.com', 'aaron_sj87@hotmail.com'
