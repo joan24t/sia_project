@@ -322,6 +322,9 @@ section{
 	text-decoration-style: solid;
 	font-weight: bold;
 }
+.campoObligatorioNotif span{
+	color:  #eeac29;
+}
 
 
 /*

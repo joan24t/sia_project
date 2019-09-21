@@ -9,6 +9,8 @@ $(document).ready(function(){
 
     /*En el momento en el que el valor de tipo de jugador cambie, mostramos u ocultamos*/
     cambioTipoJugador();
+    /* Form de registro. Trigger para validar los datos insertados. */
+    submitRegistro();
 
 });
 
@@ -58,13 +60,13 @@ var ocultarCampos = function(listaOcultar){
 
 var camposObligatorios = function(listaMostrar){
     listaMostrar.forEach(function(element) {
-        element.attr('required', '');
+        element.addClass('campoObligatorio');
     });
 }
 
 var camposNoObligatorios = function(listaOcultar){
     listaOcultar.forEach(function(element) {
-        element.removeAttr('required');
+        element.removeClass('campoObligatorio');
     });
 }
 
@@ -99,7 +101,9 @@ var mostrarOcultarComb2 = function(){
     $('.divPositionsSimple #posicionDropdown').val('');
     $('.divMultiplePositions #posicionDropdownMultiple').val('');
     var listaNoObligatorios = [
-        $('.grupoFechaNacimiento > input')
+        $('.grupoFechaNacimiento > input'),
+        $('.divPositionsSimple #posicionDropdown'),
+        $('.divMultiplePositions #posicionDropdownMultiple')
     ];
     camposNoObligatorios(listaNoObligatorios);
 };
@@ -122,6 +126,11 @@ var mostrarOcultarComb3 = function(){
         $('.grupoFechaNacimiento > input')
     ];
     camposObligatorios(listaObligatorios);
+    var listaNoObligatorios = [
+        $('.divPositionsSimple #posicionDropdown'),
+        $('.divMultiplePositions #posicionDropdownMultiple')
+    ];
+    camposNoObligatorios(listaNoObligatorios);
 };
 
 var mostrarOcultarComb4 = function(){
@@ -142,6 +151,11 @@ var mostrarOcultarComb4 = function(){
         $('.grupoFechaNacimiento > input')
     ];
     camposObligatorios(listaObligatorios);
+    var listaNoObligatorios = [
+        $('.divPositionsSimple #posicionDropdown'),
+        $('.divMultiplePositions #posicionDropdownMultiple')
+    ];
+    camposNoObligatorios(listaNoObligatorios);
 };
 
 var mostrarOcultarComb5 = function(){
@@ -160,7 +174,9 @@ var mostrarOcultarComb5 = function(){
     $('.divPositionsSimple #posicionDropdown').val('');
     $('.divMultiplePositions #posicionDropdownMultiple').val('');
     var listaNoObligatorios = [
-        $('.grupoFechaNacimiento > input')
+        $('.grupoFechaNacimiento > input'),
+        $('.divPositionsSimple #posicionDropdown'),
+        $('.divMultiplePositions #posicionDropdownMultiple')
     ];
     camposNoObligatorios(listaNoObligatorios);
 };
@@ -183,6 +199,11 @@ var mostrarOcultarComb6 = function(){
         $('.grupoFechaNacimiento > input')
     ];
     camposObligatorios(listaObligatorios);
+    var listaNoObligatorios = [
+        $('.divPositionsSimple #posicionDropdown'),
+        $('.divMultiplePositions #posicionDropdownMultiple')
+    ];
+    camposNoObligatorios(listaNoObligatorios);
 };
 
 var ocultarMostrarCampos = function(tipoJugador){
@@ -265,15 +286,15 @@ var establecerPosiciones = function(cod, edit, esBusqueda){
                         $('.divPositionsSimple').attr('hidden', '');
                         $('.divMultiplePositions').removeAttr('hidden');
                         $("#posicionDropdownMultiple").html(data.lista_posiciones);
-                        $('#posicionDropdown').removeAttr('required');
-                        $('#posicionDropdownMultiple').attr('required', '');
+                        $('#posicionDropdown').removeClass('campoObligatorio');
+                        $('#posicionDropdownMultiple').addClass('campoObligatorio');
                         $('.selectpicker').selectpicker('refresh');
                     }else{
                         $('.divMultiplePositions').attr('hidden', '');
                         $('.divPositionsSimple').removeAttr('hidden', '');
                         $("#posicionDropdown").html(data.lista_posiciones);
-                        $('#posicionDropdown').attr('required', '');
-                        $('#posicionDropdownMultiple').removeAttr('required');
+                        $('#posicionDropdown').addClass('campoObligatorio');
+                        $('#posicionDropdownMultiple').removeClass('campoObligatorio');
                     }
                 }
             }
@@ -284,4 +305,22 @@ var establecerPosiciones = function(cod, edit, esBusqueda){
 /* Función que cambia el idioma de la pagina */
 var cambiarIdioma = function(idioma){
     $( "#form-idioma-" + idioma ).submit();
+}
+
+var validarCamposVacios = function(){
+    var validate = true;
+    $("div.campoObligatorioNotif").attr('hidden', '');
+    $( "select.campoObligatorio, input.campoObligatorio" ).each(function( index ) {
+        if($(this).val() === ''){
+            $(this).parent().find("div.campoObligatorioNotif").removeAttr('hidden');
+            validate = false;
+        }
+    });
+    return validate;
+}
+
+var submitRegistro = function(){
+    $('#form-registro').submit(function () {
+        return validarCamposVacios();
+    });
 }
