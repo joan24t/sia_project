@@ -16,11 +16,11 @@
                         <div class="col-xl-6 col-sm-12">
                             <div class="form-group">
                                 <label class="qform" for="queEresDropdown">
-                                    <h4 class="titulo" >{% trans "Qu&eacute; eres?" %}</h4>
+                                    <h4 class="titulo">{% trans "Qu&eacute; eres?" %}</h4>
                                 </label>
                                 <select class="form-control" name="inputTipoUsuario" id="queEresDropdown">
                                     {% for tipo in tipo_jugadores %}
-                                        <option value="{{tipo.codigo|default:''}}">{% trans tipo.nombre %}</option>
+                                    <option value="{{tipo.codigo|default:''}}">{% trans tipo.nombre %}</option>
                                     {% endfor %}
                                 </select>
                             </div>
@@ -31,9 +31,9 @@
                                 <div>
                                     <div>
                                         <label for="FormControlInputNombre">{% trans "Nombre y apellidos" %}</label>
-                                        <input class="form-control campoObligatorio" name="inputNombre" type="text" id="FormControlInputNombre" placeholder="{% trans 'Nombre y apellidos' %}" >
+                                        <input class="form-control campoObligatorio" name="inputNombre" maxlength="150" type="text" id="FormControlInputNombre" placeholder="{% trans 'Nombre y apellidos' %}">
                                         <div class="campoObligatorioNotif" hidden>
-                                            <span> Este campo es obligatorio </span>
+                                            <span> *Este campo es obligatorio </span>
                                         </div>
                                     </div>
                                     <div class="grupoSexo" style="margin-top: 10px;">
@@ -45,21 +45,24 @@
                                     </div>
                                     <div class="grupoFechaNacimiento" style="margin-top: 10px;">
                                         <label for="datepicker">{% trans "F. Nacimiento" %}</label>
-                                        <input name="inputNacimiento" id="datepicker" class="form-control" autocomplete="off">
+                                        <input name="inputNacimiento" id="datepicker" class="form-control" autocomplete="off" maxlength="10">
                                         <div class="campoObligatorioNotif" hidden>
-                                            <span> Este campo es obligatorio </span>
+                                            <span> *Este campo es obligatorio </span>
+                                        </div>
+                                        <div class="campoFormatoNotif" hidden>
+                                            <span> *El formato de la fecha debe ser dd/mm/yyyy </span>
                                         </div>
                                     </div>
                                     <div style="margin-top: 10px;">
                                         <label for="paisDropdown">{% trans "País" %}</label>
                                         <div class="divPais" id="paisDropdown">
-                                            <select class="form-control selectpicker campoObligatorio" title="{% trans 'Ninguno seleccionado' %}" name="inputPais" data-live-search="true" hidden >
+                                            <select class="form-control selectpicker campoObligatorio" title="{% trans 'Ninguno seleccionado' %}" name="inputPais" data-live-search="true" hidden>
                                                 {% for pais in paises %}
                                                 <option value="{{pais.codigo|default:''}}" data-content="<span class='flag-icon flag-icon-{{pais.codigo|lower}}'></span>&ensp;&ensp;{{pais.nombre}}"></option>
                                                 {% endfor %}
                                             </select>
                                             <div class="campoObligatorioNotif" hidden>
-                                                <span> Este campo es obligatorio </span>
+                                                <span> *Este campo es obligatorio </span>
                                             </div>
                                         </div>
                                     </div>
@@ -73,7 +76,7 @@
                                     <label for="aQueJuegasDropdown">{% trans "Deporte" %}</label>
                                     <select class="form-control" id="aQueJuegasDropdown" name="inputDeporte">
                                         {% for deporte in deportes %}
-                                            <option value="{{deporte.codigo|default:''}}">{% trans deporte.nombre %}</option>
+                                        <option value="{{deporte.codigo|default:''}}">{% trans deporte.nombre %}</option>
                                         {% endfor %}
                                     </select>
                                     <div class="grupoGeneroDeporte" style="margin-top: 10px;">
@@ -95,7 +98,7 @@
                                     <select class="form-control" id="posicionDropdown" name="inputPosicion">
                                     </select>
                                     <div class="campoObligatorioNotif" hidden>
-                                        <span> Este campo es obligatorio </span>
+                                        <span> *Este campo es obligatorio </span>
                                     </div>
                                 </div>
                                 <div class="divMultiplePositions" hidden>
@@ -105,7 +108,7 @@
                                     <select class="form-control selectpicker" title="{% trans 'Ninguno seleccionado' %}" name="inputPosicionMulti" id="posicionDropdownMultiple" multiple data-live-search="true" hidden>
                                     </select>
                                     <div class="campoObligatorioNotif" hidden>
-                                        <span> Este campo es obligatorio </span>
+                                        <span> *Este campo es obligatorio </span>
                                     </div>
                                 </div>
                             </div>
@@ -116,26 +119,44 @@
                                 <div>
                                     <div class="form-group">
                                         <label for="FormControlInputEmail">{% trans "Direcci&oacute;n email" %}</label>
-                                        <input type="email" class="form-control campoObligatorio" name="inputEmail" id="FormControlInputEmail" placeholder="{% trans 'nombre@siasportsagency.com' %}" >
+                                        <input type="email" class="form-control campoObligatorio" name="inputEmail" id="FormControlInputEmail" placeholder="{% trans 'nombre@siasportsagency.com' %}">
                                         <input type="text" style="display:none;">
                                         <div class="campoObligatorioNotif" hidden>
-                                            <span> Este campo es obligatorio </span>
+                                            <span> *Este campo es obligatorio </span>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="password1">{% trans "Contraseña" %}</label>
                                         <input type="password" style="display:none;">
-                                        <input type="password" name="inputPassword1" class="form-control campoObligatorio" id="password1" placeholder="{% trans 'Contraseña' %}" >
+                                        <input type="password" name="inputPassword1" class="form-control campoObligatorio" id="password1" placeholder="{% trans 'Contraseña' %}">
                                         <div class="campoObligatorioNotif" hidden>
-                                            <span> Este campo es obligatorio </span>
+                                            <span> *Este campo es obligatorio </span>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                      <label for="password2">{% trans "Repita contraseña" %}</label>
-                                      <input type="password" name="inputPassword2" class="form-control campoObligatorio" id="password2" placeholder="{% trans 'Contraseña' %}" >
-                                      <div class="campoObligatorioNotif" hidden>
-                                          <span> Este campo es obligatorio </span>
-                                      </div>
+                                        <label for="password2">{% trans "Repita contraseña" %}</label>
+                                        <input type="password" name="inputPassword2" class="form-control campoObligatorio" id="password2" placeholder="{% trans 'Contraseña' %}">
+                                        <div class="campoObligatorioNotif" hidden>
+                                            <span> *Este campo es obligatorio </span>
+                                        </div>
+                                        <div style="margin-top: 30px;">
+                                            <div class="campoLongitudNotif" hidden>
+                                                <span> *La contraseña debe tener un mínimo de 8 carácteres</span>
+                                            </div>
+                                            <div class="campoMinimoCarNotif" hidden>
+                                                <span> *La contraseña debe contener al menos un letra y un número</span>
+                                            </div>
+                                            <div class="campoCarNoPermNotif" hidden>
+                                                <span> *La contraseña no debe contener carácteres especiales ni espacios en blanco</span>
+                                            </div>
+                                            <div class="campoConMatchNotif" hidden>
+                                                <span> *Las contraseñas no coinciden</span>
+                                            </div>
+                                        </div>
+                                        <div style="margin-top: 30px;">
+                                            <meter max="4" id="password-strength-meter"></meter>
+                                            <div id="password-strength-text"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

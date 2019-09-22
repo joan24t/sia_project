@@ -3,9 +3,10 @@
 {% language dyn_language %}
 <html lang="es">
     {% block title %}
-        <title>Inicio | SIA Sports Agency</title>
+    <title>Inicio | SIA Sports Agency</title>
     {% endblock %}
     {% block head %}
+
     <head>
         <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=7,8,9,10,11,edge">
@@ -53,15 +54,16 @@
         <script src="https://files.codepedia.info/files/uploads/iScripts/html2canvas.js"></script>
 
         <!-- LINK FONTS -->
-         <link href="http://allfont.es/allfont.css?fonts=good-times" rel="stylesheet" type="text/css" />
+        <link href="http://allfont.es/allfont.css?fonts=good-times" rel="stylesheet" type="text/css" />
 
-         <!-- DATATABLE -->
-         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
-
+        <!-- DATATABLE -->
+        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
         <script>
-            $(document).ready(function(){
+            $(document).ready(function() {
                 $('.tabla-correos').DataTable({
-                    "order": [[ 2, "desc" ]],
+                    "order": [
+                        [2, "desc"]
+                    ],
                     "language": {
                         "lengthMenu": "{% trans 'Mostrar _MENU_' %}",
                         "zeroRecords": "{% trans 'No hay registros' %}",
@@ -70,14 +72,16 @@
                         "sSearch": "{% trans 'Buscar:' %}",
                         "sProcessing": "{% trans 'Procesando...' %}",
                         "oPaginate": {
-                                "sFirst": "{% trans 'Primero' %}",
-                                "sLast": "{% trans 'Último' %}",
-                                "sNext": "{% trans 'Siguiente' %}",
-                                "sPrevious": "{% trans 'Anterior' %}"
-                            },
-                        }
+                            "sFirst": "{% trans 'Primero' %}",
+                            "sLast": "{% trans 'Último' %}",
+                            "sNext": "{% trans 'Siguiente' %}",
+                            "sPrevious": "{% trans 'Anterior' %}"
+                        },
+                    }
                 });
-                $('.toast').toast({delay: 3000});
+                $('.toast').toast({
+                    delay: 3000
+                });
                 $('.selectpicker').selectpicker({
                     'selectedText': 'cat',
                     'language': 'es'
@@ -89,10 +93,10 @@
                     nextText: 'Sig >',
                     currentText: 'Hoy',
                     monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-                    monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+                    monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
                     dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
-                    dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
-                    dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+                    dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
+                    dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
                     weekHeader: 'Sm',
                     dateFormat: 'dd/mm/yy',
                     firstDay: 1,
@@ -101,9 +105,9 @@
                     yearSuffix: ''
                 };
                 $.datepicker.setDefaults($.datepicker.regional['es']);
-                $( function() {
-                  $( "#datepicker" ).datepicker();
-                } );
+                $(function() {
+                    $("#datepicker").datepicker();
+                });
             });
         </script>
     </head>
@@ -141,7 +145,7 @@
                     </div>
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active"  href="/#home"> {% trans "HOME" %}<span class="sr-only">(current)</span></a>
+                            <a class="nav-link active" href="/#home"> {% trans "HOME" %}<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#queModalCenter" data-toggle="modal" data-target="#queModalCenter">{% trans "QU&Eacute; OFRECEMOS" %}<span class="sr-only">(current)</span></a>
@@ -171,13 +175,13 @@
                 <div class="lista-idiomas">
                     <form id="form-idioma-es" action="cambiar_idioma/" method="POST">
                         {% csrf_token %}
-                        <input name="idioma" value="es-es" hidden/>
-                        <img onclick="cambiarIdioma('es');" class="idioma idioma-es {% if dyn_language == 'es-es' %} active {% endif %}" src="{% static 'img/idiomas/es.png' %}"/>
+                        <input name="idioma" value="es-es" hidden />
+                        <img onclick="cambiarIdioma('es');" class="idioma idioma-es {% if dyn_language == 'es-es' %} active {% endif %}" src="{% static 'img/idiomas/es.png' %}" />
                     </form>
                     <form id="form-idioma-en" action="cambiar_idioma/" method="POST">
                         {% csrf_token %}
-                        <input name="idioma" value="en-en" hidden/>
-                        <img onclick="cambiarIdioma('en');" class="idioma idioma-en {% if dyn_language == 'en-en' %} active {% endif %}" src="{% static 'img/idiomas/en.png' %}"/>
+                        <input name="idioma" value="en-en" hidden />
+                        <img onclick="cambiarIdioma('en');" class="idioma idioma-en {% if dyn_language == 'en-en' %} active {% endif %}" src="{% static 'img/idiomas/en.png' %}" />
                     </form>
                 </div>
             </nav>

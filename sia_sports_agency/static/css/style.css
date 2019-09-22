@@ -322,7 +322,12 @@ section{
 	text-decoration-style: solid;
 	font-weight: bold;
 }
-.campoObligatorioNotif span{
+.campoObligatorioNotif span,
+.campoLongitudNotif span,
+.campoMinimoCarNotif span,
+.campoCarNoPermNotif span,
+.campoConMatchNotif span,
+.campoFormatoNotif span{
 	color:  #eeac29;
 }
 
@@ -890,6 +895,8 @@ section{
 	border-color:   #2c3e50;
 }
 .panel-email .tabla-correos td{
+	width: 130px;
+	min-width: 250px;
 	max-width: 400px;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -1387,3 +1394,37 @@ hr.fila{
 	color: white;
 	text-decoration: none;
 }
+
+/*
+****************************************************************************************************
+    METER
+****************************************************************************************************
+*/
+meter {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+
+    margin: 0 auto 1em;
+    width: 50%;
+    height: 1em;
+    background: none;
+    background-color: rgba(0,0,0,0.1);
+	border-radius: 25px;
+}
+
+meter::-webkit-meter-bar {
+    background: none;
+    background-color: rgba(0,0,0,0.1);
+	border-radius: 25px;
+}
+
+meter[value="1"]::-webkit-meter-optimum-value { background: red; border-radius: 25px;}
+meter[value="2"]::-webkit-meter-optimum-value { background: yellow; border-radius: 25px;}
+meter[value="3"]::-webkit-meter-optimum-value { background: orange; border-radius: 25px;}
+meter[value="4"]::-webkit-meter-optimum-value { background: green; border-radius: 25px;}
+
+meter[value="1"]::-moz-meter-bar { background: red; border-radius: 25px;}
+meter[value="2"]::-moz-meter-bar { background: yellow; border-radius: 25px;}
+meter[value="3"]::-moz-meter-bar { background: orange; border-radius: 25px;}
+meter[value="4"]::-moz-meter-bar { background: green; border-radius: 25px; }

@@ -306,21 +306,3 @@ var establecerPosiciones = function(cod, edit, esBusqueda){
 var cambiarIdioma = function(idioma){
     $( "#form-idioma-" + idioma ).submit();
 }
-
-var validarCamposVacios = function(){
-    var validate = true;
-    $("div.campoObligatorioNotif").attr('hidden', '');
-    $( "select.campoObligatorio, input.campoObligatorio" ).each(function( index ) {
-        if($(this).val() === ''){
-            $(this).parent().find("div.campoObligatorioNotif").removeAttr('hidden');
-            validate = false;
-        }
-    });
-    return validate;
-}
-
-var submitRegistro = function(){
-    $('#form-registro').submit(function () {
-        return validarCamposVacios();
-    });
-}
