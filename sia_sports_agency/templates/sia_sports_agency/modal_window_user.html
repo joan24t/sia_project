@@ -1,7 +1,7 @@
 {% load static %}
 {% load i18n %}
 <div class="modal fade" id="registrationModalCenter" tabindex="-1" role="dialog" aria-labelledby="registrationModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog mw-100 w-100" role="document">
+    <div class="modal-dialog mw-100" role="document">
         <div class="modal-content modal-registration">
             <div class="modal-header">
                 <h2 class="modal-title" id="registrationLongTitle">{% trans "Nueva cuenta" %}</h2>
@@ -123,6 +123,9 @@
                                         <input type="text" style="display:none;">
                                         <div class="campoObligatorioNotif" hidden>
                                             <span> *Este campo es obligatorio </span>
+                                        </div>
+                                        <div class="campoCorreoExisteNotif" hidden>
+                                            <span> *Este correo ya existe en nuestra base de datos </span>
                                         </div>
                                     </div>
                                     <div class="form-group">

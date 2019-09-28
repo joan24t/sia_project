@@ -107,6 +107,35 @@ var validarFormatoFecha = function(){
     return true;
 }
 
+var validarCorreo = function(){
+    var correo = $('#form-registro #FormControlInputEmail').val();
+    $.ajax({
+        url: "/comprobar_correo/",
+        async: false,
+        type: 'POST',
+        data: {
+            'correo': correo
+        },
+        success: function(data) {
+            if(data.exito){
+                if (data.existe){
+                    $("div.campoCorreoExisteNotif").removeAttr('hidden');
+                    return false;
+                }else{
+                    return true;
+                }
+            }
+            else{
+                $("div.campoCorreoExisteNotif").removeAttr('hidden');
+                return false;
+            }
+        },error: function(data){
+            $("div.campoCorreoExisteNotif").removeAttr('hidden');
+            return false;
+        }
+    });
+}
+
 /* Se dispara cuando se intenta registrar un nuevo usuario */
 var submitRegistro = function(){
     $('#form-registro').submit(function () {
@@ -123,6 +152,8 @@ var submitRegistro = function(){
         } else if(!validarConcidenciaPasswords()){
             return false;
         } else if (!validarMinimosPassword()){
+            return false;
+        } else if (!validarCorreo()){
             return false;
         }
         return true;

@@ -327,7 +327,8 @@ section{
 .campoMinimoCarNotif span,
 .campoCarNoPermNotif span,
 .campoConMatchNotif span,
-.campoFormatoNotif span{
+.campoFormatoNotif span,
+.campoCorreoExisteNotif span{
 	color:  #eeac29;
 }
 
@@ -363,6 +364,9 @@ section{
 }
 .modal-footer .btn-primary:hover{
 	background-color: #604020;
+}
+.modal-dialog{
+	padding-left: 17px !important;
 }
 .close {
     color: #fff;

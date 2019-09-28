@@ -447,7 +447,7 @@ def perfil(request):
     insertar_videos_contexto(contexto)
     insertar_correos_contexto(contexto)
     insertar_posicion_prin_contexto(contexto)
-    enviar_notificacion_mail()
+    #enviar_notificacion_mail()
     return render(
         request,
         'sia_sports_agency/perfil.html',
@@ -533,10 +533,11 @@ def actualizar_redes(request):
                 eliminar_cromo(usuario)
                 dict = {'exito': True}
         except Exception as error:
+            logger.error("Error al actualizar las redes: {}".format(error))
             dict = {'exito': False}
         return HttpResponse(json.dumps(dict), content_type='application/json')
     else:
-        return HttpResponse('Error al acceder')
+        return HttpResponseRedirect('/')
 
 """ Crear o modifica la red social que se le pasa por parámetro """
 def crear_red(nombre, codigo, enlace, usuario):
@@ -580,7 +581,6 @@ def insertar_video(request):
         try:
             nombre = request.POST.get('inputNombre')
             video = request.FILES.get('inputFile')
-            print('HHHHHHHHHHHHHH: ' + str(nombre))
             path = os.path.join(
                 settings.BASE_DIR,
                 settings.BASE_DIR_VIDEO,
@@ -904,14 +904,23 @@ def busqueda_cromo(request):
             lista_usuarios = paginar_resultados(lista_usuarios, pagina)
             total_registros = len(lista_usuarios)
             dict = {
+                'exito': True,
                 'lista_usuarios': [(
                     u.id, os.path.join('/static', u.ruta_cromo)
                 ) for u in lista_usuarios],
                 'total_registros': total_registros
             }
-            return HttpResponse(json.dumps(dict), content_type='application/json')
         except Exception as e:
-            return HttpResponse(e)
+            logger.error(
+                "Error al hacer una busqueda de cromos: {}".format(
+                    e
+                )
+            )
+            dict = {'exito': False}
+        return HttpResponse(
+            json.dumps(dict),
+            content_type='application/json'
+        )
     else:
         return HttpResponseRedirect('/')
 
@@ -1073,3 +1082,32 @@ def enviar_notificacion_mail():
         html_message=msg_html,
     )
     #'sergifutsal@hotmail.com', 'ipellicer1986@gmail.com', 'aaron_sj87@hotmail.com'
+
+""" Comprueba si ya existe el correo """
+@csrf_exempt
+def comprobar_correo(request):
+    dict={
+        'exito': False,
+        'existe': False
+    }
+    try:
+        correo = request.POST.get("correo")
+        usuario_exi = Usuario.objects.filter(
+            email=correo
+        ).first()
+        print('HOLAAAAA: ' + str(correo))
+        dict['exito'] = True
+        if usuario_exi:
+            dict['existe'] = True
+        else:
+            dict['existe'] = False
+    except Exception as e:
+        logger.error(
+            "Error al comprobar si existe el email en el registro: {}".format(
+                e
+            )
+        )
+        dict['exito'] = False
+    return HttpResponse(
+        json.dumps(dict), content_type='application/json'
+    )

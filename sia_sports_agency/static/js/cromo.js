@@ -100,21 +100,26 @@ var consultaCromos = function(busqueda){
             dataType: 'json',
             data: $(this).serialize(),
             success: function(data) {
-                var content = "";
-                for (var i in data.lista_usuarios) {
-                    var id = data.lista_usuarios[i][0];
-                    var url = data.lista_usuarios[i][1];
-                    content += "<div class='col-12 col-xl-3'" + " onclick='verDetalle(" + id.toString() + ");' data-aos='zoom-in' data-aos-duration='500' style='text-align: center; margin-top: 50px;'><img width='300px' src='" + url + "' /></div>";
-                }
-                $('.resultados .row').html(content);
-                if(busqueda){
-                    total_cromos = parseInt(data.total_registros);
-                    ultimaPagina = Math.ceil(total_cromos / 9);
-                    rangoFin = Math.min(ultimaPagina, limiteBotones);
-                    dibujaBotones();
+                if (data.exito){
+                    var content = "";
+                    for (var i in data.lista_usuarios) {
+                        var id = data.lista_usuarios[i][0];
+                        var url = data.lista_usuarios[i][1];
+                        content += "<div class='col-12 col-xl-3'" + " onclick='verDetalle(" + id.toString() + ");' data-aos='zoom-in' data-aos-duration='500' style='text-align: center; margin-top: 50px;'><img width='300px' src='" + url + "' /></div>";
+                    }
+                    $('.resultados .row').html(content);
+                    if(busqueda){
+                        total_cromos = parseInt(data.total_registros);
+                        ultimaPagina = Math.ceil(total_cromos / 9);
+                        rangoFin = Math.min(ultimaPagina, limiteBotones);
+                        dibujaBotones();
+                    }
+                }else{
+                    $('.toast-error .content').text('Error en la búsqueda de los cromos.');
+                    $('.toast-error').toast('show');
                 }
             },error: function(data){
-                $('.toast-error .content').text('Error en la carga del cromo.');
+                $('.toast-error .content').text('Error en la búsqueda de los cromos.');
                 $('.toast-error').toast('show');
             }
         });

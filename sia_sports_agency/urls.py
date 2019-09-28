@@ -68,5 +68,6 @@ urlpatterns = [
         r'cambiar_idioma/',
         views.cambiar_idioma,
         name='Cambiar idioma'
-    )
+    ),
+    path('comprobar_correo/', views.comprobar_correo, name='Comprobar correo'),
 ]
