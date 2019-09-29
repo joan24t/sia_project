@@ -32,6 +32,35 @@ SPORT_TYPE_CHOICES = {
     'f': 'Femenino',
 }
 LANGUAGE_DEFAULT = 'es-es'
+DICT_POSITIONS = {
+	'PORTERO':'GOALKEEPER',
+	'DEFENSA':'DEFENDER',
+	'CENTROCAMPISTA':'MIDFIELDER',
+	'DELANTERO':'FORWARD',
+	'CIERRE':'CLOSURE',
+	'ALA':'WING',
+	'UNIVERSAL':'UNIVERSAL',
+	'PIVOT':'PIVOT',
+	'DEFENSIVE BACK':'DEFENSIVE BACK',
+	'DEFENSIVE LINE':'DEFENSIVE LINE',
+	'LINEBACKER':'LINEBACKER',
+	'OFFENSIVE LINE':'OFFENSIVE LINE',
+	'QUARTERBACK':'QUARTERBACK',
+	'RUNNING BACK':'RUNNING BACK',
+	'TIGHT END':'TIGHT END',
+	'WIDE RECEIVER':'WIDE RECEIVER',
+	'SPECIAL TEAMS':'SPECIAL TEAMS',
+	'FLAG FOOTBALL':'FLAG FOOTBALL',
+	'BASE':'POINT GUARD',
+	'ESCOLTA':'SHOOTING GUARD',
+	'ALERO':'SMALL FORWARD',
+	'ALA-PIVOT':'POWER FORWARD',
+	'LATERAL':'BACK',
+	'CENTRAL':'CENTER',
+	'EXTREMO':'WING',
+    'KICKER':'KICKER',
+    'LONG SNAPPER':'LONG SNAPPER'
+}
 def global_contexto():
     lista_tipo_jugadores = Tipo_jugador.objects.all()
     lista_deportes = Deporte.objects.all()
@@ -107,6 +136,11 @@ def logout(request):
     del request.session['email']
     return HttpResponseRedirect('/')
 
+""" Traduce la palabra """
+def get_translate(word, lan):
+    if lan == 'en-en' and DICT_POSITIONS.get(word):
+        return DICT_POSITIONS.get(word)
+    return word
 
 """ Consigue las posiciones según el códgo del deporte """
 def get_posiciones(request, cod):
@@ -115,7 +149,9 @@ def get_posiciones(request, cod):
     if request.GET.get('edit', '') == '0':
         lista_posiciones = [
             "<option value=\"" + str(posicion.codigo) + "\">"  + \
-            posicion.nombre + '</option>'
+            get_translate(
+                posicion.nombre, request.session.get('language')
+            ) + "</option>"
             for posicion
             in Posicion.objects.filter(deporte=deporte.id)
         ]
