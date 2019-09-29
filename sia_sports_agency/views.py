@@ -508,12 +508,17 @@ def insertar_videos_contexto(contexto):
 """ Inserta en el contexto del perfil las redes sociales """
 def insertar_redes_contexto(contexto):
     usuario = contexto.get('usuario')
-    lista_redes = Red_social.objects.filter(
-        usuario_id = usuario.id
-    )
+    lista_redes = redes_por_usuario(usuario)
     for r in lista_redes:
         nombre = 'red_' + r.codigo
         contexto.update({nombre: r.enlace})
+
+""" Busca las redes de un usuario """
+def redes_por_usuario(usuario):
+    lista_redes = Red_social.objects.filter(
+        usuario_id = usuario.id
+    )
+    return lista_redes
 
 """ Inserta en el contexto del perfil los correos """
 def insertar_correos_contexto(contexto):
@@ -1023,6 +1028,13 @@ def desactivar_cuenta(request):
     except Exception as e:
         logger.error("Error al desactivar la cuenta: {}".format(e))
 
+
+def insertar_redes_detalle(dict, usuario):
+    lista_redes = redes_por_usuario(usuario)
+    for l in lista_redes:
+        nombre = 'red_' + l.codigo
+        dict.update({nombre: l.enlace})
+
 """ Devuelve el detalle de un usuario """
 @csrf_exempt
 def detalle_usuario(request):
@@ -1083,6 +1095,7 @@ def detalle_usuario(request):
                     )
                 ],
             })
+            insertar_redes_detalle(dict, usu_seleccionado)
             return HttpResponse(
                 json.dumps(dict), content_type='application/json'
             )

@@ -157,6 +157,10 @@ var verDetalle = function(usuarioId){
                 $('#detalleUsuarioModal #detalleCPresentacion').attr('href', data.url_cpresentacion);
                 $('#detalleUsuarioModal #detalleCurriculum').attr('href', data.url_curriculum);
                 $('#detalleUsuarioModal #detalleVideos').html(estableceVideosEnDetalle(data.url_videos));
+                $('#detalleUsuarioModal #detalleFacebook').attr('href', data.red_FB);
+                $('#detalleUsuarioModal #detalleInstagram').attr('href', data.red_IG);
+                $('#detalleUsuarioModal #detalleTwitter').attr('href', data.red_TT);
+                $('#detalleUsuarioModal #detalleYouTube').attr('href', data.red_YT);
                 $('#detalleUsuarioModal').modal('toggle');
             }else{
                 mostrarNotificacionError('Error al ver el detalle del usuario.');
