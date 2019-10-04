@@ -1,4 +1,5 @@
 sia_sports_agency/__pycache__
 sia_sports_agency/migration
 sia_sports_agency/static/users
+admin/__pycache__
 run_django.cmd
