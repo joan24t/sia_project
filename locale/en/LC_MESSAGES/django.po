@@ -568,7 +568,7 @@ msgstr "*The format date must be dd/mm/yyyy"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html:73
 msgid "A qu&eacute; juegas?"
-msgstr "Role"
+msgstr "What is your sport ?"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html:83
 #: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:133

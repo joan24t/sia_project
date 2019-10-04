@@ -24,8 +24,7 @@ SECRET_KEY = '*@-yg8enwv$_qxo$_rl&fip@6!_zv#4oz28#ix@a75rpbyl97o'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '192.168.1.111', '95.23.209.196']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '217.76.159.21']
 
 
 # Application definition
@@ -76,6 +75,14 @@ WSGI_APPLICATION = 'admin.wsgi.application'
 
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'sia_sports_agency',
+        'USER': 'postgres',
+        'PASSWORD': 'pqytiRhff4',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    },
+    'dev': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'sia_sports_agency',
         'USER': 'postgres',
