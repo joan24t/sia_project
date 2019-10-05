@@ -282,19 +282,26 @@ var establecerPosiciones = function(cod, edit, esBusqueda){
                     $('.selectpicker').selectpicker('refresh');
                 }
                 else{
-                    if (data.multiple){
+                    if (cod == 'MD'){
                         $('.divPositionsSimple').attr('hidden', '');
-                        $('.divMultiplePositions').removeAttr('hidden');
-                        $("#posicionDropdownMultiple").html(data.lista_posiciones);
-                        $('#posicionDropdown').removeClass('campoObligatorio');
-                        $('#posicionDropdownMultiple').addClass('campoObligatorio');
-                        $('.selectpicker').selectpicker('refresh');
-                    }else{
                         $('.divMultiplePositions').attr('hidden', '');
-                        $('.divPositionsSimple').removeAttr('hidden', '');
-                        $("#posicionDropdown").html(data.lista_posiciones);
-                        $('#posicionDropdown').addClass('campoObligatorio');
+                        $('#posicionDropdown').removeClass('campoObligatorio');
                         $('#posicionDropdownMultiple').removeClass('campoObligatorio');
+                    }else{
+                        if (data.multiple){
+                            $('.divPositionsSimple').attr('hidden', '');
+                            $('.divMultiplePositions').removeAttr('hidden');
+                            $("#posicionDropdownMultiple").html(data.lista_posiciones);
+                            $('#posicionDropdown').removeClass('campoObligatorio');
+                            $('#posicionDropdownMultiple').addClass('campoObligatorio');
+                            $('.selectpicker').selectpicker('refresh');
+                        }else{
+                            $('.divMultiplePositions').attr('hidden', '');
+                            $('.divPositionsSimple').removeAttr('hidden', '');
+                            $("#posicionDropdown").html(data.lista_posiciones);
+                            $('#posicionDropdown').addClass('campoObligatorio');
+                            $('#posicionDropdownMultiple').removeClass('campoObligatorio');
+                        }
                     }
                 }
             }

@@ -74,7 +74,7 @@ WSGI_APPLICATION = 'admin.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+    'dev': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'sia_sports_agency',
         'USER': 'postgres',
@@ -82,7 +82,7 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '5432',
     },
-    'dev': {
+    'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'sia_sports_agency',
         'USER': 'postgres',

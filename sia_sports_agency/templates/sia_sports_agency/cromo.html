@@ -27,11 +27,16 @@
         /*Cambiamos texto del cromo*/
         var texto = $('#form-datos-basicos #FormControlInputAlias').val() + "<br/>"
         if (deporte != ''){
-            var requierMultiple = getRequiereMultiple(deporte);
-            if (requierMultiple){
-                var texto = $('#form-datos-basicos #FormControlInputAlias').val() + "<br/>" + nombreMultipleDeporte();
+
+            if (deporte == 'MD'){
+                var texto = $('#form-datos-basicos #FormControlInputAlias').val();
             }else{
-                var texto = $('#form-datos-basicos #FormControlInputAlias').val() + "<br/>" + $('#form-datos-basicos #posicionDropdown option:selected').text();
+                var requierMultiple = getRequiereMultiple(deporte);
+                if (requierMultiple){
+                    var texto = $('#form-datos-basicos #FormControlInputAlias').val() + "<br/>" + nombreMultipleDeporte();
+                }else{
+                    var texto = $('#form-datos-basicos #FormControlInputAlias').val() + "<br/>" + $('#form-datos-basicos #posicionDropdown option:selected').text();
+                }
             }
         }
         $('.cromo .texto-cromo').html('<p>' + texto + '</p>');

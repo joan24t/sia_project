@@ -197,7 +197,7 @@ def get_diccionario(request, seccion):
             codigo=str(request.POST.get('inputPais', ''))
         )
         posiciones = []
-        if deporte:
+        if deporte and deporte.codigo != 'MD':
             if not deporte.requiere_multiple:
                 if request.POST.get('inputPosicion', ''):
                     posiciones = Posicion.objects.get(
