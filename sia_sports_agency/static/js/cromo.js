@@ -2,8 +2,14 @@
 var nombreMultipleDeporte = function(){
     var codigos = $('.divMultiplePositions .filter-option-inner-inner').text();
     var nombre = '';
-    if (codigos != ''){
-        var nombre = codigos.slice(0, codigos.indexOf(","));
+    if (codigos.indexOf(",") != -1){
+        nombre = codigos.slice(0, codigos.indexOf(","));
+    }else{
+        if (codigos == 'Ninguno seleccionado' || codigos == 'Nothing selected'){
+            nombre = '';
+        }else{
+            nombre = codigos;
+        }
     }
     return nombre;
 }

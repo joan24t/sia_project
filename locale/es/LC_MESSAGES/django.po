@@ -787,131 +787,152 @@ msgstr "Justo ahora"
 msgid "Notificación"
 msgstr "Notificaci&oacute;n"
 
-#~ msgid "Fútbol"
-#~ msgstr "Fútbol"
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "Fútbol"
+msgstr "Fútbol"
 
-#~ msgid "Fútbol Sala"
-#~ msgstr "Fútbol Sala"
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "Fútbol Sala"
+msgstr "Fútbol Sala"
 
-#~ msgid "Baloncesto"
-#~ msgstr "Baloncesto"
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "Baloncesto"
+msgstr "Baloncesto"
 
-#~ msgid "Balonmano"
-#~ msgstr "Balonmano"
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "Balonmano"
+msgstr "Balonmano"
 
-#~ msgid "Fútbol Americano"
-#~ msgstr "Fútbol Americano"
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "Fútbol Americano"
+msgstr "Fútbol Americano"
 
-#~ msgid "Béisbol"
-#~ msgstr "Béisbol"
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "Béisbol"
+msgstr "Béisbol"
 
-#~ msgid "Jugador"
-#~ msgstr "Jugador"
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "Multideporte"
+msgstr "Multideporte"
 
-#~ msgid "Entrenador"
-#~ msgstr "Entrenador"
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "Jugador"
+msgstr "Jugador"
 
-#~ msgid "Preparador físico"
-#~ msgstr "Preparador físico"
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "Entrenador"
+msgstr "Entrenador"
 
-#~ msgid "Representante"
-#~ msgstr "Representante"
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "Preparador físico"
+msgstr "Preparador físico"
 
-#~ msgid "Árbitro"
-#~ msgstr "Árbitro"
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "Representante"
+msgstr "Representante"
 
-#~ msgid "Directivo"
-#~ msgstr "Directivo"
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "Árbitro"
+msgstr "Árbitro"
 
-#~ msgid "Fisioterapeuta"
-#~ msgstr "Fisioterapeuta"
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "Directivo"
+msgstr "Directivo"
 
-#~ msgid "Ojeador"
-#~ msgstr "Ojeador"
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "Fisioterapeuta"
+msgstr "Fisioterapeuta"
 
-#~ msgid "Periodista deportivo"
-#~ msgstr "Periodista deportivo"
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "Ojeador"
+msgstr "Ojeador"
 
-#~ msgid "Empresa deportiva"
-#~ msgstr "Empresa deportiva"
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "Periodista deportivo"
+msgstr "Periodista deportivo"
 
-#~ msgid "Marca deportiva"
-#~ msgstr "Marca deportiva"
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "Empresa deportiva"
+msgstr "Empresa deportiva"
 
-#~ msgid "Otros"
-#~ msgstr "Otros"
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "Marca deportiva"
+msgstr "Marca deportiva"
 
-#~ msgid "PORTERO"
-#~ msgstr "PORTERO"
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "Otros"
+msgstr "Otros"
 
-#~ msgid "DEFENSA"
-#~ msgstr "DEFENSA"
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "LANZADOR"
+msgstr "LANZADOR"
 
-#~ msgid "CENTROCAMPISTA"
-#~ msgstr "CENTROCAMPISTA"
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "RECEPTOR"
+msgstr "RECEPTOR"
 
-#~ msgid "DELANTERO"
-#~ msgstr "DELANTERO"
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "PRIMERA BASE"
+msgstr "PRIMERA BASE"
 
-#~ msgid "CIERRE"
-#~ msgstr "CIERRE"
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "SEGUNDA BASE"
+msgstr "SEGUNDA BASE"
 
-#~ msgid "ALA"
-#~ msgstr "ALA"
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "TERCERA BASE"
+msgstr "TERCERA BASE"
 
-#~ msgid "UNIVERSAL"
-#~ msgstr "UNIVERSAL"
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "CAMPOCORTO"
+msgstr "CAMPOCORTO"
 
-#~ msgid "PIVOT"
-#~ msgstr "PIVOT"
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "EXTERIOR IZQUIERDO"
+msgstr "EXTERIOR IZQUIERDO"
 
-#~ msgid "DEFENSIVE BACK"
-#~ msgstr "DEFENSIVE BACK"
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "EXTERIOR CENTRAL"
+msgstr "EXTERIOR CENTRAL"
 
-#~ msgid "DEFENSIVE LINE"
-#~ msgstr "DEFENSIVE LINE"
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "EXTERIOR DERECHO"
+msgstr "EXTERIOR DERECHO"
 
-#~ msgid "LINEBACKER"
-#~ msgstr "LINEBACKER"
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "BATEADOR DESIGNADO"
+msgstr "BATEADOR DESIGNADO"
 
-#~ msgid "OFFENSIVE LINE"
-#~ msgstr "OFFENSIVE LINE"
-
-#~ msgid "QUARTERBACK"
-#~ msgstr "QUARTERBACK"
-
-#~ msgid "RUNNING BACK"
-#~ msgstr "RUNNING BACK"
-
-#~ msgid "TIGHT END"
-#~ msgstr "TIGHT END"
-
-#~ msgid "WIDE RECEIVER"
-#~ msgstr "WIDE RECEIVER"
-
-#~ msgid "SPECIAL TEAMS"
-#~ msgstr "SPECIAL TEAMS"
-
-#~ msgid "FLAG FOOTBALL"
-#~ msgstr "FLAG FOOTBALL"
-
-#~ msgid "BASE"
-#~ msgstr "BASE"
-
-#~ msgid "ESCOLTA"
-#~ msgstr "ESCOLTA"
-
-#~ msgid "ALERO"
-#~ msgstr "ALERO"
-
-#~ msgid "ALA-PIVOT"
-#~ msgstr "ALA-PIVOT"
-
-#~ msgid "LATERAL"
-#~ msgstr "LATERAL"
-
-#~ msgid "CENTRAL"
-#~ msgstr "CENTRAL"
-
-#~ msgid "EXTREMO"
-#~ msgstr "EXTREMO"
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "VARIAS POSICIONES"
+msgstr "VARIAS POSICIONES"

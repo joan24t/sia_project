@@ -816,6 +816,11 @@ msgstr "Baseball"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
 #: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "Multideporte"
+msgstr "Multisport"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
 msgid "Jugador"
 msgstr "Player"
 
@@ -998,3 +1003,58 @@ msgstr "CENTER"
 #: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
 msgid "EXTREMO"
 msgstr "WING"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "LANZADOR"
+msgstr "PITCHER"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "RECEPTOR"
+msgstr "CATCHER"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "PRIMERA BASE"
+msgstr "FIRST BASE"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "SEGUNDA BASE"
+msgstr "SECOND BASE"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "TERCERA BASE"
+msgstr "THIRD BASE"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "CAMPOCORTO"
+msgstr "SHORT STOP"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "EXTERIOR IZQUIERDO"
+msgstr "LEFT FIELDER"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "EXTERIOR CENTRAL"
+msgstr "CENTRAL FIELDER"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "EXTERIOR DERECHO"
+msgstr "RIFHT FIELDER"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "BATEADOR DESIGNADO"
+msgstr "DESIGNATED HITTER"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
+msgid "VARIAS POSICIONES"
+msgstr "VARIOUS POSITIONS"

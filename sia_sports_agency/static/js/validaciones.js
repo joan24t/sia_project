@@ -109,6 +109,7 @@ var validarFormatoFecha = function(){
 
 var validarCorreo = function(){
     var correo = $('#form-registro #FormControlInputEmail').val();
+    var resultado = false;
     $.ajax({
         url: "/comprobar_correo/",
         async: false,
@@ -120,20 +121,18 @@ var validarCorreo = function(){
             if(data.exito){
                 if (data.existe){
                     $("div.campoCorreoExisteNotif").removeAttr('hidden');
-                    return false;
                 }else{
-                    return true;
+                    resultado = true;
                 }
             }
             else{
                 $("div.campoCorreoExisteNotif").removeAttr('hidden');
-                return false;
             }
         },error: function(data){
             $("div.campoCorreoExisteNotif").removeAttr('hidden');
-            return false;
         }
     });
+    return resultado;
 }
 
 /* Se dispara cuando se intenta registrar un nuevo usuario */
