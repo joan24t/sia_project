@@ -189,7 +189,8 @@ var enviarImgCromo = function(){
 }
 var refrescarCromo = function(){
     ruta = $(".cromo-img").attr("src");
-    $(".cromo-img").attr("src", ruta);
+    $(".cromo-img").attr("src", ruta + "?timestamp=" + new Date().getTime());
+    $('.cromo-img').removeAttr('hidden');
 }
 var guardarCromo = function(imageData){
     $.ajax({
@@ -204,7 +205,6 @@ var guardarCromo = function(imageData){
             }
             setTimeout(function(){
                  refrescarCromo();
-                 $('.cromo-img').removeAttr('hidden');
             }, 3000);
         },error: function(data){
             mostrarNotificacionError('Error en la carga del cromo.');
@@ -227,7 +227,7 @@ var setAcceso = function(){
 }
 /* Se comprueba si no hay cromo o si se accede por primera vez para cargar
 el cromo */
-var primerAcceso = function(canvas){
+var enviarCanvas = function(canvas){
     $.ajax({
         url: "/primer_acceso/",
         async:false,
@@ -262,7 +262,7 @@ var cargarCromo = function(datos) {
             height: 575,
             onrendered: function (canvas) {
                 getCanvas = canvas;
-                primerAcceso(getCanvas);
+                enviarCanvas(getCanvas);
             }
         });
     }

@@ -22,21 +22,19 @@
         /*Cambiamos icono del deporte del cromo*/
         var deporte = $('#form-datos-basicos #deporteInput').val();
         var cromoImgDpte= $('.cromo .img-icono-deporte');
+        if (deporte == ''){
+            deporte = 'MD';
+        }
         cromoImgDpte.replaceWith("<img class='img-icono-deporte' src='{{baseLogoDeporte}}" + deporte + ".png' />");
 
         /*Cambiamos texto del cromo*/
         var texto = $('#form-datos-basicos #FormControlInputAlias').val() + "<br/>"
-        if (deporte != ''){
-
-            if (deporte == 'MD'){
-                var texto = $('#form-datos-basicos #FormControlInputAlias').val();
+        if (deporte != '' && deporte != 'MD'){
+            var requierMultiple = getRequiereMultiple(deporte);
+            if (requierMultiple){
+                var texto = $('#form-datos-basicos #FormControlInputAlias').val() + "<br/>" + nombreMultipleDeporte();
             }else{
-                var requierMultiple = getRequiereMultiple(deporte);
-                if (requierMultiple){
-                    var texto = $('#form-datos-basicos #FormControlInputAlias').val() + "<br/>" + nombreMultipleDeporte();
-                }else{
-                    var texto = $('#form-datos-basicos #FormControlInputAlias').val() + "<br/>" + $('#form-datos-basicos #posicionDropdown option:selected').text();
-                }
+                var texto = $('#form-datos-basicos #FormControlInputAlias').val() + "<br/>" + $('#form-datos-basicos #posicionDropdown option:selected').text();
             }
         }
         $('.cromo .texto-cromo').html('<p>' + texto + '</p>');
@@ -139,10 +137,10 @@
         <img class="img-bandera" src="{{baseLogoPais}}{{usuario.pais.codigo}}.png" />
     </div>
 </div>
-<div class="content-loader">
+<!--div class="content-loader">
     <img width="100px" src="{% static 'img/loading-gif.gif' %}"/>
     <h4 class="texto-loader"> Cargando cromo... </h4>
-</div>
+</div-->
 <div class="div-cromo">
     <img class="cromo-img" src="{{ baseCromo }}{{ruta_cromo}}"/>
 </div>
