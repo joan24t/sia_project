@@ -724,7 +724,6 @@ def enviar_correo(request):
             ]
             for l in lista_correos:
                 email_dest = l[l.find("<")+1:l.find(">")] or None
-                print('AAAA: ' + str(email_dest))
                 destinatario = Usuario.objects.filter(email=email_dest).first()
                 if destinatario and email_dest:
                     Mensaje.objects.create(
@@ -787,9 +786,6 @@ def guardar_cromo(request):
             url_completa = os.path.join(
                 path, "cromo-" + str(usuario.id) + ".png"
             )
-            while not os.path.isfile(url_completa):
-                print(str(url_completa))
-                pass
             usuario.save()
             dict={'exito':True}
             return HttpResponse(
@@ -799,7 +795,12 @@ def guardar_cromo(request):
             return HttpResponse(
                 json.dumps(dict), content_type='application/json'
             )
-    except:
+    except Exception as e:
+        logger.error(
+            "Error al guardar el cromo: {}".format(
+                e
+            )
+        )
         return HttpResponse(
             json.dumps(dict), content_type='application/json'
         )
@@ -1153,7 +1154,6 @@ def comprobar_correo(request):
         usuario_exi = Usuario.objects.filter(
             email=correo
         ).first()
-        print('HOLAAAAA: ' + str(correo))
         dict['exito'] = True
         if usuario_exi:
             dict['existe'] = True
