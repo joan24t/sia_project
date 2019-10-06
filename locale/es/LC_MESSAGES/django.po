@@ -823,7 +823,7 @@ msgstr "Béisbol"
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
 #: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
 msgid "Multideporte"
-msgstr "Multideporte"
+msgstr "Otros"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
 #: .\sia_sports_agency\templates\sia_sports_agency\perfil.html

@@ -820,7 +820,7 @@ msgstr "Baseball"
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
 #: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
 msgid "Multideporte"
-msgstr "Multisport"
+msgstr "Others"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
 #: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
