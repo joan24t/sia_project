@@ -46,7 +46,7 @@
         /*Cambiamos el pais*/
         var pais = $('#form-datos-basicos #paisDropdown').val();
         var cromoPais= $('.cromo .img-bandera');
-        var enlace = "{{baseLogoPais}}" + pais.toLowerCase(); + ".png";
+        var enlace = "{{baseLogoPais}}" + pais.toLowerCase() + ".png";
         cromoPais.attr("src", enlace);
     }
 
