@@ -521,7 +521,7 @@ msgstr "Nueva cuenta"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html:19
 msgid "Qu&eacute; eres?"
-msgstr "Qu&eacute; eres?"
+msgstr "¿Qu&eacute; eres?"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html:29
 msgid "Tus datos"
@@ -562,7 +562,7 @@ msgstr "Mujer"
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html:47
 #: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:107
 msgid "F. Nacimiento"
-msgstr "F. Nacimiento"
+msgstr "Fecha de nacimiento"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html:53
 msgid "*El formato de la fecha debe ser dd/mm/yyyy"
@@ -570,7 +570,7 @@ msgstr "*El formato de la fecha debe ser dd/mm/yyyy"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html:73
 msgid "A qu&eacute; juegas?"
-msgstr "A qu&eacute; juegas?"
+msgstr "¿A qu&eacute; juegas?"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html:83
 #: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:133
