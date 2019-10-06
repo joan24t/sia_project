@@ -172,7 +172,6 @@ section{
 .navbar{
     border-bottom:5px solid #9A8056;
 	background-color: #202020 !important;
-	z-index: 2147483647;
 }
 .navbar-nav > li{ padding-left:25px; padding-right:25p}
 .nav-link {
