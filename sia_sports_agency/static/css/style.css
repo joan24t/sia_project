@@ -98,7 +98,6 @@ section{
 .div-registration{
     background-color: transparent;
 	text-align: center;
-	max-width: 100%;
 	padding-top: 80px;
 	font-size: 35px;
 	font-family: Metropolis, Inter, X-LocaleSpecific, sans-serif;
@@ -314,7 +313,9 @@ section{
     font-size: 20px;
     font-weight: bold;
     background: linear-gradient(to right, #9A8056, #CFAB71, #9A8056);
+	background-clip: text;
     -webkit-background-clip: text;
+	text-fill-color: transparent;
     -webkit-text-fill-color: transparent;
 }
 .form-registro .titulo{
@@ -364,9 +365,6 @@ section{
 }
 .modal-footer .btn-primary:hover{
 	background-color: #604020;
-}
-.modal-dialog{
-	padding-left: 17px !important;
 }
 .close {
     color: #fff;
