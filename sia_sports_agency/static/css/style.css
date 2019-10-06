@@ -312,11 +312,7 @@ section{
 .form-registration-btn{
     font-size: 20px;
     font-weight: bold;
-    background: linear-gradient(to right, #9A8056, #CFAB71, #9A8056);
-	background-clip: text;
-    -webkit-background-clip: text;
-	text-fill-color: transparent;
-    -webkit-text-fill-color: transparent;
+	color:  #9A8056;
 }
 .form-registro .titulo{
 	text-decoration-color: white;
@@ -1308,13 +1304,20 @@ hr.fila{
 	-webkit-animation: spin 2s linear infinite; /* Safari */
 	animation: spin 2s linear infinite;
 }
-.loader-inicio{
+.loader-inicio,
+.loader-reg{
     width: 22px;
     height: 22px;
 	border: 2px solid  white;
 	border-radius: 50%;
-	border-top: 2px solid  #5e3010;
 	margin-left: 5px;
+}
+.loader-inicio{
+	border-top: 2px solid  #5e3010;
+}
+.loader-reg{
+	border-top: 2px solid  black;
+	margin: 6px 0px 0px 6px;
 }
 .loader-cromo {
   width: 120px;

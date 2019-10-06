@@ -138,6 +138,7 @@ var validarCorreo = function(){
 /* Se dispara cuando se intenta registrar un nuevo usuario */
 var submitRegistro = function(){
     $('#form-registro').submit(function () {
+        mostrarElemento($('.loader-reg'));
         $('#form-registro #campoLongitudNotif').attr('hidden', '');
         $("div.campoObligatorioNotif").attr('hidden', '');
         $("div.campoMinimoCarNotif").attr('hidden', '');
@@ -145,16 +146,22 @@ var submitRegistro = function(){
         $("div.campoFormatoNotif").attr('hidden', '');
 
         if (!validarCamposVacios()){
+            ocultarElemento($('.loader-reg'));
             return false;
         } else if (!validarFormatoFecha()){
+            ocultarElemento($('.loader-reg'));
             return false;
         } else if(!validarConcidenciaPasswords()){
+            ocultarElemento($('.loader-reg'));
             return false;
         } else if (!validarMinimosPassword()){
+            ocultarElemento($('.loader-reg'));
             return false;
         } else if (!validarCorreo()){
+            ocultarElemento($('.loader-reg'));
             return false;
         }
+        ocultarElemento($('.loader-reg'));
         return true;
     });
 }
