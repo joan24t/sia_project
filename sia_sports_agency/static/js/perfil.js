@@ -48,6 +48,8 @@ $(document).ready(function(){
     anadirVideo()
     /*Cambia la contraseña*/
     cambiarContraseña();
+    /*Cerror el menú del navar automáticamente*/
+    autoCloseNav();
     /* Funcion que pone ivisible los toats cuando se ocultan*/
     $('.toast').on('hidden.bs.toast', function () {
         $(this).attr('hidden', '');
@@ -63,6 +65,12 @@ $(document).ready(function(){
         $(".modal-email .cuerpo-nuevo").val('');
     });
 });
+
+var autoCloseNav = function(){
+    $('.navbar-collapse a').click(function(){
+        $(".navbar-collapse").collapse('hide');
+    });
+}
 
 /* Limpiar filtros de la búsqueda */
 var limpiarFiltros = function(){

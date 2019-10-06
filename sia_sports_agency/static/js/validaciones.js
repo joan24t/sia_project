@@ -100,7 +100,11 @@ var validarCamposVacios = function(){
 
 var validarFormatoFecha = function(){
     var fecha = $('#form-registro .grupoFechaNacimiento input').val();
-    if (fecha.charAt(2) != '/' || fecha.charAt(5) != '/' || fecha.length != 10){
+    var año = fecha.substring(0, 4);
+    var mes = fecha.substring(5, 7);
+    var dia = fecha.substring(8, 10);
+    var fecha_formateada = dia + "/" + mes + "/" + año;
+    if (fecha_formateada.charAt(2) != '/' || fecha_formateada.charAt(5) != '/' || fecha_formateada.length != 10){
         $("div.campoFormatoNotif").removeAttr('hidden');
         return false;
     }

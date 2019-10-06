@@ -221,9 +221,7 @@ def get_diccionario(request, seccion):
                     )
         diccionario =  {
             'nombre': request.POST.get('inputNombre', ''),
-            'fnacimiento': change_format(
-                request.POST.get('inputNacimiento', '')
-            ),
+            'fnacimiento': request.POST.get('inputNacimiento', ''),
             'alias': request.POST.get('inputAlias', ''),
             'genero': request.POST.get('inputSexo', ''),
             'tipo_deporte': request.POST.get('inputTipoDeporte', ''),
