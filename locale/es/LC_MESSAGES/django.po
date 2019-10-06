@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-29 11:35+0200\n"
+"POT-Creation-Date: 2019-10-06 13:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -90,6 +90,10 @@ msgstr "Ajustes"
 #: .\sia_sports_agency\templates\sia_sports_agency\base.html:165
 msgid "Cerrar sesi&oacute;n"
 msgstr "Cerrar sesi&oacute;n"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:230
+msgid "Derechos reservados 2019:"
+msgstr "Derechos reservados 2019:"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:8
 msgid "Filtros de b&uacute;squeda"
@@ -186,7 +190,7 @@ msgstr "Buscar"
 msgid "Limpiar"
 msgstr "Limpiar"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\cromo.html:148
+#: .\sia_sports_agency\templates\sia_sports_agency\cromo.html:151
 msgid "Descargar"
 msgstr "Descargar"
 
@@ -368,15 +372,15 @@ msgid "Iniciar sesión"
 msgstr "Iniciar sesión"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_login.html:47
-msgid "No tienes cuenta?"
-msgstr "No tienes cuenta?"
+msgid "¿No tienes cuenta?"
+msgstr "¿No tienes cuenta?"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_login.html:47
 msgid "Regístrate"
 msgstr "Regístrate"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_login.html:50
-msgid "Olvidaste tu contraseña?"
+msgid "¿Olvidaste tu contraseña?"
 msgstr "¿Olvidaste tu contraseña?"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_settings.html:13
@@ -473,13 +477,12 @@ msgstr ""
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_window_que.html:35
 msgid ""
-" Crea tu perfil de forma fácil y sencilla, y podrás acceder a la búsqueda de "
-"otros usuarios,\n"
+" Crea tu perfil facilmente y accede a la búsqueda de otros usuarios,\n"
 "                                        comunicarte con ellos, y recibir o "
 "enviar ofertas."
 msgstr ""
-"Crea tu perfil de forma fácil y sencilla, y podrás acceder a la búsqueda de "
-"otros usuarios, comunicarte con ellos, y recibir o enviar ofertas."
+"Crea tu perfil facilmente, y accede a la búsqueda de otros usuarios, "
+"comunicarte con ellos, y recibir o enviar ofertas."
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_window_que.html:52
 msgid ""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-29 11:35+0200\n"
+"POT-Creation-Date: 2019-10-06 13:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -90,6 +90,10 @@ msgstr "Settings"
 #: .\sia_sports_agency\templates\sia_sports_agency\base.html:165
 msgid "Cerrar sesi&oacute;n"
 msgstr "Logout"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:230
+msgid "Derechos reservados 2019:"
+msgstr "All rights reserved 2019:"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:8
 msgid "Filtros de b&uacute;squeda"
@@ -186,7 +190,7 @@ msgstr "Search"
 msgid "Limpiar"
 msgstr "Clean"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\cromo.html:148
+#: .\sia_sports_agency\templates\sia_sports_agency\cromo.html:151
 msgid "Descargar"
 msgstr "Download"
 
@@ -365,7 +369,7 @@ msgid "Iniciar sesión"
 msgstr "Log in"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_login.html:47
-msgid "No tienes cuenta?"
+msgid "¿No tienes cuenta?"
 msgstr "Don't you have an account ?"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_login.html:47
@@ -373,7 +377,7 @@ msgid "Regístrate"
 msgstr "Sing up"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_login.html:50
-msgid "Olvidaste tu contraseña?"
+msgid "¿Olvidaste tu contraseña?"
 msgstr "Did you forget your password?"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_settings.html:13
@@ -472,13 +476,12 @@ msgstr ""
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_window_que.html:35
 msgid ""
-" Crea tu perfil de forma fácil y sencilla, y podrás acceder a la búsqueda de "
-"otros usuarios,\n"
+" Crea tu perfil facilmente y accede a la búsqueda de otros usuarios,\n"
 "                                        comunicarte con ellos, y recibir o "
 "enviar ofertas."
 msgstr ""
-"Create your profile easily so that you can access in search of other users, "
-"communicate with them, and receive or send offers."
+"Create your profile easily and access in search of other users, communicate "
+"with them, and receive or send offers."
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_window_que.html:52
 msgid ""
@@ -881,131 +884,6 @@ msgstr "Others"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
 #: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
-msgid "PORTERO"
-msgstr "GOALKEEPER"
-
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
-msgid "DEFENSA"
-msgstr "DEFENDER"
-
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
-msgid "CENTROCAMPISTA"
-msgstr "MIDFIELDER"
-
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
-msgid "DELANTERO"
-msgstr "FORWARD"
-
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
-msgid "CIERRE"
-msgstr "CLOSURE"
-
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
-msgid "ALA"
-msgstr "WING"
-
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
-msgid "UNIVERSAL"
-msgstr "UNIVERSAL"
-
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
-msgid "PIVOT"
-msgstr "PIVOT"
-
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
-msgid "DEFENSIVE BACK"
-msgstr "DEFENSIVE BACK"
-
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
-msgid "DEFENSIVE LINE"
-msgstr "DEFENSIVE LINE"
-
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
-msgid "LINEBACKER"
-msgstr "LINEBACKER"
-
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
-msgid "OFFENSIVE LINE"
-msgstr "OFFENSIVE LINE"
-
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
-msgid "QUARTERBACK"
-msgstr "QUARTERBACK"
-
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
-msgid "RUNNING BACK"
-msgstr "RUNNING BACK"
-
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
-msgid "TIGHT END"
-msgstr "TIGHT END"
-
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
-msgid "WIDE RECEIVER"
-msgstr "WIDE RECEIVER"
-
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
-msgid "SPECIAL TEAMS"
-msgstr "SPECIAL TEAMS"
-
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
-msgid "FLAG FOOTBALL"
-msgstr "FLAG FOOTBALL"
-
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
-msgid "BASE"
-msgstr "POINT GUARD"
-
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
-msgid "ESCOLTA"
-msgstr "SHOOTING GUARD"
-
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
-msgid "ALERO"
-msgstr "SMALL FORWARD"
-
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
-msgid "ALA-PIVOT"
-msgstr "POWER FORWARD"
-
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
-msgid "LATERAL"
-msgstr "BACK"
-
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
-msgid "CENTRAL"
-msgstr "CENTER"
-
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
-msgid "EXTREMO"
-msgstr "WING"
-
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
 msgid "LANZADOR"
 msgstr "PITCHER"
 
@@ -1047,7 +925,7 @@ msgstr "CENTRAL FIELDER"
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
 #: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
 msgid "EXTERIOR DERECHO"
-msgstr "RIFHT FIELDER"
+msgstr "RIGHT FIELDER"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html
 #: .\sia_sports_agency\templates\sia_sports_agency\perfil.html
