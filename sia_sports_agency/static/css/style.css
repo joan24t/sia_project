@@ -532,7 +532,7 @@ section{
 }
 .cromo .texto-cromo{
 	font-family: 'Good Times', arial;
-	font-size: 20px;
+	text-transform: uppercase;
 	position: absolute;
 	margin-left: 1px;
 	padding: 470px 0px 0px 110px;
@@ -546,6 +546,7 @@ section{
 	padding: 550px 0px 0px 102px;
 	color: #89742E;
 	margin-left: 1px;
+	text-transform: uppercase;
 }
 .cromo .bandera-cromo{
 	position: absolute;
@@ -991,6 +992,13 @@ section{
 	  max-width: 80% !important;
 	  margin-left: 12%;
    }
+   .cromo .texto-cromo,
+   .cromo .texto-tipo{
+   		font-size: 17px;
+   }
+   .cromo .texto-cromo br{
+   		margin-bottom: 10px;
+   }
 }
 /*
 ****************************************************************************************************
@@ -1023,6 +1031,13 @@ section{
    .img-fluid{
 	   	max-width: 80%;
 	   	height: 200px;
+   }
+   .cromo .texto-cromo,
+   .cromo .texto-tipo{
+   		font-size: 20px;
+   }
+   .cromo .texto-cromo br{
+   		margin-bottom: 12px;
    }
 }
 /*Logo responsive*/
