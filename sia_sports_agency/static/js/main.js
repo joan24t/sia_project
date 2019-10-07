@@ -99,7 +99,7 @@ var mostrarOcultarComb2 = function(){
     ocultarCampos(listaOcultar);
     $('#form-registro .grupoFechaNacimiento input').val('');
     $('.divPositionsSimple #posicionDropdown').val('');
-    $('.divMultiplePositions #posicionDropdownMultiple').val('');
+    $('.divMultiplePositions #posicionDropdownMultiple').selectpicker('val', []);
     var listaNoObligatorios = [
         $('.grupoFechaNacimiento > input'),
         $('.divPositionsSimple #posicionDropdown'),
@@ -121,7 +121,7 @@ var mostrarOcultarComb3 = function(){
     ];
     ocultarCampos(listaOcultar);
     $('.divPositionsSimple #posicionDropdown').val('');
-    $('.divMultiplePositions #posicionDropdownMultiple').val('');
+    $('.divMultiplePositions #posicionDropdownMultiple').selectpicker('val', []);
     var listaObligatorios = [
         $('.grupoFechaNacimiento > input')
     ];
@@ -146,7 +146,7 @@ var mostrarOcultarComb4 = function(){
     ];
     ocultarCampos(listaOcultar);
     $('.divPositionsSimple #posicionDropdown').val('');
-    $('.divMultiplePositions #posicionDropdownMultiple').val('');
+    $('.divMultiplePositions #posicionDropdownMultiple').selectpicker('val', []);
     var listaObligatorios = [
         $('.grupoFechaNacimiento > input')
     ];
@@ -172,7 +172,7 @@ var mostrarOcultarComb5 = function(){
     ocultarCampos(listaOcultar);
     $('#form-registro .grupoFechaNacimiento input').val('');
     $('.divPositionsSimple #posicionDropdown').val('');
-    $('.divMultiplePositions #posicionDropdownMultiple').val('');
+    $('.divMultiplePositions #posicionDropdownMultiple').selectpicker('val', []);
     var listaNoObligatorios = [
         $('.grupoFechaNacimiento > input'),
         $('.divPositionsSimple #posicionDropdown'),
@@ -193,7 +193,7 @@ var mostrarOcultarComb6 = function(){
     ];
     ocultarCampos(listaOcultar);
     $('.divPositionsSimple #posicionDropdown').val('');
-    $('.divMultiplePositions #posicionDropdownMultiple').val('');
+    $('.divMultiplePositions #posicionDropdownMultiple').selectpicker('val', []);
     $('.grupoAQueJuegas #deporteInput').val('');
     var listaObligatorios = [
         $('.grupoFechaNacimiento > input')
