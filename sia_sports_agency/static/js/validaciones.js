@@ -99,12 +99,12 @@ var validarCamposVacios = function(){
 }
 
 var validarFormatoFecha = function(){
-    var fecha = $('#form-registro .grupoFechaNacimiento input').val();
-    var año = fecha.substring(0, 4);
-    var mes = fecha.substring(5, 7);
-    var dia = fecha.substring(8, 10);
+    var fecha = $('#form-registro .grupoFechaNacimiento input');
+    var año = fecha.val().substring(0, 4);
+    var mes = fecha.val().substring(5, 7);
+    var dia = fecha.val().substring(8, 10);
     var fecha_formateada = dia + "/" + mes + "/" + año;
-    if (fecha_formateada.charAt(2) != '/' || fecha_formateada.charAt(5) != '/' || fecha_formateada.length != 10){
+    if (!fecha.is(":hidden") && (fecha_formateada.charAt(2) != '/' || fecha_formateada.charAt(5) != '/' || fecha_formateada.length != 10)){
         $("div.campoFormatoNotif").removeAttr('hidden');
         return false;
     }

@@ -97,7 +97,7 @@ var mostrarOcultarComb2 = function(){
         $('.grupoSexo')
     ];
     ocultarCampos(listaOcultar);
-    $('.grupoFechaNacimiento #datepicker').val('');
+    $('#form-registro .grupoFechaNacimiento input').val('');
     $('.divPositionsSimple #posicionDropdown').val('');
     $('.divMultiplePositions #posicionDropdownMultiple').val('');
     var listaNoObligatorios = [
@@ -170,7 +170,7 @@ var mostrarOcultarComb5 = function(){
         $('.grupoFechaNacimiento')
     ];
     ocultarCampos(listaOcultar);
-    $('.grupoFechaNacimiento #datepicker').val('');
+    $('#form-registro .grupoFechaNacimiento input').val('');
     $('.divPositionsSimple #posicionDropdown').val('');
     $('.divMultiplePositions #posicionDropdownMultiple').val('');
     var listaNoObligatorios = [
