@@ -48,9 +48,7 @@ $(document).ready(function(){
     anadirVideo()
     /*Cambia la contraseña*/
     cambiarContraseña();
-    /*Cerror el menú del navar automáticamente*/
-    autoCloseNav();
-    /* Funcion que pone ivisible los toats cuando se ocultan*/
+    /* Funcion que pone invisible los toats cuando se ocultan*/
     $('.toast').on('hidden.bs.toast', function () {
         $(this).attr('hidden', '');
     });
@@ -66,11 +64,6 @@ $(document).ready(function(){
     });
 });
 
-var autoCloseNav = function(){
-    $('.navbar-collapse a').click(function(){
-        $(".navbar-collapse").collapse('hide');
-    });
-}
 
 /* Limpiar filtros de la búsqueda */
 var limpiarFiltros = function(){
@@ -183,7 +176,6 @@ var enviarImgCromo = function(){
         success: function(data) {
             $(".img-foto").attr("src", data.ruta_cromo);
             cargarCromo('todo');
-            $('#settingsModalCenter').modal('toggle');
             if(data.error){
                 mostrarNotificacionError('Error en la subida de la imagen. Intente de nuevo');
                 mostrarElemento($('.div-cromo'));
