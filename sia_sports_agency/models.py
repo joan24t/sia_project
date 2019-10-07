@@ -124,7 +124,7 @@ class Usuario(models.Model):
 
     # Attributes
     nombre = models.CharField(
-        max_length=150,
+        max_length=100,
         null=False
     )
     apellidos = models.CharField(
@@ -132,7 +132,7 @@ class Usuario(models.Model):
         null=True
     )
     ubicacion = models.CharField(
-        max_length=150,
+        max_length=100,
         null=True
     )
     fnacimiento = models.DateField(
@@ -164,7 +164,7 @@ class Usuario(models.Model):
         null=True
     )
     eactual = models.CharField(
-        max_length=150,
+        max_length=60,
         null=True
     )
     altura = models.DecimalField(
@@ -196,7 +196,7 @@ class Usuario(models.Model):
         null=True
     )
     nacionalidad = models.CharField(
-        max_length=200,
+        max_length=60,
         null=True
     )
     curriculum = models.CharField(
@@ -258,7 +258,7 @@ class Usuario(models.Model):
         max_length=150
     )
     alias = models.CharField(
-        max_length=10,
+        max_length=13,
         null=True
     )
 
@@ -314,7 +314,7 @@ class Red_social(models.Model):
     )
     enlace = models.CharField(
         null=False,
-        max_length=150
+        max_length=300
     )
     usuario = models.ForeignKey(
         Usuario,
