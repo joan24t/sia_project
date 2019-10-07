@@ -16,7 +16,7 @@
                     </div>
                     <div class="col-8">
                         <select class="form-control busqueda-tipo" name="busquedaTipoUsuario">
-                                <option value="">{% trans "Elige tipo de jugador" %}</option>
+                                <option value="">{% trans "Seleccione una opción" %}</option>
                             {% for tipo in tipo_jugadores %}
                                 <option value="{{tipo.codigo|default:''}}">{{tipo.nombre}}</option>
                             {% endfor %}
@@ -37,9 +37,9 @@
                     </div>
                     <div class="col-8">
                         <select class="form-control busqueda-deporte" name="busquedaDeporte">
-                            <option value="">{% trans "Elige deporte" %}</option>
+                            <option value="">{% trans "Seleccione una opción" %}</option>
                             {% for deporte in deportes %}
-                            <option value="{{deporte.codigo|default:''}}" {% if deporte.codigo == usuario.deporte.codigo %} selected {% endif %}>{{deporte.nombre}}</option>
+                            <option value="{{deporte.codigo|default:''}}" >{{deporte.nombre}}</option>
                             {% endfor %}
                         </select>
                     </div>
@@ -73,7 +73,7 @@
                     </div>
                     <div class="col-8">
                         <select class="form-control selectpicker busqueda-pais" title="{% trans 'Ninguno seleccionado' %}" name="busquedaPais" data-live-search="true" hidden>
-                            <option value="">{% trans "Seleccione país" %}</option>
+                            <option value="">{% trans "Seleccione una opción" %}</option>
                             {% for pais in paises %}
                             <option value="{{pais.codigo|default:''}}" data-content="<span class='flag-icon flag-icon-{{pais.codigo|lower}}'></span>&ensp;&ensp;{{pais.nombre}}"></option>
                             {% endfor %}

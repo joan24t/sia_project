@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-06 13:04+0200\n"
+"POT-Creation-Date: 2019-10-07 20:24+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -104,8 +104,10 @@ msgid "Qu&eacute; buscas"
 msgstr "Role"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:19
-msgid "Elige tipo de jugador"
-msgstr "Select role"
+#: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:40
+#: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:76
+msgid "Seleccione una opción"
+msgstr "Select one option"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:28
 #: .\sia_sports_agency\templates\sia_sports_agency\index.html:157
@@ -117,10 +119,6 @@ msgstr "Name"
 #: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:124
 msgid "Deporte"
 msgstr "Sport"
-
-#: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:40
-msgid "Elige deporte"
-msgstr "Select sport"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:49
 msgid "Posición"
@@ -161,10 +159,6 @@ msgstr "Female"
 msgid "País"
 msgstr "Country"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:76
-msgid "Seleccione país"
-msgstr "Select country"
-
 #: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:85
 msgid "Rango edad"
 msgstr "Age range"
@@ -191,6 +185,10 @@ msgid "Limpiar"
 msgstr "Clean"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\cromo.html:151
+msgid "Cambiar imagen"
+msgstr "Change picture"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\cromo.html:152
 msgid "Descargar"
 msgstr "Download"
 
@@ -368,27 +366,23 @@ msgstr "Remember me"
 msgid "Iniciar sesión"
 msgstr "Log in"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_login.html:47
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_login.html:46
 msgid "¿No tienes cuenta?"
 msgstr "Don't you have an account ?"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_login.html:47
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_login.html:46
 msgid "Regístrate"
 msgstr "Sing up"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_login.html:50
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_login.html:49
 msgid "¿Olvidaste tu contraseña?"
 msgstr "Did you forget your password?"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_settings.html:13
-msgid "Cambiar imagen"
-msgstr "Change picture"
-
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_settings.html:14
 msgid "Cambiar contraseña"
 msgstr "Change password"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_settings.html:15
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_settings.html:14
 msgid "Desactivar cuenta"
 msgstr "Disable account"
 
@@ -620,7 +614,7 @@ msgstr "*The password must not contain special characters or blank spaces"
 msgid "*Las contraseñas no coinciden"
 msgstr "*Both password doesn't match"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html:168
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html:170
 msgid "Registrar"
 msgstr "Sign up"
 

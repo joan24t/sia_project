@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-06 13:04+0200\n"
+"POT-Creation-Date: 2019-10-07 20:24+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -104,8 +104,10 @@ msgid "Qu&eacute; buscas"
 msgstr "Qu&eacute; buscas"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:19
-msgid "Elige tipo de jugador"
-msgstr "Elige tipo de jugador"
+#: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:40
+#: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:76
+msgid "Seleccione una opción"
+msgstr "Seleccione opci&oacute;n"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:28
 #: .\sia_sports_agency\templates\sia_sports_agency\index.html:157
@@ -117,10 +119,6 @@ msgstr "Nombre"
 #: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:124
 msgid "Deporte"
 msgstr "Deporte"
-
-#: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:40
-msgid "Elige deporte"
-msgstr "Elige deporte"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:49
 msgid "Posición"
@@ -161,10 +159,6 @@ msgstr "Femenino"
 msgid "País"
 msgstr "Pa&iacute;s"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:76
-msgid "Seleccione país"
-msgstr "Seleccione pa&iacute;s"
-
 #: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:85
 msgid "Rango edad"
 msgstr "Rango edad"
@@ -191,6 +185,10 @@ msgid "Limpiar"
 msgstr "Limpiar"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\cromo.html:151
+msgid "Cambiar imagen"
+msgstr "Cambiar imagen"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\cromo.html:152
 msgid "Descargar"
 msgstr "Descargar"
 
@@ -371,27 +369,23 @@ msgstr "Recuérdame"
 msgid "Iniciar sesión"
 msgstr "Iniciar sesión"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_login.html:47
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_login.html:46
 msgid "¿No tienes cuenta?"
 msgstr "¿No tienes cuenta?"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_login.html:47
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_login.html:46
 msgid "Regístrate"
 msgstr "Regístrate"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_login.html:50
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_login.html:49
 msgid "¿Olvidaste tu contraseña?"
 msgstr "¿Olvidaste tu contraseña?"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_settings.html:13
-msgid "Cambiar imagen"
-msgstr "Cambiar imagen"
-
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_settings.html:14
 msgid "Cambiar contraseña"
 msgstr "Cambiar contraseña"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_settings.html:15
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_settings.html:14
 msgid "Desactivar cuenta"
 msgstr "Desactivar cuenta"
 
@@ -481,7 +475,7 @@ msgid ""
 "                                        comunicarte con ellos, y recibir o "
 "enviar ofertas."
 msgstr ""
-"Crea tu perfil facilmente, y accede a la búsqueda de otros usuarios, "
+"Crea tu perfil facilmente, y accede a la búsqueda de otros usuarios. Podr&aacute;s "
 "comunicarte con ellos, y recibir o enviar ofertas."
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_window_que.html:52
@@ -623,7 +617,7 @@ msgstr ""
 msgid "*Las contraseñas no coinciden"
 msgstr "*Las contraseñas no coinciden"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html:168
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html:170
 msgid "Registrar"
 msgstr "Registrar"
 
