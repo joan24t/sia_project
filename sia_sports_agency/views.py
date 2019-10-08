@@ -72,6 +72,9 @@ DICT_POSITIONS = {
     'BATEADOR DESIGNADO':'DESIGNATED HITTER',
     'VARIAS POSICIONES':'VARIOUS POSITIONS',
 }
+
+LIST_NO_GENDER = ['CL', 'ED', 'MD']
+
 def global_contexto():
     lista_tipo_jugadores = Tipo_jugador.objects.all()
     lista_deportes = Deporte.objects.all()
@@ -201,9 +204,15 @@ def get_diccionario(request, seccion):
             deporte = Deporte.objects.get(
                 codigo=str(request.POST.get('inputDeporte', ''))
             )
+        codigo_tipo_jugador = str(request.POST.get('inputTipoUsuario', ''))
         tipo_jugador = Tipo_jugador.objects.get(
-            codigo=str(request.POST.get('inputTipoUsuario', ''))
+            codigo=codigo_tipo_jugador
         )
+        genero_input = request.POST.get('inputSexo', '')
+        genero = (
+            genero_input if codigo_tipo_jugador not in LIST_NO_GENDER else 'n'
+        )
+        print('HOLAAA ' + genero)
         pais = Pais.objects.get(
             codigo=str(request.POST.get('inputPais', ''))
         )
@@ -223,7 +232,7 @@ def get_diccionario(request, seccion):
             'nombre': request.POST.get('inputNombre', ''),
             'fnacimiento': request.POST.get('inputNacimiento', ''),
             'alias': request.POST.get('inputAlias', ''),
-            'genero': request.POST.get('inputSexo', ''),
+            'genero': genero,
             'tipo_deporte': request.POST.get('inputTipoDeporte', ''),
             'deporte': deporte,
             'tipo': tipo_jugador,

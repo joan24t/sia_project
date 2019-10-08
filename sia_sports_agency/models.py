@@ -14,6 +14,7 @@ PESO_TIPO_CHOICES = (
 GENDER_CHOICES = (
     ('m', 'Masculino'),
     ('f', 'Femenino'),
+    ('n', 'Ninguno'),
 )
 SPORT_TYPE_CHOICES = (
     ('a', 'Ambos'),
@@ -151,7 +152,7 @@ class Usuario(models.Model):
     genero = models.CharField(
         max_length=1,
         choices=GENDER_CHOICES,
-        default='m',
+        default='n',
     )
     tipo_deporte = models.CharField(
         max_length=1,
