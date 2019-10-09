@@ -218,7 +218,7 @@ msgid ""
 "recibir o env&iacute;ar ofertas."
 msgstr ""
 "Accede a la b&uacute;squeda de otros usuarios, comun&iacute;cate con ellos y "
-"recibir o env&iacute;ar ofertas."
+"recibe o env&iacute;a ofertas."
 
 #: .\sia_sports_agency\templates\sia_sports_agency\index.html:56
 #: .\sia_sports_agency\templates\sia_sports_agency\index.html:76
