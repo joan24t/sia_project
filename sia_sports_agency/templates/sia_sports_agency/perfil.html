@@ -107,6 +107,7 @@
                                     <select class="form-control" id="sexoDropdown" name="inputSexo">
                                         <option value="m" {% if usuario.genero == 'm' %} selected {% endif %}>{% trans "Hombre" %}</option>
                                         <option value="f" {% if usuario.genero == 'f' %} selected {% endif %}>{% trans "Mujer" %}</option>
+                                        <option value="m" {% if usuario.genero == 'a' %} selected {% endif %}>{% trans "Ambos" %}</option>
                                     </select>
                                 </div>
                                 <div class="grupoFechaNacimiento col col-12 col-xl-6" >

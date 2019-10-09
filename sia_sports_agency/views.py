@@ -25,6 +25,7 @@ logger = logging.getLogger(__name__)
 
 """ OPCIONES DE SEXO """
 GENDER_CHOICES = {
+    'a': 'Ambos',
     'm': 'Masculino',
     'f': 'Femenino',
 }
