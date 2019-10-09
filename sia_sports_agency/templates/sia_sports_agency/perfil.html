@@ -56,13 +56,13 @@
         <div>
             <ul class="nav flex-column flex-md-row nav-tabs nav-justified tabs" style:"color: black;">
                 <li class="nav-item">
-                    <a class="nav-link active datosBasicosTab" href="javascript:hideOrShowTabs('db')"><span style="font-size: 20px;">{% trans "DATOS BÁSICOS" %}</span></a>
+                    <a class="nav-link active datosBasicosTab" href="javascript:hideOrShowTabs('db')"><span style="font-size: 30px;">{% trans "DATOS BÁSICOS" %}</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link datosAdicionaleTab" href="javascript:hideOrShowTabs('da')"><span style="font-size: 20px;">{% trans "DATOS ADICIONALES" %}</span></a>
+                    <a class="nav-link datosAdicionaleTab" href="javascript:hideOrShowTabs('da')"><span style="font-size: 30px;">{% trans "DATOS ADICIONALES" %}</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mensajesTab" href="javascript:hideOrShowTabs('me')"><span style="font-size: 20px;">{% trans "MENSAJES" %}</span></a>
+                    <a class="nav-link mensajesTab" href="javascript:hideOrShowTabs('me')"><span style="font-size: 30px;">{% trans "MENSAJES" %}</span></a>
                 </li>
             </ul>
         </div>
@@ -70,7 +70,7 @@
         <div class="col-12" id="datosBasicos" >
             <section class="panel panel-datos-basicos">
                 <header class="panel panel-heading">
-                    <h2 class="panel-title pull-left">{% trans "Tus datos básicos" %}</h2>
+                    <h4 class="panel-title pull-left">{% trans "Tus datos básicos" %}</h4>
                 </header>
                 <div class="panel-body">
                     <form id="form-datos-basicos">
@@ -186,7 +186,7 @@
         <div class="col-12" id="datosEspecificos" style="display: none;">
             <section class="panel panel-datos-especificos">
                 <header class="panel panel-heading">
-                    <h2 class="panel-title pull-left">{% trans "Tus datos específicos" %}</h2>
+                    <h4 class="panel-title pull-left">{% trans "Tus datos específicos" %}</h4>
                 </header>
                 <div class="panel-body">
                     <form id="form-datos-especificos">
@@ -328,7 +328,7 @@
             </section>
             <section class="panel panel-networks">
                 <header class="panel panel-heading">
-                    <h2 class="panel-title pull-left">{% trans "Tus redes sociales" %}</h2>
+                    <h4 class="panel-title pull-left">{% trans "Tus redes sociales" %}</h4>
                 </header>
                 <div class="panel-body">
                     <form id="form-redes-sociales">
@@ -389,7 +389,7 @@
             <!-- *** GALERIA DE VIDEOS *** -->
             <section class="panel">
                 <header class="panel panel-heading">
-                    <h2 class="panel-title pull-left">{% trans "Tus v&iacute;deos" %}</h2>
+                    <h4 class="panel-title pull-left">{% trans "Tus v&iacute;deos" %}</h4>
                 </header>
                 <div class="video-gallery panel-body">
                     <div class="row video-list">
@@ -448,7 +448,7 @@
                             <i class="fas fa-paper-plane"></i> {% trans "Nuevo mensaje" %}
                         </a>
                     </div>
-                    <h2 class="panel-title pull-left">{% trans "Tus mensajes" %}</h2>
+                    <h4 class="panel-title pull-left">{% trans "Tus mensajes" %}</h4>
                 </header>
                 <div class="panel-body">
                     <table class="table table-striped tabla-correos table-responsive" >
@@ -491,7 +491,7 @@
                             <i class="fas fa-paper-plane"></i> {% trans "Nuevo mensaje" %}
                         </a>
                     </div>
-                    <h2 class="panel-title pull-left">{% trans "Tus mensajes" %}s</h2>
+                    <h4 class="panel-title pull-left">{% trans "Tus mensajes" %}s</h4>
                 </header>
                 <div class="panel-body">
                     <table class="table table-striped tabla-correos table-responsive">
