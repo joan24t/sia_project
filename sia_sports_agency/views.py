@@ -482,6 +482,7 @@ def crear_usuario(request):
     diccionario = get_diccionario(request, 'r')
     usuario = Usuario.objects.create(
         nombre=diccionario.get('nombre'),
+        alias=diccionario.get('alias'),
         fnacimiento=diccionario.get('fnacimiento'),
         email=diccionario.get('email'),
         genero=diccionario.get('genero'),
@@ -1298,6 +1299,9 @@ def detalle_usuario(request):
                 ],
             })
             insertar_redes_detalle(dict, usu_seleccionado)
+            if usuario.id != usu_seleccionado.id:
+                usu_seleccionado.n_visitas += 1
+                usu_seleccionado.save()
             return HttpResponse(
                 json.dumps(dict), content_type='application/json'
             )

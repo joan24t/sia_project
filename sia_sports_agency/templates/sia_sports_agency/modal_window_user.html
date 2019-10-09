@@ -36,6 +36,13 @@
                                             <span> {% trans "*Este campo es obligatorio"%} </span>
                                         </div>
                                     </div>
+                                    <div>
+                                        <label for="FormControlInputAlias">{% trans "Alias" %}</label>
+                                        <input class="form-control campoObligatorio" name="inputAlias" maxlength="13" type="text" id="FormControlInputAlias" placeholder="{% trans 'Alias' %}">
+                                        <div class="campoObligatorioNotif" hidden>
+                                            <span> {% trans "*Este campo es obligatorio"%} </span>
+                                        </div>
+                                    </div>
                                     <div class="grupoSexo" style="margin-top: 10px;">
                                         <label for="sexoDropdown">{% trans "Sexo" %}</label>
                                         <select class="form-control" id="sexoDropdown" name="inputSexo">
