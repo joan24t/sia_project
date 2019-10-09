@@ -72,13 +72,26 @@ var camposNoObligatorios = function(listaOcultar){
 
 var mostrarOcultarComb1 = function(){
     var listaMostrar = [
-        $('.grupoFechaNacimiento'),
-        $('.grupoAQueJuegas'),
-        $('.grupoSexo'),
         $('.grupoGeneroDeporte'),
-        $('.grupoPosiciones')
+        $('.grupoAQueJuegas'),
+        $('.grupoFechaNacimiento'),
+        $('.grupoSexo'),
+        $('.grupoPosiciones'),
+        $('.grupoNacionalidad'),
+        $('.grupoPesoAltura'),
+        $('.grupoEDominante'),
+        $('.grupoCPresentacion'),
+        $('.grupoCurriculum'),
+        $('.grupoEActual')
     ];
     mostrarCampos(listaMostrar);
+    var listaOcultar = [
+        $('.grupoUbicacion'),
+        $('.grupoInteresadoEn')
+    ];
+    ocultarCampos(listaOcultar);
+    $('.grupoUbicacion input').val('');
+    $('.grupoInteresadoEn textarea').val('');
     var listaObligatorios = [
         $('.grupoFechaNacimiento > input')
     ];
@@ -88,16 +101,27 @@ var mostrarOcultarComb1 = function(){
 var mostrarOcultarComb2 = function(){
     var listaMostrar = [
         $('.grupoGeneroDeporte'),
-        $('.grupoAQueJuegas')
+        $('.grupoAQueJuegas'),
+        $('.grupoUbicacion'),
+        $('.grupoInteresadoEn'),
+        $('.grupoCPresentacion')
     ];
     mostrarCampos(listaMostrar);
     var listaOcultar = [
         $('.grupoFechaNacimiento'),
         $('.grupoPosiciones'),
-        $('.grupoSexo')
+        $('.grupoSexo'),
+        $('.grupoNacionalidad'),
+        $('.grupoPesoAltura'),
+        $('.grupoEDominante'),
+        $('.grupoEActual'),
+        $('.grupoCurriculum')
     ];
     ocultarCampos(listaOcultar);
-    $('#form-registro .grupoFechaNacimiento input').val('');
+    $('.grupoFechaNacimiento input').val('');
+    $('.grupoNacionalidad input').val('');
+    $('.grupoEActual input').val('');
+    $('.grupoPesoAltura input').val(0);
     $('.divPositionsSimple #posicionDropdown').val('');
     $('.divMultiplePositions #posicionDropdownMultiple').selectpicker('val', []);
     var listaNoObligatorios = [
@@ -110,16 +134,25 @@ var mostrarOcultarComb2 = function(){
 
 var mostrarOcultarComb3 = function(){
     var listaMostrar = [
-        $('.grupoFechaNacimiento'),
+        $('.grupoGeneroDeporte'),
         $('.grupoAQueJuegas'),
+        $('.grupoFechaNacimiento'),
         $('.grupoSexo'),
-        $('.grupoGeneroDeporte')
+        $('.grupoNacionalidad'),
+        $('.grupoCPresentacion'),
+        $('.grupoEActual'),
     ];
     mostrarCampos(listaMostrar);
     var listaOcultar = [
-        $('.grupoPosiciones')
+        $('.grupoPosiciones'),
+        $('.grupoUbicacion'),
+        $('.grupoInteresadoEn'),
+        $('.grupoPesoAltura'),
+        $('.grupoEDominante'),
+        $('.grupoCurriculum')
     ];
     ocultarCampos(listaOcultar);
+    $('.grupoUbicacion input').val('');
     $('.divPositionsSimple #posicionDropdown').val('');
     $('.divMultiplePositions #posicionDropdownMultiple').selectpicker('val', []);
     var listaObligatorios = [
@@ -135,16 +168,25 @@ var mostrarOcultarComb3 = function(){
 
 var mostrarOcultarComb4 = function(){
     var listaMostrar = [
+        $('.grupoAQueJuegas'),
         $('.grupoFechaNacimiento'),
         $('.grupoSexo'),
-        $('.grupoAQueJuegas')
+        $('.grupoNacionalidad'),
+        $('.grupoCPresentacion'),
     ];
     mostrarCampos(listaMostrar);
     var listaOcultar = [
+        $('.grupoGeneroDeporte'),
         $('.grupoPosiciones'),
-        $('.grupoGeneroDeporte')
+        $('.grupoUbicacion'),
+        $('.grupoInteresadoEn'),
+        $('.grupoPesoAltura'),
+        $('.grupoEDominante'),
+        $('.grupoEActual'),
+        $('.grupoCurriculum')
     ];
     ocultarCampos(listaOcultar);
+    $('.grupoUbicacion input').val('');
     $('.divPositionsSimple #posicionDropdown').val('');
     $('.divMultiplePositions #posicionDropdownMultiple').selectpicker('val', []);
     var listaObligatorios = [
@@ -160,14 +202,22 @@ var mostrarOcultarComb4 = function(){
 
 var mostrarOcultarComb5 = function(){
     var listaMostrar = [
-        $('.grupoAQueJuegas')
+        $('.grupoAQueJuegas'),
+        $('.grupoUbicacion'),
+        $('.grupoCPresentacion')
     ];
     mostrarCampos(listaMostrar);
     var listaOcultar = [
-        $('.grupoPosiciones'),
         $('.grupoGeneroDeporte'),
+        $('.grupoFechaNacimiento'),
         $('.grupoSexo'),
-        $('.grupoFechaNacimiento')
+        $('.grupoPosiciones'),
+        $('.grupoNacionalidad'),
+        $('.grupoInteresadoEn'),
+        $('.grupoPesoAltura'),
+        $('.grupoEDominante'),
+        $('.grupoEActual'),
+        $('.grupoCurriculum')
     ];
     ocultarCampos(listaOcultar);
     $('#form-registro .grupoFechaNacimiento input').val('');
@@ -184,17 +234,60 @@ var mostrarOcultarComb5 = function(){
 var mostrarOcultarComb6 = function(){
     var listaMostrar = [
         $('.grupoFechaNacimiento'),
-        $('.grupoSexo')
+        $('.grupoSexo'),
+        $('.grupoUbicacion'),
+        $('.grupoNacionalidad'),
+        $('.grupoCPresentacion')
     ];
     mostrarCampos(listaMostrar);
     var listaOcultar = [
+        $('.grupoGeneroDeporte'),
+        $('.grupoAQueJuegas'),
         $('.grupoPosiciones'),
-        $('.grupoAQueJuegas')
+        $('.grupoInteresadoEn'),
+        $('.grupoPesoAltura'),
+        $('.grupoEDominante'),
+        $('.grupoEActual'),
+        $('.grupoCurriculum')
     ];
     ocultarCampos(listaOcultar);
     $('.divPositionsSimple #posicionDropdown').val('');
     $('.divMultiplePositions #posicionDropdownMultiple').selectpicker('val', []);
     $('.grupoAQueJuegas #deporteInput').val('');
+    var listaObligatorios = [
+        $('.grupoFechaNacimiento > input')
+    ];
+    camposObligatorios(listaObligatorios);
+    var listaNoObligatorios = [
+        $('.divPositionsSimple #posicionDropdown'),
+        $('.divMultiplePositions #posicionDropdownMultiple')
+    ];
+    camposNoObligatorios(listaNoObligatorios);
+};
+
+var mostrarOcultarComb7 = function(){
+    var listaMostrar = [
+        $('.grupoGeneroDeporte'),
+        $('.grupoAQueJuegas'),
+        $('.grupoFechaNacimiento'),
+        $('.grupoSexo'),
+        $('.grupoNacionalidad'),
+        $('.grupoCPresentacion'),
+    ];
+    mostrarCampos(listaMostrar);
+    var listaOcultar = [
+        $('.grupoPosiciones'),
+        $('.grupoUbicacion'),
+        $('.grupoInteresadoEn'),
+        $('.grupoPesoAltura'),
+        $('.grupoEDominante'),
+        $('.grupoEActual'),
+        $('.grupoCurriculum')
+    ];
+    ocultarCampos(listaOcultar);
+    $('.grupoUbicacion input').val('');
+    $('.divPositionsSimple #posicionDropdown').val('');
+    $('.divMultiplePositions #posicionDropdownMultiple').selectpicker('val', []);
     var listaObligatorios = [
         $('.grupoFechaNacimiento > input')
     ];
@@ -223,10 +316,10 @@ var ocultarMostrarCampos = function(tipoJugador){
             mostrarOcultarComb3();
             break;
         case 'RE':
-            mostrarOcultarComb3();
+            mostrarOcultarComb7();
             break;
         case 'AR':
-            mostrarOcultarComb3();
+            mostrarOcultarComb7();
             break;
         case 'DI':
             mostrarOcultarComb3();
@@ -235,7 +328,7 @@ var ocultarMostrarCampos = function(tipoJugador){
             mostrarOcultarComb4();
             break;
         case 'OJ':
-            mostrarOcultarComb3();
+            mostrarOcultarComb7();
             break;
         case 'PD':
             mostrarOcultarComb4();

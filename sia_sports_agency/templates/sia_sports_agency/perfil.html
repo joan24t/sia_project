@@ -85,29 +85,35 @@
                                         <option value="{{tipo.codigo|default:''}}" {% if tipo.codigo == usuario.tipo.codigo %} selected {% endif %}>{% trans tipo.nombre %}</option>
                                         {% endfor %}
                                     </select>
+                                </div>
+                                <div class="col col-12 col-xl-6">
                                     <label for="FormControlInputAlias">
                                         <h4>{% trans "Alias" %}</h4>
                                     </label>
                                     <input type="text" value="{{usuario.alias|default:''}}" name="inputAlias" class="form-control" id="FormControlInputAlias" maxlength="13">
+                                </div>
+                                <div class="col col-12 col-xl-6">
                                     <label for="FormControlInputNombre">
                                         <h4>{% trans "Nombre y apellidos" %}</h4>
                                     </label>
                                     <input class="form-control" maxlength="100" value="{{usuario.nombre}}" name="inputNombre" type="text" id="FormControlInputNombre">
-                                    <div class="grupoSexo">
-                                        <label for="sexoDropdown">
-                                            <h4>{% trans "Sexo" %}</h4>
-                                        </label>
-                                        <select class="form-control" id="sexoDropdown" name="inputSexo">
-                                            <option value="m" {% if usuario.genero == 'm' %} selected {% endif %}>{% trans "Hombre" %}</option>
-                                            <option value="f" {% if usuario.genero == 'f' %} selected {% endif %}>{% trans "Mujer" %}</option>
-                                        </select>
-                                    </div>
-                                    <div class="grupoFechaNacimiento" >
-                                        <label>
-                                            <h4>{% trans "F. Nacimiento" %}</h4>
-                                        </label>
-                                        <input class="form-control" name="inputNacimiento" type="date" value="{{usuario.fnacimiento|slugify}}" autocomplete="off">
-                                    </div>
+                                </div>
+                                <div class="grupoSexo col col-12 col-xl-6">
+                                    <label for="sexoDropdown">
+                                        <h4>{% trans "Sexo" %}</h4>
+                                    </label>
+                                    <select class="form-control" id="sexoDropdown" name="inputSexo">
+                                        <option value="m" {% if usuario.genero == 'm' %} selected {% endif %}>{% trans "Hombre" %}</option>
+                                        <option value="f" {% if usuario.genero == 'f' %} selected {% endif %}>{% trans "Mujer" %}</option>
+                                    </select>
+                                </div>
+                                <div class="grupoFechaNacimiento col col-12 col-xl-6" >
+                                    <label>
+                                        <h4>{% trans "F. Nacimiento" %}</h4>
+                                    </label>
+                                    <input class="form-control" name="inputNacimiento" type="date" value="{{usuario.fnacimiento|slugify}}" autocomplete="off">
+                                </div>
+                                <div class="col col-12 col-xl-6" >
                                     <label for="paisDropdown">
                                         <h4>{% trans "País" %}</h4>
                                     </label>
@@ -118,45 +124,45 @@
                                         {% endfor %}
                                     </select>
                                 </div>
-                                <div class="col col-12 col-xl-6">
-                                    <div class="grupoAQueJuegas">
-                                        <label for="deporteInput">
-                                            <h4>{% trans "Deporte" %}</h4>
+                                <div class="grupoAQueJuegas col col-12 col-xl-6">
+                                    <label for="deporteInput">
+                                        <h4>{% trans "Deporte" %}</h4>
+                                    </label>
+                                    <select class="form-control" id="deporteInput" name="inputDeporte">
+                                        {% for deporte in deportes %}
+                                        <option value="{{deporte.codigo|default:''}}" {% if deporte.codigo == usuario.deporte.codigo %} selected {% endif %}>{% trans deporte.nombre %}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="grupoGeneroDeporte col col-12 col-xl-6">
+                                    <label for="generoInput">
+                                        <h4>{% trans "G&eacute;nero" %}</h4>
+                                    </label>
+                                    <select class="form-control" id="generoInput" name="inputTipoDeporte">
+                                        <option value="m" {% if usuario.tipo_deporte == 'm' %} selected {% endif %}>{% trans "Masculino" %}</option>
+                                        <option value="f" {% if usuario.tipo_deporte == 'f' %} selected {% endif %}>{% trans "Femenino" %}</option>
+                                    </select>
+                                </div>
+                                <div class="grupoPosiciones col col-12 col-xl-6">
+                                    <div class="divPositionsSimple">
+                                        <label for="posicionDropdown">
+                                            <h4>{% trans "Posici&oacute;n" %}</h4>
                                         </label>
-                                        <select class="form-control" id="deporteInput" name="inputDeporte">
-                                            {% for deporte in deportes %}
-                                            <option value="{{deporte.codigo|default:''}}" {% if deporte.codigo == usuario.deporte.codigo %} selected {% endif %}>{% trans deporte.nombre %}</option>
+                                        <select class="form-control" id="posicionDropdown" name="inputPosicion">
+                                        </select>
+                                    </div>
+                                    <div class="divMultiplePositions" hidden>
+                                        <label for="posicionDropdownMultiple">
+                                            <h4>{% trans "Posici&oacute;n" %}</h4>
+                                        </label>
+                                        <select class="form-control selectpicker" name="inputPosicionMulti" id="posicionDropdownMultiple" title="{% trans 'Ninguno seleccionado' %}" multiple data-live-search="true" hidden>
+                                            {% for posicion in posiciones %}
+                                            <option value="{{posicion.codigo}}|default:''">{{posicion.nombre}}</option>
                                             {% endfor %}
                                         </select>
-                                        <div class="grupoGeneroDeporte">
-                                            <label for="generoInput">
-                                                <h4>{% trans "G&eacute;nero" %}</h4>
-                                            </label>
-                                            <select class="form-control" id="generoInput" name="inputTipoDeporte">
-                                                <option value="m" {% if usuario.tipo_deporte == 'm' %} selected {% endif %}>{% trans "Masculino" %}</option>
-                                                <option value="f" {% if usuario.tipo_deporte == 'f' %} selected {% endif %}>{% trans "Femenino" %}</option>
-                                            </select>
-                                        </div>
                                     </div>
-                                    <div class="grupoPosiciones">
-                                        <div class="divPositionsSimple">
-                                            <label for="posicionDropdown">
-                                                <h4>{% trans "Posici&oacute;n" %}</h4>
-                                            </label>
-                                            <select class="form-control" id="posicionDropdown" name="inputPosicion">
-                                            </select>
-                                        </div>
-                                        <div class="divMultiplePositions" hidden>
-                                            <label for="posicionDropdownMultiple">
-                                                <h4>{% trans "Posici&oacute;n" %}</h4>
-                                            </label>
-                                            <select class="form-control selectpicker" name="inputPosicionMulti" id="posicionDropdownMultiple" title="{% trans 'Ninguno seleccionado' %}" multiple data-live-search="true" hidden>
-                                                {% for posicion in posiciones %}
-                                                <option value="{{posicion.codigo}}|default:''">{{posicion.nombre}}</option>
-                                                {% endfor %}
-                                            </select>
-                                        </div>
-                                    </div>
+                                </div>
+                                <div class="col col-12">
                                     <button class="btn btn-db btn-outline-light float-right btn-editar rounded">
                                         <h5>{% trans "Editar" %}</h5>
                                     </button>
@@ -167,6 +173,7 @@
                                         <h5>{% trans "Guardar" %}</h5>
                                     </button>
                                 </div>
+                            </div>
                         </fieldset>
                     </form>
                 </div>
@@ -187,53 +194,51 @@
                                         <h4>{% trans "Tel&eacute;fono" %}</h4>
                                     </label>
                                     <input maxlength="20" type="text" value="{{usuario.telefono|default:''}}" name="inputTelefono" id="telefono" class="form-control">
+                                </div>
+                                <div class="grupoUbicacion col col-12 col-xl-6">
                                     <label for="ubicacion">
                                         <h4>{% trans "Ubicaci&oacute;n" %}</h4>
                                     </label>
                                     <input type="text" maxlength="100" value="{{usuario.ubicacion|default:''}}" name="inputUbicacion" id="ubicacion" class="form-control">
+                                </div>
+                                <div class="grupoPesoAltura col col-12 col-xl-6">
                                     <div class="row">
-                                        <div class="col-12 col-xl-6">
+                                        <div class="col-6">
+                                            <label for="peso">
+                                                <h4>{% trans "Peso" %}</h4>
+                                            </label>
                                             <div class="row">
-                                                <div class="col-12">
-                                                    <label for="peso">
-                                                        <h4>{% trans "Peso" %}</h4>
-                                                    </label>
-                                                    <div class="row">
-                                                        <div class="col-8">
-                                                            {% load l10n %}
-                                                            <input type="number" value="{{usuario.peso | unlocalize}}" name="inputPeso" id="peso" class="form-control" required step=".01">
-                                                        </div>
-                                                        <div class="col-4">
-                                                            <select class="form-control" name="inputTipoPeso">
-                                                                <option value="kg" {% if usuario.tipo_peso == 'kg' %} selected {% endif %}>kg</option>
-                                                                <option value="lb" {% if usuario.tipo_peso == 'lb' %} selected {% endif %}>lb</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
+                                                <div class="col-8">
+                                                    {% load l10n %}
+                                                    <input type="number" value="{{usuario.peso | unlocalize}}" name="inputPeso" id="peso" class="form-control" required step=".01">
+                                                </div>
+                                                <div class="col-4">
+                                                    <select class="form-control" name="inputTipoPeso">
+                                                        <option value="kg" {% if usuario.tipo_peso == 'kg' %} selected {% endif %}>kg</option>
+                                                        <option value="lb" {% if usuario.tipo_peso == 'lb' %} selected {% endif %}>lb</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-12 col-xl-6">
+                                        <div class="col-6">
+                                            <label for="altura">
+                                                <h4>{% trans "Altura" %}</h4>
+                                            </label>
                                             <div class="row">
-                                                <div class="col-12">
-                                                    <label for="altura">
-                                                        <h4>{% trans "Altura" %}</h4>
-                                                    </label>
-                                                    <div class="row">
-                                                        <div class="col-8">
-                                                            <input type="number" value="{{usuario.altura|unlocalize}}" name="inputAltura" id="altura" class="form-control" required step=".01">
-                                                        </div>
-                                                        <div class="col-4">
-                                                            <select class="form-control" name="inputTipoAltura">
-                                                                <option value="cm" {% if usuario.tipo_altura == 'cm' %} selected {% endif %}>cm</option>
-                                                                <option value="pulgadas" {% if usuario.tipo_altura == 'pulgadas' %} selected {% endif %}>{% trans "pulgadas" %}</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
+                                                <div class="col-8">
+                                                    <input type="number" value="{{usuario.altura|unlocalize}}" name="inputAltura" id="altura" class="form-control" required step=".01">
+                                                </div>
+                                                <div class="col-4">
+                                                    <select class="form-control" name="inputTipoAltura">
+                                                        <option value="cm" {% if usuario.tipo_altura == 'cm' %} selected {% endif %}>cm</option>
+                                                        <option value="pulgadas" {% if usuario.tipo_altura == 'pulgadas' %} selected {% endif %}>{% trans "pulgadas" %}</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="grupoEDominante col col-12 col-xl-6">
                                     <label for="edominante">
                                         <h4>{% trans "Extremidad dominante" %}</h4>
                                     </label>
@@ -243,21 +248,22 @@
                                         {% endfor %}
                                     </select>
                                 </div>
-                                <div class="col col-12 col-xl-6">
+                                <div class="grupoNacionalidad col col-12 col-xl-6">
                                     <label for="nacionalidad">
                                         <h4>{% trans "Nacionalidad" %}</h4>
                                     </label>
                                     <input type="text" maxlength="60" value="{{usuario.nacionalidad|default:''}}" name="inputNacionalidad" id="nacionalidad" class="form-control">
+                                </div>
+                                <div class="grupoEActual col col-12 col-xl-6">
                                     <label for="eactual">
                                         <h4>{% trans "Equipo actual" %}</h4>
                                     </label>
                                     <input type="text" maxlength="60" value="{{usuario.eactual|default:''}}" name="inputEactual" id="eactual" class="form-control">
+                                </div>
+                                <div class="grupoCPresentacion col col-12 col-xl-6">
                                     <label for="cpresentacion">
                                         <h4>{% trans "Carta de presentaci&oacute;n" %}</h4>
                                     </label>
-                                    <!--div class="enlace-cpresentacion" hidden>
-                                        <a href="{{ baseUrl }}{{usuario.cpresentacion}}" download>Descargar carta de presentación</a>
-                                    </div-->
                                     <div class="row">
                                         <div class="col-10">
                                             <div class="custom-file" id="cpresentacion">
@@ -274,12 +280,11 @@
                                             <i class="fas fa-trash-alt fa-2x"></i>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="grupoCurriculum col col-12 col-xl-6">
                                     <label for="curriculum">
                                         <h4>Currículum</h4>
                                     </label>
-                                    <!--div class="enlace-curriculum" hidden>
-                                        <a href="{{ baseUrl }}{{usuario.curriculum}}" download>Descargar currículum</a>
-                                    </div-->
                                     <div class="row">
                                         <div class="col-10">
                                             <div class="custom-file" id="curriculum">
@@ -297,7 +302,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col col-12 col-xl-6">
+                                <div class="grupoInteresadoEn col col-12 col-xl-6">
                                     <label for="interesadoen">
                                         <h4>{% trans "Interesado en" %}</h4>
                                     </label>
