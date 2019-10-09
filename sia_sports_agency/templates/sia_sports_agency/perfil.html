@@ -93,8 +93,10 @@
                                     <input type="text" value="{{usuario.alias|default:''}}" name="inputAlias" class="form-control" id="FormControlInputAlias" maxlength="13">
                                 </div>
                                 <div class="col col-12 col-xl-6">
-                                    <label for="FormControlInputNombre">
-                                        <h4>{% trans "Nombre y apellidos" %}</h4>
+                                    <label id="labelNombre" for="FormControlInputNombre">
+                                        <h4 id="labelNombreApellidos" hidden>{% trans "Nombre y apellidos" %}</h4>
+                                        <h4 id="labelNombreClub" hidden>{% trans "Nombre del club" %}</h4>
+                                        <h4 id="labelSoloNombre" hidden> {% trans "Nombre" %}</h4>
                                     </label>
                                     <input class="form-control" maxlength="100" value="{{usuario.nombre}}" name="inputNombre" type="text" id="FormControlInputNombre">
                                 </div>

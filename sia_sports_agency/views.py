@@ -22,16 +22,24 @@ import logging
 PARTE PUBLICA
 """""""""""""""""""""""""""""""""""""""""""""
 logger = logging.getLogger(__name__)
+
+""" OPCIONES DE SEXO """
 GENDER_CHOICES = {
     'm': 'Masculino',
     'f': 'Femenino',
 }
+
+""" OPCIONES DE GÉNERO DEL DEPORTE """
 SPORT_TYPE_CHOICES = {
     'a': 'Ambos',
     'm': 'Masculino',
     'f': 'Femenino',
 }
+
+""" LENGUAJE POR DEFECTO """
 LANGUAGE_DEFAULT = 'es-es'
+
+""" DICCIONARIO DE POSICIONES CON SU TRADUCCIÓN """
 DICT_POSITIONS = {
 	'PORTERO':'GOALKEEPER',
 	'DEFENSA':'DEFENDER',
@@ -73,7 +81,17 @@ DICT_POSITIONS = {
     'VARIAS POSICIONES':'VARIOUS POSITIONS',
 }
 
+""" LISTADO DE ROLES QUE NO REQUIEREN SEXO """
 LIST_NO_GENDER = ['CL', 'ED', 'MD']
+
+""" COMBOS DE ROLES """
+LIST_COMBO1 = ['JG']
+LIST_COMBO2 = ['CL']
+LIST_COMBO3 = ['EN', 'PF', 'DI']
+LIST_COMBO4 = ['FI', 'PD']
+LIST_COMBO5 = ['ED', 'MD']
+LIST_COMBO7 = ['RE', 'AR', 'OJ']
+LIST_COMBO6 = ['OT']
 
 def global_contexto():
     lista_tipo_jugadores = Tipo_jugador.objects.all()
@@ -195,84 +213,222 @@ def change_format(fecha):
     else:
         return ""
 
+""" Establece deporte si el rol lo requiere"""
+def estableceDeporte(rol, request, diccionario):
+    deporte = None
+    if rol not in LIST_COMBO6:
+        deporte = Deporte.objects.get(
+            codigo=str(request.POST.get('inputDeporte', ''))
+        ).id
+    diccionario.update({
+        'deporte': deporte
+    })
+
+""" Establece fecha de nacimiento si el rol lo requiere"""
+def estableceFNacimiento(rol, request, diccionario):
+    fecha = None
+    total_list = LIST_COMBO2 + LIST_COMBO5
+    if rol not in total_list:
+        fecha = request.POST.get('inputNacimiento', '')
+    diccionario.update({
+        'fnacimiento': fecha
+    })
+
+""" Establece género de deporte si el rol lo requiere"""
+def estableceGenDeporte(rol, request, diccionario):
+    genero_deporte = 'n'
+    total_list = LIST_COMBO4 + LIST_COMBO5 + LIST_COMBO6
+    if rol not in total_list:
+        genero_deporte = request.POST.get('inputTipoDeporte', '')
+    diccionario.update({
+        'tipo_deporte': genero_deporte
+    })
+
+""" Establece sexo si el rol lo requiere"""
+def estableceSexo(rol, request, diccionario):
+    sexo = 'n'
+    total_list = LIST_COMBO2 + LIST_COMBO5
+    if rol not in total_list:
+        sexo = request.POST.get('inputSexo', '')
+    diccionario.update({
+        'genero': sexo
+    })
+
+""" Establece posiciones si el rol lo requiere"""
+def establecePosiciones(rol, request, diccionario):
+    posiciones = []
+    deporte = Deporte.objects.get(
+        codigo=str(request.POST.get('inputDeporte', ''))
+    )
+    if rol in LIST_COMBO1 and deporte and deporte.codigo != 'MD':
+        if not deporte.requiere_multiple:
+            if request.POST.get('inputPosicion', ''):
+                posiciones = Posicion.objects.get(
+                    codigo=str(request.POST.get('inputPosicion'))
+                )
+        else:
+            if request.POST.getlist('inputPosicionMulti', ''):
+                posiciones = Posicion.objects.filter(
+                    codigo__in=request.POST.getlist('inputPosicionMulti', '')
+                )
+    diccionario.update({
+        'posiciones': posiciones
+    })
+
+""" Establece información de autentiación del registro"""
+def estableceInfoCorreo(request, diccionario):
+    diccionario.update({
+        'email': request.POST.get('inputEmail', ''),
+        'contrasena_1': make_password(
+            request.POST.get('inputPassword1', '')
+        ),
+        'contrasena_2': make_password(
+            request.POST.get('inputPassword2', '')
+        )
+    })
+
+""" Establece ubicación si el rol lo requiere """
+def estableceUbicacion(rol, request, diccionario):
+    ubicacion = ''
+    total_list = LIST_COMBO2 + LIST_COMBO5 + LIST_COMBO6
+    if rol in total_list:
+        ubicacion = request.POST.get('inputUbicacion', '')
+    diccionario.update({
+        'ubicacion': ubicacion
+    })
+
+""" Establece interesado en si el rol lo requiere """
+def estableceInteresadoEn(rol, request, diccionario):
+    interesado_en = ''
+    if rol in LIST_COMBO2:
+        interesado_en = request.POST.get('inputInteresadoen', '')
+    diccionario.update({
+        'interesadoen': interesado_en
+    })
+
+""" Establece altura y peso si el rol lo requiere """
+def estableceAlturaPeso(rol, request, diccionario):
+    peso = 0.00
+    altura = 0.00
+    tipo_peso = 'kg'
+    tipo_altura = 'cm'
+    if rol in LIST_COMBO1:
+        decimal_peso = request.POST.get('inputPeso', '')
+        decimal_altura = request.POST.get('inputAltura', '')
+        peso =  decimal_peso if isinstance(decimal_peso, float) else 0.00
+        altura = decimal_altura if isinstance(decimal_altura, float) else 0.00
+        tipo_peso = request.POST.get('inputTipoPeso', '')
+        tipo_altura = request.POST.get('inputTipoAltura', '')
+    diccionario.update({
+        'peso': peso,
+        'altura': altura,
+        'tipo_altura': tipo_altura,
+        'tipo_peso': tipo_peso
+    })
+
+""" Establece equipo actual si el rol lo requiere """
+def estableceEActual(rol, request, diccionario):
+    eactual = ''
+    total_list = LIST_COMBO1 + LIST_COMBO3
+    if rol in total_list:
+        eactual = request.POST.get('inputEactual', '')
+    diccionario.update({
+        'eactual': eactual
+    })
+
+""" Establece extremidad dominante si el rol lo requiere """
+def estableceEDominante(rol, request, diccionario):
+    extremidad = None
+    if rol in LIST_COMBO1:
+        extremidad = Extremidad_dominante.objects.get(
+            codigo=str(request.POST.get('inputEdominante', ''))
+        ).id
+    diccionario.update({
+        'extremidad': extremidad
+    })
+
+""" Establece nacionalidad si el rol lo requiere """
+def estableceNacionalidad(rol, request, diccionario):
+    nacionalidad = ''
+    total_list = LIST_COMBO2 + LIST_COMBO5
+    if rol not in total_list:
+        nacionalidad = request.POST.get('inputNacionalidad', '')
+    diccionario.update({
+        'nacionalidad': nacionalidad
+    })
+
+""" Establece curriculum si el rol lo requiere """
+def estableceCurriculum(rol, request, diccionario):
+    curriculum = None
+    if rol in LIST_COMBO1:
+        curriculum = request.FILES.get('inputCurriculum', '')
+    diccionario.update({
+        'curriculum': curriculum
+    })
+
+""" Establece carta de presentación si el rol lo requiere """
+def estableceCPresentacion(rol, request, diccionario):
+    cpresentacion = None
+    cpresentacion = request.FILES.get('inputCpresentacion', '')
+    diccionario.update({
+        'carta_presentacion': cpresentacion
+    })
+
+""" Inserta en el diccionaro los campos específicos según el rol"""
+def insertar_campos_especificos_din(request, diccionario):
+    email = request.session.get('email')
+    usuario = Usuario.objects.get(email=email)
+    rol = usuario.tipo.codigo
+    estableceUbicacion(rol, request, diccionario)
+    estableceNacionalidad(rol, request, diccionario)
+    estableceInteresadoEn(rol, request, diccionario)
+    estableceAlturaPeso(rol, request, diccionario)
+    estableceEActual(rol, request, diccionario)
+    estableceEDominante(rol, request, diccionario)
+    estableceCurriculum(rol, request, diccionario)
+    estableceCPresentacion(rol, request, diccionario)
+
+
+""" Inserta en el diccionaro los campos básicos según el rol"""
+def insertar_campos_basicos_din(request, diccionario):
+    rol = request.POST.get('inputTipoUsuario', '')
+    estableceDeporte(rol, request, diccionario)
+    estableceFNacimiento(rol, request, diccionario)
+    estableceGenDeporte(rol, request, diccionario)
+    estableceSexo(rol, request, diccionario)
+    establecePosiciones(rol, request, diccionario)
+
 """ Consigue el diccionario a partir del request """
 def get_diccionario(request, seccion):
-    diccionario = {}
     if seccion == 'r' or seccion == 'db':
-        deporte = ''
-        if request.POST.get('inputDeporte', ''):
-            deporte = Deporte.objects.get(
-                codigo=str(request.POST.get('inputDeporte', ''))
-            )
-        codigo_tipo_jugador = str(request.POST.get('inputTipoUsuario', ''))
-        tipo_jugador = Tipo_jugador.objects.get(
-            codigo=codigo_tipo_jugador
-        )
-        genero_input = request.POST.get('inputSexo', '')
-        genero = (
-            genero_input if codigo_tipo_jugador not in LIST_NO_GENDER else 'n'
-        )
-        print('HOLAAA ' + genero)
         pais = Pais.objects.get(
             codigo=str(request.POST.get('inputPais', ''))
         )
-        posiciones = []
-        if deporte and deporte.codigo != 'MD':
-            if not deporte.requiere_multiple:
-                if request.POST.get('inputPosicion', ''):
-                    posiciones = Posicion.objects.get(
-                        codigo=str(request.POST.get('inputPosicion'))
-                    )
-            else:
-                if request.POST.getlist('inputPosicionMulti', ''):
-                    posiciones = Posicion.objects.filter(
-                        codigo__in=request.POST.getlist('inputPosicionMulti', '')
-                    )
+        codigo_tipo_jugador = request.POST.get('inputTipoUsuario', '')
+        tipo_jugador = Tipo_jugador.objects.get(
+            codigo=codigo_tipo_jugador
+        )
         diccionario =  {
             'nombre': request.POST.get('inputNombre', ''),
-            'fnacimiento': request.POST.get('inputNacimiento', ''),
             'alias': request.POST.get('inputAlias', ''),
-            'genero': genero,
-            'tipo_deporte': request.POST.get('inputTipoDeporte', ''),
-            'deporte': deporte,
-            'tipo': tipo_jugador,
-            'pais': pais,
-            'posiciones': posiciones
+            'tipo': tipo_jugador.id,
+            'pais': pais.id,
         }
+        insertar_campos_basicos_din(request, diccionario)
         if seccion == 'r':
-            diccionario.update({
-                'email': request.POST.get('inputEmail', ''),
-                'contrasena_1': make_password(
-                    request.POST.get('inputPassword1', '')
-                ),
-                'contrasena_2': make_password(
-                    request.POST.get('inputPassword2', '')
-                )
-            })
+            estableceInfoCorreo(request, diccionario)
     elif seccion == 'de':
-        extremidad_dominante = Extremidad_dominante.objects.get(
-            codigo=str(request.POST.get('inputEdominante', ''))
-        )
         diccionario = {
             'telefono': request.POST.get('inputTelefono', ''),
-            'ubicacion': request.POST.get('inputUbicacion', ''),
-            'peso': request.POST.get('inputPeso', ''),
-            'altura': request.POST.get('inputAltura', ''),
-            'nacionalidad': request.POST.get('inputNacionalidad', ''),
-            'eactual': request.POST.get('inputEactual', ''),
-            'interesadoen': request.POST.get('inputInteresadoen', ''),
-            'extremidad': extremidad_dominante,
-            'tipo_altura': request.POST.get('inputTipoAltura', ''),
-            'tipo_peso': request.POST.get('inputTipoPeso', ''),
-            'carta_presentacion': request.FILES.get('inputCpresentacion', ''),
-            'curriculum': request.FILES.get('inputCurriculum', ''),
             'empty_curriculum': request.POST.get('emptyCurriculum', ''),
             'empty_cpresentacion': request.POST.get('emptyFileCarta', ''),
         }
+        insertar_campos_especificos_din(request, diccionario)
     return diccionario
 
 
-def set_posiciones(usuario, deporte, diccionario):
+def set_posiciones(usuario, deporte_id, diccionario):
+    deporte = Deporte.objects.get(id=deporte_id)
     return usuario.posiciones.add(
         *diccionario.get('posiciones')
     ) if deporte.requiere_multiple else usuario.posiciones.add(
@@ -292,6 +448,7 @@ def registrar_usuario(request):
         dict={'exito':True}
     except Exception as e:
         dict={'exito':False}
+        logger.error("Error al modificar usuario: {}".format(e))
         return HttpResponse("Error al registrar: {}".format(e))
     return HttpResponseRedirect('/perfil/')
 
@@ -323,21 +480,15 @@ def actualizar_usuario(request, seccion):
 """ Creación usuario """
 def crear_usuario(request):
     diccionario = get_diccionario(request, 'r')
-    fnacimiento = None
-    deporte = None
-    if diccionario.get('fnacimiento'):
-        fnacimiento = diccionario.get('fnacimiento')
-    if diccionario.get('deporte'):
-        deporte = diccionario.get('deporte').id
     usuario = Usuario.objects.create(
         nombre=diccionario.get('nombre'),
-        fnacimiento=fnacimiento,
+        fnacimiento=diccionario.get('fnacimiento'),
         email=diccionario.get('email'),
         genero=diccionario.get('genero'),
         tipo_deporte=diccionario.get('tipo_deporte'),
-        deporte_id=deporte,
-        tipo_id=diccionario.get('tipo').id,
-        pais_id=diccionario.get('pais').id,
+        deporte_id=diccionario.get('deporte'),
+        tipo_id=diccionario.get('tipo'),
+        pais_id=diccionario.get('pais'),
         contrasena_1=diccionario.get('contrasena_1')
     )
     usuario.ruta_cromo = os.path.join(
@@ -350,23 +501,55 @@ def crear_usuario(request):
     if diccionario.get('posiciones'):
         set_posiciones(usuario, diccionario.get('deporte'), diccionario)
 
+""" Limpia los campos comunes """
+def limpiar_comunes(usuario):
+    usuario.altura = 0.00
+    usuario.peso = 0.00
+    usuario.tipo_altura = 'cm'
+    usuario.tipo_peso = 'kg'
+    usuario.extremidad_id = None
+    usuario.curriculum = None
+
+""" Limpia datos específicos desde los básicos """
+def limpiar_datos_especificos(usuario):
+    if usuario.tipo.codigo in LIST_COMBO1:
+        usuario.ubicacion = ''
+        usuario.interesadoen = ''
+    elif usuario.tipo.codigo in LIST_COMBO2:
+        usuario.nacionalidad = ''
+        limpiar_comunes(usuario)
+        usuario.eactual = ''
+    elif usuario.tipo.codigo in LIST_COMBO3:
+        usuario.ubicacion = ''
+        usuario.interesadoen = ''
+        limpiar_comunes(usuario)
+    elif usuario.tipo.codigo in LIST_COMBO4 + LIST_COMBO7:
+        usuario.ubicacion = ''
+        usuario.interesadoen = ''
+        limpiar_comunes(usuario)
+        usuario.eactual = ''
+    elif usuario.tipo.codigo in LIST_COMBO5:
+        usuario.nacionalidad = ''
+        usuario.interesadoen = ''
+        limpiar_comunes(usuario)
+        usuario.eactual = ''
+    elif usuario.tipo.codigo in LIST_COMBO6:
+        usuario.interesadoen = ''
+        limpiar_comunes(usuario)
+        usuario.eactual = ''
+
 """ Actualizar datos basicos del usuario """
 def actualizar_db(usuario, diccionario):
-    fnacimiento = None
-    deporte = None
     usuario.nombre = diccionario.get('nombre')
     usuario.alias = diccionario.get('alias')
-    if diccionario.get('fnacimiento'):
-        fnacimiento = diccionario.get('fnacimiento')
-    usuario.fnacimiento = fnacimiento
+    usuario.fnacimiento = diccionario.get('fnacimiento')
     usuario.genero = diccionario.get('genero')
     usuario.tipo_deporte = diccionario.get('tipo_deporte')
-    if diccionario.get('deporte'):
-        deporte = diccionario.get('deporte').id
-    usuario.deporte_id = deporte
-    usuario.tipo_id = diccionario.get('tipo').id
-    usuario.pais_id = diccionario.get('pais').id
+    usuario.deporte_id = diccionario.get('deporte')
+    usuario.tipo_id = diccionario.get('tipo')
+    usuario.pais_id = diccionario.get('pais')
     usuario.posiciones.clear()
+    limpiar_datos_especificos(usuario)
     if diccionario.get('posiciones'):
         set_posiciones(
             usuario, diccionario.get('deporte'), diccionario
@@ -384,7 +567,7 @@ def actualizar_de(usuario, diccionario):
     usuario.altura = diccionario.get('altura')
     usuario.nacionalidad = diccionario.get('nacionalidad')
     usuario.eactual = diccionario.get('eactual')
-    usuario.extremidad_id = diccionario.get('extremidad').id
+    usuario.extremidad_id = diccionario.get('extremidad')
     usuario.interesadoen = diccionario.get('interesadoen')
     usuario.tipo_altura = diccionario.get('tipo_altura')
     usuario.tipo_peso = diccionario.get('tipo_peso')

@@ -20,6 +20,7 @@ SPORT_TYPE_CHOICES = (
     ('a', 'Ambos'),
     ('m', 'Masculino'),
     ('f', 'Femenino'),
+    ('n', 'Niguno')
 )
 SOCIAL_NETWORK_CHOICES = (
     ('f', 'Facebook'),
@@ -158,7 +159,7 @@ class Usuario(models.Model):
         max_length=1,
         choices=SPORT_TYPE_CHOICES,
         null=False,
-        default='a'
+        default='n'
 
     )
     telefono = models.IntegerField(
