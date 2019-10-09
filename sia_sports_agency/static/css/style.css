@@ -309,7 +309,9 @@ section{
     width:100%;
     text-align: left;
 }
-.form-registration-btn{
+.form-registration-btn,
+.detalle-btn,
+.form-upload-btn{
     font-size: 20px;
     font-weight: bold;
 	color:  #9A8056;
@@ -815,14 +817,6 @@ section{
 	background-color: #46433F !important;
 	color: white;
 	width: 100%;
-}
-.form-upload-btn,
-.detalle-btn{
-    font-size: 20px;
-    font-weight: bold;
-    background: linear-gradient(to right, #9A8056, #CFAB71, #9A8056);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 .form-upload-btn:hover,
 .detalle-btn:hover{
