@@ -40,10 +40,10 @@ var cargarDeporteEspecifico = function(cod, tipo_jugador){
 
 var cargarDatosDinamicos = function(){
     var tipoJugador = $('#queEresDropdown').val();
-
+    var cod_deporte = $('#deporteInput').val();
     /* Oculta o muestra el dropdown singular o múltiple en función del deporte seleccionado.
     Si se trata de fútbol americano, se muestra el dropdown múltiple.*/
-    $('#aQueJuegasDropdown, #deporteInput').change(function () {
+    $('#deporteInput').change(function () {
         var cod = $(this).val();
         cargarDeporteEspecifico(cod, tipoJugador);
         establecerPosiciones(cod, 0, false);
@@ -53,17 +53,17 @@ var cargarDatosDinamicos = function(){
         establecerPosiciones(cod, 0, true);
     });
     /*Si accedemos al perfil, establecemos en el input del deporte las posiciones (llamado deporteInput).
-    Si se trata de la página principal, realizamos lo mismo pero en el input aQueJuegasDropdown*/
-    if(window.location.pathname === "/perfil/"){
-        var cod_deporte = $('#deporteInput').val();
-        establecerPosiciones(cod_deporte, 1, false);
+    Si se trata de la página principal, realizamos lo mismo pero en el input deporteInput*/
+    if(window.location.pathname != "/busqueda/"){
         ocultarMostrarCampos(tipoJugador);
         cargarDeporteEspecifico(cod_deporte, tipoJugador);
-    }else if(window.location.pathname === "/busqueda/"){
-        establecerPosiciones($('#busqueda-deporte').val(), 0, true);
+        if (window.location.pathname == "/perfil/"){
+            establecerPosiciones(cod_deporte, 1, false);
+        } else{
+            establecerPosiciones($('#deporteInput').val(), 0, false);
+        }
     }else{
-        establecerPosiciones($('#aQueJuegasDropdown').val(), 0, false);
-        ocultarMostrarCampos(tipoJugador);
+        establecerPosiciones($('#busqueda-deporte').val(), 0, true);
     }
 }
 

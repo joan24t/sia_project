@@ -86,8 +86,8 @@
                                     <h4 class="titulo">{% trans "A qu&eacute; juegas?" %}</h4>
                                 </label>
                                 <div class="data-div">
-                                    <label for="aQueJuegasDropdown">{% trans "Deporte" %}</label>
-                                    <select class="form-control" id="aQueJuegasDropdown" name="inputDeporte">
+                                    <label for="deporteInput">{% trans "Deporte" %}</label>
+                                    <select class="form-control" id="deporteInput" name="inputDeporte">
                                         {% for deporte in deportes %}
                                         <option value="{{deporte.codigo|default:''}}">{% trans deporte.nombre %}</option>
                                         {% endfor %}
