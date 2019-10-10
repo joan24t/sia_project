@@ -16,19 +16,21 @@ $(document).ready(function(){
 
 var cambioTipoJugador = function(){
     $('#queEresDropdown').change(function () {
-        var cod = $(this).val();
+        var tipo_jugador = $(this).val();
         $("#labelNombre h4").attr('hidden', '');
         $("#labelNombre span").attr('hidden', '');
-        ocultarMostrarCampos(cod);
+        ocultarMostrarCampos(tipo_jugador);
+        var cod_deporte = $('#deporteInput').val();
+        cargarDeporteEspecifico(cod_deporte, tipo_jugador);
     });
 }
 
-var cargarDeporteEspecifico = function(cod){
+var cargarDeporteEspecifico = function(cod, tipo_jugador){
     $('.grupoEspecifique').attr('hidden', '');
     var listaObligatorios = [
         $('.grupoEspecifique > input')
     ];
-    if(cod == 'MD'){
+    if(cod == 'MD' && tipo_jugador != 'OT'){
         $('.grupoEspecifique').removeAttr('hidden');
         camposObligatorios(listaObligatorios);
     }else{
@@ -43,7 +45,7 @@ var cargarDatosDinamicos = function(){
     Si se trata de fútbol americano, se muestra el dropdown múltiple.*/
     $('#aQueJuegasDropdown, #deporteInput').change(function () {
         var cod = $(this).val();
-        cargarDeporteEspecifico(cod);
+        cargarDeporteEspecifico(cod, tipoJugador);
         establecerPosiciones(cod, 0, false);
     });
     $('.busqueda .busqueda-deporte').change(function () {
@@ -55,8 +57,8 @@ var cargarDatosDinamicos = function(){
     if(window.location.pathname === "/perfil/"){
         var cod_deporte = $('#deporteInput').val();
         establecerPosiciones(cod_deporte, 1, false);
-        cargarDeporteEspecifico(cod_deporte);
         ocultarMostrarCampos(tipoJugador);
+        cargarDeporteEspecifico(cod_deporte, tipoJugador);
     }else if(window.location.pathname === "/busqueda/"){
         establecerPosiciones($('#busqueda-deporte').val(), 0, true);
     }else{
@@ -94,6 +96,7 @@ var mostrarOcultarComb1 = function(){
     var listaMostrar = [
         $('.grupoGeneroDeporte'),
         $('.grupoAQueJuegas'),
+        $('.grupoEspecifique'),
         $('.grupoFechaNacimiento'),
         $('.grupoSexo'),
         $('.grupoPosiciones'),
@@ -121,6 +124,7 @@ var mostrarOcultarComb2 = function(){
     var listaMostrar = [
         $('.grupoGeneroDeporte'),
         $('.grupoAQueJuegas'),
+        $('.grupoEspecifique'),
         $('.grupoUbicacion'),
         $('.grupoInteresadoEn'),
         $('.grupoCPresentacion')
@@ -150,6 +154,7 @@ var mostrarOcultarComb3 = function(){
     var listaMostrar = [
         $('.grupoGeneroDeporte'),
         $('.grupoAQueJuegas'),
+        $('.grupoEspecifique'),
         $('.grupoFechaNacimiento'),
         $('.grupoSexo'),
         $('.grupoNacionalidad'),
@@ -181,6 +186,7 @@ var mostrarOcultarComb4 = function(){
     $("#labelNombre #labelNombreApellidos").removeAttr('hidden');
     var listaMostrar = [
         $('.grupoAQueJuegas'),
+        $('.grupoEspecifique'),
         $('.grupoFechaNacimiento'),
         $('.grupoSexo'),
         $('.grupoNacionalidad'),
@@ -218,6 +224,7 @@ var mostrarOcultarComb5 = function(){
     }
     var listaMostrar = [
         $('.grupoAQueJuegas'),
+        $('.grupoEspecifique'),
         $('.grupoUbicacion'),
         $('.grupoCPresentacion')
     ];
@@ -256,6 +263,7 @@ var mostrarOcultarComb6 = function(){
     var listaOcultar = [
         $('.grupoGeneroDeporte'),
         $('.grupoAQueJuegas'),
+        $('.grupoEspecifique'),
         $('.grupoPosiciones'),
         $('.grupoInteresadoEn'),
         $('.grupoPesoAltura'),
@@ -280,6 +288,7 @@ var mostrarOcultarComb7 = function(){
     var listaMostrar = [
         $('.grupoGeneroDeporte'),
         $('.grupoAQueJuegas'),
+        $('.grupoEspecifique'),
         $('.grupoFechaNacimiento'),
         $('.grupoSexo'),
         $('.grupoNacionalidad'),

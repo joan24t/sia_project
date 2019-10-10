@@ -7,12 +7,12 @@
     /* Establecemos los nuevos valores */
     var establecerDatosCromo = function(){
         /*Cambiamos plantilla del cromo*/
-        var plantilla = $('#form-datos-basicos #queEresDropdown').val();
+        var tipo_jugador = $('#form-datos-basicos #queEresDropdown').val();
         var cromoImgPlt = $('.cromo .img-plantilla');
-        if(plantilla == 'JG'){
+        if(tipo_jugador == 'JG'){
             cromoImgPlt.replaceWith("<img class='img-plantilla' src='{% static 'img/cromo/plantillas/plantilla_jugador.png' %}' />");
         }
-        else if(plantilla == 'CL'){
+        else if(tipo_jugador == 'CL'){
             cromoImgPlt.replaceWith("<img class='img-plantilla' src='{% static 'img/cromo/plantillas/plantilla_club.png' %}' />");
         }
         else{
@@ -22,19 +22,16 @@
         /*Cambiamos icono del deporte del cromo*/
         var deporte = $('#form-datos-basicos #deporteInput').val();
         var cromoImgDpte= $('.cromo .img-icono-deporte');
-        if (deporte == ''){
-            deporte = 'MD';
-        }
         cromoImgDpte.replaceWith("<img class='img-icono-deporte' src='{{baseLogoDeporte}}" + deporte + ".png' />");
 
         /*Cambiamos texto del cromo*/
-        var texto = $('#form-datos-basicos #FormControlInputAlias').val() + "<br/>"
-        if (deporte != '' && deporte != 'MD'){
+        var texto = $('#form-datos-basicos #FormControlInputAlias').val() + "<br/>";
+        if (deporte != '' && deporte != 'MD' && tipo_jugador == 'JG'){
             var requierMultiple = getRequiereMultiple(deporte);
             if (requierMultiple){
-                var texto = $('#form-datos-basicos #FormControlInputAlias').val() + "<br/>" + nombreMultipleDeporte();
+                texto = texto + nombreMultipleDeporte();
             }else{
-                var texto = $('#form-datos-basicos #FormControlInputAlias').val() + "<br/>" + $('#form-datos-basicos #posicionDropdown option:selected').text();
+                texto = texto + $('#form-datos-basicos #posicionDropdown option:selected').text();
             }
         }
         $('.cromo .texto-cromo').html('<p>' + texto + '</p>');
