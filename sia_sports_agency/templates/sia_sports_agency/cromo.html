@@ -22,6 +22,9 @@
         /*Cambiamos icono del deporte del cromo*/
         var deporte = $('#form-datos-basicos #deporteInput').val();
         var cromoImgDpte= $('.cromo .img-icono-deporte');
+        if(tipo_jugador == 'MD' || tipo_jugador == 'ED' || tipo_jugador == 'OT'){
+            deporte = 'MD';
+        }
         cromoImgDpte.replaceWith("<img class='img-icono-deporte' src='{{baseLogoDeporte}}" + deporte + ".png' />");
 
         /*Cambiamos texto del cromo*/

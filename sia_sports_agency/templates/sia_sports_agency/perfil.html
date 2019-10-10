@@ -211,6 +211,12 @@
                                     </label>
                                     <input type="text" maxlength="100" value="{{usuario.ubicacion|default:''}}" name="inputUbicacion" id="ubicacion" class="form-control">
                                 </div>
+                                <div class="grupoPaginaWeb col col-12 col-xl-6">
+                                    <label for="paginaWeb">
+                                        <h4>{% trans "P&aacute;gina web" %}</h4>
+                                    </label>
+                                    <input type="text" maxlength="100" value="{{usuario.pagina_web|default:''}}" name="inputPaginaWeb" id="paginaWeb" class="form-control">
+                                </div>
                                 <div class="grupoPesoAltura col col-12 col-xl-6">
                                     <div class="row">
                                         <div class="col-6">
@@ -313,8 +319,9 @@
                                     </div>
                                 </div>
                                 <div class="grupoInteresadoEn col col-12 col-xl-6">
-                                    <label for="interesadoen">
-                                        <h4>{% trans "Interesado en" %}</h4>
+                                    <label id="labelTextArea" for="interesadoen">
+                                        <h4 id="labelInteresadoEn" hidden>{% trans "Interesado en" %}</h4>
+                                        <h4 id="labelDescripcion" hidden>{% trans "Descripci&oacute;n" %}</h4>
                                     </label>
                                     <textarea id="interesadoen" class="form-control" name="inputInteresadoen" maxlength="500" rows="6" cols="50">{{usuario.interesadoen|default:''}}</textarea>
                                 </div>

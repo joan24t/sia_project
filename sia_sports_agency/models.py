@@ -237,7 +237,7 @@ class Usuario(models.Model):
     )
     posiciones = models.ManyToManyField(Posicion)
     contrasena_1 = models.CharField(
-        max_length=50,
+        max_length=200,
         null=True
     )
     activo = models.IntegerField(
@@ -266,6 +266,10 @@ class Usuario(models.Model):
     alias = models.CharField(
         max_length=13,
         null=True
+    )
+    pagina_web = models.CharField(
+        max_length=100,
+        default = ''
     )
 
 """

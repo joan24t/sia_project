@@ -229,7 +229,7 @@ def estableceDeporte(rol, request, diccionario):
 def estableceFNacimiento(rol, request, diccionario):
     fecha = None
     total_list = LIST_COMBO2 + LIST_COMBO5
-    if rol not in total_list:
+    if rol not in total_list and request.POST.get('inputNacimiento', ''):
         fecha = request.POST.get('inputNacimiento', '')
     diccionario.update({
         'fnacimiento': fecha
@@ -301,7 +301,8 @@ def estableceUbicacion(rol, request, diccionario):
 """ Establece interesado en si el rol lo requiere """
 def estableceInteresadoEn(rol, request, diccionario):
     interesado_en = ''
-    if rol in LIST_COMBO2:
+    total_list = LIST_COMBO2 + LIST_COMBO5
+    if rol in total_list:
         interesado_en = request.POST.get('inputInteresadoen', '')
     diccionario.update({
         'interesadoen': interesado_en
@@ -375,6 +376,26 @@ def estableceCPresentacion(rol, request, diccionario):
         'carta_presentacion': cpresentacion
     })
 
+""" Establece pagina web si el rol lo requiere """
+def establecePaginaWeb(rol, request, diccionario):
+    pagina_web = ''
+    if rol in LIST_COMBO5:
+        pagina_web = request.POST.get('inputPaginaWeb', '')
+    diccionario.update({
+        'pagina_web': pagina_web
+    })
+
+""" Establece teléfono si el rol lo requiere """
+def estableceTelefono(rol, request, diccionario):
+    telefono = None
+    telefono = request.POST.get(
+        'inputTelefono', ''
+    ) if request.POST.get('inputTelefono', '') else None
+    diccionario.update({
+        'telefono': telefono
+    })
+
+
 """ Inserta en el diccionaro los campos específicos según el rol"""
 def insertar_campos_especificos_din(request, diccionario):
     email = request.session.get('email')
@@ -386,6 +407,8 @@ def insertar_campos_especificos_din(request, diccionario):
     estableceAlturaPeso(rol, request, diccionario)
     estableceEActual(rol, request, diccionario)
     estableceEDominante(rol, request, diccionario)
+    establecePaginaWeb(rol, request, diccionario)
+    estableceTelefono(rol, request, diccionario)
     estableceCurriculum(rol, request, diccionario)
     estableceCPresentacion(rol, request, diccionario)
 
@@ -395,7 +418,8 @@ def estableceDeporteEspecifico(rol, request, diccionario):
     deporte = Deporte.objects.get(
         codigo=request.POST.get('inputDeporte', '')
     )
-    if deporte and deporte.codigo == 'MD':
+    total_list = LIST_COMBO5 + LIST_COMBO6
+    if deporte and deporte.codigo == 'MD' and rol not in total_list:
         deporte_especifico = request.POST.get('inputDeporteEspecifico', '')
     diccionario.update({
         'deporte_especifico': deporte_especifico
@@ -432,7 +456,6 @@ def get_diccionario(request, seccion):
             estableceInfoCorreo(request, diccionario)
     elif seccion == 'de':
         diccionario = {
-            'telefono': request.POST.get('inputTelefono', ''),
             'empty_curriculum': request.POST.get('emptyCurriculum', ''),
             'empty_cpresentacion': request.POST.get('emptyFileCarta', ''),
         }
@@ -530,25 +553,29 @@ def limpiar_datos_especificos(usuario):
     if usuario.tipo.codigo in LIST_COMBO1:
         usuario.ubicacion = ''
         usuario.interesadoen = ''
+        usuario.pagina_web = ''
     elif usuario.tipo.codigo in LIST_COMBO2:
         usuario.nacionalidad = ''
+        usuario.pagina_web = ''
         limpiar_comunes(usuario)
         usuario.eactual = ''
     elif usuario.tipo.codigo in LIST_COMBO3:
         usuario.ubicacion = ''
         usuario.interesadoen = ''
+        usuario.pagina_web = ''
         limpiar_comunes(usuario)
     elif usuario.tipo.codigo in LIST_COMBO4 + LIST_COMBO7:
         usuario.ubicacion = ''
         usuario.interesadoen = ''
+        usuario.pagina_web = ''
         limpiar_comunes(usuario)
         usuario.eactual = ''
     elif usuario.tipo.codigo in LIST_COMBO5:
         usuario.nacionalidad = ''
-        usuario.interesadoen = ''
         limpiar_comunes(usuario)
         usuario.eactual = ''
     elif usuario.tipo.codigo in LIST_COMBO6:
+        usuario.pagina_web = ''
         usuario.interesadoen = ''
         limpiar_comunes(usuario)
         usuario.eactual = ''
@@ -587,6 +614,8 @@ def actualizar_de(usuario, diccionario):
     usuario.interesadoen = diccionario.get('interesadoen')
     usuario.tipo_altura = diccionario.get('tipo_altura')
     usuario.tipo_peso = diccionario.get('tipo_peso')
+    usuario.pagina_web = diccionario.get('pagina_web')
+    print('AAA')
     guardar_curriculum(
         diccionario.get('curriculum'),
         diccionario.get('empty_curriculum'),
