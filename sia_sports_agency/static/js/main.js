@@ -18,6 +18,7 @@ var cambioTipoJugador = function(){
     $('#queEresDropdown').change(function () {
         var cod = $(this).val();
         $("#labelNombre h4").attr('hidden', '');
+        $("#labelNombre span").attr('hidden', '');
         ocultarMostrarCampos(cod);
     });
 }
@@ -72,7 +73,7 @@ var camposNoObligatorios = function(listaOcultar){
 }
 
 var mostrarOcultarComb1 = function(){
-    $("#labelNombre h4#labelNombreApellidos").removeAttr('hidden');
+    $("#labelNombre #labelNombreApellidos").removeAttr('hidden');
     var listaMostrar = [
         $('.grupoGeneroDeporte'),
         $('.grupoAQueJuegas'),
@@ -99,7 +100,7 @@ var mostrarOcultarComb1 = function(){
 };
 
 var mostrarOcultarComb2 = function(){
-    $("#labelNombre h4#labelNombreClub").removeAttr('hidden');
+    $("#labelNombre #labelNombreClub").removeAttr('hidden');
     var listaMostrar = [
         $('.grupoGeneroDeporte'),
         $('.grupoAQueJuegas'),
@@ -128,7 +129,7 @@ var mostrarOcultarComb2 = function(){
 };
 
 var mostrarOcultarComb3 = function(){
-    $("#labelNombre h4#labelNombreApellidos").removeAttr('hidden');
+    $("#labelNombre #labelNombreApellidos").removeAttr('hidden');
     var listaMostrar = [
         $('.grupoGeneroDeporte'),
         $('.grupoAQueJuegas'),
@@ -160,7 +161,7 @@ var mostrarOcultarComb3 = function(){
 };
 
 var mostrarOcultarComb4 = function(){
-    $("#labelNombre h4#labelNombreApellidos").removeAttr('hidden');
+    $("#labelNombre #labelNombreApellidos").removeAttr('hidden');
     var listaMostrar = [
         $('.grupoAQueJuegas'),
         $('.grupoFechaNacimiento'),
@@ -192,7 +193,12 @@ var mostrarOcultarComb4 = function(){
 };
 
 var mostrarOcultarComb5 = function(){
-    $("#labelNombre h4#labelSoloNombre").removeAttr('hidden');
+    var cod = $('#queEresDropdown').val();
+    if (cod == 'ED'){
+        $("#labelNombre #labelNombreEmpresa").removeAttr('hidden');
+    }else if (cod == 'MD'){
+        $("#labelNombre #labelNombreMarca").removeAttr('hidden');
+    }
     var listaMostrar = [
         $('.grupoAQueJuegas'),
         $('.grupoUbicacion'),
@@ -221,7 +227,7 @@ var mostrarOcultarComb5 = function(){
 };
 
 var mostrarOcultarComb6 = function(){
-    $("#labelNombre h4#labelSoloNombre").removeAttr('hidden');
+    $("#labelNombre #labelSoloNombre").removeAttr('hidden');
     var listaMostrar = [
         $('.grupoFechaNacimiento'),
         $('.grupoSexo'),
@@ -253,7 +259,7 @@ var mostrarOcultarComb6 = function(){
 };
 
 var mostrarOcultarComb7 = function(){
-    $("#labelNombre h4#labelNombreApellidos").removeAttr('hidden');
+    $("#labelNombre #labelNombreApellidos").removeAttr('hidden');
     var listaMostrar = [
         $('.grupoGeneroDeporte'),
         $('.grupoAQueJuegas'),

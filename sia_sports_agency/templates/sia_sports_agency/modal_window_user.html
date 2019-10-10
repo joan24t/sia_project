@@ -30,7 +30,13 @@
                                 </label>
                                 <div>
                                     <div>
-                                        <label for="FormControlInputNombre">{% trans "Nombre y apellidos" %}</label>
+                                        <label id="labelNombre" for="FormControlInputNombre">
+                                            <span id="labelNombreApellidos" hidden>{% trans "Nombre y apellidos" %}</span>
+                                            <span id="labelNombreClub" hidden>{% trans "Nombre del club" %}</span>
+                                            <span id="labelSoloNombre" hidden> {% trans "Nombre" %}</span>
+                                            <span id="labelNombreEmpresa" hidden> {% trans "Nombre de la empresa" %}</span>
+                                            <span id="labelNombreMarca" hidden> {% trans "Nombre de la marca" %}</span>
+                                        </label>
                                         <input class="form-control campoObligatorio" name="inputNombre" maxlength="100" type="text" id="FormControlInputNombre" placeholder="{% trans 'Nombre y apellidos' %}">
                                         <div class="campoObligatorioNotif" hidden>
                                             <span> {% trans "*Este campo es obligatorio"%} </span>
