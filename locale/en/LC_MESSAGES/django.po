@@ -590,7 +590,7 @@ msgstr "What is your sport ?"
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html:96
 #: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:143
 msgid "Espec&iacute;fique cu&aacute;l"
-msgstr ""
+msgstr "Specify the sport"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html:103
 #: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:149
