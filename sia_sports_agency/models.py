@@ -146,7 +146,7 @@ class Usuario(models.Model):
         unique=True
     )
     email = models.EmailField(
-        max_length=150,
+        max_length=100,
         null=False,
         unique=True
     )
@@ -154,6 +154,10 @@ class Usuario(models.Model):
         max_length=1,
         choices=GENDER_CHOICES,
         default='n',
+    )
+    deporte_especifico = models.CharField(
+        max_length=40,
+        default=''
     )
     tipo_deporte = models.CharField(
         max_length=1,
@@ -233,7 +237,7 @@ class Usuario(models.Model):
     )
     posiciones = models.ManyToManyField(Posicion)
     contrasena_1 = models.CharField(
-        max_length=150,
+        max_length=50,
         null=True
     )
     activo = models.IntegerField(

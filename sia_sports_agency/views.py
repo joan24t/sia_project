@@ -389,6 +389,17 @@ def insertar_campos_especificos_din(request, diccionario):
     estableceCurriculum(rol, request, diccionario)
     estableceCPresentacion(rol, request, diccionario)
 
+""" Inserta en el diccionaro el campo deporte especifico según el deporte"""
+def estableceDeporteEspecifico(rol, request, diccionario):
+    deporte_especifico = ''
+    deporte = Deporte.objects.get(
+        codigo=request.POST.get('inputDeporte', '')
+    )
+    if deporte and deporte.codigo == 'MD':
+        deporte_especifico = request.POST.get('inputDeporteEspecifico', '')
+    diccionario.update({
+        'deporte_especifico': deporte_especifico
+    })
 
 """ Inserta en el diccionaro los campos básicos según el rol"""
 def insertar_campos_basicos_din(request, diccionario):
@@ -397,6 +408,7 @@ def insertar_campos_basicos_din(request, diccionario):
     estableceFNacimiento(rol, request, diccionario)
     estableceGenDeporte(rol, request, diccionario)
     estableceSexo(rol, request, diccionario)
+    estableceDeporteEspecifico(rol, request, diccionario)
     establecePosiciones(rol, request, diccionario)
 
 """ Consigue el diccionario a partir del request """
@@ -491,6 +503,7 @@ def crear_usuario(request):
         deporte_id=diccionario.get('deporte'),
         tipo_id=diccionario.get('tipo'),
         pais_id=diccionario.get('pais'),
+        deporte_especifico=diccionario.get('deporte_especifico'),
         contrasena_1=diccionario.get('contrasena_1')
     )
     usuario.ruta_cromo = os.path.join(
@@ -550,6 +563,7 @@ def actualizar_db(usuario, diccionario):
     usuario.deporte_id = diccionario.get('deporte')
     usuario.tipo_id = diccionario.get('tipo')
     usuario.pais_id = diccionario.get('pais')
+    usuario.deporte_especifico = diccionario.get('deporte_especifico')
     usuario.posiciones.clear()
     limpiar_datos_especificos(usuario)
     if diccionario.get('posiciones'):

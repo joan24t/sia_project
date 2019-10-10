@@ -42,7 +42,7 @@
                                             <span> {% trans "*Este campo es obligatorio"%} </span>
                                         </div>
                                     </div>
-                                    <div>
+                                    <div class="grupoAlias" style="margin-top: 10px;">
                                         <label for="FormControlInputAlias">{% trans "Alias" %}</label>
                                         <input class="form-control campoObligatorio" name="inputAlias" maxlength="13" type="text" id="FormControlInputAlias" placeholder="{% trans 'Alias' %}">
                                         <div class="campoObligatorioNotif" hidden>
@@ -92,6 +92,13 @@
                                         <option value="{{deporte.codigo|default:''}}">{% trans deporte.nombre %}</option>
                                         {% endfor %}
                                     </select>
+                                    <div class="grupoEspecifique" style="margin-top: 10px;" hidden>
+                                        <label for="deporteEspecifico">{% trans "Espec&iacute;fique cu&aacute;l" %}</label>
+                                        <input id="deporteEspecifico" name="inputDeporteEspecifico" type="text" class="form-control" autocomplete="off" maxlength="40">
+                                        <div class="campoObligatorioNotif" hidden>
+                                            <span> {% trans "*Este campo es obligatorio"%} </span>
+                                        </div>
+                                    </div>
                                     <div class="grupoGeneroDeporte" style="margin-top: 10px;">
                                         <label for="generoDropdown">{% trans "G&eacute;nero" %}</label>
                                         <select class="form-control" id="generoDropdown" name="inputTipoDeporte">
@@ -133,7 +140,7 @@
                                 <div>
                                     <div class="form-group">
                                         <label for="FormControlInputEmail">{% trans "Direcci&oacute;n email" %}</label>
-                                        <input type="email" class="form-control campoObligatorio" name="inputEmail" id="FormControlInputEmail" placeholder="{% trans 'nombre@siasportsagency.com' %}">
+                                        <input type="email" maxlength="100" class="form-control campoObligatorio" name="inputEmail" id="FormControlInputEmail" placeholder="{% trans 'nombre@siasportsagency.com' %}">
                                         <input type="text" style="display:none;">
                                         <div class="campoObligatorioNotif" hidden>
                                             <span> {% trans "*Este campo es obligatorio"%} </span>
@@ -145,14 +152,14 @@
                                     <div class="form-group">
                                         <label for="password1">{% trans "Contraseña" %}</label>
                                         <input type="password" style="display:none;">
-                                        <input type="password" name="inputPassword1" class="form-control campoObligatorio" id="password1" placeholder="{% trans 'Contraseña' %}">
+                                        <input type="password" name="inputPassword1" maxlength="50" class="form-control campoObligatorio" id="password1" placeholder="{% trans 'Contraseña' %}">
                                         <div class="campoObligatorioNotif" hidden>
                                             <span> {% trans "*Este campo es obligatorio"%} </span>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="password2">{% trans "Repita contraseña" %}</label>
-                                        <input type="password" name="inputPassword2" class="form-control campoObligatorio" id="password2" placeholder="{% trans 'Contraseña' %}">
+                                        <input type="password" maxlength="50" name="inputPassword2" class="form-control campoObligatorio" id="password2" placeholder="{% trans 'Contraseña' %}">
                                         <div class="campoObligatorioNotif" hidden>
                                             <span> {% trans "*Este campo es obligatorio"%} </span>
                                         </div>
