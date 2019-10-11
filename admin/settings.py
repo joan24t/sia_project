@@ -24,7 +24,7 @@ SECRET_KEY = '*@-yg8enwv$_qxo$_rl&fip@6!_zv#4oz28#ix@a75rpbyl97o'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '217.76.159.21']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '217.76.159.21', 'www.siasportsagency.com']
 
 
 # Application definition
