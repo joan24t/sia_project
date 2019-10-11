@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-10 19:34+0200\n"
+"POT-Creation-Date: 2019-10-11 16:50+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -593,7 +593,7 @@ msgstr "¿A qu&eacute; juegas?"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html:96
 #: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:143
-msgid "Espec&iacute;fique cu&aacute;l"
+msgid "Especifique cu&aacute;l"
 msgstr "Espec&iacute;fique cu&aacute;l"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html:103
