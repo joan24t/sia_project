@@ -111,7 +111,7 @@ var consultaCromos = function(busqueda){
                     for (var i in data.lista_usuarios) {
                         var id = data.lista_usuarios[i][0];
                         var url = data.lista_usuarios[i][1];
-                        content += "<div class='col-12 col-xl-3'" + " onclick='verDetalle(" + id.toString() + ");' data-aos='zoom-in' data-aos-duration='500' style='text-align: center; margin-top: 50px;'><img width='300px' src='" + url + "?timestamp=" + new Date().getTime() + "' /></div>";
+                        content += "<div class='col-12 col-md-6 col-xl-3'" + " onclick='verDetalle(" + id.toString() + ");' data-aos='zoom-in' data-aos-duration='500' style='text-align: center; margin-top: 50px;'><img width='300px' src='" + url + "?timestamp=" + new Date().getTime() + "' /></div>";
                     }
                     $('.resultados .row').html(content);
                     if(busqueda){

@@ -166,9 +166,17 @@ section{
    width:110%;
 }
 /* Navbar */
-.nav-link{
-    font-size: 25px !important;
-    }
+@media(min-width:1140px) and (max-width: 1450px){
+	.nav-link {
+		font-size: 18px !important;
+	}
+}
+@media(min-width:1451px){
+	.nav-link{
+	    font-size: 25px !important;
+	    }
+}
+
 .navbar{
     border-bottom:5px solid #9A8056;
 	background-color: #202020 !important;
