@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-11 16:50+0200\n"
+"POT-Creation-Date: 2019-10-12 02:42+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -91,10 +91,6 @@ msgstr "Settings"
 msgid "Cerrar sesi&oacute;n"
 msgstr "Logout"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\base.html:230
-msgid "Derechos reservados 2019:"
-msgstr "All rights reserved 2019:"
-
 #: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:8
 msgid "Filtros de b&uacute;squeda"
 msgstr "Search filters"
@@ -128,12 +124,10 @@ msgstr "Position"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:52
 #: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:75
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html:72
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html:129
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:124
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:168
-msgid "Ninguno seleccionado"
-msgstr "Nothing selected"
+#, fuzzy
+#| msgid "Seleccione una opción"
+msgid "Seleccione una opci&oacute;n"
+msgstr "Select one option"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:60
 msgid "Género"
@@ -580,6 +574,13 @@ msgstr "Birthdate"
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html:66
 msgid "*El formato de la fecha debe ser dd/mm/yyyy"
 msgstr "*The format date must be dd/mm/yyyy"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html:72
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html:129
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:124
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:168
+msgid "Ninguno seleccionado"
+msgstr "Nothing selected"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html:86
 msgid "A qu&eacute; juegas?"

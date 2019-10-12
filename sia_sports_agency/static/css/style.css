@@ -779,9 +779,12 @@ section{
 	text-align: center;
 	background-color: #46433F;
 }
-
+.video-gallery .video-thumb {
+	background-color: black;
+}
 .video-gallery .video-thumb video {
 	width: 100%;
+	max-height: 200px;
 }
 .video-gallery .video-add{
 	min-width: 200px;
