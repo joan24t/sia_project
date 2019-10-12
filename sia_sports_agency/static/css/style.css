@@ -166,15 +166,23 @@ section{
    width:110%;
 }
 /* Navbar */
-@media(min-width:1140px) and (max-width: 1450px){
+@media(max-width: 1450px){
 	.nav-link {
 		font-size: 18px !important;
 	}
+	.navbar .dropdown-item{
+	   font-size: 18px;
+	   text-transform: uppercase;
+   	}
 }
 @media(min-width:1451px){
 	.nav-link{
 	    font-size: 25px !important;
 	    }
+		.navbar .dropdown-item{
+		   font-size: 25px;
+		   text-transform: uppercase;
+	   	}
 }
 
 .navbar{
@@ -193,7 +201,6 @@ section{
   border-top: 2px solid #9A8056;
  }
  .navbar .dropdown-item{
-    font-size: 25px;
     width: auto;
     font-family:  'Open Sans Condensed', sans-serif;
     background: linear-gradient(to right, #9A8056, #CFAB71, #9A8056);

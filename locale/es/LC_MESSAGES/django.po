@@ -125,7 +125,7 @@ msgstr "Posici&oacute;n"
 #: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:52
 #: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:75
 msgid "Seleccione una opci&oacute;n"
-msgstr "Seleccione una opci&oacute;n"
+msgstr "Seleccione opci&oacute;n"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:60
 msgid "Género"

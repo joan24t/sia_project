@@ -103,7 +103,7 @@ msgstr "Role"
 #: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:40
 #: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:76
 msgid "Seleccione una opción"
-msgstr "Select one option"
+msgstr "Select option"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:28
 #: .\sia_sports_agency\templates\sia_sports_agency\index.html:157
@@ -124,10 +124,8 @@ msgstr "Position"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:52
 #: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:75
-#, fuzzy
-#| msgid "Seleccione una opción"
 msgid "Seleccione una opci&oacute;n"
-msgstr "Select one option"
+msgstr "Select option"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:60
 msgid "Género"
