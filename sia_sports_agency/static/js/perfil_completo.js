@@ -439,7 +439,7 @@ var actualizarContadorCorreos = function(id){
     var contador = parseInt(cadena.substring(ini, fin));
     contador--;
     $('.btn-bandeja-entrada a').text('Bandeja de entrada (' + contador + ')');
-    $('.badge-messages').text(contador);
+    $('.badge-messages').text(Math.max(contador, 0));
     $('#mensajes-info-' + id).remove();
     $('#hr-msg-' + id).remove();
     $('.header-msg-info span').html("Tiene <strong>" + contador + "</strong> mensajes nuevos.");
