@@ -5,6 +5,7 @@ from .models import Usuario, Extremidad_dominante, Red_social, Mensaje
 from django.contrib.auth.hashers import make_password, check_password
 from django.views.decorators.csrf import csrf_exempt
 from django.core.files.storage import FileSystemStorage
+from django.utils.translation import gettext as _
 from django.conf import settings
 from django.core.files.base import ContentFile
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -1300,31 +1301,38 @@ def detalle_usuario(request):
             dict['exito'] = True
             dict.update({
                 'url_img': os.path.join('/static', usu_seleccionado.ruta_cromo),
-                'nombre': usu_seleccionado.nombre,
-                'rol': usu_seleccionado.tipo.nombre,
+                'nombre': usu_seleccionado.nombre if usu_seleccionado.nombre
+                    else _('No especificado'),
+                'rol_nombre': usu_seleccionado.tipo.nombre,
+                'rol': usu_seleccionado.tipo.codigo,
                 'deporte': (
                     usu_seleccionado.deporte.nombre if
-                    usu_seleccionado.deporte else ''
+                    usu_seleccionado.deporte else _('No especificado')
                 ),
                 'email': usu_seleccionado.email,
                 'genero_deporte': SPORT_TYPE_CHOICES.get(
                     usu_seleccionado.tipo_deporte
-                )
-                ,
+                ),
                 'sexo': GENDER_CHOICES.get(
                     usu_seleccionado.genero
                 ),
                 'fnacimiento': usu_seleccionado.fnacimiento.strftime(
                     "%d/%m/%Y"
-                ) if usu_seleccionado.fnacimiento else '',
+                ) if usu_seleccionado.fnacimiento else _('No especificado'),
                 'pais': usu_seleccionado.pais.nombre,
-                'telefono': str(usu_seleccionado.telefono),
-                'ubicacion': usu_seleccionado.ubicacion,
+                'telefono': usu_seleccionado.telefono
+                    if usu_seleccionado.telefono
+                        else _('No especificado'),
+                'ubicacion': usu_seleccionado.ubicacion
+                    if usu_seleccionado.ubicacion
+                        else _('No especificado'),
                 'peso': str(usu_seleccionado.peso),
                 'tipo_peso': usu_seleccionado.tipo_peso,
                 'extremidad': usu_seleccionado.extremidad.nombre
-                    if usu_seleccionado.extremidad else '',
-                'nacionalidad': usu_seleccionado.nacionalidad,
+                    if usu_seleccionado.extremidad else _('No especificado'),
+                'nacionalidad': usu_seleccionado.nacionalidad
+                    if usu_seleccionado.nacionalidad
+                        else _('No especificado'),
                 'altura': str(usu_seleccionado.altura),
                 'tipo_altura': usu_seleccionado.tipo_altura,
                 'interesadoen': usu_seleccionado.interesadoen,

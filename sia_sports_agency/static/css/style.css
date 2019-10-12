@@ -1277,6 +1277,9 @@ margin-left: 4px;
 #detalleUsuarioModal .col-12{
 	margin: 10px 0px 0px 0px;
 }
+#detalleUsuarioModal a.disabled{
+    pointer-events: none;
+}
 hr.fila{
 	color: white;
 	background-color: white;
