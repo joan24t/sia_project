@@ -182,7 +182,7 @@ var estableceVideosEnDetalle = function(lista_videos){
     var content = '';
     var i;
     for(i = 0; i < lista_videos.length; i++){
-        content += "<div class='col col-12 col-xl-3'><video controls='' style='width: 100%;'><source src='" + lista_videos[i] + "' type='video/mp4'></video></div>";
+        content += "<div class='col col-12 col-xl-3' style='background-color: black;'><video controls='' style='width: 100%; max-height: 200px;'><source src='" + lista_videos[i] + "' type='video/mp4'></video></div>";
     }
     return content;
 }
