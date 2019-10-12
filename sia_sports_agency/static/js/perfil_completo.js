@@ -5,6 +5,10 @@ $(document).ready(function(){
     /* Oculatmos la img del cromo */
     ocultarElemento($('.div-cromo'));
 
+    $( ".div-registration" ).click(function() {
+        $('#registrationModalCenter').modal('toggle');
+    });
+
     /* FUNCIONES PARA LOS DATOS BÁSICOS DEL PERFIL*/
     envioDatosBasicos();
 
