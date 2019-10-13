@@ -155,83 +155,107 @@ var verDetalle = function(usuarioId){
                 $('#detalleUsuarioModal #detalleNombre').html(data.nombre);
 
                 //Insertar en la ficha el rol
-                $('#detalleUsuarioModal #detalleRol').html("<h4><span style='color: grey;'>Rol:</span> " + data.rol_nombre + "</h4>");
+                var detalleRol = $('#detalleUsuarioModal #detalleRol');
+                detalleRol.html(detalleRol.html() + "<span style='color: white;'>" + data.rol_nombre + "</span>");
 
                 //Insertar en la ficha el deporte
+                var detalleDeporte = $('#detalleUsuarioModal #detalleDeporte');
                 if(combo5.indexOf(data.rol) >= 0 || combo6.indexOf(data.rol) >= 0){
-                    $('#detalleUsuarioModal #detalleDeporte').parent().attr('hidden', '');
+                    detalleDeporte.parent().attr('hidden', '');
                 }else{
-                    $('#detalleUsuarioModal #detalleDeporte').parent().removeAttr('hidden', '');
-                    $('#detalleUsuarioModal #detalleDeporte').html("<h4><span style='color: grey;'>Deporte:</span> " + data.deporte + "</h4>");
+                    detalleDeporte.parent().removeAttr('hidden', '');
+                    detalleDeporte.html(detalleDeporte.html() + "<span style='color: white;'>" + data.deporte + "</span>");
                 }
 
                 //Insertar en la ficha el email
-                $('#detalleUsuarioModal #detalleEmail').html(data.email);
+                var detalleEmail = $('#detalleUsuarioModal #detalleEmail');
+                detalleEmail.html(detalleEmail.html() + "<span style='color: white;'>" + data.email + "</span>");
 
                 //Insertar en la ficha el género del deporte
+                var detalleGeneroDeporte = $('#detalleUsuarioModal #detalleGeneroDeporte');
                 if(combo4.indexOf(data.rol) >= 0 || combo5.indexOf(data.rol) >= 0 || combo6.indexOf(data.rol) >= 0){
-                    $('#detalleUsuarioModal #detalleGeneroDeporte').parent().attr('hidden', '');
+                    detalleGeneroDeporte.parent().attr('hidden', '');
                 }else{
-                    $('#detalleUsuarioModal #detalleGeneroDeporte').parent().removeAttr('hidden', '');
-                    $('#detalleUsuarioModal #detalleGeneroDeporte').html("<h4><span style='color: grey;'>Género deporte:</span> " + data.genero_deporte + "</h4>");
+                    detalleGeneroDeporte.parent().removeAttr('hidden', '');
+                    detalleGeneroDeporte.html(detalleGeneroDeporte.html() + "<span style='color: white;'>" + data.genero_deporte + "</span>");
                 }
 
                 //Insertar en la ficha el país
-                $('#detalleUsuarioModal #detallePais').html("<h4><span style='color: grey;'>País:</span> " + data.pais + "</h4>");
+                var detallePais = $('#detalleUsuarioModal #detallePais');
+                detallePais.html(detallePais.html() + "<span style='color: white;'>" + data.pais + "</span>");
 
                 //Insertar en la ficha el teléfono
-                $('#detalleUsuarioModal #detalleTelefono').html("<h4><span style='color: grey;'>Teléfono:</span> " + data.telefono + "</h4>");
+                var detalleTelefono = $('#detalleUsuarioModal #detalleTelefono');
+                detalleTelefono.html(detalleTelefono.html() + "<span style='color: white;'>" + data.telefono + "</span>");
 
                 //Insertar en la ficha la ubicación
+                var detalleUbicacion = $('#detalleUsuarioModal #detalleUbicacion');
                 if(combo2.indexOf(data.rol) >= 0 || combo5.indexOf(data.rol) >= 0 ||combo6.indexOf(data.rol) >= 0){
-                    $('#detalleUsuarioModal #detalleUbicacion').html("<h4><span style='color: grey;'>Ubicación:</span> " + data.ubicacion + "</h4>");
-                    $('#detalleUsuarioModal #detalleUbicacion').parent().removeAttr('hidden', '');
+                    detalleUbicacion.html(detalleUbicacion.html() + "<span style='color: white;'>" + data.ubicacion + "</span>");
+                    detalleUbicacion.parent().removeAttr('hidden', '');
                 }else{
-                    $('#detalleUsuarioModal #detalleUbicacion').parent().attr('hidden', '');
+                    detalleUbicacion.parent().attr('hidden', '');
                 }
 
-                //Insertar en la ficha el peso, la altura, el curriculum y la extremidad dominante
+                //Insertar en la ficha las posicones, el peso, la altura,
+                //el curriculum y la extremidad dominante
+                var detallePeso = $('#detalleUsuarioModal #detallePeso');
+                var detalleEdominante = $('#detalleUsuarioModal #detalleEdominante');
+                var detalleAltura = $('#detalleUsuarioModal #detalleAltura');
+                var detalleCurriculum = $('#detalleUsuarioModal #detalleCurriculum');
+                var detallePosicion = $('#detalleUsuarioModal #detallePosicion');
                 if(combo1.indexOf(data.rol) >= 0){
-                    $('#detalleUsuarioModal #detallePeso').html("<h4><span style='color: grey;'>Peso:</span> " + data.peso + " " + data.tipo_peso  +"</h4>");
-                    $('#detalleUsuarioModal #detalleEdominante').html("<h4><span style='color: grey;'>Extremidad dominante:</span> " + data.extremidad + "</h4>");
-                    $('#detalleUsuarioModal #detalleAltura').html("<h4><span style='color: grey;'>Altura:</span> " + data.altura + " " +  data.tipo_altura +"</h4>");
-                    $('#detalleUsuarioModal #detalleCurriculum').attr('href', data.url_curriculum);
-                    $('#detalleUsuarioModal #detallePeso').parent().removeAttr('hidden', '');
-                    $('#detalleUsuarioModal #detalleEdominante').parent().removeAttr('hidden', '');
-                    $('#detalleUsuarioModal #detalleAltura').parent().removeAttr('hidden', '');
+                    detallePeso.html(detallePeso.html() + "<span style='color: white;'>" + data.peso + " " + data.tipo_peso + "</span>");
+                    detalleEdominante.html(detalleEdominante.html() + "<span style='color: white;'>" + data.extremidad + "</span>");
+                    detalleAltura.html(detalleAltura.html() + "<span style='color: white;'>" + data.altura + " " +  data.tipo_altura + "</span>");
+                    detallePosicion.html(detallePosicion.html() + "<span style='color: white;'>" + data.posiciones + "</span>");
+                    detallePeso.parent().removeAttr('hidden');
+                    detalleEdominante.parent().removeAttr('hidden');
+                    detalleAltura.parent().removeAttr('hidden');
+                    detallePosicion.parent().removeAttr('hidden');
+                    detalleCurriculum.attr('href', data.url_curriculum);
                     if (data.url_curriculum == ''){
-                        $('#detalleUsuarioModal #detalleCurriculum').addClass("disabled");
+                        detalleCurriculum.addClass("disabled");
                     }else{
-                        $('#detalleUsuarioModal #detalleCurriculum').removeClass("disabled");
+                        detalleCurriculum.removeClass("disabled");
                     }
-                    $('#detalleUsuarioModal #detalleCurriculum').parent().removeAttr('hidden', '');
+                    detalleCurriculum.parent().removeAttr('hidden');
                 }else{
-                    $('#detalleUsuarioModal #detallePeso').parent().attr('hidden', '');
-                    $('#detalleUsuarioModal #detalleEdominante').parent().attr('hidden', '');
-                    $('#detalleUsuarioModal #detalleAltura').parent().attr('hidden', '');
-                    $('#detalleUsuarioModal #detalleCurriculum').parent().attr('hidden', '');
+                    detallePeso.parent().attr('hidden', '');
+                    detalleEdominante.parent().attr('hidden', '');
+                    detalleAltura.parent().attr('hidden', '');
+                    detalleCurriculum.parent().attr('hidden', '');
+                    detallePosicion.parent().attr('hidden', '');
                 }
 
-                //Insertar en la ficha la nacionalidad, la fecha de nacimiento y el género
+                //Insertar en la ficha la nacionalidad, la fecha de nacimiento, el género y interesado en
+                var detalleNacionalidad = $('#detalleUsuarioModal #detalleNacionalidad');
+                var detalleFNacimiento = $('#detalleUsuarioModal #detalleFNacimiento');
+                var detalleGenero = $('#detalleUsuarioModal #detalleGenero');
+                var detalleInteresadoEn = $('#detalleUsuarioModal #detalleInteresadoEn');
+                var tituloInteresado = $('#detalleUsuarioModal #tituloInteresado');
+                var tituloDescripcion = $('#detalleUsuarioModal #tituloDescripcion');
                 if(combo2.indexOf(data.rol) >= 0 || combo5.indexOf(data.rol) >= 0){
-                    $('#detalleUsuarioModal #detalleNacionalidad').parent().attr('hidden', '');
-                    $('#detalleUsuarioModal #detalleFNacimiento').parent().attr('hidden', '');
-                    $('#detalleUsuarioModal #detalleGenero').parent().attr('hidden', '');
+                    detalleNacionalidad.parent().attr('hidden', '');
+                    detalleFNacimiento.parent().attr('hidden', '');
+                    detalleGenero.parent().attr('hidden', '');
+                    detalleInteresadoEn.parent().parent().parent().removeAttr('hidden');
+                    detalleInteresadoEn.html(data.interesadoen);
+                    if(combo2.indexOf(data.rol) >= 0){
+                        tituloInteresado.removeAttr('hidden');
+                        tituloDescripcion.attr('hidden', '');
+                    }else{
+                        tituloDescripcion.removeAttr('hidden');
+                        tituloInteresado.attr('hidden', '');
+                    }
                 }else{
-                    $('#detalleUsuarioModal #detalleNacionalidad').html("<h4><span style='color: grey;'>Nacionalidad:</span> " + data.nacionalidad + "</h4>");
-                    $('#detalleUsuarioModal #detalleGenero').html("<h4><span style='color: grey;'>Género:</span> " + data.sexo + "</h4>");
-                    $('#detalleUsuarioModal #detalleFNacimiento').html("<h4><span style='color: grey;'>Fecha Nacimiento:</span> " + data.fnacimiento + "</h4>");
-                    $('#detalleUsuarioModal #detalleNacionalidad').parent().removeAttr('hidden');
-                    $('#detalleUsuarioModal #detalleGenero').parent().removeAttr('hidden');
-                    $('#detalleUsuarioModal #detalleFNacimiento').parent().removeAttr('hidden');
-                }
-
-                //Insertar en la ficha interesado en
-                if(combo2.indexOf(data.rol) >= 0 || combo5.indexOf(data.rol) >= 0){
-                    $('#detalleUsuarioModal #detalleInteresadoEn').parent().removeAttr('hidden');
-                    $('#detalleUsuarioModal #detalleInteresadoEn').html(data.interesadoen);
-                }else{
-                    $('#detalleUsuarioModal #detalleInteresadoEn').parent().attr('hidden');
+                    detalleNacionalidad.html(detalleNacionalidad.html() + "<span style='color: white;'>" + data.nacionalidad + "</span>");
+                    detalleGenero.html(detalleGenero.html() + "<span style='color: white;'>" + data.sexo + "</span>");
+                    detalleFNacimiento.html(detalleFNacimiento.html() + "<span style='color: white;'>" + data.fnacimiento + "</span>");
+                    detalleNacionalidad.parent().removeAttr('hidden');
+                    detalleGenero.parent().removeAttr('hidden');
+                    detalleFNacimiento.parent().removeAttr('hidden');
+                    detalleInteresadoEn.parent().parent().parent().attr('hidden', '');
                 }
 
                 //Insertar en la ficha la carta de presentación
@@ -241,6 +265,24 @@ var verDetalle = function(usuarioId){
                     $('#detalleUsuarioModal #detalleCPresentacion').removeClass("disabled");
                 }
                 $('#detalleUsuarioModal #detalleCPresentacion').attr('href', data.url_cpresentacion);
+
+                //Insertar en la ficha el equipo actual
+                var detalleEactual = $('#detalleUsuarioModal #detalleEactual');
+                if(combo1.indexOf(data.rol) >= 0 || combo3.indexOf(data.rol) >= 0){
+                    detalleEactual.html(detalleEactual.html() + "<span style='color: white;'>" + data.equipo_actual + "</span>");
+                    detalleEactual.parent().removeAttr('hidden', '');
+                }else{
+                    detalleEactual.parent().attr('hidden', '');
+                }
+
+                //Insertar en la ficha la página web
+                var detallePaginaWeb = $('#detalleUsuarioModal #detallePaginaWeb');
+                if(combo5.indexOf(data.rol) >= 0){
+                    detallePaginaWeb.html(detallePaginaWeb.html() + "<span style='color: white;'>" + data.pagina_web + "</span>");
+                    detallePaginaWeb.parent().removeAttr('hidden', '');
+                }else{
+                    detallePaginaWeb.parent().attr('hidden', '');
+                }
 
                 //Insertar en la ficha las redes sociales
                 $('#detalleUsuarioModal #detalleVideos').html(estableceVideosEnDetalle(data.url_videos));

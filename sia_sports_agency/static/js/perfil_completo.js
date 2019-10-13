@@ -68,7 +68,32 @@ $(document).ready(function(){
         $(".modal-email .asunto-nuevo").val("");
         $(".modal-email .cuerpo-nuevo").val('');
     });
+    /*Limpiar valores detalle*/
+    limpiarValoresDetalle();
 });
+
+/*Limpiar valores detalle*/
+var limpiarValoresDetalle = function(){
+    $('#detalleUsuarioModal').on('hidden.bs.modal', function (e) {
+      $('#detalleUsuarioModal #detalleRol span').text('');
+      $('#detalleUsuarioModal #detalleDeporte span').text('');
+      $('#detalleUsuarioModal #detalleEmail span').text('');
+      $('#detalleUsuarioModal #detalleGeneroDeporte span').text('');
+      $('#detalleUsuarioModal #detallePais span').text('');
+      $('#detalleUsuarioModal #detalleTelefono span').text('');
+      $('#detalleUsuarioModal #detalleUbicacion span').text('');
+      $('#detalleUsuarioModal #detallePeso span').text('');
+      $('#detalleUsuarioModal #detalleEdominante span').text('');
+      $('#detalleUsuarioModal #detalleAltura span').text('');
+      $('#detalleUsuarioModal #detalleNacionalidad span').text('');
+      $('#detalleUsuarioModal #detalleFNacimiento span').text('');
+      $('#detalleUsuarioModal #detalleGenero span').text('');
+      $('#detalleUsuarioModal #detalleInteresadoEn span').text('');
+      $('#detalleUsuarioModal #detalleEactual span').text('');
+      $('#detalleUsuarioModal #detallePaginaWeb span').text('');
+      $('#detalleUsuarioModal #detallePosicion span').text('');
+    })
+}
 
 /* Limpiar filtros de la búsqueda */
 var limpiarFiltros = function(){

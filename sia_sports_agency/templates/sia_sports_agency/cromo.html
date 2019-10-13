@@ -57,26 +57,34 @@
         ruta_tt = $("#form-redes-sociales .enlace-twitter").val();
         ruta_fb = $("#form-redes-sociales .enlace-facebook").val();
         var html = "";
-        if (ruta_ig != ''){
+        if (ruta_ig.trim() != ''){
             html = html +
             "<div class='icono-instagram col-10'>" +
                 "<img class='img-icono-instagram' src='{% static 'img/cromo/iconos_redes/icono_instagram.png' %}' />" +
             "</div>";
+        }else{
+            $("#form-redes-sociales .enlace-insta").val('')
         }
-        if (ruta_tt != ''){
+        if (ruta_tt.trim() != ''){
             html = html + "<div class='icono-twitter col-10'>" +
             "<img class='img-icono-twitter' src='{% static 'img/cromo/iconos_redes/icono_twitter.png' %}' />" +
             "</div>";
+        }else{
+            $("#form-redes-sociales .enlace-twitter").val('')
         }
-        if (ruta_fb != ''){
+        if (ruta_fb.trim() != ''){
             html = html + "<div class='icono-facebook col-10'>" +
             "<img class='img-icono-facebook' src='{% static 'img/cromo/iconos_redes/icono_facebook.png' %}' />" +
             "</div>";
+        }else{
+            $("#form-redes-sociales .enlace-facebook").val('')
         }
-        if (ruta_yt != ''){
+        if (ruta_yt.trim() != ''){
             html = html + "<div class='icono-youtube col-10'>" +
             "<img class='img-icono-youtube' src='{% static 'img/cromo/iconos_redes/icono_yt.png' %}' />" +
             "</div>";
+        }else{
+            $("#form-redes-sociales .enlace-youtube").val('')
         }
         $('.cromo .icono-redes').html(html);
     }

@@ -33,28 +33,49 @@
                                 </h4>
                             </div>
                             <div class="col-12">
-                                <span id="detalleGenero"></span>
-                            </div>
-                            <div class="col-12">
-                                <span id="detalleRol"></span>
-                            </div>
-                            <div class="col-12">
-                                <span id="detalleDeporte"></span>
-                            </div>
-                            <div class="col-12">
-                                <span id="detalleGeneroDeporte"></span>
-                            </div>
-                            <div class="col-12">
-                                <h4>
-                                    <span style="float:left; color: grey;">{% trans "Email:&nbsp;" %}</span>
-                                    <span style="float:left;" id="detalleEmail"></span>
+                                <h4 id="detalleRol" style='color: grey;'>
+                                    {% trans "Rol:" %}&nbsp;
                                 </h4>
                             </div>
                             <div class="col-12">
-                                <span id="detalleFNacimiento"></span>
+                                <h4 id="detalleGenero" style='color: grey;'>
+                                    {% trans "G&eacute;nero:" %}&nbsp;
+                                </h4>
                             </div>
                             <div class="col-12">
-                                <span id="detallePais"></span>
+                                <h4 id="detalleDeporte" style='color: grey;'>
+                                    {% trans "Deporte:" %}&nbsp;
+                                </h4>
+                            </div>
+                            <div class="col-12">
+                                <h4 id="detalleGeneroDeporte" style='color: grey;'>
+                                    {% trans "G&eacute;nero deporte:" %}&nbsp;
+                                </h4>
+                            </div>
+                            <div class="col-12">
+                                <h4 id="detallePosicion" style='color: grey;'>
+                                    {% trans "Posiciones:" %}&nbsp;
+                                </h4>
+                            </div>
+                            <div class="col-12">
+                                <h4 id="detalleEactual" style='color: grey;'>
+                                    {% trans "Equipo actual:" %}&nbsp;
+                                </h4>
+                            </div>
+                            <div class="col-12">
+                                <h4 id="detalleEmail" style='color: grey;'>
+                                    {% trans "Email:" %} &nbsp;
+                                </h4>
+                            </div>
+                            <div class="col-12">
+                                <h4 id="detalleFNacimiento" style='color: grey;'>
+                                    {% trans "Fecha nacimiento:" %}&nbsp;
+                                </h4>
+                            </div>
+                            <div class="col-12">
+                                <h4 id="detallePais" style='color: grey;'>
+                                    {% trans "Pa&iacute;s:" %}&nbsp;
+                                </h4>
                             </div>
                         </div>
                     </div>
@@ -65,42 +86,59 @@
                         <hr class="fila"/>
                     </div>
                     <div class="col-12 col-xl-6">
-                        <span id="detalleTelefono"></span>
+                        <h4 id="detalleTelefono" style='color: grey;'>
+                            {% trans "Tel&eacute;fono:" %}&nbsp;
+                        </h4>
                     </div>
                     <div class="col-12 col-xl-6">
-                        <span id="detalleUbicacion"></span>
+                        <h4 id="detalleUbicacion" style='color: grey;'>
+                            {% trans "Ubicaci&oacute;n:" %}&nbsp;
+                        </h4>
+                    </div>
+                    <div class="col-12">
+                        <h4 id="detallePaginaWeb" style='color: grey;'>
+                            {% trans "P&aacute;gina web:" %}&nbsp;
+                        </h4>
                     </div>
                     <div class="col-12 col-xl-6">
-                        <span id="detallePeso"></span>
+                        <h4 id="detalleEdominante" style='color: grey;'>
+                            {% trans "Extremidad dominante:" %}&nbsp;
+                        </h4>
                     </div>
                     <div class="col-12 col-xl-6">
-                        <span id="detalleEdominante"></span>
+                        <h4 id="detalleNacionalidad" style='color: grey;'>
+                            {% trans "Nacionalidad:" %}&nbsp;
+                        </h4>
                     </div>
                     <div class="col-12 col-xl-6">
-                        <span id="detalleNacionalidad"></span>
+                        <h4 id="detallePeso" style='color: grey;'>
+                            {% trans "Peso:" %}&nbsp;
+                        </h4>
                     </div>
                     <div class="col-12 col-xl-6">
-                        <span id="detalleAltura"></span>
+                        <h4 id="detalleAltura" style='color: grey;'>
+                            {% trans "Altura:" %}&nbsp;
+                        </h4>
                     </div>
-                    <div class="col-12 col-xl-6">
-                        <span id="detalleTipoAltura"></span>
+                </div>
+                <div class="row">
+                    <div class="col-6" style="text-align: center;">
+                        {% trans "Carta de presentación:" %}<a id="detalleCPresentacion" href="" download>&nbsp;&nbsp;<i class="fas fa-download"></i></a>
+                    </div>
+                    <div class="col-6" style="text-align: center;">
+                        {% trans "Curriculum:" %}<a id="detalleCurriculum" href="" download>&nbsp;&nbsp;<i class="fas fa-download" disabled></i></a>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <h2>{% trans "Interesado en" %}</h2>
+                        <h2 id="tituloInteresado">{% trans "Interesado en" %}</h2>
+                        <h2 id="tituloDescripcion">{% trans "Descripci&oacute;n" %}</h2>
                         <hr class="fila"/>
                     </div>
                     <div class="col-12">
                         <div style="border: 2px solid grey !important; padding: 10px; margin-bottom: 20px; word-wrap: break-word;">
                             <span id="detalleInteresadoEn"></span>
                         </div>
-                    </div>
-                    <div class="col-6" style="text-align: center;">
-                        {% trans "Carta de presentación:" %}<a id="detalleCPresentacion" href="" download>&nbsp;&nbsp;<i class="fas fa-download"></i></a>
-                    </div>
-                    <div class="col-6" style="text-align: center;">
-                        {% trans "Curriculum:" %}<a id="detalleCurriculum" href="" download>&nbsp;&nbsp;<i class="fas fa-download" disabled></i></a>
                     </div>
                 </div>
                 <div class="row">
