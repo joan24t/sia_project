@@ -99,6 +99,7 @@ var consultaCromos = function(busqueda){
     //Envio de de datos del formulario
     $('#form-busqueda').submit(function(e) {
         e.preventDefault();
+        $('div.mask').removeAttr('hidden');
         $.ajax({
             url: "/busqueda_cromo/",
             async: false,
@@ -129,6 +130,9 @@ var consultaCromos = function(busqueda){
                 $('.toast-error').toast('show');
             }
         });
+        setTimeout(function(){
+            $('div.mask').attr('hidden', '');
+        }, 3000);
     });
 }
 
