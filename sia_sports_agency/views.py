@@ -1307,6 +1307,14 @@ def detalle_usuario_dict(dict, usu_seleccionado):
             usu_seleccionado.deporte.nombre if
             usu_seleccionado.deporte else _('No especificado')
         ),
+        'deporte_codigo': (
+            usu_seleccionado.deporte.codigo if
+            usu_seleccionado.deporte else ''
+        ),
+        'deporte_especifico': (
+            usu_seleccionado.deporte_especifico if
+            usu_seleccionado.deporte_especifico else _('No especificado')
+        ),
         'posiciones': posicionesPorUsuario(usu_seleccionado)
             if posicionesPorUsuario(usu_seleccionado) else _('No especificado'),
         'email': usu_seleccionado.email,

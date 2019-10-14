@@ -168,7 +168,11 @@ var verDetalle = function(usuarioId){
                     detalleDeporte.parent().attr('hidden', '');
                 }else{
                     detalleDeporte.parent().removeAttr('hidden', '');
-                    detalleDeporte.html(detalleDeporte.html() + "<span style='color: white;'>" + data.deporte + "</span>");
+                    var valor = data.deporte;
+                    if(data.deporte_codigo == 'MD'){
+                        valor = data.deporte_especifico;
+                    }
+                    detalleDeporte.html(detalleDeporte.html() + "<span style='color: white;'>" + valor + "</span>");
                 }
 
                 //Insertar en la ficha el email
