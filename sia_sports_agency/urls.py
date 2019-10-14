@@ -70,4 +70,5 @@ urlpatterns = [
         name='Cambiar idioma'
     ),
     path('comprobar_correo/', views.comprobar_correo, name='Comprobar correo'),
+    path('email_contacto/', views.email_contacto, name='Email contacto')
 ]

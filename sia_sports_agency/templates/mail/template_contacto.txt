@@ -1,0 +1,9 @@
+<html>
+<p>
+    <b>Nombre: {{ nombre }}</b>
+</p>
+<p>
+    <b>Email: {{ correo }}</b>
+</p>
+<p>{{ cuerpo }}</p>
+<html>

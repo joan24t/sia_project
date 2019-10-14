@@ -227,6 +227,25 @@ def set_posiciones(usuario, deporte_id, diccionario):
 def eliminar_posiciones(usuario):
     usuario.posiciones.through.objects.all().delete()
 
+""" Enviar email desde el formulario de contacto """
+def email_contacto(request):
+    nombre = request.POST.get('nombre')
+    email = request.POST.get('email')
+    asunto = request.POST.get('subject')
+    cuerpo = request.POST.get('message')
+    enviar_email(
+        'template_contacto.html',
+        'template_contacto.txt',
+        asunto,
+        ['siasportsagency@gmail.com'],
+        {
+            'nombre': nombre,
+            'correo': email,
+            'cuerpo': cuerpo
+        }
+    )
+    return HttpResponseRedirect('/')
+
 """""""""""""""""""""""""""""""""""""""""""""
 PARTE PRIVADA
 """""""""""""""""""""""""""""""""""""""""""""
@@ -1402,25 +1421,35 @@ def cambiar_idioma(request):
     return HttpResponseRedirect('/')
 
 """ Envia un mail """
-def enviar_notificacion_mail():
+def enviar_email(template_html, template_txt, asunto, lista_correos, dict):
     path_templates = os.path.join(
         settings.TEMPLATES_ROOT,
         'mail'
     )
     msg_plain = render_to_string(
-        os.path.join(path_templates, 'template_mail.txt'),
-        {}
+        os.path.join(path_templates, template_txt),
+        dict
     )
     msg_html = render_to_string(
-        os.path.join(path_templates, 'template_mail.html'),
-        {}
+        os.path.join(path_templates, template_html),
+        dict
     )
     send_mail(
-        'Registro correcto',
+        asunto,
         msg_plain,
         'siasportsagency@gmail.com',
-        ['jchorda22@gmail.com'],
+        lista_correos,
         html_message=msg_html,
+    )
+
+""" Envia un mail desde el registro"""
+def enviar_notificacion_mail():
+    enviar_email(
+        'template_mail.html',
+        'template_mail.txt',
+        'Registro correcto',
+        ['jchorda22@gmail.com'],
+        {}
     )
     #'sergifutsal@hotmail.com', 'ipellicer1986@gmail.com', 'aaron_sj87@hotmail.com'
 

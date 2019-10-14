@@ -148,13 +148,14 @@
         <h2 class="text-center">{% trans "Contáctanos" %}</h2>
         <div class="errors">
         </div>
-        <form class="contact-form" method="POST">
+        <form class="contact-form" method="POST" action="email_contacto/">
+            {% csrf_token %}
             <div class="row">
                 <div class="col-2 col-xl-1">
                     <i class="fa fa-user fa-2x"></i>
                 </div>
                 <div class="col-10 col-xl-11">
-                    <input type="text" name="username" id="username" class="username form-control" placeholder="{% trans 'Nombre' %}" value="">
+                    <input type="text" name="nombre" id="nombre" class="username form-control" placeholder="{% trans 'Nombre' %}" value="">
                 </div>
             </div>
             <div class="row">
@@ -178,7 +179,7 @@
                     <i class="fa fa-comments message-icon fa-2x"></i>
                 </div>
                 <div class="col-10 col-xl-11">
-                    <textarea class=" message form-control" name="message" placeholder="{% trans 'Mensaje' %}"></textarea>
+                    <textarea class="message form-control" name="message" placeholder="{% trans 'Mensaje' %}"></textarea>
                 </div>
             </div>
             <div class="row justify-content-end" style="border: 1px">
