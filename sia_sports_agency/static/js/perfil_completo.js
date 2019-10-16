@@ -92,6 +92,10 @@ var limpiarValoresDetalle = function(){
       $('#detalleUsuarioModal #detalleEactual span').text('');
       $('#detalleUsuarioModal #detallePaginaWeb span').text('');
       $('#detalleUsuarioModal #detallePosicion span').text('');
+      $('#detalleUsuarioModal #detalleFacebook').attr('href', '');
+      $('#detalleUsuarioModal #detalleTwitter').attr('href', '');
+      $('#detalleUsuarioModal #detalleInstagram').attr('href', '');
+      $('#detalleUsuarioModal #detalleYouTube').attr('href', '');
     })
 }
 

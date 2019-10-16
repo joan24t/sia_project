@@ -175,7 +175,7 @@ var verDetalle = function(usuarioId){
 
                 //Insertar en la ficha el email
                 var detalleEmail = $('#detalleUsuarioModal #detalleEmail');
-                detalleEmail.html(detalleEmail.html() + "<span style='color: white;'>" +data.email</span> + "</span>");
+                detalleEmail.html(detalleEmail.html() + "<span style='color: white;'>" +data.email + "</span>");
 
                 //Insertar en la ficha el género del deporte
                 var detalleGeneroDeporte = $('#detalleUsuarioModal #detalleGeneroDeporte');
@@ -296,22 +296,22 @@ var verDetalle = function(usuarioId){
                 $('#detalleUsuarioModal #detalleInstagram').attr('href', data.red_IG);
                 $('#detalleUsuarioModal #detalleTwitter').attr('href', data.red_TT);
                 $('#detalleUsuarioModal #detalleYouTube').attr('href', data.red_YT);
-                if (data.red_FB == ''){
+                if ($('#detalleUsuarioModal #detalleFacebook').attr('href') == ''){
                     $('#detalleUsuarioModal #detalleFacebook').addClass("disabled");
                 }else{
                     $('#detalleUsuarioModal #detalleFacebook').removeClass("disabled");
                 }
-                if (data.red_IG == ''){
+                if ($('#detalleUsuarioModal #detalleInstagram').attr('href') == ''){
                     $('#detalleUsuarioModal #detalleInstagram').addClass("disabled");
                 }else{
                     $('#detalleUsuarioModal #detalleInstagram').removeClass("disabled");
                 }
-                if (data.red_TT == ''){
+                if ($('#detalleUsuarioModal #detalleTwitter').attr('href') == ''){
                     $('#detalleUsuarioModal #detalleTwitter').addClass("disabled");
                 }else{
                     $('#detalleUsuarioModal #detalleTwitter').removeClass("disabled");
                 }
-                if (data.red_YT == ''){
+                if ($('#detalleUsuarioModal #detalleYouTube').attr('href') == ''){
                     $('#detalleUsuarioModal #detalleYouTube').addClass("disabled");
                 }else{
                     $('#detalleUsuarioModal #detalleYouTube').removeClass("disabled");
