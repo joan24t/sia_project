@@ -417,98 +417,66 @@ msgid "Rol:"
 msgstr ""
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:42
-#, fuzzy
-#| msgid "G&eacute;nero"
 msgid "G&eacute;nero:"
 msgstr "Gender"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:47
-#, fuzzy
-#| msgid "Deporte"
 msgid "Deporte:"
 msgstr "Sport"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:52
-#, fuzzy
-#| msgid "G&eacute;nero"
 msgid "G&eacute;nero deporte:"
 msgstr "Gender"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:57
-#, fuzzy
-#| msgid "Posición"
 msgid "Posiciones:"
 msgstr "Position"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:62
-#, fuzzy
-#| msgid "Equipo actual"
 msgid "Equipo actual:"
 msgstr "Current team"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:67
-#, fuzzy
-#| msgid "Email"
 msgid "Email:"
 msgstr "Email"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:72
-#, fuzzy
-#| msgid "F. Nacimiento"
 msgid "Fecha nacimiento:"
 msgstr "Birthdate"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:77
-#, fuzzy
-#| msgid "Tus v&iacute;deos"
 msgid "Pa&iacute;s:"
-msgstr "Your videos"
+msgstr "Country"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:85
-#, fuzzy
-#| msgid "Tus datos específicos"
 msgid "Datos específicos"
 msgstr "Specific data"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:90
-#, fuzzy
-#| msgid "Tel&eacute;fono"
 msgid "Tel&eacute;fono:"
 msgstr "Phone"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:95
-#, fuzzy
-#| msgid "Ubicaci&oacute;n"
 msgid "Ubicaci&oacute;n:"
 msgstr "Location"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:100
-#, fuzzy
-#| msgid "P&aacute;gina web"
 msgid "P&aacute;gina web:"
 msgstr "Website"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:105
-#, fuzzy
-#| msgid "Extremidad dominante"
 msgid "Extremidad dominante:"
 msgstr "Dominant limb"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:110
-#, fuzzy
-#| msgid "Nacionalidad"
 msgid "Nacionalidad:"
 msgstr "Nacionality"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:115
-#, fuzzy
-#| msgid "Peso"
 msgid "Peso:"
 msgstr "Weight"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:120
-#, fuzzy
-#| msgid "Altura"
 msgid "Altura:"
 msgstr "Height"
 
@@ -612,8 +580,6 @@ msgstr "Name and surnames"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html:35
 #: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:98
-#, fuzzy
-#| msgid "Nombre de la marca"
 msgid "Nombre del club"
 msgstr "Name brand"
 
@@ -682,8 +648,6 @@ msgstr "What is your sport ?"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html:96
 #: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:143
-#, fuzzy
-#| msgid "Espec&iacute;fique cu&aacute;l"
 msgid "Especifique cu&aacute;l"
 msgstr "Specify the sport"
 

@@ -1337,7 +1337,6 @@ div.mask img{
 #detalleUsuarioModal{
 	 overflow-y: scroll;
 	 max-height: 100%;
-	 margin: 0px 10px 0px 10px;
 }
 
 @media(max-width:1199px){
@@ -1346,6 +1345,9 @@ div.mask img{
 	}
 	#detalleUsuarioModal h2{
 		 font-size: 6vw;
+	}
+	#detalleUsuarioModal .btn-nuevo-correo{
+		 font-size: 3vw;
 	}
 }
 
