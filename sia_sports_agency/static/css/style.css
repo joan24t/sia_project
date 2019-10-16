@@ -802,9 +802,8 @@ section{
 	max-height: 200px;
 }
 .video-gallery .video-add{
-	min-width: 200px;
-	min-height: 200px;
-	padding: 20% 0% 0% 42%;
+	text-align: center;
+	padding: 20% 0% 20% 0%;
 }
 .video-gallery .video-icon:hover{
 	box-shadow:  #000000;
