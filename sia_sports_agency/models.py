@@ -166,7 +166,8 @@ class Usuario(models.Model):
         default='n'
 
     )
-    telefono = models.IntegerField(
+    telefono = models.CharField(
+        max_length=20,
         null=True
     )
     eactual = models.CharField(
@@ -270,6 +271,10 @@ class Usuario(models.Model):
     pagina_web = models.CharField(
         max_length=100,
         default = ''
+    )
+    creado = models.DateField(
+        null=False,
+        default=datetime.now
     )
 
 """

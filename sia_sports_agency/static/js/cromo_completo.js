@@ -121,16 +121,18 @@ var consultaCromos = function(busqueda){
                         rangoFin = Math.min(ultimaPagina, limiteBotones);
                         dibujaBotones();
                     }
+                    $('div.mask').attr('hidden', '');
                 }else{
                     $('.toast-error .content').text('Error en la búsqueda de los cromos.');
                     $('.toast-error').toast('show');
+                    $('div.mask').attr('hidden', '');
                 }
             },error: function(data){
                 $('.toast-error .content').text('Error en la búsqueda de los cromos.');
                 $('.toast-error').toast('show');
+                $('div.mask').attr('hidden', '');
             }
         });
-        $('div.mask').attr('hidden', '');
     });
 }
 
