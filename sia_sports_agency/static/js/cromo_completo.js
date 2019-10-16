@@ -175,7 +175,7 @@ var verDetalle = function(usuarioId){
 
                 //Insertar en la ficha el email
                 var detalleEmail = $('#detalleUsuarioModal #detalleEmail');
-                detalleEmail.html(detalleEmail.html() + "<span style='color: white;'>" + data.email + "</span>");
+                detalleEmail.html(detalleEmail.html() + "<span style='color: white;'>" +data.email</span> + "</span>");
 
                 //Insertar en la ficha el género del deporte
                 var detalleGeneroDeporte = $('#detalleUsuarioModal #detalleGeneroDeporte');

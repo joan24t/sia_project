@@ -345,7 +345,7 @@ var nuevoCorreo = function(){
 
 var nuevoCorreoDesdeDetalle = function(){
     $("#detalleUsuarioModal .btn-nuevo-correo").on("click", function() {
-        var destinatario = $('#detalleUsuarioModal #detalleNombre').text() + " <"+ $('#detalleUsuarioModal #detalleEmail').text() + ">;"
+        var destinatario = $('#detalleUsuarioModal #detalleNombre').text() + " <"+ $('#detalleUsuarioModal #detalleEmail span').text() + ">;"
         $(".destinatarios-nuevo").attr('disabled', true);
         $('#nuevoEmailModalCenter').modal({
             backdrop: 'static',
