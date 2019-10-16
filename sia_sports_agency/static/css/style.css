@@ -189,7 +189,7 @@ section{
     border-bottom:5px solid #9A8056;
 	background-color: #202020 !important;
 }
-.navbar-nav > li{ padding-left:25px; padding-right:25p}
+.navbar-nav > li{ padding-left:25px; padding-right:25px;}
 .nav-link {
    font-family:  'Open Sans Condensed', sans-serif;
    background: linear-gradient(to right, #9A8056, #CFAB71, #9A8056);
@@ -1199,7 +1199,7 @@ margin-left: 4px;
 }
 .busqueda .titulo{
 	text-decoration: underline;
-	margin-left: 10px;
+	margin: 0px 0px 40px 10px;
 }
 .busqueda .form-control{
 	background-color: #46433F;
@@ -1296,6 +1296,18 @@ div.mask img{
 	margin-left: -50px;
 	width: 10vw;
 }
+@media(min-width:651px) and (max-width:1999px){
+	#form-busqueda h5{
+		 font-size: 21px;
+	}
+}
+
+@media(max-width:650px){
+	#form-busqueda h5{
+		 font-size: 4vw;
+	}
+}
+
 
 /*
 ****************************************************************************************************
@@ -1315,10 +1327,28 @@ div.mask img{
 #detalleUsuarioModal .modal-header{
 	word-break: break-all;
 }
+#detalleUsuarioModal #datosEspecificos,
+#detalleUsuarioModal #datosPdf,
+#detalleUsuarioModal #datosInteresadoEn,
+#detalleUsuarioModal #datosRedes,
+#detalleUsuarioModal #datosVideos{
+	margin-top: 40px;
+}
 #detalleUsuarioModal{
 	 overflow-y: scroll;
 	 max-height: 100%;
+	 margin: 0px 10px 0px 10px;
 }
+
+@media(max-width:1199px){
+	#detalleUsuarioModal h4{
+		 font-size: 4vw;
+	}
+	#detalleUsuarioModal h2{
+		 font-size: 6vw;
+	}
+}
+
 hr.fila{
 	color: white;
 	background-color: white;
