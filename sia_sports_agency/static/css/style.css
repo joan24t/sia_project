@@ -1282,12 +1282,12 @@ margin-left: 4px;
 }
 
 div.mask {
-    position:           absolute;
-    z-index:            1;
-    top:                0;
-    left:               0;
-    width:              100%;
-    height:             100%;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left:  0;
+    width: 100%;
+    height: 100%;
     background-color:   rgba(0,0,0,0.80);
 	text-align: center;
 }
@@ -1295,6 +1295,7 @@ div.mask {
 div.mask img{
 	margin-top: 400px;
 	margin-left: -50px;
+	width: 10vw;
 }
 
 /*
@@ -1310,6 +1311,14 @@ div.mask img{
 }
 #detalleUsuarioModal a.disabled{
     pointer-events: none;
+}
+#detalleUsuarioModal .modal-body,
+#detalleUsuarioModal .modal-header{
+	word-break: break-all;
+}
+#detalleUsuarioModal{
+	 overflow-y: scroll;
+	 max-height: 100%;
 }
 hr.fila{
 	color: white;

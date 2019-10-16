@@ -130,9 +130,7 @@ var consultaCromos = function(busqueda){
                 $('.toast-error').toast('show');
             }
         });
-        setTimeout(function(){
-            $('div.mask').attr('hidden', '');
-        }, 3000);
+        $('div.mask').attr('hidden', '');
     });
 }
 
