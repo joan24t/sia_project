@@ -1,7 +1,7 @@
 {% load static %}
 {% load i18n %}
 <div class="modal fade" id="detalleUsuarioModal" tabindex="-1" role="dialog" aria-labelledby="detalleUsuarioModalTitle" aria-hidden="true">
-    <div class="modal-dialog mw-100" role="document">
+    <div class="modal-dialog mw-100" role="document" style="padding-left: 17px !important;">
         <div class="modal-content modal-detalle">
             <div class="modal-header">
                 <h2 class="modal-title" id="detalleLongTitle">{% trans "Detalle de" %} <span id="detalleNombre"></span></h2>
@@ -12,7 +12,11 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-12 col-xl-4">
-                        <div class="seccion-cromo" style="text-align: center;">
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-sm-6 col-xl-12">
+                                <div class="seccion-cromo" style="text-align: center;">
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-12 col-xl-8">

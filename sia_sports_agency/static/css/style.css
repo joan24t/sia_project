@@ -549,7 +549,6 @@ section{
 	width: 60px;
 }
 .cromo .texto-cromo{
-	font-family: 'Good Times', arial;
 	text-transform: uppercase;
 	position: absolute;
 	margin-left: 1px;
@@ -557,15 +556,26 @@ section{
 	color: #89742E;
 	white-space: nowrap;
 }
+.cromo .texto-cromo p{
+	font-size: 20px;
+	font-weight: bold;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
 
 .cromo .tipo-cromo{
-	font-family: 'Good Times', arial;
 	position: absolute;
-	padding: 550px 0px 0px 102px;
+	padding: 543px 0px 0px 102px;
 	color: #89742E;
 	margin-left: 1px;
 	text-transform: uppercase;
 }
+
+.cromo .tipo-cromo span{
+	font-size: 20px;
+	font-weight: bold;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
 .cromo .bandera-cromo{
 	position: absolute;
 	padding: 470px 0px 0px 30px;
@@ -1344,7 +1354,7 @@ div.mask img{
 		 font-size: 4vw;
 	}
 	#detalleUsuarioModal h2{
-		 font-size: 6vw;
+		 font-size: 5vw;
 	}
 	#detalleUsuarioModal .btn-nuevo-correo{
 		 font-size: 3vw;
