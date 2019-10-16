@@ -149,6 +149,7 @@
                                         <h4>{% trans "G&eacute;nero" %}</h4>
                                     </label>
                                     <select class="form-control" id="generoInput" name="inputTipoDeporte">
+                                        <option value="a" {% if usuario.tipo_deporte == 'a' %} selected {% endif %}>{% trans "Ambos" %}</option>
                                         <option value="m" {% if usuario.tipo_deporte == 'm' %} selected {% endif %}>{% trans "Masculino" %}</option>
                                         <option value="f" {% if usuario.tipo_deporte == 'f' %} selected {% endif %}>{% trans "Femenino" %}</option>
                                     </select>
@@ -505,7 +506,7 @@
                             <i class="fas fa-paper-plane"></i> {% trans "Nuevo mensaje" %}
                         </a>
                     </div>
-                    <h4 class="panel-title pull-left">{% trans "Tus mensajes" %}s</h4>
+                    <h4 class="panel-title pull-left">{% trans "Tus mensajes" %}</h4>
                 </header>
                 <div class="panel-body">
                     <table class="table table-striped tabla-correos table-responsive">

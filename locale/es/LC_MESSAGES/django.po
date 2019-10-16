@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-12 13:34+0200\n"
+"POT-Creation-Date: 2019-10-16 18:40+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -58,36 +58,36 @@ msgstr "Siguiente"
 msgid "Anterior"
 msgstr "Anterior"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\base.html:148
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:149
 msgid "HOME"
 msgstr "HOME"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\base.html:151
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:152
 msgid "QU&Eacute; OFRECEMOS"
 msgstr "QU&Eacute; OFRECEMOS"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\base.html:154
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:155
 msgid "CONTACTO"
 msgstr "CONTACTO"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\base.html:159
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:160
 msgid "CUENTA"
 msgstr "CUENTA"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\base.html:162
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:163
 msgid "Perfil"
 msgstr "Perfil"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\base.html:163
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:164
 msgid "B&uacute;squeda"
 msgstr "B&uacute;squeda"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\base.html:164
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:165
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_settings.html:7
 msgid "Ajustes"
 msgstr "Ajustes"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\base.html:165
+#: .\sia_sports_agency\templates\sia_sports_agency\base.html:166
 msgid "Cerrar sesi&oacute;n"
 msgstr "Cerrar sesi&oacute;n"
 
@@ -106,7 +106,7 @@ msgid "Seleccione una opción"
 msgstr "Seleccione opci&oacute;n"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:28
-#: .\sia_sports_agency\templates\sia_sports_agency\index.html:157
+#: .\sia_sports_agency\templates\sia_sports_agency\index.html:158
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html:36
 #: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:99
 msgid "Nombre"
@@ -133,18 +133,19 @@ msgstr "G&eacute;nero"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:64
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html:105
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:152
 msgid "Ambos"
 msgstr "Ambos"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:65
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html:106
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:152
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:153
 msgid "Masculino"
 msgstr "Masculino"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:66
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html:107
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:153
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:154
 msgid "Femenino"
 msgstr "Femenino"
 
@@ -159,7 +160,7 @@ msgid "Rango edad"
 msgstr "Rango edad"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:107
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:275
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:276
 msgid "Equipo actual"
 msgstr "Equipo actual"
 
@@ -171,11 +172,11 @@ msgstr "Buscar"
 msgid "Limpiar"
 msgstr "Limpiar"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\cromo.html:151
+#: .\sia_sports_agency\templates\sia_sports_agency\cromo.html:159
 msgid "Cambiar imagen"
 msgstr "Cambiar imagen"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\cromo.html:152
+#: .\sia_sports_agency\templates\sia_sports_agency\cromo.html:160
 msgid "Descargar"
 msgstr "Descargar"
 
@@ -228,21 +229,21 @@ msgstr "Formulario de contacto"
 msgid "Contáctanos"
 msgstr "Contáctanos"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\index.html:165
+#: .\sia_sports_agency\templates\sia_sports_agency\index.html:166
 msgid "Email"
 msgstr "Email"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\index.html:173
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:472
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:515
+#: .\sia_sports_agency\templates\sia_sports_agency\index.html:174
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:473
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:516
 msgid "Asunto"
 msgstr "Asunto"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\index.html:181
+#: .\sia_sports_agency\templates\sia_sports_agency\index.html:182
 msgid "Mensaje"
 msgstr "Mensaje"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\index.html:186
+#: .\sia_sports_agency\templates\sia_sports_agency\index.html:187
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_email_nuevo.html:29
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_email_respuesta.html:29
 msgid "Enviar"
@@ -389,8 +390,8 @@ msgid "Archivo:"
 msgstr "Archivo:"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_upload_video.html:33
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:290
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:311
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:291
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:312
 msgid "Seleccionar Archivo"
 msgstr "Seleccionar Archivo"
 
@@ -414,32 +415,127 @@ msgstr "Enviar mensaje"
 msgid "Nombre:"
 msgstr "Nombre:"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:49
-msgid "Email:&nbsp;"
-msgstr "Email:&nbsp;"
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:37
+msgid "Rol:"
+msgstr ""
 
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:64
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:42
+#, fuzzy
+#| msgid "G&eacute;nero"
+msgid "G&eacute;nero:"
+msgstr "G&eacute;nero"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:47
+#, fuzzy
+#| msgid "Deporte"
+msgid "Deporte:"
+msgstr "Deporte"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:52
+#, fuzzy
+#| msgid "G&eacute;nero"
+msgid "G&eacute;nero deporte:"
+msgstr "G&eacute;nero"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:57
+#, fuzzy
+#| msgid "Posición"
+msgid "Posiciones:"
+msgstr "Posici&oacute;n"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:62
+#, fuzzy
+#| msgid "Equipo actual"
+msgid "Equipo actual:"
+msgstr "Equipo actual"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:67
+#, fuzzy
+#| msgid "Email"
+msgid "Email:"
+msgstr "Email"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:72
+#, fuzzy
+#| msgid "F. Nacimiento"
+msgid "Fecha nacimiento:"
+msgstr "Fecha de nacimiento"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:77
+#, fuzzy
+#| msgid "Tus v&iacute;deos"
+msgid "Pa&iacute;s:"
+msgstr "Tus v&iacute;deos"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:85
 msgid "Datos específicos"
 msgstr "Datos espec&iacute;ficos"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:91
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:323
-msgid "Interesado en"
-msgstr "Interesado en"
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:90
+#, fuzzy
+#| msgid "Tel&eacute;fono"
+msgid "Tel&eacute;fono:"
+msgstr "Tel&eacute;fono"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:95
+#, fuzzy
+#| msgid "Ubicaci&oacute;n"
+msgid "Ubicaci&oacute;n:"
+msgstr "Ubicaci&oacute;n"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:100
+#, fuzzy
+#| msgid "P&aacute;gina web"
+msgid "P&aacute;gina web:"
+msgstr "P&aacute;gina web"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:105
+#, fuzzy
+#| msgid "Extremidad dominante"
+msgid "Extremidad dominante:"
+msgstr "Extremidad dominante"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:110
+#, fuzzy
+#| msgid "Nacionalidad"
+msgid "Nacionalidad:"
+msgstr "Nacionalidad"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:115
+#, fuzzy
+#| msgid "Peso"
+msgid "Peso:"
+msgstr "Peso"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:120
+#, fuzzy
+#| msgid "Altura"
+msgid "Altura:"
+msgstr "Altura"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:126
 msgid "Carta de presentación:"
 msgstr "Carta de presentaci&oacute;n:"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:103
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:129
 msgid "Curriculum:"
 msgstr "Curriculum:"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:108
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:134
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:324
+msgid "Interesado en"
+msgstr "Interesado en"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:135
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:325
+msgid "Descripci&oacute;n"
+msgstr "Descripci&oacute;n"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:146
 msgid "Redes sociales"
 msgstr "Redes sociales"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:126
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:164
 msgid "Vídeos"
 msgstr "Vídeos"
 
@@ -582,7 +678,7 @@ msgstr "*El formato de la fecha debe ser dd/mm/yyyy"
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html:72
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html:129
 #: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:124
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:168
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:169
 msgid "Ninguno seleccionado"
 msgstr "Ninguno seleccionado"
 
@@ -679,124 +775,120 @@ msgstr "Tus datos básicos"
 msgid "Rol"
 msgstr "Rol"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:159
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:166
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:160
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:167
 msgid "Posici&oacute;n"
 msgstr "Posici&oacute;n"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:177
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:331
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:391
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:178
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:332
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:392
 msgid "Editar"
 msgstr "Editar"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:180
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:334
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:394
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:181
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:335
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:395
 msgid "Cancelar"
 msgstr "Cancelar"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:183
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:337
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:397
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:184
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:338
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:398
 msgid "Guardar"
 msgstr "Guardar"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:196
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:197
 msgid "Tus datos específicos"
 msgstr "Tus datos espec&iacute;ficos"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:204
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:205
 msgid "Tel&eacute;fono"
 msgstr "Tel&eacute;fono"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:210
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:211
 msgid "Ubicaci&oacute;n"
 msgstr "Ubicaci&oacute;n"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:216
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:217
 msgid "P&aacute;gina web"
 msgstr "P&aacute;gina web"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:224
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:225
 msgid "Peso"
 msgstr "Peso"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:241
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:242
 msgid "Altura"
 msgstr "Altura"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:250
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:251
 msgid "pulgadas"
 msgstr "pulgadas"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:259
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:260
 msgid "Extremidad dominante"
 msgstr "Extremidad dominante"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:269
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:270
 msgid "Nacionalidad"
 msgstr "Nacionalidad"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:281
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:288
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:282
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:289
 msgid "Carta de presentaci&oacute;n"
 msgstr "Carta de presentaci&oacute;n"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:324
-msgid "Descripci&oacute;n"
-msgstr "Descripci&oacute;n"
-
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:345
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:346
 msgid "Tus redes sociales"
 msgstr "Tus redes sociales"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:406
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:407
 msgid "Tus v&iacute;deos"
 msgstr "Tus v&iacute;deos"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:451
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:452
 msgid "Bandeja de entrada"
 msgstr "Bandeja de entrada"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:454
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:455
 msgid "Elementos enviados"
 msgstr "Elementos enviados"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:462
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:505
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:463
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:506
 msgid "Nuevo mensaje"
 msgstr "Nuevo mensaje"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:465
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:508
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:466
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:509
 msgid "Tus mensajes"
 msgstr "Tus mensajes"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:471
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:472
 msgid "Remitente"
 msgstr "Remitente"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:473
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:516
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:474
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:517
 msgid "Fecha"
 msgstr "Fecha"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:474
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:517
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:475
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:518
 msgid "Cuerpo"
 msgstr "Cuerpo"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:488
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:531
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:489
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:532
 msgid "Abrir"
 msgstr "Abrir"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:491
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:492
 msgid "Responder"
 msgstr "Responder"
 
-#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:514
+#: .\sia_sports_agency\templates\sia_sports_agency\perfil.html:515
 msgid "Destinatario"
 msgstr "Destinatario"
 
@@ -814,10 +906,12 @@ msgstr "Justo ahora"
 msgid "Notificación"
 msgstr "Notificaci&oacute;n"
 
-#: .\sia_sports_agency\views.py:1305 .\sia_sports_agency\views.py:1310
-#: .\sia_sports_agency\views.py:1321 .\sia_sports_agency\views.py:1325
-#: .\sia_sports_agency\views.py:1328 .\sia_sports_agency\views.py:1332
-#: .\sia_sports_agency\views.py:1335
+#: .\sia_sports_agency\views.py:1322 .\sia_sports_agency\views.py:1327
+#: .\sia_sports_agency\views.py:1335 .\sia_sports_agency\views.py:1338
+#: .\sia_sports_agency\views.py:1348 .\sia_sports_agency\views.py:1352
+#: .\sia_sports_agency\views.py:1355 .\sia_sports_agency\views.py:1359
+#: .\sia_sports_agency\views.py:1361 .\sia_sports_agency\views.py:1363
+#: .\sia_sports_agency\views.py:1366
 msgid "No especificado"
 msgstr "No especificado"
 
