@@ -7,7 +7,7 @@ $(document).ready(function(){
             4: "Strong ☻"
     }
 
-    var password = $('#form-registro #password1');
+    var password = $('#form-registro #password1, #form-cambio-contrasena #password1');
     var meter = $('#password-strength-meter');
     var text = $('#password-strength-text');
 
@@ -42,13 +42,13 @@ $(document).ready(function(){
 
 /* Valida que las dos contraseñas en el formulario del registro coincidan */
 var validarConcidenciaPasswords = function(){
-    var pass1 = $('#form-registro #password1').val();
-    var pass2 = $('#form-registro #password2').val();
+    var pass1 = $('#form-registro #password1, #form-cambio-contrasena #password1').val();
+    var pass2 = $('#form-registro #password2, #form-cambio-contrasena #password2').val();
     if (pass1 === pass2){
-        $('#form-registro div.campoConMatchNotif').attr('hidden', '');
+        $('div.campoConMatchNotif').attr('hidden', '');
         return true;
     }else{
-        $('#form-registro div.campoConMatchNotif').removeAttr('hidden');
+        $('div.campoConMatchNotif').removeAttr('hidden');
         return false;
     }
 
@@ -56,24 +56,24 @@ var validarConcidenciaPasswords = function(){
 
 /* Valida que la contraseña insertada cumpla unos mínimos de seguridad */
 var validarMinimosPassword = function(){
-    var pass1 = $('#form-registro #password1').val();
+    var pass1 = $('#form-registro #password1, #form-cambio-contrasena #password1').val();
     var valido = true;
-    if (pass1 != undefined || pass != null){
+    if (pass1 != undefined){
         if (pass1.length < 8) {
-            $('#form-registro div.campoLongitudNotif').removeAttr('hidden');
+            $('div.campoLongitudNotif').removeAttr('hidden');
             valido = false;
         }
         if (pass1.search(/\d/) == -1) {
-            $('#form-registro div.campoMinimoCarNotif').removeAttr('hidden');
+            $('div.campoMinimoCarNotif').removeAttr('hidden');
             valido = false;
         }
         if (pass1.search(/[a-zA-Z]/) == -1) {
-            $('#form-registro div.campoMinimoCarNotif').removeAttr('hidden');
+            $('div.campoMinimoCarNotif').removeAttr('hidden');
             valido = false;
         }
         var format = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
         if (format.test(pass1)) {
-            $('#form-registro div.campoCarNoPermNotif').removeAttr('hidden');
+            $('div.campoCarNoPermNotif').removeAttr('hidden');
             valido = false;
         }
     }else{
@@ -139,16 +139,21 @@ var validarCorreo = function(){
     return resultado;
 }
 
+//Oculta las notificaciones de validación de campos
+var ocultarValidaciones = function(){
+    $('div.campoLongitudNotif').attr('hidden', '');
+    $("div.campoObligatorioNotif").attr('hidden', '');
+    $("div.campoMinimoCarNotif").attr('hidden', '');
+    $("div.campoCarNoPermNotif").attr('hidden', '');
+    $("div.campoFormatoNotif").attr('hidden', '');
+    $("div.campoConMatchNotif").attr('hidden', '');
+}
+
 /* Se dispara cuando se intenta registrar un nuevo usuario */
 var submitRegistro = function(){
     $('#form-registro').submit(function () {
         mostrarElemento($('.loader-reg'));
-        $('#form-registro #campoLongitudNotif').attr('hidden', '');
-        $("div.campoObligatorioNotif").attr('hidden', '');
-        $("div.campoMinimoCarNotif").attr('hidden', '');
-        $("div.campoCarNoPermNotif").attr('hidden', '');
-        $("div.campoFormatoNotif").attr('hidden', '');
-
+        ocultarValidaciones();
         if (!validarCamposVacios()){
             ocultarElemento($('.loader-reg'));
             return false;

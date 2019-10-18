@@ -18,6 +18,24 @@
                         </label>
                         <input class="form-control" maxlength="50" type="password" id="password2">
                     </div>
+                    <div>
+                        <div class="campoLongitudNotif" hidden>
+                            <span> {% trans "*La contraseña debe tener un mínimo de 8 carácteres"%}</span>
+                        </div>
+                        <div class="campoMinimoCarNotif" hidden>
+                            <span> {% trans "*La contraseña debe contener al menos un letra y un número"%}</span>
+                        </div>
+                        <div class="campoCarNoPermNotif" hidden>
+                            <span> {% trans "*La contraseña no debe contener carácteres especiales ni espacios en blanco"%}</span>
+                        </div>
+                        <div class="campoConMatchNotif" hidden>
+                            <span> {% trans "*Las contraseñas no coinciden"%}</span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px; width: 100%;">
+                        <meter max="4" id="password-strength-meter"></meter>
+                        <div id="password-strength-text"></div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">{% trans "Cerrar" %}</button>

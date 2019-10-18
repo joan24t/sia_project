@@ -127,29 +127,41 @@ var mostrarNotificacionError = function(cuerpo) {
     $('.toast-error').toast('show');
 }
 
-/*Cambia la contraseña*/
+/*Formulario de la contraseña*/
 var cambiarContraseña = function(){
-    //Envio de de datos del formulario
     $('#form-cambio-contrasena').submit(function(e) {
         e.preventDefault();
-        $.ajax({
-            url: '/cambiar_contrasena/',
-            async: false,
-            type: 'POST',
-            dataType: 'json',
-            data: $(this).serialize(),
-            success: function(data) {
-                if(data.exito){
-                    mostrarNotificacionExito('La contraseña se ha modificado correctamente.');
-                    $('#cambioContraModalCenter').modal('toggle');
-                }else{
-                    mostrarNotificacionError('Error al intentar cambiar la contraseña. Intente de nuevo.');
-                }
-            },
-            error: function(data){
+        ocultarValidaciones();
+        if(!validarConcidenciaPasswords()){
+            return false;
+        }else if(!validarMinimosPassword()){
+            return false;
+        }
+        else{
+            enviarFormularioCambioContrasena();
+        }
+    });
+}
+
+/*Cambia la contraseña*/
+var enviarFormularioCambioContrasena = function(){
+    $.ajax({
+        url: '/cambiar_contrasena/',
+        async: false,
+        type: 'POST',
+        dataType: 'json',
+        data: $('#form-cambio-contrasena').serialize(),
+        success: function(data) {
+            if(data.exito){
+                mostrarNotificacionExito('La contraseña se ha modificado correctamente.');
+                $('#cambioContraModalCenter').modal('toggle');
+            }else{
                 mostrarNotificacionError('Error al intentar cambiar la contraseña. Intente de nuevo.');
             }
-        });
+        },
+        error: function(data){
+            mostrarNotificacionError('Error al intentar cambiar la contraseña. Intente de nuevo.');
+        }
     });
 }
 
@@ -198,28 +210,33 @@ var enviarImgCromo = function(){
     $('.cromo-img').attr('hidden', '');
     var form = $('#form-subida-img')[0];
     var data = new FormData(form);
-    $.ajax({
-        url: "/subir_img_cromo/",
-        enctype: 'multipart/form-data',
-        async: false,
-        data: data,
-        processData: false,
-        contentType: false,
-        cache: false,
-        type: 'POST',
-        success: function(data) {
-            $(".img-foto").attr("src", data.ruta_cromo);
-            cargarCromo('todo');
-            if(data.error){
+    if(/\.(jpe?g|png|gif)$/i.test($('#customFileImgCromo')[0].files[0].name) === false){
+        mostrarNotificacionError('No se pudo cargar la imagen');
+        $('.cromo-img').removeAttr('hidden');
+    }else{
+        $.ajax({
+            url: "/subir_img_cromo/",
+            enctype: 'multipart/form-data',
+            async: false,
+            data: data,
+            processData: false,
+            contentType: false,
+            cache: false,
+            type: 'POST',
+            success: function(data) {
+                $(".img-foto").attr("src", data.ruta_cromo);
+                cargarCromo('todo');
+                if(data.error){
+                    mostrarNotificacionError('No se pudo cargar la imagen');
+                    mostrarElemento($('.div-cromo'));
+                }
+            },
+            error: function(data){
                 mostrarNotificacionError('Error en la subida de la imagen. Intente de nuevo');
                 mostrarElemento($('.div-cromo'));
             }
-        },
-        error: function(data){
-            mostrarNotificacionError('Error en la subida de la imagen. Intente de nuevo');
-            mostrarElemento($('.div-cromo'));
-        }
-    });
+        });
+    }
 }
 var refrescarCromo = function(){
     ruta = $(".cromo-img").attr("src");
