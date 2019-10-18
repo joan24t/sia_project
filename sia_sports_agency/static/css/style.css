@@ -342,7 +342,9 @@ section{
 .campoCarNoPermNotif span,
 .campoConMatchNotif span,
 .campoFormatoNotif span,
-.campoCorreoExisteNotif span{
+.campoCorreoExisteNotif span,
+.campoObligarorioNotif span,
+.campoFormatoVideoNotif span{
 	color:  #eeac29;
 }
 

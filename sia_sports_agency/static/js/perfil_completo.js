@@ -48,8 +48,8 @@ $(document).ready(function(){
     triggerImgCromo();
     /*Dispara el form del login*/
     triggerLogin();
-    /*Form que anade el video*/
-    anadirVideo()
+    /*Dispara el form de subida de video*/
+    anadirVideo();
     /*Cambia la contraseña*/
     cambiarContraseña();
     /*Forzar acutalización cromo*/
@@ -590,35 +590,51 @@ var envioDatosBasicos = function(){
 }
 
 var anadirVideo = function(){
-    $('#form-subida-video').submit(function(){
-        var isOk = true;
-        var maxSize = 50;
-        var size = $('#form-subida-video #customFileVideo')[0].files[0].size / 1024 /1024;
-        isOk = maxSize > size;
-        if (!isOk){
-            mostrarNotificacionError('El archivo no puede superar los 50 MB.');
-        }else{
-            var form = $('#form-datos-especificos')[0];
-            var data = new FormData(form);
-            $.ajax({
-              url: $('#form-subida-video').attr('action'),
-              type: 'POST',
-              enctype: 'multipart/form-data',
-              async: false,
-              data : data,
-              success: function(data){
-                  if(data.exito){
-                      mostrarNotificacionExito('Vídeo subido correctamente.');
-                  }else{
-                      mostrarNotificacionError('Error al insertar el nuevo vídeo.');
-                  }
-              },
-              error: function(data){
-                  mostrarNotificacionError('Error al insertar el nuevo vídeo.');
-              }
-            });
+    $('#form-subida-video').submit(function(e) {
+        e.preventDefault();
+        var form = $('#form-subida-video')[0];
+        var data = new FormData(form);
+        $.ajax({
+            type: "POST",
+            enctype: 'multipart/form-data',
+            url: "/insertar_video/",
+            data: data,
+            processData: false,
+            contentType: false,
+            cache: false,
+            success: function(data) {
+                //Notificación guardado
+                if(data.exito){
+                    mostrarNotificacionExito('Los datos han sido modificados correctamente.');
+                    window.location.href = '/perfil';
+                }else{
+                    mostrarNotificacionError('Ha ocurrido un error en el proceso de guardado de los datos.');
+                }
+            },
+            error: function(data){
+                mostrarNotificacionError('Ha ocurrido un error en el proceso de guardado de los datos.');
+            }
+        });
+    });
+    /* Habilitamos el formulario de los datos específicos */
+    $(document).on("click", "#form-subida-video #submit-subida-video", function (e) {
+        e.preventDefault();
+        //Disparamos la función de submit
+        $('#form-subida-video div.campoObligarorioNotif').attr('hidden', '');
+        $('#form-subida-video div.campoFormatoVideoNotif').attr('hidden', '');
+        var validacionesCampos = validarCamposVideo();
+        var validacionesFormato = validarFormatoVideo();
+        if(validacionesCampos && validacionesFormato){
+            var isOk = true;
+            var maxSize = 50;
+            var size = $('#form-subida-video #customFileVideo')[0].files[0].size / 1024 /1024;
+            isOk = maxSize > size;
+            if (!isOk){
+                mostrarNotificacionError('El archivo no puede superar los 50 MB.');
+            }else{
+                $('#form-subida-video').trigger('submit');
+            }
         }
-        return false;
     });
 }
 
@@ -683,10 +699,12 @@ var envioDatosEspecificos = function(){
     $(document).on("click", ".datosEspecificosForm .btn-guardar", function (e) {
         e.preventDefault();
         //Disparamos la función de submit
-        $('#form-datos-especificos').trigger('submit');
-        $('#emptyFileCarta').val('0');
-        $('#emptyCurriculum').val('0');
-        habilitarFormulario(e);
+        if(validarFormatoDocs()){
+            $('#form-datos-especificos').trigger('submit');
+            $('#emptyFileCarta').val('0');
+            $('#emptyCurriculum').val('0');
+            habilitarFormulario(e);
+        }
     });
     $(document).on("click", ".datosEspecificosForm .btn-cancelar", function (e) {
         e.preventDefault();

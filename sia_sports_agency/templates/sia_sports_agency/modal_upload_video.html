@@ -11,7 +11,7 @@
             </div>
             <div class="modal-body">
                 <div class="d-flex justify-content-center h-100">
-                    <form action="insertar_video/" method="POST" enctype="multipart/form-data" id="form-subida-video">
+                    <form id="form-subida-video">
                         {% csrf_token %}
                         <div class="row">
                             <div class="col-12">
@@ -33,8 +33,14 @@
                                     <label class="custom-file-label form-control" for="customFileVideo">{% trans "Seleccionar Archivo" %}</label>
                                 </div>
                             </div>
+                            <div class="col-12 campoObligarorioNotif" hidden>
+                                <span> {% trans "*Todos los campos son obligatorios"%}</span>
+                            </div>
+                            <div class="col-12 campoFormatoVideoNotif" hidden>
+                                <span> {% trans "*El formato del v&iacute;deo debe ser mp4"%}</span>
+                            </div>
                         </div>
-                        <button type="submit" class="btn btn-outline-light form-upload-btn rounded float-right">{% trans "Subir" %}</button>
+                        <button type="submit" id="submit-subida-video"class="btn btn-outline-light form-upload-btn rounded float-right">{% trans "Subir" %}</button>
                     </form>
                 </div>
             </div>

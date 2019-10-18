@@ -54,6 +54,22 @@ var validarConcidenciaPasswords = function(){
 
 }
 
+//Validamos que los documentos sean solo de tipo pdf
+var validarFormatoDocs = function(){
+    var curriculum = $('#customFileCurriculum')[0].files;
+    var cpresentacion = $('#customFileCarta')[0].files;
+    var res = true;
+    if(curriculum.length > 0 && /\.(pdf)$/i.test(curriculum[0].name) === false){
+        mostrarNotificacionError('El curriculum debe ser en formato pdf');
+        res = false;
+    }
+    if(cpresentacion.length > 0 && /\.(pdf)$/i.test(cpresentacion[0].name) === false){
+        mostrarNotificacionError('La carta de presentación debe ser en formato pdf');
+        res = false;
+    }
+    return res;
+}
+
 /* Valida que la contraseña insertada cumpla unos mínimos de seguridad */
 var validarMinimosPassword = function(){
     var pass1 = $('#form-registro #password1, #form-cambio-contrasena #password1').val();
@@ -173,4 +189,24 @@ var submitRegistro = function(){
         ocultarElemento($('.loader-reg'));
         return true;
     });
+}
+
+var validarCamposVideo = function(){
+    var res = true;
+    var nombre_video = $('#form-subida-video #inputNombre').val();
+    var video = $('#customFileVideo')[0].files;
+    if(video.length <= 0 || nombre_video === ''){
+        $('#form-subida-video div.campoObligarorioNotif').removeAttr('hidden');
+        res = false;
+    }
+    return res;
+}
+var validarFormatoVideo = function(){
+    var res = true;
+    var video = $('#customFileVideo')[0].files;
+    if(video.length > 0 && /\.(mp4)$/i.test(video[0].name) === false){
+        $('#form-subida-video div.campoFormatoVideoNotif').removeAttr('hidden');
+        res = false;
+    }
+    return res;
 }
