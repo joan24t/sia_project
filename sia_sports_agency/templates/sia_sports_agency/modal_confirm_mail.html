@@ -1,0 +1,18 @@
+<!-- Modal Confirm-->
+{% load i18n %}
+<div class="modal fade" id="confirmMailModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{% trans "Confirmaci&oacute;n" %}</h5>
+            </div>
+            <div class="modal-body">
+                {% trans "¿Est&aacute; seguro de que quiere eliminar este mensaje?" %}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">{% trans "Cerrar" %}</button>
+                <button type="button" class="btn btn-primary">{% trans "Eliminar" %}</button>
+            </div>
+        </div>
+    </div>
+</div>

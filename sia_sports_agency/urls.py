@@ -32,6 +32,7 @@ urlpatterns = [
     url(r'login/$', views.login, name='Login'),
     url(r'insertar_video/$', views.insertar_video, name='Insertar video'),
     url(r'eliminar_video/$', views.eliminar_video, name='Eliminar video'),
+    path('eliminar_mensaje/<slug:id>/', views.eliminar_mensaje, name='Eliminar mensaje'),
     path('get_mensaje/<slug:id>/', views.get_mensaje, name='Datos mensaje'),
     path('get_correos/', views.get_correos, name='Listado correos usuarios'),
     path(

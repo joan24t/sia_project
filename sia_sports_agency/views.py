@@ -936,6 +936,22 @@ def eliminar_video(request):
     else:
         return HttpResponseRedirect('/')
 
+""" Elimina mensaje en el perfil """
+def eliminar_mensaje(request, id):
+    usuario = get_usuario(request).get('usuario')
+    dict = {'exito': False}
+    try:
+        mensaje = Mensaje.objects.get(id=id)
+        if usuario and mensaje:
+            mensaje.delete()
+            dict['exito'] = True
+    except Exception as e:
+        logger.error("Error al eliminar el mensaje: {}".format(e))
+    return HttpResponse(
+        json.dumps(dict), content_type='application/json'
+    )
+
+
 """ Conseguir datos del mensaje """
 def get_mensaje(request, id):
     usuario = get_usuario(request).get('usuario')

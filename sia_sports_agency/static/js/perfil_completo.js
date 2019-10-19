@@ -2,6 +2,10 @@
 $(document).ready(function(){
     /* Variables que indica la id del video seleccionado */
     var idVideoSeleccionado;
+
+    /* Variables que indica la id del mensaje seleccionado */
+    var idMensajeSeleccionado;
+
     /* Oculatmos la img del cromo */
     ocultarElemento($('.div-cromo'));
 
@@ -17,13 +21,16 @@ $(document).ready(function(){
 
     /* FUNCIONES PARA LAS REDES SOCIALES DEL PERFIL*/
     envioRedesSociales();
-
     /* Funcion que oculta el botón de añadir video si ya hay 4 */
     ocultaAddVideo();
     /* Funcion que muestra la confirmacion de eliminacion de los videos */
-    mostrarConfirmacion();
-    enviarFormularioEliminacion();
-
+    mostrarConfirmacionVideo();
+    /*Lanza el formulario de eliminación de video*/
+    enviarFormularioEliminacionVideo();
+    /* Funcion que muestra la confirmacion de eliminacion de los mensajes */
+    mostrarConfirmacionMensaje();
+    /*Lanza el formulario de eliminación de mensaje*/
+    enviarFormularioEliminacionMensaje();
     /* Petición datos mensaje para la ventana de detalle*/
     peticionDatosMensaje();
     /* Petición datos mensaje para la ventana de detalle*/
@@ -501,7 +508,8 @@ var peticionDatosMensaje = function(){
         verCorreo(id);
     });
 };
-var mostrarConfirmacion = function(){
+
+var mostrarConfirmacionVideo = function(){
     $('.video-gallery .option-delete').on('click', function(e) {
         idVideoSeleccionado = $(this).attr('id');
         $('#confirmModalCenter').modal({
@@ -511,11 +519,39 @@ var mostrarConfirmacion = function(){
     });
 };
 
-var enviarFormularioEliminacion = function(){
+var enviarFormularioEliminacionVideo = function(){
     $('#confirmModalCenter .btn-primary').on('click', function(e) {
         var videoAEliminar = '.form-eliminar-video-' + String(idVideoSeleccionado)
         var form = $(videoAEliminar);
         form.trigger('submit');
+    });
+};
+
+var mostrarConfirmacionMensaje = function(){
+    $('.bandeja-entrada-section .mail-eliminar').on('click', function(e) {
+        idMensajeSeleccionado = $(this).attr('id');
+        $('#confirmMailModal').modal({
+            backdrop: 'static',
+            keyboard: false
+        });
+    });
+};
+
+var enviarFormularioEliminacionMensaje = function(){
+    $('#confirmMailModal .btn-primary').on('click', function(e) {
+        $.ajax({
+            url: "/eliminar_mensaje/" + String(idMensajeSeleccionado),
+            async: false,
+            success: function(data) {
+                if(!data.exito){
+                    mostrarNotificacionError('Error en la eliminación del mensaje');
+                }else{
+                    location.reload(true);
+                }
+            },error: function(data){
+                mostrarNotificacionError('Error en la eliminación del mensaje');
+            }
+        });
     });
 };
 

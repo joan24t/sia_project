@@ -11,10 +11,10 @@
         <div class="row form-group justify-content-center" style="margin: auto;">
             <div class="col-12 col-xl-5">
                 <div class="row">
-                    <div class="col-5 col-xl-4">
+                    <div class="col-4">
                         <h5>{% trans "Qu&eacute; buscas" %}</h5>
                     </div>
-                    <div class="col-7 col-xl-8">
+                    <div class="col-8">
                         <select class="form-control busqueda-tipo" name="busquedaTipoUsuario">
                                 <option value="">{% trans "Seleccione una opción" %}</option>
                             {% for tipo in tipo_jugadores %}
@@ -24,18 +24,18 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-5 col-xl-4">
+                    <div class="col-4">
                         <h5>{% trans "Nombre" %}</h5>
                     </div>
-                    <div class="col-7 col-xl-8">
+                    <div class="col-8">
                         <input class="form-control busqueda-nombre" type="text" name="busquedaNombre">
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-5 col-xl-4">
+                    <div class="col-4">
                         <h5>{% trans "Deporte" %}</h5>
                     </div>
-                    <div class="col-7 col-xl-8">
+                    <div class="col-8">
                         <select class="form-control busqueda-deporte" name="busquedaDeporte">
                             <option value="">{% trans "Seleccione una opción" %}</option>
                             {% for deporte in deportes %}
@@ -45,10 +45,10 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-5 col-xl-4">
+                    <div class="col-4">
                         <h5>{% trans "Posición" %}</h5>
                     </div>
-                    <div class="col-7 col-xl-8">
+                    <div class="col-8">
                         <select class="form-control selectpicker busqueda-posicion" title="{% trans 'Seleccione una opci&oacute;n' %}" name="busquedaPosicionMulti" id="posicionDropdownMultiple" multiple data-live-search="true" hidden>
                         </select>
                     </div>
@@ -56,10 +56,10 @@
             </div>
             <div class="col-12 col-xl-5">
                 <div class="row">
-                    <div class="col-5 col-xl-4">
+                    <div class="col-4">
                         <h5>{% trans "Género" %}</h5>
                     </div>
-                    <div class="col-7 col-xl-8">
+                    <div class="col-8">
                         <select class="form-control busqueda-genero" name="busquedaGenero">
                             <option value="a">{% trans "Ambos" %}</option>
                             <option value="m">{% trans "Masculino" %}</option>
@@ -68,10 +68,10 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-5 col-xl-4">
+                    <div class="col-4">
                         <h5>{% trans "País" %}</h5>
                     </div>
-                    <div class="col-7 col-xl-8">
+                    <div class="col-8">
                         <select class="form-control selectpicker busqueda-pais" title="{% trans 'Seleccione una opci&oacute;n' %}" name="busquedaPais" data-live-search="true" hidden>
                             <option value="">{% trans "Seleccione una opción" %}</option>
                             {% for pais in paises %}
@@ -81,20 +81,20 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-5 col-xl-4">
+                    <div class="col-4">
                         <h5>{% trans "Rango edad" %}</h5>
                     </div>
-                    <div class="col-3">
+                    <div class="col-4 col-sm-3">
                         <select class="form-control busqueda-edad-ini" name="busquedaEdadIni">
                             {% for r in rango_edad %}
                                 <option value="{{r}}">{{r}}</option>
                             {% endfor %}
                         </select>
                     </div>
-                    <div class="col-1 col-xl-2" style="text-align: center;">
+                    <div class="col-sm-2 d-none d-sm-block" style="text-align: center;">
                     -
                     </div>
-                    <div class="col-3">
+                    <div class="col-4 col-sm-3">
                         <select class="form-control busqueda-edad-fin" name="busquedaEdadFin">
                             {% for r in rango_edad %}
                                 <option value="{{r}}" {% if r == 99 %} selected {% endif %}>{{r}}</option>
@@ -103,10 +103,10 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-5 col-xl-4">
+                    <div class="col-4">
                         <h5>{% trans "Equipo actual" %}</h5>
                     </div>
-                    <div class="col-7 col-xl-8">
+                    <div class="col-8">
                         <input class="form-control busqueda-eactual" type="text" name="busquedaEActual">
                     </div>
                 </div>

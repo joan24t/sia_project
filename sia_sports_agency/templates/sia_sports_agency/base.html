@@ -74,8 +74,8 @@
                         "oPaginate": {
                             "sFirst": "{% trans 'Primero' %}",
                             "sLast": "{% trans 'Último' %}",
-                            "sNext": "{% trans 'Siguiente' %}",
-                            "sPrevious": "{% trans 'Anterior' %}"
+                            "sNext": ">>",
+                            "sPrevious": "<<"
                         },
                     }
                 });
@@ -121,7 +121,8 @@
         {% include "sia_sports_agency/modal_cambio_contrasena.html" %}
         {% include "sia_sports_agency/toasts.html" %}
         {% include "sia_sports_agency/modal_upload_video.html" %}
-        {% include "sia_sports_agency/modal_confirm.html" %}
+        {% include "sia_sports_agency/modal_confirm_video.html" %}
+        {% include "sia_sports_agency/modal_confirm_mail.html" %}
         {% include "sia_sports_agency/modal_email_respuesta.html" %}
         {% include "sia_sports_agency/modal_email_nuevo.html" %}
         {% include "sia_sports_agency/modal_desactivar_cuenta.html" %}
