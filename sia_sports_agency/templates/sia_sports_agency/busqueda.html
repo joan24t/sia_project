@@ -39,7 +39,7 @@
                         <select class="form-control busqueda-deporte" name="busquedaDeporte">
                             <option value="">{% trans "Seleccione una opción" %}</option>
                             {% for deporte in deportes %}
-                            <option value="{{deporte.codigo|default:''}}" >{{deporte.nombre}}</option>
+                            <option value="{{deporte.codigo|default:''}}" >{% trans deporte.nombre %}</option>
                             {% endfor %}
                         </select>
                     </div>
