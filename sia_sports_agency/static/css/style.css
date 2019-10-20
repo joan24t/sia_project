@@ -102,6 +102,64 @@ section{
 	font-size: 35px;
 	font-family: Metropolis, Inter, X-LocaleSpecific, sans-serif;
 }
+
+.labelCheckbox {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.labelCheckbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #616161;
+}
+.labelCheckbox:hover input ~ .checkmark {
+  background-color: #616161;
+}
+.labelCheckbox input:checked ~ .checkmark {
+  background-color: #616161;
+}
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  transform: scale(1.2);
+}
+.labelCheckbox input:checked ~ .checkmark:after {
+  display: block;
+}
+.labelCheckbox .checkmark:after {
+  left: 9px;
+  top: 3px;
+  width: 8px;
+  height: 15px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+
+
+
 /*
 ****************************************************************************************************
     PRINCIPAL-QUIENES
@@ -1441,23 +1499,15 @@ hr.fila{
 	border-top: 2px solid  black;
 	margin: 6px 0px 0px 6px;
 }
-.loader-cromo {
-  width: 120px;
-  height: 120px;
-  border: 16px solid  white;
-  border-radius: 50%;
-  border-top: 16px solid  #b56b0d
-}
 .content-loader{
-	width: 100%;
 	position: absolute;
-    left: 50px;
-    top: 200px;
-    padding: 250px 0px 0px 35%;
+	width: 100%;
+	top: 300px;
+	text-align: center;
 }
 
 .texto-loader{
-	margin: 20px 0px 0px -40px;
+	margin: 10px 0px 0px 0px;
 }
 
 /* Safari */

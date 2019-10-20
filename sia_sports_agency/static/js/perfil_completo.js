@@ -313,14 +313,15 @@ var cargarCromo = function(datos) {
             establecerDatosCromo();
         }
         var getCanvas;
-        html2canvas(element, {
-            width: 385,
-            height: 575,
-            onrendered: function (canvas) {
-                getCanvas = canvas;
-                enviarCanvas(getCanvas);
-            }
-        });
+        setTimeout( function(){
+            html2canvas(element, {
+                width: 385,
+                height: 575,
+                onrendered: function (canvas) {
+                    getCanvas = canvas;
+                    enviarCanvas(getCanvas);
+                }
+        })}, 5000);
     }
 }
 var mostrarElemento = function(elemento){

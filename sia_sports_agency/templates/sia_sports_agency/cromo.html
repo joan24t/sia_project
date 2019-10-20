@@ -145,10 +145,10 @@
         <img class="img-bandera" src="{{baseLogoPais}}{{usuario.pais.codigo|lower}}.png" />
     </div>
 </div>
-<!--div class="content-loader">
+<div class="content-loader">
     <img width="100px" src="{% static 'img/loading-gif.gif' %}"/>
-    <h4 class="texto-loader"> Cargando cromo... </h4>
-</div-->
+    <h4 class="texto-loader"> Cargando... </h4>
+</div>
 <div class="div-cromo">
     <img class="cromo-img" src="{{ baseCromo }}{{ruta_cromo}}"/>
 </div>
@@ -161,6 +161,9 @@
         </div>
     </div>
     <!-- /#sidebar-wrapper -->
+</div>
+<div class="col-12" style="text-align: center; font-size: 20px;">
+    {{usuario.email}}
 </div>
 <form action="subir_img_cromo/" method="POST" enctype="multipart/form-data" id="form-subida-img">
     {% csrf_token %}
