@@ -183,10 +183,17 @@
                                         </div>
                                     </div>
                                     <div class="form-check">
-                                        <label class="labelCheckbox"> He leído y acepto la <a> Política de privacidad </a>
-                                            <input type="checkbox">
+                                        <label class="labelCheckbox"> {% trans "He le&iacute;do y acepto la <a target='_blank' href='/politica_privacidad'> Política de privacidad </a>" %}
+                                            <input type="checkbox" id="aceptacionPolitica" value="true" name="aceptacionPoliticaInput">
                                             <span class="checkmark"></span>
                                         </label>
+                                        <label class="labelCheckbox"> {% trans "Deseo suscribirme al bolet&iacute;n y recibir informaci&oacute;n comercial de siasportsagency.com" %}
+                                            <input type="checkbox" id="suscripcion" value="true" name="suscripcionInput">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <div class="campoPoliticaObl" hidden>
+                                            <span> {% trans "*Debe aceptar la pol&iacute;tica de privacidad" %}</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

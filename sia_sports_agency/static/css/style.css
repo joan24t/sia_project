@@ -403,7 +403,8 @@ section{
 .campoFormatoNotif span,
 .campoCorreoExisteNotif span,
 .campoObligarorioNotif span,
-.campoFormatoVideoNotif span{
+.campoFormatoVideoNotif span,
+.campoPoliticaObl span{
 	color:  #eeac29;
 }
 

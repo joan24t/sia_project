@@ -139,9 +139,11 @@ var cambiarContraseña = function(){
     $('#form-cambio-contrasena').submit(function(e) {
         e.preventDefault();
         ocultarValidaciones();
-        if(!validarConcidenciaPasswords()){
+        var pass1 = $('#form-cambio-contrasena #password1').val();
+        var pass2 = $('#form-cambio-contrasena #password2').val();
+        if(!validarConcidenciaPasswords(pass1, pass2)){
             return false;
-        }else if(!validarMinimosPassword()){
+        }else if(!validarMinimosPassword(pass1)){
             return false;
         }
         else{

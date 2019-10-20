@@ -1,4 +1,19 @@
 $(document).ready(function(){
+    var password_registro = $('#form-registro #password1');
+    var password_cambio = $('#form-cambio-contrasena #password1');
+    password_registro.keyup(function() {
+        establecerMeter(password_registro);
+    });
+    password_cambio.keyup(function() {
+        establecerMeter(password_cambio);
+    });
+})
+
+/* Establece los valores al meter */
+var establecerMeter = function(password){
+    var meter = $('#password-strength-meter');
+    var text = $('#password-strength-text');
+    var val = password.val().length;
     var strength = {
             0: "Worst ☹",
             1: "Bad ☹",
@@ -6,44 +21,34 @@ $(document).ready(function(){
             3: "Good ☺",
             4: "Strong ☻"
     }
+    var result = 0;
+    var nivel = "";
+    if (val > 8 && val < 10){
+        result = 1;
+    } else if (val >= 10 && val < 13){
+        result = 2;
+    } else if (val >= 13 && val < 15){
+        result = 3;
+    } else if (val >= 15){
+        result = 4;
+    }
 
-    var password = $('#form-registro #password1, #form-cambio-contrasena #password1');
-    var meter = $('#password-strength-meter');
-    var text = $('#password-strength-text');
-
-    password.keyup(function() {
-        var val = password.val().length;
-        var result = 0;
-        var nivel = "";
-        if (val > 8 && val < 10){
-            result = 1;
-        } else if (val >= 10 && val < 13){
-            result = 2;
-        } else if (val >= 13 && val < 15){
-            result = 3;
-        } else if (val >= 15){
-            result = 4;
-        }
-
-        // Actualiza el valor del meter
-        meter.val(result);
-        // Actualiza el indicador
-        if(val !== "") {
-            text.html("Strength: " +
-                "<strong>" +
-                strength[result] +
-                "</strong>");
-        }
-        else {
-            text.html("");
-        }
-    });
-})
+    // Actualiza el valor del meter
+    meter.val(result);
+    // Actualiza el indicador
+    if(val !== "") {
+        text.html("Strength: " +
+            "<strong>" +
+            strength[result] +
+            "</strong>");
+    }
+    else {
+        text.html("");
+    }
+}
 
 /* Valida que las dos contraseñas en el formulario del registro coincidan */
-var validarConcidenciaPasswords = function(){
-    var pass1 = $('#form-registro #password1, #form-cambio-contrasena #password1').val();
-    var pass2 = $('#form-registro #password2, #form-cambio-contrasena #password2').val();
+var validarConcidenciaPasswords = function(pass1, pass2){
     if (pass1 === pass2){
         $('div.campoConMatchNotif').attr('hidden', '');
         return true;
@@ -71,8 +76,7 @@ var validarFormatoDocs = function(){
 }
 
 /* Valida que la contraseña insertada cumpla unos mínimos de seguridad */
-var validarMinimosPassword = function(){
-    var pass1 = $('#form-registro #password1, #form-cambio-contrasena #password1').val();
+var validarMinimosPassword = function(pass1){
     var valido = true;
     if (pass1 != undefined){
         if (pass1.length < 8) {
@@ -127,6 +131,16 @@ var validarFormatoFecha = function(){
     return true;
 }
 
+var validarPolitica = function(){
+    var aceptada = $('#aceptacionPolitica').is(":checked");
+    var res = true;
+    if (!aceptada){
+        $("div.campoPoliticaObl").removeAttr('hidden');
+        res = false;
+    }
+    return res;
+}
+
 var validarCorreo = function(){
     var correo = $('#form-registro #FormControlInputEmail').val();
     var resultado = false;
@@ -163,6 +177,7 @@ var ocultarValidaciones = function(){
     $("div.campoCarNoPermNotif").attr('hidden', '');
     $("div.campoFormatoNotif").attr('hidden', '');
     $("div.campoConMatchNotif").attr('hidden', '');
+    $("div.campoPoliticaObl").attr('hidden', '');
 }
 
 /* Se dispara cuando se intenta registrar un nuevo usuario */
@@ -170,19 +185,24 @@ var submitRegistro = function(){
     $('#form-registro').submit(function () {
         mostrarElemento($('.loader-reg'));
         ocultarValidaciones();
+        var pass1 = $('#form-registro #password1').val();
+        var pass2 = $('#form-registro #password2').val();
         if (!validarCamposVacios()){
             ocultarElemento($('.loader-reg'));
             return false;
         } else if (!validarFormatoFecha()){
             ocultarElemento($('.loader-reg'));
             return false;
-        } else if(!validarConcidenciaPasswords()){
+        } else if(!validarConcidenciaPasswords(pass1, pass2)){
             ocultarElemento($('.loader-reg'));
             return false;
-        } else if (!validarMinimosPassword()){
+        } else if (!validarMinimosPassword(pass1)){
             ocultarElemento($('.loader-reg'));
             return false;
         } else if (!validarCorreo()){
+            ocultarElemento($('.loader-reg'));
+            return false;
+        }else if (!validarPolitica()){
             ocultarElemento($('.loader-reg'));
             return false;
         }
