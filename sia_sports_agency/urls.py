@@ -7,6 +7,17 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     path('', views.index, name='Index'),
     path('perfil/', views.perfil, name='Perfil'),
+    path('aviso_legal/', views.aviso_legal, name='Aviso legal'),
+    path(
+        'politica_privacidad/',
+        views.politica_privacidad,
+        name='Politica de cookies'
+    ),
+    path(
+        'ley_cookies/',
+        views.ley_cookies,
+        name='Ley de cookies'
+    ),
     path('busqueda/', views.busqueda, name='Busqueda'),
     path(
         'get_posiciones/<slug:cod>/',

@@ -1,0 +1,301 @@
+{% extends 'sia_sports_agency/base.html' %}
+{% block content %}
+{% load static %}
+{% load i18n %}
+<div class="container" style="overflow-x: hidden !important;">
+    <div class="row" style="margin: auto; font-size: 20px;">
+        <div class="col-12" style="padding: 50px 0px 50px 0px;">
+            <h3>1.-AVISO LEGAL</h3>
+            <br/>
+            <p>
+                De acuerdo con la Ley 34/2002 de Servicios de la Sociedad de la información y comercio electrónico,
+                las presentes disposiciones regulan el uso del servicio del dominio de internet (en adelante, la web)
+                www.siasportsagency.com cuyo propietario y responsable es Sergio Giménez Pastor, con NIF 53251286F,
+                domicilio social en C/Pintor Stolz 54, planta 7º puerta 709, 46018 Valencia  - España, y cuyo objeto social
+                es : Plataforma web creada como punto de encuentro entre usuarios vinculados al mundo del deporte, donde los
+                usuarios podrán comunicarse entre ellos y recibir o enviar ofertas relacionadas con su actividad deportiva,
+                consejos, intercambio opiniones,….(en adelante  www.siasportsagency.com)
+            </p>
+            <p>El acceso a la página web es gratuito salvo en lo relativo al coste de la conexión a través de la red
+                de telecomunicaciones suministrada por el proveedor de acceso contratado por los usuarios.
+            </p>
+            <p>
+                Para acceder al sitio web no es necesario ser mayor de edad, sin embargo para Registrarse como usuario es
+                necesario ser mayor de 16 años. El usuario reconoce que los datos suministrados en el registro como usuario son
+                veraces y ciertos.
+            </p>
+            <p>
+                (c) Queda prohibida la reproducción, duplicación, redistribución y/o comercialización, total o parcial,
+                de los contenidos del web site  www.siasportsagency.com ,  salvo con consentimiento previo por escrito de
+                www.siasportsagency.com.
+            </p>
+            <p>
+                La utilización de la web implica la aceptación de todas las condiciones incluidas en este Aviso Legal.
+                La prestación del servicio de la web tiene una duración limitada al momento en el que el Usuario se encuentre
+                conectado a la web o a alguno de los servicios que a través de la misma se facilitan. Por tanto, el Usuario debe
+                leer atentamente el presente Aviso Legal en cada una de las ocasiones en que se proponga utilizar el Web,
+                ya que éste y sus condiciones de uso recogidas en el presente Aviso Legal pueden sufrir modificaciones.
+            </p>
+            <p>
+                La mencionada pagina web es propiedad de  WWW.SIASPORTSAGENCY.COM,y ha sido elaborada para dar a conocer y
+                permitir el acceso a la información en ella contenida, con las restricciones y limitaciones que imponen las
+                presentes Condiciones Generales así como permitir y posibilitar el acceso a otras páginas con las que la web
+                de  WWW.SIASPORTSAGENCY.COM   tenga relaciones comerciales, profesionales o de cualquier otra índole.
+            </p>
+            <p>
+                La mera utilización del web, atribuye a quién haga uso de ella, la condición de Usuario (en adelante ·Usuario·). Si está disponible la opción de registrarse (formulario de datos personales y claves de acceso) se le atribuirá la condición de Usuario registrado y si está disponible la opción de suscribirse (suscripción de e-mail) se le atribuirá la condición de Usuario suscrito, quién en todos los casos declara conocer y aceptar sin reserva ni excepción alguna, todas y cada una de las Condiciones Generales que en este documento se exponen.
+            </p>
+            <p>
+                A través del web de  WWW.SIASPORTSAGENCY.COM se facilitará a todos los Usuarios, Usuarios Registrados y Usuarios
+                suscritos la posibilidad de acceder a los contenidos, servicios y demás información concerniente al objeto social
+                de la presente entidad, haciendo constar la posible existencia de determinados servicios y áreas solo disponibles
+                para Usuarios Registrados y/o para usuarios suscritos, en cuyo caso se advertirá de ello al Usuario. Las presentes
+                condiciones de uso constituyen íntegramente lo convenido entre las partes tanto en el acceso y uso como en lo
+                referente a posibles transacciones on line entre  WWW.SIASPORTSAGENCY.COM y sus clientes.
+            </p>
+            <p>
+                 WWW.SIASPORTSAGENCY.COM está facultada para modificar unilateralmente todas y cada una de las obligaciones
+                 dispuestas en las presentes Condiciones Generales de Uso, sin necesidad de previo aviso. Igualmente está
+                 capacitada para reestructurar, modificar o eliminar cualquier información, servicio o contenido incluido en
+                 el website, sin necesidad de previo aviso. La modificación de cualquiera de las presentes condiciones
+                 generales para un caso particular sólo tendrá validez cuando haya sido recogida por escrito y firmada
+                 por los representantes legales de cada parte.
+             </p>
+            <br/>
+            <h3>2.-DERECHOS Y OBLIGACIONES DEL USUARIO</h3><br/>
+            <h4>2.1.-CONDICIONES DE ACCESO Y USO</h4>
+            <p>
+                A través de la dirección emplazada en  www.siasportsagency.com.com , cualquier usuario podrá acceder
+                gratuitamente a la información contenida en el citado WEBSITE.
+            </p>
+            <p>
+                Las condiciones de acceso al web están supeditadas a las disposiciones legales vigentes en cada momento
+                así como a los principios de buena fe y uso licito por parte del Usuario, prohibiéndose expresa y taxativamente
+                cualquier tipo de actuación que pudiera ir en detrimento o perjuicio del Web o de terceros.
+            </p>
+            <p>
+                El web no exige la previa suscripción ni el registro para la simple navegación, o para el acceso o utilización
+                de algunos servicios del web. Por el contrario, es posible que para el acceso y uso de determinados contenidos
+                y servicios del web, se exija la previa suscripción o el correspondiente registro. Estos servicios o
+                contenidos que exijan registro o suscripción para su acceso o uso se acompañarán del aviso correspondiente
+                de necesidad de registro o suscripción.  En lo que al tratamiento de datos personales se refiera, véase
+                la Política de Privacidad de  WWW.SIASPORTSAGENCY.COM.
+            </p>
+            <br/>
+            <h5>2.1.1.-REGISTRO/SUSCRIPCIÓN DE USUARIO</h5>
+            <p>
+                De conformidad con lo dispuesto anteriormente,  WWW.SIASPORTSAGENCY.COM se reserva el permiso de
+                acceso a algunos de los Servicios o secciones ofrecidos a través del web, ahora o en un futuro,  pudiendo
+                exigir para su acceso la condición de Usuario registrado (obligatorio ser mayor de 16 años o disponer de
+                autorización de padres o tutor), condición que en dicho caso se podrá obtener mediante la cumplimentación del
+                correspondiente formulario de registro de Usuarios que  WWW.SIASPORTSAGENCY.COM pondrá a disposición de los
+                Usuarios que así lo deseen.
+            </p>
+            <p>
+                En caso de existir un Registro de Usuarios en la web, el Usuario se compromete a seleccionar, usar y
+                conservar su nombre de usuario o ·login· y su contraseña o ·password· (en adelante y de modo conjunto
+                las ·Claves de Acceso·) de conformidad con lo establecido en las cláusulas siguientes.
+            </p>
+            <p>
+                Igualmente,  WWW.SIASPORTSAGENCY.COM se reserva el permiso de acceso o uso de algunos de los Servicios del web,
+                ahora o en un futuro, pudiendo exigir para su acceso la condición de Usuario Suscrito, condición que en dicho
+                caso se podrá obtener mediante la inserción del e-mail del usuario en la correspondiente casilla de suscripción
+                de Usuarios que  WWW.SIASPORTSAGENCY.COM pondrá a disposición de los Usuarios que así lo deseen, o aceptando
+                por parte del usuario la clausula legal de aceptación a suscribirse.
+            </p>
+            <p>
+                Veracidad de los datos
+                Por la cumplimentación de estos formularios, casillas de suscripción  o herramientas similares, el USUARIO
+                reconoce que los datos suministrados son obtenidos directamente del usuario, veraces y ciertos, comprometiéndose
+                a notificar a  WWW.SIASPORTSAGENCY.COM, cualquier cambio o modificación que se produzca en los mismos.
+            </p>
+            <br/>
+            <h5>2.1.2.-ASIGNACIÓN DE LAS CLAVES DE ACCESO</h5>
+            <p>
+                La asignación de las Claves de Acceso se produce por elección del propio Usuario, siendo el único criterio
+                empleado al efecto, la inexistencia de un nombre de usuario previo que fuere idéntico al de otro Usuario.
+            </p>
+            <p>
+                La activación de las claves de acceso será automática o necesitará ser validada por  WWW.SIASPORTSAGENCY.COM,
+                dependiendo de las áreas de acceso o servicios a utilizar, en todo caso esto lo determinará
+                WWW.SIASPORTSAGENCY.COM y de todo ello se le informará al usuario.
+            </p>
+            <br/>
+            <h5>2.1.3.-USO Y CUSTODIA</h5>
+            <p>
+                El Usuario se compromete a hacer un uso licito y diligente de las Claves de Acceso, así como a no poner a
+                disposición de terceros sus Claves de Acceso.
+            </p>
+            <p>
+                El Usuario se compromete a comunicar fehacientemente al Webmaster de  WWW.SIASPORTSAGENCY.COM a la mayor brevedad,
+                la pérdida o robo de las Claves de Acceso así como cualquier riesgo de acceso a las mismas por un tercero.
+            </p>
+            <p>
+                Las Claves de Acceso solamente podrán ser utilizadas por los Usuarios a las que se les haya asignado.
+                WWW.SIASPORTSAGENCY.COM queda exonerada de cualquier tipo de responsabilidad que se pueda devengar por los
+                daños y perjuicios causados o sufridos por el uso fraudulento o falta de diligencia en la guarda y custodia de
+                las Claves de Acceso, perdida o uso contraviniendo lo dispuesto en estas Condiciones Generales.
+            </p>
+            <br/>
+            <h4>2.2.-CONTENIDO Y ACTUACIONES DEL USUARIO</h4>
+            <p>
+                El Usuario se compromete a hacer un uso licito, diligente, honrado y correcto de cuanta información o
+                contenido tenga acceso bien a través de la pagina web de  WWW.SIASPORTSAGENCY.COM o de terceros previamente
+                proporcionada por  WWW.SIASPORTSAGENCY.COM y todo ello bajo los principios de la buena fe y con respeto en
+                todo momento a la legalidad vigente.
+            </p>
+            <p>
+                El Usuario deberá abstenerse de obtener, salvo para uso personal, cuanta información (entiéndase por
+                información como cualquier mensaje, archivos de sonido, fotografías, dibujos, software y en general
+                cualquier clase o tipo de archivo informático, gráfico etc..) que sea propiedad del web.
+            </p>
+            <p>
+                Igualmente el Usuario adquiere el compromiso de no provocar ni maliciosa ni intencionadamente daños o
+                perjuicios que puedan menoscabar, alterar el propio web así como no introducir, ni difundir los denominados
+                ·virus informáticos· que puedan producir alteraciones no autorizadas de los contenidos o sistemas
+                integrantes del web. El compromiso adquirido se ha de regir sobre la utilización contenidos de conformidad
+                con lo dispuesto en la ley, moral y orden publico; no copiar, reproducir, distribuir, ceder, transformar o
+                modificar los contenidos sin previo consentimiento y por escrito de  WWW.SIASPORTSAGENCY.COM o persona por
+                este delegada.
+            </p>
+            <p>
+                A este respecto,  WWW.SIASPORTSAGENCY.COM se exonera de cualquier tipo de fallo o virus informático
+                introducido por terceros.
+            </p>
+            <p>
+                A cumplir todos los requisitos dispuestos en relación a los derechos de propiedad intelectual, industrial y
+                demás análogos.
+            </p>
+            <br/>
+            <h6>CONTENIDO DEL WEB</h6>
+            <p>
+                El web tiene como objetivo prioritario ofrecer al usuario un esapcio dentro de la Plataforma web para
+                publicar su perfil con sus datos personales, actividad que practica, subir videos, imágenes, proyectos,….y
+                comunicarse e intercambiar dicha información con otros usuarios de la Plataforma.
+            </p>
+            <p>
+                La información proporcionada EN LA WEB no deberá ser considerada en ningún momento ni completa ni exhaustiva.
+                WWW.SIASPORTSAGENCY.COM  por su parte tratará en la medida de sus posibilidades de actualizar constantemente esta
+                información.
+            </p>
+            <p>
+                WWW.SIASPORTSAGENCY.COM manifiesta que el servicio/producto ofrecido en la web se corresponde con la descripción
+                del mismo. No obstante queda exonerada de responsabilidad para aquellos supuestos en los que por errores técnicos
+                o humanos hubiese equivocaciones o variaciones entre las imágenes, la descripción y el precio.
+            </p>
+            <p>
+                WWW.SIASPORTSAGENCY.COM se exonera de los contenidos, información, opiniones o comentarios difundidos
+                por los usuarios registrados a través de su web, ni responderá del uso que el Usuario haga de esa información.
+            </p>
+            <br/>
+            <h3>3.-DERECHO Y OBLIGACIONES DE <h4> WWW.SIASPORTSAGENCY.COM</h4></h3>
+            <p>
+                WWW.SIASPORTSAGENCY.COM responderá única y exclusivamente de los servicios que preste por ella misma y de los
+                contenidos directamente originados por el propio web e identificado con su correspondiente copyright.
+            </p
+
+            <p>
+                WWW.SIASPORTSAGENCY.COM se compromete a la adopción de los medios y medidas necesarias que permitan garantizar
+                la seguridad y privacidad en la comunicaciones. No responderá cuando adoptadas las pertinentes medidas de
+                seguridad, estas fueren vulneradas por agentes externos.
+            </p>
+            <p>
+                WWW.SIASPORTSAGENCY.COM no será responsable ni siquiera de forma indirecta o subsidiaria, por ningún contenido,
+                información, opinión o manifestación de cualquier tipo, que tenga su origen en el Usuario o terceras personas
+                o entidades y que tengan acceso, transmitan, comuniquen, traten, exhiban o vendan dicha información al web
+                titularidad de  WWW.SIASPORTSAGENCY.COM.
+            </p>
+            <p>
+                WWW.SIASPORTSAGENCY.COM se reserva el derecho a suspender temporalmente la prestación del servicio sin previo
+                aviso al Usuario, siempre y cuando sea necesario para efectuar operaciones de mantenimiento, actualización o
+                mejora del servicio. Igualmente podrá modificar las condiciones de acceso y o concreta ubicación del contenido
+                integrante del web, así como impedir, restringir, bloquear, suprimir o retirar el acceso a los servicios a los
+                Usuarios cuando estos no hicieren un uso licito,   honrado y diligente de los servicios prestados en el website.
+                En la misma línea podrá retirar, bloquear o restringir el uso de los contenidos introducidos por terceras personas
+                que fueren ilícitos, racistas delictivos, de apología de terrorismo, violación de derechos humanos, difamatorios,
+                pornográficos, constitutivos de estafa o de cualquier otro modo que infrinjan las leyes o normativas aplicables
+                bien sean nacionales como internacionales.
+            </p>
+            <p>
+                WWW.SIASPORTSAGENCY.COM no asegura la disponibilidad y continuidad permanente del web debido a interrupciones,
+                fallos etc.. así como tampoco responderá de los daños y perjuicios que pueda causar a los Usuarios por los
+                virus informáticos o agentes externos que terceras personas puedan depositar en el website o en los documentos
+                electrónicos y ficheros almacenados en el sistema informático.
+            </p>
+            <p>
+                El Website pone a disposición de los Usuarios ciertas herramientas tales como fichas,  botones, banners,
+                links o enlaces que permitan al Usuario acceder a contenidos u otros sites relacionados con la actividad del
+                web u otros diferentes. La instalación de estas herramientas tienen como fin último proporcionar y facilitar
+                la navegación al Usuario, no siendo responsable parte  WWW.SIASPORTSAGENCY.COM de los websites a los que acceda
+                el Usuario a través de su pagina, en lo que al Derecho al    Honor pueda afectar y la información proporcionada.
+                Por su parte  WWW.SIASPORTSAGENCY.COM tratará en la medida de sus posibilidades de comprobar dichos hipervínculos,
+                restringiendo, bloqueando o suspendiendo dichos botones cuando atentaren contra el principio descrito en las
+                presentes Condiciones Generales.
+            </p>
+            <br/>
+            <h3>4.-PROPIEDAD INTELECTUAL</h3>
+            <p>
+                La totalidad de los contenidos a los que se acceda a través del servicio prestado por  WWW.SIASPORTSAGENCY.COM
+                están sujetos a los Derechos de Propiedad Intelectual e Industrial de  WWW.SIASPORTSAGENCY.COM o de terceros.
+                Dicho contenido no podrá ser usado, duplicado, distribuido, vendido, explotado o cualquier otra forma con propósito
+                comercial o no, sin el previo y preceptivo consentimiento y por escrito su titular ( WWW.SIASPORTSAGENCY.COM).
+            </p>
+            <p>
+                Igualmente  WWW.SIASPORTSAGENCY.COM será responsable respecto de las marcas, logos y demás signos distintivos
+                que se incorporen en cualquier parte del website y que sean propiedad de  WWW.SIASPORTSAGENCY.COM, así como
+                titular de todos los derechos de Propiedad Intelectual o Industrial o como licenciatario de los mismos.
+            </p>
+            <p>
+                Todos los contenidos y partes integrantes del website de  WWW.SIASPORTSAGENCY.COM han sido incluidos conforme
+                a los principios de la buena fe, indicando que la  información puede proceder total o parcialmente de fuentes
+                externas a la propia entidad razón por la cual  WWW.SIASPORTSAGENCY.COM no se responsabiliza en manera alguna
+                de la inexactitud o no actualización de los contenidos mostrados.
+            </p>
+            <p>
+                Por el contrario todos aquellos contenidos procedentes de fuentes internas estarán debidamente identificados
+                con su copyright. La entidad se reserva el derecho o facultad de efectuar cualquier cambio en cualquier momento
+                sin necesidad de previo aviso. Todos los contenidos incluidos en la pagina procedentes de fuentes internas que
+                lleven su signo identificativo de copyright, son responsabilidad única y exclusivamente de WWW.SIASPORTSAGENCY.COM.
+            </p>
+            <br/>
+            <h3>5.- PROTECCIÓN DE DATOS</h3>
+            <p>
+                WWW.SIASPORTSAGENCY.COM plenamente concienciada del uso y tratamiento que se le deben dar a los datos de
+                carácter personal y en virtud de la normativa legal existente al respecto (RGPD, LOPD y LSSICE), tiene
+                implantado en el seno de su organización  un sistema para preservar la seguridad, integridad y confidencialidad
+                de los datos considerados como personales.
+            </p>
+            <p>
+                Para ello además de cumplir integramente todos y cada uno de los requisitos dispuestos en la Ley Orgánica
+                15/1999, de 13 de Diciembre, de Protección de Datos de Carácter Personal, en el Reglamento (UE) 2016/679 del
+                Parlamento Europeo y del Consejo, de 27 de abril de 2016 y los dispuestos en la Ley 34/2002 LSSICE,  garantiza
+                un uso no solo legal sino leal de los datos personales así como un sistema adecuado para ejercitar los derechos
+                de acceso rectificación, cancelación y oposición dispuestos en la ya mencionada Ley Orgánica.
+            </p>
+            <p>
+                De conformidad con lo dispuesto en la política de privacidad de  WWW.SIASPORTSAGENCY.COM, se hace constar
+                que cualquier persona podrá ejercitar sus derechos de acceso, rectificación, cancelación y en su caso,
+                oposición mediante el envío de un e-mail a la dirección info@siasportsagency.com
+            </p>
+            <p>
+                A este respecto véase Política de Privacidad del Web  WWW.SIASPORTSAGENCY.COM.
+            </p>
+            <br/>
+            <h3>6.-FUERO Y LEGISLACIÓN</h3>
+            <p>
+                Las presentes Condiciones Generales se someten a la legislación española, que será aplicable en relación a
+                su validez, interpretación, ejecución y cumplimiento. Todas las discrepancias, reclamaciones y controversias
+                respecto a lo dispuesto anteriormente se resolverán mediante un arbitraje de Derecho de acuerdo con las normas
+                de la Corte Civil y Mercantil de arbitraje de Valencia a cuya normativa se someterán. Dicho Laudo estará compuesto
+                por tres árbitros nombrados conforme a dicha normativa. Si el arbitraje no llegara a realizarse por mutuo acuerdo
+                o fuese declarado nulo, ambas partes se someten a los Juzgados y Tribunales de la ciudad de Valencia, con renuncia
+                expresa a su propio fuero si éste fuese otro.
+            </p>
+            <p>
+                El Usuario, declara haber leído, conocer y aceptar las presentes Condiciones Generales de Uso-Acceso
+                en toda su extensión.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

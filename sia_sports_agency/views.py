@@ -122,6 +122,30 @@ def index(request):
         contexto
     )
 
+""" Aviso legal """
+def aviso_legal(request):
+    return render(
+        request,
+        'sia_sports_agency/aviso_legal.html',
+        {}
+    )
+
+""" Politica de privacidad """
+def politica_privacidad(request):
+    return render(
+        request,
+        'sia_sports_agency/politica_privacidad.html',
+        {}
+    )
+
+""" Ley de cookies """
+def ley_cookies(request):
+    return render(
+        request,
+        'sia_sports_agency/ley_cookies.html',
+        {}
+    )
+
 """ Comprueba si el email existe en base de datos """
 def comprobar_email(email, password):
     try:
