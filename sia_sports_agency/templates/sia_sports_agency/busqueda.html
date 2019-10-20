@@ -18,7 +18,7 @@
                         <select class="form-control busqueda-tipo" name="busquedaTipoUsuario">
                                 <option value="">{% trans "Seleccione una opción" %}</option>
                             {% for tipo in tipo_jugadores %}
-                                <option value="{{tipo.codigo|default:''}}">{{tipo.nombre}}</option>
+                                <option value="{{tipo.codigo|default:''}}">{% trans tipo.nombre %}</option>
                             {% endfor %}
                         </select>
                     </div>

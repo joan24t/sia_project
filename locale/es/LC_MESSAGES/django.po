@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-20 22:24+0200\n"
+"POT-Creation-Date: 2019-10-20 22:37+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -309,6 +309,10 @@ msgstr "Cambiar"
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_confirm_mail.html:7
 msgid "Confirmaci&oacute;n"
 msgstr "Confirmaci&oacute;n"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_confirm_mail.html:10
+msgid "¿Est&aacute; seguro de que quiere eliminar este mensaje?"
+msgstr "¿Está seguro de que quiere eliminar este mensaje?"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_confirm_mail.html:14
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_confirm_video.html:14

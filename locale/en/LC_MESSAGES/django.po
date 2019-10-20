@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-20 22:24+0200\n"
+"POT-Creation-Date: 2019-10-20 22:37+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -305,6 +305,10 @@ msgstr "Change"
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_confirm_mail.html:7
 msgid "Confirmaci&oacute;n"
 msgstr "Confirmation"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_confirm_mail.html:10
+msgid "¿Est&aacute; seguro de que quiere eliminar este mensaje?"
+msgstr "Are you sure you want to delete this message?"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_confirm_mail.html:14
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_confirm_video.html:14
@@ -712,7 +716,8 @@ msgstr "Repeat password"
 msgid ""
 "He le&iacute;do y acepto la <a target='_blank' href='/politica_privacidad'> "
 "Política de privacidad </a>"
-msgstr "I have read and accept the <a target='_blank' href='/politica_privacidad'> "
+msgstr ""
+"I have read and accept the <a target='_blank' href='/politica_privacidad'> "
 "Privacy policy </a>"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html:190
