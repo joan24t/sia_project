@@ -1249,8 +1249,8 @@ def busqueda_cromo(request):
                 )
             pagina = request.POST.get('busquedaPagina', '1')
             lista_usuarios = lista_usuarios.order_by('-nombre')
-            lista_usuarios = paginar_resultados(lista_usuarios, pagina)
             total_registros = len(lista_usuarios)
+            lista_usuarios = paginar_resultados(lista_usuarios, pagina)
             dict = {
                 'exito': True,
                 'lista_usuarios': [(
