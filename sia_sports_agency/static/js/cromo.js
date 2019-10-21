@@ -76,21 +76,21 @@ var dibujaBotones = function(){
     var elemento = $('.botones-busqueda .pagination');
     var contenido = "";
     if (actual == 1){
-        contenido += "<li class='page-item boton-anterior disabled'><a class='page-link' href='#' onclick='construyeBotones(\"ant\");'>Anterior</a></li>";
+        contenido += "<li class='page-item boton-anterior disabled'><a class='page-link' onclick='construyeBotones(\"ant\");'>Anterior</a></li>";
     }else{
-        contenido += "<li class='page-item boton-anterior'><a class='page-link' href='#' onclick='construyeBotones(\"ant\");'>Anterior</a></li>";
+        contenido += "<li class='page-item boton-anterior'><a class='page-link' onclick='construyeBotones(\"ant\");'>Anterior</a></li>";
     }
     for(let i = rangoIni; i<=rangoFin; i++){
         if (i == actual){
-            contenido += "<li class='page-item page-item-" + String(i) + "'><a class='page-link active' href='#' onclick='cambiarActivo(" + String(i) + ")'>" + String(i) + "</a></li>";
+            contenido += "<li class='page-item page-item-" + String(i) + "'><a class='page-link active' onclick='cambiarActivo(" + String(i) + ")'>" + String(i) + "</a></li>";
         }else{
-            contenido += "<li class='page-item page-item-" + String(i) + "'><a class='page-link' href='#' onclick='cambiarActivo(" + String(i) + ")'>" + String(i) + "</a></li>";
+            contenido += "<li class='page-item page-item-" + String(i) + "'><a class='page-link' onclick='cambiarActivo(" + String(i) + ")'>" + String(i) + "</a></li>";
         }
     }
     if (rangoFin == ultimaPagina){
-        contenido += "<li class='page-item boton-siguiente disabled'><a class='page-link' href='#' onclick='construyeBotones(\"sig\");'>Siguiente</a></li>";
+        contenido += "<li class='page-item boton-siguiente disabled'><a class='page-link' onclick='construyeBotones(\"sig\");'>Siguiente</a></li>";
     }else{
-        contenido += "<li class='page-item boton-siguiente'><a class='page-link' href='#' onclick='construyeBotones(\"sig\");'>Siguiente</a></li>";
+        contenido += "<li class='page-item boton-siguiente'><a class='page-link' onclick='construyeBotones(\"sig\");'>Siguiente</a></li>";
     }
     elemento.html(contenido);
 }
