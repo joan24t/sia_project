@@ -27,7 +27,7 @@
                                 <hr class="hr-msg" style="margin-top: 40px;"/>
                                 {% for correo in correos_nuevos %}
                                 <li id="mensajes-info-{{correo.id}}" class="lista-msg-info">
-                                    <a class="lista-msg" data-toggle="modal" data-target="#emailModalCenter" id="{{correo.id}}">
+                                    <a class="lista-msg ver-be-not" data-toggle="modal" data-target="#emailModalCenter" id="{{correo.id}}">
                                         <div class="msg-body">
                                             <p class="msg-heading"><strong>{{correo.remitente.nombre}}</strong><small> - {{correo.fecha|date:'d/m/Y H:i'}}</small></p>
                                             <p>{{correo.cuerpo}}</p>
@@ -485,7 +485,7 @@
                                 <td>{{correo.cuerpo}}</td>
                                 <td class="columna-botones">
                                     <div style="text-align: right;">
-                                        <a class="btn btn-primary btn-xs mail-ver" id="{{correo.id}}" data-toggle="modal" data-target="#emailModalCenter">
+                                        <a class="btn btn-primary btn-xs mail-ver ver-be" id="{{correo.id}}" data-toggle="modal" data-target="#emailModalCenter">
                                             <i class="fas fa-eye"></i>
                                         </a>
                                         <a class="btn btn-primary btn-xs mail-responder" id="{{correo.id}}" data-toggle="modal" data-target="#emailModalCenter">
@@ -531,7 +531,7 @@
                                 <td>{{correo.cuerpo}}</td>
                                 <td class="columna-botones">
                                     <div style="float: right;">
-                                        <a href="#" class="btn btn-primary btn-xs mail-ver" id="{{correo.id}}" data-toggle="modal" data-target="#emailModalCenter">
+                                        <a href="#" class="btn btn-primary btn-xs mail-ver ver-en" id="{{correo.id}}" data-toggle="modal" data-target="#emailModalCenter">
                                             <i class="fas fa-eye"></i>
                                         </a>
                                     </div>

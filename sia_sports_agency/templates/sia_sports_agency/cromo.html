@@ -28,16 +28,18 @@
         cromoImgDpte.replaceWith("<img class='img-icono-deporte' src='{{baseLogoDeporte}}" + deporte + ".png' />");
 
         /*Cambiamos texto del cromo*/
-        var texto = $('#form-datos-basicos #FormControlInputAlias').val() + "<br/>";
+        var texto_alias = $('#form-datos-basicos #FormControlInputAlias').val();
+        var texto_posicion = "";
         if (deporte != '' && deporte != 'MD' && tipo_jugador == 'JG'){
             var requierMultiple = getRequiereMultiple(deporte);
             if (requierMultiple){
-                texto = texto + nombreMultipleDeporte();
+                texto_posicion = nombreMultipleDeporte();
             }else{
-                texto = texto + $('#form-datos-basicos #posicionDropdown option:selected').text();
+                texto_posicion = $('#form-datos-basicos #posicionDropdown option:selected').text();
             }
         }
-        $('.cromo .texto-cromo').html('<p>' + texto + '</p>');
+        $('.cromo .texto-alias').html("<p>" + texto_alias + "</p>");
+        $('.cromo .texto-posicion').html("<p>" + texto_posicion + "</p>");
 
         /*Cambiamos rol cromo*/
         var tipo = $('#form-datos-basicos #queEresDropdown option:selected').text();
@@ -130,9 +132,13 @@
         </div>
         {% endif %}
     </div>
-    <div class="row texto-cromo">
+    <div class="row texto-alias">
         <p>
-            {{usuario.alias}}<br/>
+            {{usuario.alias}}
+        </p>
+    </div>
+    <div class="row texto-posicion">
+        <p>
             {{posicion_principal.nombre}}
         </p>
     </div>

@@ -336,7 +336,7 @@ var ocultarElemento = function(elemento) {
 var abrirDesdeNotificaciones = function() {
     $(".lista-msg").on("click", function() {
         hideOrShowTabs('me');
-        verCorreo($(this).attr('id'));
+        verCorreo($(this));
     });
 }
 
@@ -471,7 +471,8 @@ var responderMensaje = function(){
     });
 };
 
-var verCorreo = function(id){
+var verCorreo = function(mensaje){
+    var id = mensaje.attr('id');
     $.ajax({
       url: "/get_mensaje/" + id,
       success: function(data) {
@@ -484,7 +485,9 @@ var verCorreo = function(id){
           );
           $(".modal-email .asunto-res").val(data.asunto);
           $(".modal-email .cuerpo-res").val(data.mensaje);
-          actualizarContadorCorreos(id);
+          if(mensaje.hasClass("ver-be-not") || (mensaje.hasClass("ver-be") && mensaje.closest("tr").hasClass("mensaje-no-leido"))){
+              actualizarContadorCorreos(id);
+          }
       }
     });
 };
@@ -498,8 +501,9 @@ var actualizarContadorCorreos = function(id){
     var fin = cadena.indexOf(')');
     var contador = parseInt(cadena.substring(ini, fin));
     contador--;
+    contador = Math.max(contador, 0);
     $('.btn-bandeja-entrada a').text('Bandeja de entrada (' + contador + ')');
-    $('.badge-messages').text(Math.max(contador, 0));
+    $('.badge-messages').text(contador);
     $('#mensajes-info-' + id).remove();
     $('#hr-msg-' + id).remove();
     $('.header-msg-info span').html("Tiene <strong>" + contador + "</strong> mensajes nuevos.");
@@ -508,7 +512,7 @@ var actualizarContadorCorreos = function(id){
 var peticionDatosMensaje = function(){
     $(".mail-ver").on("click", function() {
         var id = $(this).attr('id');
-        verCorreo(id);
+        verCorreo($(this));
     });
 };
 
