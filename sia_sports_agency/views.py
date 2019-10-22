@@ -427,10 +427,10 @@ def estableceAlturaPeso(rol, request, diccionario):
     tipo_peso = 'kg'
     tipo_altura = 'cm'
     if rol in LIST_COMBO1:
-        decimal_peso = request.POST.get('inputPeso', '')
-        decimal_altura = request.POST.get('inputAltura', '')
-        peso =  decimal_peso if isinstance(decimal_peso, float) else 0.00
-        altura = decimal_altura if isinstance(decimal_altura, float) else 0.00
+        decimal_peso = request.POST.get('inputPeso', '').replace(",", ".")
+        decimal_altura = request.POST.get('inputAltura', '').replace(",", ".")
+        peso =  float(decimal_peso) if decimal_peso else 0.00
+        altura =  float(decimal_altura) if decimal_altura else 0.00
         tipo_peso = request.POST.get('inputTipoPeso', '')
         tipo_altura = request.POST.get('inputTipoAltura', '')
     diccionario.update({
