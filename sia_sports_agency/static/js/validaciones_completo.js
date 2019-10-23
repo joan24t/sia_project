@@ -12,7 +12,7 @@ $(document).ready(function(){
 /* Establece los valores al meter */
 var establecerMeter = function(password){
     var meter = $('#password-strength-meter');
-    var text = $('#password-strength-text');
+    var text = $('div#password-strength-text');
     var val = password.val().length;
     var strength = {
             0: "Worst ☹",
