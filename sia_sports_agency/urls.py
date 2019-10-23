@@ -14,6 +14,11 @@ urlpatterns = [
         name='Politica de cookies'
     ),
     path(
+        'condiciones_servicio/',
+        views.condiciones_servicio,
+        name='Condiciones de servicio'
+    ),
+    path(
         'ley_cookies/',
         views.ley_cookies,
         name='Ley de cookies'

@@ -182,6 +182,26 @@
                     <textarea class="message form-control" name="message" placeholder="{% trans 'Mensaje' %}"></textarea>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-2 col-xl-1">
+                </div>
+                <div class="col-10 col-xl-11">
+                    <label class="labelCheckbox"> {% trans "He le&iacute;do y acepto la <a target='_blank' href='/politica_privacidad'> Política de privacidad </a>" %}
+                        <input type="checkbox" id="aceptacionPoliticaContacto" value="true" name="aceptacionPoliticaContactoInput">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2 col-xl-1">
+                </div>
+                <div class="col-10 col-xl-11">
+                    <label class="labelCheckbox"> {% trans "Deseo suscribirme al bolet&iacute;n y recibir informaci&oacute;n comercial" %}
+                        <input type="checkbox" id="suscripcion" value="true" name="suscripcionInput">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+            </div>
             <div class="row justify-content-end" style="border: 1px">
                 <div class="col-10 col-xl-11">
                     <input type="submit" value="{% trans 'Enviar' %}" class="btn btn-success btn-block button-contact" style="border: none">

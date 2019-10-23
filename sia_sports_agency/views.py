@@ -138,6 +138,14 @@ def politica_privacidad(request):
         {}
     )
 
+""" Condiciones de servicio """
+def condiciones_servicio(request):
+    return render(
+        request,
+        'sia_sports_agency/condiciones_servicio.html',
+        {}
+    )
+
 """ Ley de cookies """
 def ley_cookies(request):
     return render(
