@@ -126,7 +126,7 @@ class Usuario(models.Model):
 
     # Attributes
     nombre = models.CharField(
-        max_length=100,
+        max_length=30,
         null=False
     )
     apellidos = models.CharField(
@@ -171,7 +171,7 @@ class Usuario(models.Model):
         null=True
     )
     eactual = models.CharField(
-        max_length=60,
+        max_length=30,
         null=True
     )
     altura = models.DecimalField(
@@ -203,7 +203,7 @@ class Usuario(models.Model):
         null=True
     )
     nacionalidad = models.CharField(
-        max_length=60,
+        max_length=30,
         null=True
     )
     curriculum = models.CharField(

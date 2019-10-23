@@ -100,7 +100,7 @@
                                         <h4 id="labelNombreEmpresa" hidden> {% trans "Nombre de la empresa" %}</h4>
                                         <h4 id="labelNombreMarca" hidden> {% trans "Nombre de la marca" %}</h4>
                                     </label>
-                                    <input class="form-control" maxlength="100" value="{{usuario.nombre}}" name="inputNombre" type="text" id="FormControlInputNombre">
+                                    <input class="form-control" maxlength="30" value="{{usuario.nombre}}" name="inputNombre" type="text" id="FormControlInputNombre">
                                 </div>
                                 <div class="grupoSexo col col-12 col-xl-6">
                                     <label for="sexoDropdown">
@@ -269,13 +269,13 @@
                                     <label for="nacionalidad">
                                         <h4>{% trans "Nacionalidad" %}</h4>
                                     </label>
-                                    <input type="text" maxlength="60" value="{{usuario.nacionalidad|default:''}}" name="inputNacionalidad" id="nacionalidad" class="form-control">
+                                    <input type="text" maxlength="30" value="{{usuario.nacionalidad|default:''}}" name="inputNacionalidad" id="nacionalidad" class="form-control">
                                 </div>
                                 <div class="grupoEActual col col-12 col-xl-6">
                                     <label for="eactual">
                                         <h4>{% trans "Equipo actual" %}</h4>
                                     </label>
-                                    <input type="text" maxlength="60" value="{{usuario.eactual|default:''}}" name="inputEactual" id="eactual" class="form-control">
+                                    <input type="text" maxlength="30" value="{{usuario.eactual|default:''}}" name="inputEactual" id="eactual" class="form-control">
                                 </div>
                                 <div class="grupoCPresentacion col col-12 col-xl-6">
                                     <label for="cpresentacion">
