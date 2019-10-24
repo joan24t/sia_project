@@ -400,6 +400,9 @@ var enviarCorreo = function(listadoCorreos, asunto, cuerpo){
             //Notificación guardado
             if(data.exito){
                 mostrarNotificacionAviso('El correo se envió correctamente.');
+                if (window.location.pathname === "/perfil/"){
+                    location.reload(true);
+                }
             }else{
                 mostrarNotificacionError('Error el enviar el correo. Por favor, intente de nuevo.');
             }
