@@ -525,7 +525,7 @@
                         <tbody>
                             {% for correo in correos_enviados %}
                             <tr class="fila-correo {% if correo.leido == 0 %} 'mensaje-no-leido' {% endif %}">
-                                <td>{{correo.remitente.email}}</td>
+                                <td>{{correo.destinatario.email}}</td>
                                 <td>{{correo.asunto}}</td>
                                 <td>{{correo.fecha|date:'d/m/Y H:i' }}</td>
                                 <td>{{correo.cuerpo}}</td>
