@@ -1233,7 +1233,7 @@ def busqueda_cromo(request):
                 )
             if nombre:
                 lista_usuarios = lista_usuarios.filter(
-                    nombre__contains=nombre
+                    nombre__icontains=nombre
                 )
             if posiciones:
                 lista_usuarios = lista_usuarios.filter(
@@ -1253,7 +1253,7 @@ def busqueda_cromo(request):
                 )
             if eactual:
                 lista_usuarios = lista_usuarios.filter(
-                    eactual__contains=nombre
+                    eactual__icontains=eactual
                 )
             pagina = request.POST.get('busquedaPagina', '1')
             lista_usuarios = lista_usuarios.order_by('-nombre')
