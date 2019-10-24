@@ -1233,7 +1233,7 @@ def busqueda_cromo(request):
                 )
             if nombre:
                 lista_usuarios = lista_usuarios.filter(
-                    nombre__icontains=nombre
+                    nombre__unaccent__icontains=nombre
                 )
             if posiciones:
                 lista_usuarios = lista_usuarios.filter(
