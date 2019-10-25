@@ -1,1 +1,251 @@
-var _0x68fc=["\x23\x66\x6F\x72\x6D\x2D\x72\x65\x67\x69\x73\x74\x72\x6F\x20\x23\x70\x61\x73\x73\x77\x6F\x72\x64\x31","\x23\x66\x6F\x72\x6D\x2D\x63\x61\x6D\x62\x69\x6F\x2D\x63\x6F\x6E\x74\x72\x61\x73\x65\x6E\x61\x20\x23\x70\x61\x73\x73\x77\x6F\x72\x64\x31","\x6B\x65\x79\x75\x70","\x72\x65\x61\x64\x79","\x23\x70\x61\x73\x73\x77\x6F\x72\x64\x2D\x73\x74\x72\x65\x6E\x67\x74\x68\x2D\x6D\x65\x74\x65\x72","\x64\x69\x76\x23\x70\x61\x73\x73\x77\x6F\x72\x64\x2D\x73\x74\x72\x65\x6E\x67\x74\x68\x2D\x74\x65\x78\x74","\x6C\x65\x6E\x67\x74\x68","\x76\x61\x6C","\x57\x6F\x72\x73\x74\x20\u2639","\x42\x61\x64\x20\u2639","\x57\x65\x61\x6B\x20\u2639","\x47\x6F\x6F\x64\x20\u263A","\x53\x74\x72\x6F\x6E\x67\x20\u263B","","\x53\x74\x72\x65\x6E\x67\x74\x68\x3A\x20","\x3C\x73\x74\x72\x6F\x6E\x67\x3E","\x3C\x2F\x73\x74\x72\x6F\x6E\x67\x3E","\x68\x74\x6D\x6C","\x68\x69\x64\x64\x65\x6E","\x61\x74\x74\x72","\x64\x69\x76\x2E\x63\x61\x6D\x70\x6F\x43\x6F\x6E\x4D\x61\x74\x63\x68\x4E\x6F\x74\x69\x66","\x72\x65\x6D\x6F\x76\x65\x41\x74\x74\x72","\x66\x69\x6C\x65\x73","\x23\x63\x75\x73\x74\x6F\x6D\x46\x69\x6C\x65\x43\x75\x72\x72\x69\x63\x75\x6C\x75\x6D","\x23\x63\x75\x73\x74\x6F\x6D\x46\x69\x6C\x65\x43\x61\x72\x74\x61","\x6E\x61\x6D\x65","\x74\x65\x73\x74","\x45\x6C\x20\x63\x75\x72\x72\x69\x63\x75\x6C\x75\x6D\x20\x64\x65\x62\x65\x20\x73\x65\x72\x20\x65\x6E\x20\x66\x6F\x72\x6D\x61\x74\x6F\x20\x70\x64\x66","\x4C\x61\x20\x63\x61\x72\x74\x61\x20\x64\x65\x20\x70\x72\x65\x73\x65\x6E\x74\x61\x63\x69\xF3\x6E\x20\x64\x65\x62\x65\x20\x73\x65\x72\x20\x65\x6E\x20\x66\x6F\x72\x6D\x61\x74\x6F\x20\x70\x64\x66","\x64\x69\x76\x2E\x63\x61\x6D\x70\x6F\x4C\x6F\x6E\x67\x69\x74\x75\x64\x4E\x6F\x74\x69\x66","\x73\x65\x61\x72\x63\x68","\x64\x69\x76\x2E\x63\x61\x6D\x70\x6F\x4D\x69\x6E\x69\x6D\x6F\x43\x61\x72\x4E\x6F\x74\x69\x66","\x64\x69\x76\x2E\x63\x61\x6D\x70\x6F\x43\x61\x72\x4E\x6F\x50\x65\x72\x6D\x4E\x6F\x74\x69\x66","\x69\x6E\x70\x75\x74\x50\x61\x69\x73","\x64\x69\x76\x2E\x63\x61\x6D\x70\x6F\x4F\x62\x6C\x69\x67\x61\x74\x6F\x72\x69\x6F\x4E\x6F\x74\x69\x66","\x66\x69\x6E\x64","\x70\x61\x72\x65\x6E\x74","\x65\x61\x63\x68","\x23\x66\x6F\x72\x6D\x2D\x72\x65\x67\x69\x73\x74\x72\x6F\x20\x73\x65\x6C\x65\x63\x74\x2E\x63\x61\x6D\x70\x6F\x4F\x62\x6C\x69\x67\x61\x74\x6F\x72\x69\x6F\x2C\x20\x23\x66\x6F\x72\x6D\x2D\x72\x65\x67\x69\x73\x74\x72\x6F\x20\x69\x6E\x70\x75\x74\x2E\x63\x61\x6D\x70\x6F\x4F\x62\x6C\x69\x67\x61\x74\x6F\x72\x69\x6F","\x23\x66\x6F\x72\x6D\x2D\x72\x65\x67\x69\x73\x74\x72\x6F\x20\x2E\x67\x72\x75\x70\x6F\x46\x65\x63\x68\x61\x4E\x61\x63\x69\x6D\x69\x65\x6E\x74\x6F\x20\x69\x6E\x70\x75\x74","\x73\x75\x62\x73\x74\x72\x69\x6E\x67","\x2F","\x3A\x68\x69\x64\x64\x65\x6E","\x69\x73","\x63\x68\x61\x72\x41\x74","\x64\x69\x76\x2E\x63\x61\x6D\x70\x6F\x46\x6F\x72\x6D\x61\x74\x6F\x4E\x6F\x74\x69\x66","\x3A\x63\x68\x65\x63\x6B\x65\x64","\x23\x61\x63\x65\x70\x74\x61\x63\x69\x6F\x6E\x50\x6F\x6C\x69\x74\x69\x63\x61","\x64\x69\x76\x2E\x63\x61\x6D\x70\x6F\x50\x6F\x6C\x69\x74\x69\x63\x61\x4F\x62\x6C","\x23\x66\x6F\x72\x6D\x2D\x72\x65\x67\x69\x73\x74\x72\x6F\x20\x23\x46\x6F\x72\x6D\x43\x6F\x6E\x74\x72\x6F\x6C\x49\x6E\x70\x75\x74\x45\x6D\x61\x69\x6C","\x2F\x63\x6F\x6D\x70\x72\x6F\x62\x61\x72\x5F\x63\x6F\x72\x72\x65\x6F\x2F","\x50\x4F\x53\x54","\x65\x78\x69\x74\x6F","\x65\x78\x69\x73\x74\x65","\x64\x69\x76\x2E\x63\x61\x6D\x70\x6F\x43\x6F\x72\x72\x65\x6F\x45\x78\x69\x73\x74\x65\x4E\x6F\x74\x69\x66","\x61\x6A\x61\x78","\x2E\x6C\x6F\x61\x64\x65\x72\x2D\x72\x65\x67","\x23\x66\x6F\x72\x6D\x2D\x72\x65\x67\x69\x73\x74\x72\x6F\x20\x23\x70\x61\x73\x73\x77\x6F\x72\x64\x32","\x73\x75\x62\x6D\x69\x74","\x23\x66\x6F\x72\x6D\x2D\x72\x65\x67\x69\x73\x74\x72\x6F","\x23\x66\x6F\x72\x6D\x2D\x73\x75\x62\x69\x64\x61\x2D\x76\x69\x64\x65\x6F\x20\x23\x69\x6E\x70\x75\x74\x4E\x6F\x6D\x62\x72\x65","\x23\x63\x75\x73\x74\x6F\x6D\x46\x69\x6C\x65\x56\x69\x64\x65\x6F","\x23\x66\x6F\x72\x6D\x2D\x73\x75\x62\x69\x64\x61\x2D\x76\x69\x64\x65\x6F\x20\x64\x69\x76\x2E\x63\x61\x6D\x70\x6F\x4F\x62\x6C\x69\x67\x61\x72\x6F\x72\x69\x6F\x4E\x6F\x74\x69\x66","\x23\x66\x6F\x72\x6D\x2D\x73\x75\x62\x69\x64\x61\x2D\x76\x69\x64\x65\x6F\x20\x64\x69\x76\x2E\x63\x61\x6D\x70\x6F\x46\x6F\x72\x6D\x61\x74\x6F\x56\x69\x64\x65\x6F\x4E\x6F\x74\x69\x66"];$(document)[_0x68fc[3]](function(){var _0xb012x1=$(_0x68fc[0]);var _0xb012x2=$(_0x68fc[1]);_0xb012x1[_0x68fc[2]](function(){establecerMeter(_0xb012x1)});_0xb012x2[_0x68fc[2]](function(){establecerMeter(_0xb012x2)})});var establecerMeter=function(_0xb012x4){var _0xb012x5=$(_0x68fc[4]);var _0xb012x6=$(_0x68fc[5]);var _0xb012x7=_0xb012x4[_0x68fc[7]]()[_0x68fc[6]];var _0xb012x8={0:_0x68fc[8],1:_0x68fc[9],2:_0x68fc[10],3:_0x68fc[11],4:_0x68fc[12]};var _0xb012x9=0;var _0xb012xa=_0x68fc[13];if(_0xb012x7> 8&& _0xb012x7< 10){_0xb012x9= 1}else {if(_0xb012x7>= 10&& _0xb012x7< 13){_0xb012x9= 2}else {if(_0xb012x7>= 13&& _0xb012x7< 15){_0xb012x9= 3}else {if(_0xb012x7>= 15){_0xb012x9= 4}}}};_0xb012x5[_0x68fc[7]](_0xb012x9);if(_0xb012x7!== _0x68fc[13]){_0xb012x6[_0x68fc[17]](_0x68fc[14]+ _0x68fc[15]+ _0xb012x8[_0xb012x9]+ _0x68fc[16])}else {_0xb012x6[_0x68fc[17]](_0x68fc[13])}};var validarConcidenciaPasswords=function(_0xb012xc,_0xb012xd){if(_0xb012xc=== _0xb012xd){$(_0x68fc[20])[_0x68fc[19]](_0x68fc[18],_0x68fc[13]);return true}else {$(_0x68fc[20])[_0x68fc[21]](_0x68fc[18]);return false}};var validarFormatoDocs=function(){var _0xb012xf=$(_0x68fc[23])[0][_0x68fc[22]];var _0xb012x10=$(_0x68fc[24])[0][_0x68fc[22]];var _0xb012x11=true;if(_0xb012xf[_0x68fc[6]]> 0&& /\.(pdf)$/i[_0x68fc[26]](_0xb012xf[0][_0x68fc[25]])=== false){mostrarNotificacionError(_0x68fc[27]);_0xb012x11= false};if(_0xb012x10[_0x68fc[6]]> 0&& /\.(pdf)$/i[_0x68fc[26]](_0xb012x10[0][_0x68fc[25]])=== false){mostrarNotificacionError(_0x68fc[28]);_0xb012x11= false};return _0xb012x11};var validarMinimosPassword=function(_0xb012xc){var _0xb012x13=true;if(_0xb012xc!= undefined){if(_0xb012xc[_0x68fc[6]]< 8){$(_0x68fc[29])[_0x68fc[21]](_0x68fc[18]);_0xb012x13= false};if(_0xb012xc[_0x68fc[30]](/\d/)==  -1){$(_0x68fc[31])[_0x68fc[21]](_0x68fc[18]);_0xb012x13= false};if(_0xb012xc[_0x68fc[30]](/[a-zA-Z]/)==  -1){$(_0x68fc[31])[_0x68fc[21]](_0x68fc[18]);_0xb012x13= false};var _0xb012x14=/[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;if(_0xb012x14[_0x68fc[26]](_0xb012xc)){$(_0x68fc[32])[_0x68fc[21]](_0x68fc[18]);_0xb012x13= false}}else {_0xb012x13= false};return _0xb012x13};var validarCamposVacios=function(){var _0xb012x16=true;$(_0x68fc[38])[_0x68fc[37]](function(_0xb012x17){if($(this)[_0x68fc[7]]()=== _0x68fc[13]){if($(this)[_0x68fc[19]](_0x68fc[25])== _0x68fc[33]){$(this)[_0x68fc[36]]()[_0x68fc[36]]()[_0x68fc[35]](_0x68fc[34])[_0x68fc[21]](_0x68fc[18])}else {$(this)[_0x68fc[36]]()[_0x68fc[35]](_0x68fc[34])[_0x68fc[21]](_0x68fc[18])};_0xb012x16= false}});return _0xb012x16};var validarFormatoFecha=function(){var _0xb012x19=$(_0x68fc[39]);var _0xb012x1a=_0xb012x19[_0x68fc[7]]()[_0x68fc[40]](0,4);var _0xb012x1b=_0xb012x19[_0x68fc[7]]()[_0x68fc[40]](5,7);var _0xb012x1c=_0xb012x19[_0x68fc[7]]()[_0x68fc[40]](8,10);var _0xb012x1d=_0xb012x1c+ _0x68fc[41]+ _0xb012x1b+ _0x68fc[41]+ _0xb012x1a;if(!_0xb012x19[_0x68fc[43]](_0x68fc[42])&& (_0xb012x1d[_0x68fc[44]](2)!= _0x68fc[41]|| _0xb012x1d[_0x68fc[44]](5)!= _0x68fc[41]|| _0xb012x1d[_0x68fc[6]]!= 10)){$(_0x68fc[45])[_0x68fc[21]](_0x68fc[18]);return false};return true};var validarPolitica=function(){var _0xb012x1f=$(_0x68fc[47])[_0x68fc[43]](_0x68fc[46]);var _0xb012x11=true;if(!_0xb012x1f){$(_0x68fc[48])[_0x68fc[21]](_0x68fc[18]);_0xb012x11= false};return _0xb012x11};var validarCorreo=function(){var _0xb012x21=$(_0x68fc[49])[_0x68fc[7]]();var _0xb012x22=false;$[_0x68fc[55]]({url:_0x68fc[50],async:false,type:_0x68fc[51],data:{'\x63\x6F\x72\x72\x65\x6F':_0xb012x21},success:function(_0xb012x23){if(_0xb012x23[_0x68fc[52]]){if(_0xb012x23[_0x68fc[53]]){$(_0x68fc[54])[_0x68fc[21]](_0x68fc[18])}else {_0xb012x22= true}}else {$(_0x68fc[54])[_0x68fc[21]](_0x68fc[18])}},error:function(_0xb012x23){$(_0x68fc[54])[_0x68fc[21]](_0x68fc[18])}});return _0xb012x22};var ocultarValidaciones=function(){$(_0x68fc[29])[_0x68fc[19]](_0x68fc[18],_0x68fc[13]);$(_0x68fc[34])[_0x68fc[19]](_0x68fc[18],_0x68fc[13]);$(_0x68fc[31])[_0x68fc[19]](_0x68fc[18],_0x68fc[13]);$(_0x68fc[32])[_0x68fc[19]](_0x68fc[18],_0x68fc[13]);$(_0x68fc[45])[_0x68fc[19]](_0x68fc[18],_0x68fc[13]);$(_0x68fc[20])[_0x68fc[19]](_0x68fc[18],_0x68fc[13]);$(_0x68fc[48])[_0x68fc[19]](_0x68fc[18],_0x68fc[13])};var submitRegistro=function(){$(_0x68fc[59])[_0x68fc[58]](function(){mostrarElemento($(_0x68fc[56]));ocultarValidaciones();var _0xb012xc=$(_0x68fc[0])[_0x68fc[7]]();var _0xb012xd=$(_0x68fc[57])[_0x68fc[7]]();if(!validarCamposVacios()){ocultarElemento($(_0x68fc[56]));return false}else {if(!validarFormatoFecha()){ocultarElemento($(_0x68fc[56]));return false}else {if(!validarConcidenciaPasswords(_0xb012xc,_0xb012xd)){ocultarElemento($(_0x68fc[56]));return false}else {if(!validarMinimosPassword(_0xb012xc)){ocultarElemento($(_0x68fc[56]));return false}else {if(!validarCorreo()){ocultarElemento($(_0x68fc[56]));return false}else {if(!validarPolitica()){ocultarElemento($(_0x68fc[56]));return false}}}}}};ocultarElemento($(_0x68fc[56]));return true})};var validarCamposVideo=function(){var _0xb012x11=true;var _0xb012x27=$(_0x68fc[60])[_0x68fc[7]]();var _0xb012x28=$(_0x68fc[61])[0][_0x68fc[22]];if(_0xb012x28[_0x68fc[6]]<= 0|| _0xb012x27=== _0x68fc[13]){$(_0x68fc[62])[_0x68fc[21]](_0x68fc[18]);_0xb012x11= false};return _0xb012x11};var validarFormatoVideo=function(){var _0xb012x11=true;var _0xb012x28=$(_0x68fc[61])[0][_0x68fc[22]];if(_0xb012x28[_0x68fc[6]]> 0&& /\.(mp4)$/i[_0x68fc[26]](_0xb012x28[0][_0x68fc[25]])=== false){$(_0x68fc[63])[_0x68fc[21]](_0x68fc[18]);_0xb012x11= false};return _0xb012x11}
+$(document).ready(function(){
+    var password_registro = $('#form-registro #password1');
+    var password_cambio = $('#form-cambio-contrasena #password1');
+    password_registro.keyup(function() {
+        establecerMeter(password_registro);
+    });
+    password_cambio.keyup(function() {
+        establecerMeter(password_cambio);
+    });
+})
+
+/* Establece los valores al meter */
+var establecerMeter = function(password){
+    var meter = $('#password-strength-meter');
+    var text = $('div#password-strength-text');
+    var val = password.val().length;
+    var strength = {
+            0: "Worst ☹",
+            1: "Bad ☹",
+            2: "Weak ☹",
+            3: "Good ☺",
+            4: "Strong ☻"
+    }
+    var result = 0;
+    var nivel = "";
+    if (val > 8 && val < 10){
+        result = 1;
+    } else if (val >= 10 && val < 13){
+        result = 2;
+    } else if (val >= 13 && val < 15){
+        result = 3;
+    } else if (val >= 15){
+        result = 4;
+    }
+
+    // Actualiza el valor del meter
+    meter.val(result);
+    // Actualiza el indicador
+    if(val !== "") {
+        text.html("Strength: " +
+            "<strong>" +
+            strength[result] +
+            "</strong>");
+    }
+    else {
+        text.html("");
+    }
+}
+
+/* Valida que las dos contraseñas en el formulario del registro coincidan */
+var validarConcidenciaPasswords = function(pass1, pass2){
+    if (pass1 === pass2){
+        $('div.campoConMatchNotif').attr('hidden', '');
+        return true;
+    }else{
+        $('div.campoConMatchNotif').removeAttr('hidden');
+        return false;
+    }
+
+}
+
+//Validamos que los documentos sean solo de tipo pdf
+var validarFormatoDocs = function(){
+    var curriculum = $('#customFileCurriculum')[0].files;
+    var cpresentacion = $('#customFileCarta')[0].files;
+    var res = true;
+    if(curriculum.length > 0 && /\.(pdf)$/i.test(curriculum[0].name) === false){
+        mostrarNotificacionError('El curriculum debe ser en formato pdf');
+        res = false;
+    }
+    if(cpresentacion.length > 0 && /\.(pdf)$/i.test(cpresentacion[0].name) === false){
+        mostrarNotificacionError('La carta de presentación debe ser en formato pdf');
+        res = false;
+    }
+    return res;
+}
+
+/* Valida que la contraseña insertada cumpla unos mínimos de seguridad */
+var validarMinimosPassword = function(pass1){
+    var valido = true;
+    if (pass1 != undefined){
+        if (pass1.length < 8) {
+            $('div.campoLongitudNotif').removeAttr('hidden');
+            valido = false;
+        }
+        if (pass1.search(/\d/) == -1) {
+            $('div.campoMinimoCarNotif').removeAttr('hidden');
+            valido = false;
+        }
+        if (pass1.search(/[a-zA-Z]/) == -1) {
+            $('div.campoMinimoCarNotif').removeAttr('hidden');
+            valido = false;
+        }
+        var format = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+        if (format.test(pass1)) {
+            $('div.campoCarNoPermNotif').removeAttr('hidden');
+            valido = false;
+        }
+    }else{
+        valido = false;
+    }
+    return valido;
+}
+
+/* Valida que los campos obligatorios estén rellenos en el formulario de registro */
+var validarCamposVacios = function(){
+    var validate = true;
+    $( "#form-registro select.campoObligatorio, #form-registro input.campoObligatorio" ).each(function( index ) {
+        if($(this).val() === ''){
+            if($(this).attr('name') == 'inputPais'){
+                $(this).parent().parent().find("div.campoObligatorioNotif").removeAttr('hidden');
+            }else{
+                $(this).parent().find("div.campoObligatorioNotif").removeAttr('hidden');
+            }
+            validate = false;
+        }
+    });
+    return validate;
+}
+
+var validarFormatoFecha = function(){
+    var fecha = $('#form-registro .grupoFechaNacimiento input');
+    var año = fecha.val().substring(0, 4);
+    var mes = fecha.val().substring(5, 7);
+    var dia = fecha.val().substring(8, 10);
+    var fecha_formateada = dia + "/" + mes + "/" + año;
+    if (!fecha.is(":hidden") && (fecha_formateada.charAt(2) != '/' || fecha_formateada.charAt(5) != '/' || fecha_formateada.length != 10)){
+        $("div.campoFormatoNotif").removeAttr('hidden');
+        return false;
+    }
+    return true;
+}
+var validarEdad = function(){
+    var fecha = $('#form-registro .grupoFechaNacimiento input');
+    var hoy = new Date();
+    var fnacimiento = new Date(fecha.val());
+    var edad = hoy.getFullYear() - fnacimiento.getFullYear();
+    var m = hoy.getMonth() - fnacimiento.getMonth();
+    if (m < 0 || (m === 0 && hoy.getDate() < fnacimiento.getDate())) {
+        edad--;
+    }
+    if (edad < 16){
+        $("div.campoMayor16Notif").removeAttr('hidden');
+        return false;
+    }
+    return true;
+}
+
+var validarPolitica = function(){
+    var aceptada = $('#aceptacionPolitica').is(":checked");
+    var res = true;
+    if (!aceptada){
+        $("div.campoPoliticaObl").removeAttr('hidden');
+        res = false;
+    }
+    return res;
+}
+
+var validarCorreo = function(){
+    var correo = $('#form-registro #FormControlInputEmail').val();
+    var resultado = false;
+    $.ajax({
+        url: "/comprobar_correo/",
+        async: false,
+        type: 'POST',
+        data: {
+            'correo': correo
+        },
+        success: function(data) {
+            if(data.exito){
+                if (data.existe){
+                    $("div.campoCorreoExisteNotif").removeAttr('hidden');
+                }else{
+                    resultado = true;
+                }
+            }
+            else{
+                $("div.campoCorreoExisteNotif").removeAttr('hidden');
+            }
+        },error: function(data){
+            $("div.campoCorreoExisteNotif").removeAttr('hidden');
+        }
+    });
+    return resultado;
+}
+
+//Oculta las notificaciones de validación de campos
+var ocultarValidaciones = function(){
+    $('div.campoLongitudNotif').attr('hidden', '');
+    $("div.campoObligatorioNotif").attr('hidden', '');
+    $("div.campoMinimoCarNotif").attr('hidden', '');
+    $("div.campoCarNoPermNotif").attr('hidden', '');
+    $("div.campoFormatoNotif").attr('hidden', '');
+    $("div.campoConMatchNotif").attr('hidden', '');
+    $("div.campoPoliticaObl").attr('hidden', '');
+    $("div.campoMayor16Notif").attr('hidden', '');
+}
+
+/* Se dispara cuando se intenta registrar un nuevo usuario */
+var submitRegistro = function(){
+    $('#form-registro').submit(function () {
+        mostrarElemento($('.loader-reg'));
+        ocultarValidaciones();
+        var pass1 = $('#form-registro #password1').val();
+        var pass2 = $('#form-registro #password2').val();
+        if (!validarCamposVacios()){
+            ocultarElemento($('.loader-reg'));
+            return false;
+        } else if (!validarFormatoFecha()){
+            ocultarElemento($('.loader-reg'));
+            return false;
+        }else if(!validarEdad()){
+            ocultarElemento($('.loader-reg'));
+            return false;
+        } else if(!validarConcidenciaPasswords(pass1, pass2)){
+            ocultarElemento($('.loader-reg'));
+            return false;
+        } else if (!validarMinimosPassword(pass1)){
+            ocultarElemento($('.loader-reg'));
+            return false;
+        } else if (!validarCorreo()){
+            ocultarElemento($('.loader-reg'));
+            return false;
+        }else if (!validarPolitica()){
+            ocultarElemento($('.loader-reg'));
+            return false;
+        }
+        ocultarElemento($('.loader-reg'));
+        return true;
+    });
+}
+
+var validarCamposVideo = function(){
+    var res = true;
+    var nombre_video = $('#form-subida-video #inputNombre').val();
+    var video = $('#customFileVideo')[0].files;
+    if(video.length <= 0 || nombre_video === ''){
+        $('#form-subida-video div.campoObligarorioNotif').removeAttr('hidden');
+        res = false;
+    }
+    return res;
+}
+var validarFormatoVideo = function(){
+    var res = true;
+    var video = $('#customFileVideo')[0].files;
+    if(video.length > 0 && /\.(mp4)$/i.test(video[0].name) === false){
+        $('#form-subida-video div.campoFormatoVideoNotif').removeAttr('hidden');
+        res = false;
+    }
+    return res;
+}

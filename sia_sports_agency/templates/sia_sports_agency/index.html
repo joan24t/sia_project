@@ -155,7 +155,7 @@
                     <i class="fa fa-user fa-2x"></i>
                 </div>
                 <div class="col-10 col-xl-11">
-                    <input type="text" name="nombre" id="nombre" class="username form-control" placeholder="{% trans 'Nombre' %}" value="">
+                    <input type="text" name="nombre" maxlength="50" id="nombre" class="username form-control" placeholder="{% trans 'Nombre' %}" value="" required>
                 </div>
             </div>
             <div class="row">
@@ -163,7 +163,7 @@
                     <i class="fa fa-envelope fa-2x"></i>
                 </div>
                 <div class="col-10 col-xl-11">
-                    <input type="text" name="email" class=" email form-control" placeholder="{% trans 'Email' %}" value="">
+                    <input type="text" name="email" maxlength="50" class="email form-control" placeholder="{% trans 'Email' %}" value="" required>
                 </div>
             </div>
             <div class="row">
@@ -171,7 +171,7 @@
                     <i class="fas fa-pencil-alt fa-2x "></i>
                 </div>
                 <div class="col-10 col-xl-11">
-                    <input type="text" name="subject" class="subject form-control" placeholder="{% trans 'Asunto' %}" value="">
+                    <input type="text" name="subject" maxlength="50" class="subject form-control" placeholder="{% trans 'Asunto' %}" value="" required>
                 </div>
             </div>
             <div class="row">
@@ -179,7 +179,7 @@
                     <i class="fa fa-comments message-icon fa-2x"></i>
                 </div>
                 <div class="col-10 col-xl-11">
-                    <textarea class="message form-control" name="message" placeholder="{% trans 'Mensaje' %}"></textarea>
+                    <textarea class="message form-control" maxlength="3000" name="message" placeholder="{% trans 'Mensaje' %}" required></textarea>
                 </div>
             </div>
             <div class="row">
@@ -187,7 +187,7 @@
                 </div>
                 <div class="col-10 col-xl-11">
                     <label class="labelCheckbox"> {% trans "He le&iacute;do y acepto la <a target='_blank' href='/politica_privacidad'> Política de privacidad </a>" %}
-                        <input type="checkbox" id="aceptacionPoliticaContacto" value="true" name="aceptacionPoliticaContactoInput">
+                        <input type="checkbox" id="aceptacionPoliticaContacto" value="politica" name="checks[]" required>
                         <span class="checkmark"></span>
                     </label>
                 </div>
@@ -197,7 +197,7 @@
                 </div>
                 <div class="col-10 col-xl-11">
                     <label class="labelCheckbox"> {% trans "Deseo suscribirme al bolet&iacute;n y recibir informaci&oacute;n comercial" %}
-                        <input type="checkbox" id="suscripcion" value="true" name="suscripcionInput">
+                        <input type="checkbox" id="aceptacionSuscripcion" name="checks[]" value="suscripcion">
                         <span class="checkmark"></span>
                     </label>
                 </div>
@@ -209,6 +209,5 @@
             </div>
         </form>
     </div>
-
 </div>
 {% endblock %}

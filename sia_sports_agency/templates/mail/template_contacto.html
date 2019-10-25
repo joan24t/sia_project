@@ -6,4 +6,11 @@
     <b>Email: {{ correo }}</b>
 </p>
 <p>{{ cuerpo }}</p>
+<h4> Ha aceptado la suscripción:
+{% if suscripcion %}
+    SÍ
+{% else %}
+    NO
+{% endif %}
+</h4>
 <html>

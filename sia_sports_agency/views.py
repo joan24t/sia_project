@@ -263,18 +263,23 @@ def eliminar_posiciones(usuario):
 def email_contacto(request):
     nombre = request.POST.get('nombre')
     email = request.POST.get('email')
-    asunto = request.POST.get('subject')
+    asunto = 'Consulta: ' + request.POST.get('subject')
     cuerpo = request.POST.get('message')
+    checkboxes = request.POST.getlist('checks[]')
+    context = {
+        'nombre': nombre,
+        'correo': email,
+        'cuerpo': cuerpo,
+        'suscripcion': False
+    }
+    if 'suscripcion' in checkboxes:
+        context['suscripcion'] = True
     enviar_email(
         'template_contacto.html',
         'template_contacto.txt',
         asunto,
         ['siasportsagency@gmail.com'],
-        {
-            'nombre': nombre,
-            'correo': email,
-            'cuerpo': cuerpo
-        }
+        context
     )
     return HttpResponseRedirect('/')
 

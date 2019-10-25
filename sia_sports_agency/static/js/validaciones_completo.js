@@ -130,6 +130,21 @@ var validarFormatoFecha = function(){
     }
     return true;
 }
+var validarEdad = function(){
+    var fecha = $('#form-registro .grupoFechaNacimiento input');
+    var hoy = new Date();
+    var fnacimiento = new Date(fecha.val());
+    var edad = hoy.getFullYear() - fnacimiento.getFullYear();
+    var m = hoy.getMonth() - fnacimiento.getMonth();
+    if (m < 0 || (m === 0 && hoy.getDate() < fnacimiento.getDate())) {
+        edad--;
+    }
+    if (edad < 16){
+        $("div.campoMayor16Notif").removeAttr('hidden');
+        return false;
+    }
+    return true;
+}
 
 var validarPolitica = function(){
     var aceptada = $('#aceptacionPolitica').is(":checked");
@@ -178,6 +193,7 @@ var ocultarValidaciones = function(){
     $("div.campoFormatoNotif").attr('hidden', '');
     $("div.campoConMatchNotif").attr('hidden', '');
     $("div.campoPoliticaObl").attr('hidden', '');
+    $("div.campoMayor16Notif").attr('hidden', '');
 }
 
 /* Se dispara cuando se intenta registrar un nuevo usuario */
@@ -191,6 +207,9 @@ var submitRegistro = function(){
             ocultarElemento($('.loader-reg'));
             return false;
         } else if (!validarFormatoFecha()){
+            ocultarElemento($('.loader-reg'));
+            return false;
+        }else if(!validarEdad()){
             ocultarElemento($('.loader-reg'));
             return false;
         } else if(!validarConcidenciaPasswords(pass1, pass2)){
