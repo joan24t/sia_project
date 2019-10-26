@@ -14,15 +14,15 @@
                     {% csrf_token %}
                     <div>
                         <label>{% trans "Destinatarios:" %} </label>
-                        <input type="text" class="form-control destinatario destinatarios-nuevo" id="pepe" name="remitente">
+                        <input type="text" class="form-control destinatario destinatarios-nuevo" name="remitente">
                     </div>
                     <div>
                         <label>{% trans "Asunto:" %} </label>
-                        <input type="text" class="form-control asunto-nuevo" name="asunto">
+                        <input type="text" class="form-control asunto-nuevo" name="asunto" maxlength="30">
                     </div>
                     <div>
                         <label>{% trans "Mensaje:" %} </label>
-                        <textarea name="mensaje" class="form-control cuerpo-nuevo" rows="5" cols="82"></textarea>
+                        <textarea name="mensaje" class="form-control cuerpo-nuevo" rows="5" cols="82" maxlength="1000"></textarea>
                     </div>
                     <div class="enviar-msj">
                         <a href="#" class="btn btn-primary btn-xs btn-nuevo-correo">

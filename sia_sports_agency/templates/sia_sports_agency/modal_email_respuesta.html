@@ -22,7 +22,7 @@
                     </div>
                     <div>
                         <label>{% trans "Mensaje:" %}</label>
-                        <textarea name="mensaje" class="form-control cuerpo-res" rows="5" cols="82" value="{{correo.cuerpo}}"></textarea>
+                        <textarea name="mensaje" class="form-control cuerpo-res" rows="5" cols="82" value="{{correo.cuerpo}}" maxlength="1000"></textarea>
                     </div>
                     <div class="enviar-msj">
                         <a href="#" class="btn btn-primary btn-xs btn-responder-correo">

@@ -285,11 +285,11 @@ class Mensaje(models.Model):
     # Attributes
     asunto = models.CharField(
         null=False,
-        max_length=200
+        max_length=30
     )
     cuerpo = models.CharField(
         null=False,
-        max_length=500
+        max_length=1000
     )
     fecha = models.DateTimeField(
         null=False,
