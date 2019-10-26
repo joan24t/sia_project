@@ -24,6 +24,14 @@ PARTE PUBLICA
 """""""""""""""""""""""""""""""""""""""""""""
 logger = logging.getLogger(__name__)
 
+def handler404(request, exception):
+    print('AAAAAAAAA')
+    return render(
+        request,
+        '404_error/template_error_404.html',
+        contexto
+    )
+
 """ OPCIONES DE SEXO """
 GENDER_CHOICES = {
     'a': 'Ambos',

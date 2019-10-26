@@ -3,7 +3,9 @@ from django.urls import path
 from django.conf.urls import url
 from . import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.conf.urls import handler404
 
+handler404 = views.handler404
 urlpatterns = [
     path('', views.index, name='Index'),
     path('perfil/', views.perfil, name='Perfil'),

@@ -23,7 +23,17 @@ var cambioTipoJugador = function(){
         ocultarMostrarCampos(tipo_jugador);
         var cod_deporte = $('#deporteInput').val();
         cargarDeporteEspecifico(cod_deporte, tipo_jugador);
+        eliminarAQueJuegas(tipo_jugador);
     });
+}
+
+var eliminarAQueJuegas = function (tipo_jugador){
+    var no_permitidos = ["PF", "RE", "AR", "DI", "FI", "OJ", "PD"];
+    if (no_permitidos.includes(tipo_jugador)){
+        $('div.grupoAQueJuegas h4').attr('hidden', '');
+    }else{
+        $('div.grupoAQueJuegas h4').removeAttr('hidden');
+    }
 }
 
 var cargarDeporteEspecifico = function(cod, tipo_jugador){
