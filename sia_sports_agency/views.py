@@ -405,6 +405,7 @@ def crear_usuario(request):
     usuario.save()
     if diccionario.get('posiciones'):
         set_posiciones(usuario, diccionario.get('deporte'), diccionario)
+    enviar_registro_mail()
 
 """ Consigue el diccionario a partir del request """
 def get_diccionario(request, seccion):
@@ -846,7 +847,6 @@ def perfil(request):
     insertar_videos_contexto(contexto)
     insertar_correos_contexto(contexto)
     insertar_posicion_prin_contexto(contexto)
-    #enviar_notificacion_mail()
     return render(
         request,
         'sia_sports_agency/perfil.html',
@@ -1623,10 +1623,10 @@ def enviar_email(template_html, template_txt, asunto, lista_correos, dict):
     )
 
 """ Envia un mail desde el registro"""
-def enviar_notificacion_mail():
+def enviar_registro_mail():
     enviar_email(
-        'template_mail.html',
-        'template_mail.txt',
+        'template_mail_registro.html',
+        'template_mail_registro.txt',
         'Registro correcto',
         ['jchorda22@gmail.com'],
         {}

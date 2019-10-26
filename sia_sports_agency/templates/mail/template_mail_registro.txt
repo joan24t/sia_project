@@ -1,0 +1,21 @@
+<html>
+{% load static %}
+<div style="background-color: #202020; width: 100%; height: 15%; margin-bottom: 10%; border-bottom:5px solid #9A8056;">
+    <div>
+        <span><img style="width: 40%; margin: 2px 0px 0px 5%;" src="https://i.ibb.co/3rHHgLJ/logo.png" /></span>
+    </div>
+</div>
+<h1> ¡Bienvenid@ a SIA Sports Agency! </h1>
+
+<p>
+    Gracias por unirte a nuestra plataforma online para deportistas,
+    completa tu registro conﬁrmando tu cuenta en el siguiente enlace.
+    ———-
+    Un saludo del equipo de SIA Sports Agency.
+
+</p>
+
+
+<div style="background-color: #202020; width: 100%; height: 100px; margin-top: 10%;">
+</div>
+<html>
