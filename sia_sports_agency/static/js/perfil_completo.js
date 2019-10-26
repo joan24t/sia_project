@@ -538,7 +538,7 @@ var enviarFormularioEliminacionVideo = function(){
 };
 
 var mostrarConfirmacionMensaje = function(){
-    $('.bandeja-entrada-section .mail-eliminar').on('click', function(e) {
+    $('.mail-eliminar').on('click', function(e) {
         idMensajeSeleccionado = $(this).attr('id');
         $('#confirmMailModal').modal({
             backdrop: 'static',
