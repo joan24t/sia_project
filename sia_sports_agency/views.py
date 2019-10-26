@@ -90,6 +90,57 @@ DICT_POSITIONS = {
     'VARIAS POSICIONES':'VARIOUS POSITIONS',
 }
 
+""" DICCIONARIO DE ROLES CON SU TRADUCCIÓN """
+DICT_ROLES = {
+	'Jugador':'Player',
+	'Club':'Club',
+	'Entrenador':'Trainer',
+	'Preparador físico':'Physical trainer',
+	'Representante':'Representative',
+	'Árbitro':'Referee',
+	'Directivo':'Directive',
+	'Fisioterapeuta':'Physiotherapist',
+	'Ojeador':'Scout',
+	'Periodista deportivo':'Sports journalist',
+	'Empresa deportiva':'Sports company',
+	'Marca deportiva':'Sports brand',
+	'Otros':'Others'
+}
+
+""" DICCIONARIO DE DEPORTES CON SU TRADUCCIÓN """
+DICT_DEPORTES = {
+	'Fútbol':'Football',
+	'Fútbol Americano':'American football',
+	'Fútbol Sala':'Indoor football',
+	'Baloncesto':'Basketball',
+	'Balonmano':'Handball',
+	'Béisbol':'Baseball',
+	'Otros':'Others'
+}
+
+""" DICCIONARIO DE EXTREMIDADES CON SU TRADUCCIÓN """
+DICT_EXTREMIDADES = {
+	'No especificado':'Not specified',
+	'Mano izquierda':'Left hand',
+	'Mano derecha':'Right hand',
+	'Mano ambidiestra':'Ambidextrous hand',
+	'Pie izquierdo':'Left foot',
+	'Pie derecho':'Right foot',
+	'Pie ambidiestro':'Ambidextrous foot'
+}
+
+""" DICCIONARIO DE GENERO CON SU TRADUCCIÓN """
+DICT_GENERO = {
+	'Masculino':'Male',
+	'Femenino':'Female',
+	'Ambos':'Both'
+}
+
+""" DICCIONARIO DE NO ESPECIFICADO CON SU TRADUCCIÓN """
+DICT_NO_ESPECIFICADO = {
+	'No especificado':'Not specified'
+}
+
 """ LISTADO DE ROLES QUE NO REQUIEREN SEXO """
 LIST_NO_GENDER = ['CL', 'ED', 'MD']
 
@@ -210,9 +261,9 @@ def logout(request):
     return HttpResponseRedirect('/')
 
 """ Traduce la palabra """
-def get_translate(word, lan):
-    if lan == 'en-en' and DICT_POSITIONS.get(word):
-        return DICT_POSITIONS.get(word)
+def get_translate(word, lan, dict):
+    if lan == 'en-en' and dict.get(word):
+        return dict.get(word)
     return word
 
 """ Consigue las posiciones según el códgo del deporte """
@@ -223,7 +274,7 @@ def get_posiciones(request, cod):
         lista_posiciones = [
             "<option value=\"" + str(posicion.codigo) + "\">"  + \
             get_translate(
-                posicion.nombre, request.session.get('language')
+                posicion.nombre, request.session.get('language'), DICT_POSITIONS
             ) + "</option>"
             for posicion
             in Posicion.objects.filter(deporte=deporte.id)
@@ -1369,21 +1420,41 @@ def incrementar_visitas(usuario, usu_seleccionado):
         usu_seleccionado.n_visitas += 1
         usu_seleccionado.save()
 
-def posicionesPorUsuario(usuario):
+def posicionesPorUsuario(usuario,  request):
     posiciones = usuario.posiciones.all()
-    return ', '.join([p.nombre.capitalize() for p in posiciones])
+    lan = request.session.get('language')
+    return ', '.join([
+        get_translate(
+            p.nombre.capitalize(),
+            lan,
+            DICT_ROLES
+        ) for p in posiciones
+    ])
 
 """ Inserta en un diccionario todos los datos de la ficha del usuario """
-def detalle_usuario_dict(dict, usu_seleccionado):
+def detalle_usuario_dict(dict, usu_seleccionado, request):
+    lan = request.session.get('language')
     dict.update({
         'url_img': os.path.join('/static', usu_seleccionado.ruta_cromo),
         'nombre': usu_seleccionado.nombre if usu_seleccionado.nombre
-            else _('No especificado'),
-        'rol_nombre': usu_seleccionado.tipo.nombre,
+            else get_translate('No especificado', lan, DICT_NO_ESPECIFICADO),
+        'rol_nombre': get_translate(
+            usu_seleccionado.tipo.nombre,
+            lan,
+            DICT_ROLES
+        ),
         'rol': usu_seleccionado.tipo.codigo,
         'deporte': (
-            usu_seleccionado.deporte.nombre if
-            usu_seleccionado.deporte else _('No especificado')
+            get_translate(
+                usu_seleccionado.deporte.nombre,
+                lan,
+                DICT_DEPORTES
+            ) if
+            usu_seleccionado.deporte else get_translate(
+                'No especificado',
+                lan,
+                DICT_NO_ESPECIFICADO
+            )
         ),
         'deporte_codigo': (
             usu_seleccionado.deporte.codigo if
@@ -1391,38 +1462,88 @@ def detalle_usuario_dict(dict, usu_seleccionado):
         ),
         'deporte_especifico': (
             usu_seleccionado.deporte_especifico if
-            usu_seleccionado.deporte_especifico else _('No especificado')
+            usu_seleccionado.deporte_especifico else get_translate(
+                'No especificado',
+                lan,
+                DICT_NO_ESPECIFICADO
+            )
         ),
-        'posiciones': posicionesPorUsuario(usu_seleccionado)
-            if posicionesPorUsuario(usu_seleccionado) else _('No especificado'),
+        'posiciones': posicionesPorUsuario(usu_seleccionado, request)
+            if posicionesPorUsuario(
+                usu_seleccionado, request
+            ) else get_translate(
+                'No especificado',
+                lan,
+                DICT_NO_ESPECIFICADO
+            ),
         'email': usu_seleccionado.email,
-        'genero_deporte': SPORT_TYPE_CHOICES.get(
-            usu_seleccionado.tipo_deporte
+        'genero_deporte': get_translate(
+                SPORT_TYPE_CHOICES.get(
+                usu_seleccionado.tipo_deporte
+            ),
+            lan,
+            DICT_GENERO
         ),
-        'sexo': GENDER_CHOICES.get(
-            usu_seleccionado.genero
+        'sexo': get_translate(
+            GENDER_CHOICES.get(
+                usu_seleccionado.genero
+            ),
+            lan,
+            DICT_GENERO
         ),
         'fnacimiento': usu_seleccionado.fnacimiento.strftime(
             "%d/%m/%Y"
-        ) if usu_seleccionado.fnacimiento else _('No especificado'),
+        ) if usu_seleccionado.fnacimiento else get_translate(
+            'No especificado',
+            lan,
+            DICT_NO_ESPECIFICADO
+        ),
         'pais': usu_seleccionado.pais.nombre,
         'telefono': usu_seleccionado.telefono
             if usu_seleccionado.telefono
-                else _('No especificado'),
+                else get_translate(
+                    'No especificado',
+                    lan,
+                    DICT_NO_ESPECIFICADO
+                ),
         'ubicacion': usu_seleccionado.ubicacion
             if usu_seleccionado.ubicacion
-                else _('No especificado'),
+                else get_translate(
+                    'No especificado',
+                    lan,
+                    DICT_NO_ESPECIFICADO
+                ),
         'peso': str(usu_seleccionado.peso),
         'tipo_peso': usu_seleccionado.tipo_peso,
-        'extremidad': usu_seleccionado.extremidad.nombre
-            if usu_seleccionado.extremidad else _('No especificado'),
+        'extremidad': get_translate(
+                usu_seleccionado.extremidad.nombre,
+                lan,
+                DICT_EXTREMIDADES
+            )
+            if usu_seleccionado.extremidad else get_translate(
+                'No especificado',
+                lan,
+                DICT_NO_ESPECIFICADO
+            ),
         'equipo_actual': usu_seleccionado.eactual
-            if usu_seleccionado.eactual else _('No especificado'),
+            if usu_seleccionado.eactual else get_translate(
+                'No especificado',
+                lan,
+                DICT_NO_ESPECIFICADO
+            ),
         'pagina_web': usu_seleccionado.pagina_web
-            if usu_seleccionado.pagina_web else _('No especificado'),
+            if usu_seleccionado.pagina_web else get_translate(
+                'No especificado',
+                lan,
+                DICT_NO_ESPECIFICADO
+            ),
         'nacionalidad': usu_seleccionado.nacionalidad
             if usu_seleccionado.nacionalidad
-                else _('No especificado'),
+                else get_translate(
+                    'No especificado',
+                    lan,
+                    DICT_NO_ESPECIFICADO
+                ),
         'altura': str(usu_seleccionado.altura),
         'tipo_altura': usu_seleccionado.tipo_altura,
         'interesadoen': usu_seleccionado.interesadoen,
@@ -1457,7 +1578,7 @@ def detalle_usuario(request):
                 id=usuario_id,
             ).first()
             dict['exito'] = True
-            detalle_usuario_dict(dict, usu_seleccionado)
+            detalle_usuario_dict(dict, usu_seleccionado, request)
             insertar_redes_detalle(dict, usu_seleccionado)
             incrementar_visitas(usuario, usu_seleccionado)
             return HttpResponse(
