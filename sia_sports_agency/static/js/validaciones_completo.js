@@ -242,7 +242,7 @@ var validarCamposVideo = function(){
 var validarFormatoVideo = function(){
     var res = true;
     var video = $('#customFileVideo')[0].files;
-    if(video.length > 0 && /\.(mp4)$/i.test(video[0].name) === false){
+    if(video.length > 0 && /\.(mp4|mov|m4v|3gp)$/i.test(video[0].name) === false){
         $('#form-subida-video div.campoFormatoVideoNotif').removeAttr('hidden');
         res = false;
     }
