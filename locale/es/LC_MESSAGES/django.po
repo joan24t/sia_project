@@ -20,11 +20,11 @@ msgstr ""
 
 #: .\sia_sports_agency\templates\sia_sports_agency\base.html:62
 msgid "Anterior"
-msgstr "Previous"
+msgstr "Anterior"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\base.html:63
 msgid "Siguiente"
-msgstr "Next"
+msgstr "Siguiente"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\base.html:70
 msgid "Mostrar _MENU_"
