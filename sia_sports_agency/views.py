@@ -11,7 +11,7 @@ from django.core.files.base import ContentFile
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
-from datetime import date
+from datetime import date, datetime
 import json
 import os
 import base64
@@ -552,7 +552,8 @@ def estableceFNacimiento(rol, request, diccionario):
     fecha = None
     total_list = LIST_COMBO2 + LIST_COMBO5
     if rol not in total_list and request.POST.get('inputNacimiento', ''):
-        fecha = request.POST.get('inputNacimiento', '').strip()
+        fecha_sf = request.POST.get('inputNacimiento', '').strip()
+        fecha = datetime.strptime(fecha_sf, "%d/%m/%Y").strftime('%Y-%m-%d')
     diccionario.update({
         'fnacimiento': fecha
     })

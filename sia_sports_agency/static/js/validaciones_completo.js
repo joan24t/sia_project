@@ -120,10 +120,7 @@ var validarCamposVacios = function(){
 
 var validarFormatoFecha = function(){
     var fecha = $('#form-registro .grupoFechaNacimiento input');
-    var año = fecha.val().substring(0, 4);
-    var mes = fecha.val().substring(5, 7);
-    var dia = fecha.val().substring(8, 10);
-    var fecha_formateada = dia + "/" + mes + "/" + año;
+    var fecha_formateada = fecha.val();
     if (!fecha.is(":hidden") && (fecha_formateada.charAt(2) != '/' || fecha_formateada.charAt(5) != '/' || fecha_formateada.length != 10)){
         $("div.campoFormatoNotif").removeAttr('hidden');
         return false;
@@ -133,10 +130,12 @@ var validarFormatoFecha = function(){
 var validarEdad = function(){
     var fecha = $('#form-registro .grupoFechaNacimiento input');
     var hoy = new Date();
-    var fnacimiento = new Date(fecha.val());
-    var edad = hoy.getFullYear() - fnacimiento.getFullYear();
-    var m = hoy.getMonth() - fnacimiento.getMonth();
-    if (m < 0 || (m === 0 && hoy.getDate() < fnacimiento.getDate())) {
+    var fnacimiento = fecha.val();
+    var edad = hoy.getFullYear() - parseInt(fnacimiento.substring(6,10));
+    var dia_fnacimiento = fnacimiento.substring(0,2);
+    var mes_fnacimiento = fnacimiento.substring(3,5);
+    var m = (hoy.getMonth() + 1) - parseInt(mes_fnacimiento);
+    if (m < 0 || (m === 0 && hoy.getDate() < parseInt(dia_fnacimiento))) {
         edad--;
     }
     if (edad < 16){

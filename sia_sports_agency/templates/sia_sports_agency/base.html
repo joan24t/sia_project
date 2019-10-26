@@ -89,6 +89,12 @@
                 });
                 AOS.init();
                 $.datepicker.regional['es'] = {
+                    beforeShow: function(input, inst) {
+                        $(document).off('focusin.bs.modal');
+                    },
+                    onClose:function(){
+                        $(document).on('focusin.bs.modal');
+                    },
                     closeText: 'Cerrar',
                     prevText: '< Ant',
                     nextText: 'Sig >',
@@ -103,7 +109,10 @@
                     firstDay: 1,
                     isRTL: false,
                     showMonthAfterYear: false,
-                    yearSuffix: ''
+                    yearSuffix: '',
+                    changeMonth: true,
+                    changeYear: true,
+                    yearRange : '-150:+0',
                 };
                 $.datepicker.setDefaults($.datepicker.regional['es']);
                 $(function() {
