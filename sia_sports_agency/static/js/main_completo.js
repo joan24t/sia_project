@@ -30,9 +30,9 @@ var cambioTipoJugador = function(){
 var eliminarAQueJuegas = function (tipo_jugador){
     var no_permitidos = ["PF", "RE", "AR", "DI", "FI", "OJ", "PD"];
     if (no_permitidos.includes(tipo_jugador)){
-        $('div.grupoAQueJuegas h4').attr('hidden', '');
+        $('#form-registro div.grupoAQueJuegas h4').attr('hidden', '');
     }else{
-        $('div.grupoAQueJuegas h4').removeAttr('hidden');
+        $('#form-registro div.grupoAQueJuegas h4').removeAttr('hidden');
     }
 }
 
