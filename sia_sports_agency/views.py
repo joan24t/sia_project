@@ -405,7 +405,7 @@ def crear_usuario(request):
     usuario.save()
     if diccionario.get('posiciones'):
         set_posiciones(usuario, diccionario.get('deporte'), diccionario)
-    enviar_registro_mail()
+    enviar_registro_mail(diccionario.get('email'))
 
 """ Consigue el diccionario a partir del request """
 def get_diccionario(request, seccion):
@@ -1623,15 +1623,14 @@ def enviar_email(template_html, template_txt, asunto, lista_correos, dict):
     )
 
 """ Envia un mail desde el registro"""
-def enviar_registro_mail():
+def enviar_registro_mail(mail):
     enviar_email(
         'template_mail_registro.html',
         'template_mail_registro.txt',
         'Registro correcto',
-        ['jchorda22@gmail.com'],
+        [mail],
         {}
     )
-    #'sergifutsal@hotmail.com', 'ipellicer1986@gmail.com', 'aaron_sj87@hotmail.com'
 
 """ Comprueba si ya existe el correo """
 @csrf_exempt
