@@ -90,9 +90,14 @@ urlpatterns = [
     ),
     path('comprobar_correo/', views.comprobar_correo, name='Comprobar correo'),
     path('email_contacto/', views.email_contacto, name='Email contacto'),
-    url(
-        r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
+    path(
+        'activate/<str:uidb64>/<str:token>',
         views.activate,
         name='activate'
-    )
+    ),
+    path(
+        'recordar_contrasena_mail/',
+        views.recordar_contrasena_mail,
+        name='Recordar contrasena'
+    ),
 ]

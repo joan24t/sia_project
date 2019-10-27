@@ -1646,10 +1646,30 @@ def enviar_registro_mail(mail, usuario, request):
         {
             'user': usuario,
             'domain': current_site.domain,
-            'uid':urlsafe_base64_encode(force_bytes(usuario.id)),
-            'token':account_activation_token.make_token(usuario)
+            'uidb64': urlsafe_base64_encode(force_bytes(usuario.id)),
+            'token': account_activation_token.make_token(usuario),
+            'lan': request.session.get('language')
         }
     )
+
+""" Envia un mail que recuerda la contraseña"""
+def recordar_contrasena_mail(request):
+    mail = request.POST.get("inputEmail")
+    usuario_exi = Usuario.objects.filter(
+        email=mail
+    ).first()
+    if usuario_exi:
+        enviar_email(
+            'template_mail_recordar_contrasena.html',
+            'template_mail_recordar_contrasena.txt',
+            'Recordatorio de contraseña',
+            [],
+            {
+                'lan': request.session.get('language'),
+                'password': 'AAAAA'
+            }
+        )
+    return HttpResponseRedirect('/perfil/')
 
 """ Comprueba si ya existe el correo """
 @csrf_exempt
