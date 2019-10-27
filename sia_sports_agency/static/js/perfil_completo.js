@@ -189,7 +189,12 @@ var triggerLogin = function(){
             success: function(data) {
                 ocultarElemento($('.loader-inicio'));
                 if(data.errorLogin){
-                    $('#form-login .correo-invalido').removeAttr('hidden');
+                   $('#form-login .correo-invalido').removeAttr('hidden');
+                }else if (data.errorEsActivo){
+                    $('#esActivoModalCenter').modal({
+                        backdrop: 'static',
+                        keyboard: false
+                    });
                 }else if (data.errorActivacion){
                     $('#activacionModalCenter #reactivar-email').val(
                         $('#form-login .emailInput').val()

@@ -1,0 +1,17 @@
+{% load static %}
+{% load i18n %}
+<div class="modal fade" id="esActivoModalCenter" tabindex="-1" role="dialog" aria-labelledby="esActivoModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{% trans "Activación de cuenta" %}</h5>
+            </div>
+            <div class="modal-body">
+                {% trans "Hemos detectado que su cuenta no ha sido activada. Por favor, revise su cuenta de correo electrónico para poder activarla" %}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">{% trans "Cerrar" %}</button>
+            </div>
+        </div>
+    </div>
+</div>

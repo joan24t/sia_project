@@ -12,6 +12,10 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from datetime import date, datetime
+from django.contrib.sites.shortcuts import get_current_site
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from .tokens import account_activation_token
+from django.utils.encoding import force_bytes, force_text
 import json
 import os
 import base64
@@ -244,13 +248,17 @@ def login(request):
     usuario = comprobar_email(email, password)
     dict = {
         'errorActivacion': False,
-        'errorLogin': False
+        'errorLogin': False,
+        'errorEsActivo': False
     }
     if usuario:
-        if usuario.activo == 1:
-            request.session['email'] = usuario.email
+        if usuario.es_activo == 1:
+            if usuario.activo == 1:
+                request.session['email'] = usuario.email
+            else:
+                dict['errorActivacion'] = True
         else:
-            dict['errorActivacion'] = True
+            dict['errorEsActivo'] = True
     else:
         dict['errorLogin'] = True
     return HttpResponse(json.dumps(dict), content_type='application/json')
@@ -405,7 +413,7 @@ def crear_usuario(request):
     usuario.save()
     if diccionario.get('posiciones'):
         set_posiciones(usuario, diccionario.get('deporte'), diccionario)
-    enviar_registro_mail(diccionario.get('email'))
+    enviar_registro_mail(diccionario.get('email'), usuario, request)
 
 """ Consigue el diccionario a partir del request """
 def get_diccionario(request, seccion):
@@ -1628,13 +1636,19 @@ def enviar_email(template_html, template_txt, asunto, lista_correos, dict):
     )
 
 """ Envia un mail desde el registro"""
-def enviar_registro_mail(mail):
+def enviar_registro_mail(mail, usuario, request):
+    current_site = get_current_site(request)
     enviar_email(
         'template_mail_registro.html',
         'template_mail_registro.txt',
         'Registro correcto',
         [mail],
-        {}
+        {
+            'user': usuario,
+            'domain': current_site.domain,
+            'uid':urlsafe_base64_encode(force_bytes(usuario.id)),
+            'token':account_activation_token.make_token(usuario)
+        }
     )
 
 """ Comprueba si ya existe el correo """
@@ -1664,3 +1678,20 @@ def comprobar_correo(request):
     return HttpResponse(
         json.dumps(dict), content_type='application/json'
     )
+
+""" Activar cuenta sia """
+def activate(request, uidb64, token):
+    try:
+        uid = force_text(urlsafe_base64_decode(uidb64))
+        usuario = Usuario.objects.get(id=uid)
+    except(TypeError, ValueError, OverflowError, Usuario.DoesNotExist):
+        usuario = None
+    if usuario is not None and account_activation_token.check_token(
+        usuario,
+        token
+    ):
+        usuario.es_activo = 1
+        usuario.save()
+        return index(request)
+    else:
+        return HttpResponse('¡El link de activación es inválido!')

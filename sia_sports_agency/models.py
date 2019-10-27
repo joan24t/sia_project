@@ -261,6 +261,11 @@ class Usuario(models.Model):
         null=False,
         default=1
     )
+    es_activo = models.IntegerField(
+        null=False,
+        default=0
+    )
+    fecha_activacion = models.DateField(null=True)
     ruta_cromo = models.CharField(
         max_length=150
     )
