@@ -1351,7 +1351,7 @@ def busqueda_cromo(request):
 
 """ Pagina los resultados """
 def paginar_resultados(lista_usuarios, pagina):
-    paginator = Paginator(lista_usuarios, 9)
+    paginator = Paginator(lista_usuarios, 12)
     try:
         return paginator.page(pagina)
     except PageNotAnInteger:

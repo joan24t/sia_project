@@ -49,8 +49,8 @@ var construyeBotones = function(btn){
         dibujaBotones();
     }
     descativarBotonsExt();
-    $('.form-busqueda .busquedaPagina').val(actual.toString());
-    consultaCromos(false);
+    $('#busquedaPagina').val(actual.toString());
+    triggerConsultaCromos(false);
 }
 
 var descativarBotonsExt = function(){
@@ -68,8 +68,8 @@ var cambiarActivo = function(valor){
     actual = valor;
     descativarBotonsExt();
     $('.page-item-' + String(actual) + '>a').addClass('active');
-    $('.form-busqueda .busquedaPagina').val(actual.toString());
-    consultaCromos(false);
+    $('#busquedaPagina').val(actual.toString());
+    triggerConsultaCromos(false);
 }
 
 var dibujaBotones = function(){
@@ -94,45 +94,50 @@ var dibujaBotones = function(){
     }
     elemento.html(contenido);
 }
+
+var triggerConsultaCromos = function(busqueda){
+    $('div.mask').removeAttr('hidden');
+    $.ajax({
+        url: "/busqueda_cromo/",
+        async: false,
+        type: 'POST',
+        dataType: 'json',
+        data: $('#form-busqueda').serialize(),
+        success: function(data) {
+            if (data.exito){
+                var content = "";
+                for (var i in data.lista_usuarios) {
+                    var id = data.lista_usuarios[i][0];
+                    var url = data.lista_usuarios[i][1];
+                    content += "<div class='col-12 col-md-6 col-xl-3'" + " onclick='verDetalle(" + id.toString() + ");' data-aos='zoom-in' data-aos-duration='500' style='text-align: center; margin-top: 50px;'><img width='300px' src='" + url + "?timestamp=" + new Date().getTime() + "' /></div>";
+                }
+                $('.resultados .row').html(content);
+                if(busqueda){
+                    total_cromos = parseInt(data.total_registros);
+                    ultimaPagina = Math.ceil(total_cromos / 12);
+                    rangoFin = Math.min(ultimaPagina, limiteBotones);
+                    dibujaBotones();
+                }
+                $('div.mask').attr('hidden', '');
+            }else{
+                $('.toast-error .content').text('Error en la búsqueda de los cromos.');
+                $('.toast-error').toast('show');
+                $('div.mask').attr('hidden', '');
+            }
+        },error: function(data){
+            $('.toast-error .content').text('Error en la búsqueda de los cromos.');
+            $('.toast-error').toast('show');
+            $('div.mask').attr('hidden', '');
+        }
+    });
+}
+
 /* Lleva a cabo la consulta de los cromos a partir de los filtros */
 var consultaCromos = function(busqueda){
     //Envio de de datos del formulario
     $('#form-busqueda').submit(function(e) {
         e.preventDefault();
-        $('div.mask').removeAttr('hidden');
-        $.ajax({
-            url: "/busqueda_cromo/",
-            async: false,
-            type: 'POST',
-            dataType: 'json',
-            data: $(this).serialize(),
-            success: function(data) {
-                if (data.exito){
-                    var content = "";
-                    for (var i in data.lista_usuarios) {
-                        var id = data.lista_usuarios[i][0];
-                        var url = data.lista_usuarios[i][1];
-                        content += "<div class='col-12 col-md-6 col-xl-3'" + " onclick='verDetalle(" + id.toString() + ");' data-aos='zoom-in' data-aos-duration='500' style='text-align: center; margin-top: 50px;'><img width='300px' src='" + url + "?timestamp=" + new Date().getTime() + "' /></div>";
-                    }
-                    $('.resultados .row').html(content);
-                    if(busqueda){
-                        total_cromos = parseInt(data.total_registros);
-                        ultimaPagina = Math.ceil(total_cromos / 9);
-                        rangoFin = Math.min(ultimaPagina, limiteBotones);
-                        dibujaBotones();
-                    }
-                    $('div.mask').attr('hidden', '');
-                }else{
-                    $('.toast-error .content').text('Error en la búsqueda de los cromos.');
-                    $('.toast-error').toast('show');
-                    $('div.mask').attr('hidden', '');
-                }
-            },error: function(data){
-                $('.toast-error .content').text('Error en la búsqueda de los cromos.');
-                $('.toast-error').toast('show');
-                $('div.mask').attr('hidden', '');
-            }
-        });
+        triggerConsultaCromos(busqueda);
     });
 }
 
