@@ -1685,8 +1685,13 @@ def activate(request, uidb64, token):
     try:
         uid = force_text(urlsafe_base64_decode(uidb64))
         usuario = Usuario.objects.get(id=uid)
-    except(TypeError, ValueError, OverflowError, Usuario.DoesNotExist):
+    except(TypeError, ValueError, OverflowError, Usuario.DoesNotExist) as e:
         usuario = None
+        logger.error(
+            "Error activar la cuenta: {}".format(
+                e
+            )
+        )
     if usuario is not None and account_activation_token.check_token(
         usuario,
         token
