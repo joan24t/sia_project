@@ -1646,7 +1646,7 @@ def enviar_registro_mail(mail, usuario, request):
         {
             'user': usuario,
             'domain': current_site.domain,
-            'uidb64': urlsafe_base64_encode(force_bytes(usuario.id)),
+            'uid': urlsafe_base64_encode(force_bytes(usuario.id)),
             'token': account_activation_token.make_token(usuario),
             'lan': request.session.get('language')
         }
@@ -1717,7 +1717,6 @@ def activate(request, uidb64, token):
         token
     ):
         usuario.es_activo = 1
-        usuario.fecha_activacion = datetime.now
         usuario.save()
         return index(request)
     else:
