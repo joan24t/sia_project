@@ -1680,6 +1680,7 @@ def comprobar_correo(request):
     )
 
 """ Activar cuenta sia """
+@csrf_exempt
 def activate(request, uidb64, token):
     try:
         uid = force_text(urlsafe_base64_decode(uidb64))
