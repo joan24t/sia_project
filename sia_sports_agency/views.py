@@ -1691,6 +1691,7 @@ def activate(request, uidb64, token):
         token
     ):
         usuario.es_activo = 1
+        usuario.fecha_activacion = datetime.now
         usuario.save()
         return index(request)
     else:
