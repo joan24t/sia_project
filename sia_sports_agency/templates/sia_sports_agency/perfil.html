@@ -115,7 +115,7 @@
                                     <label>
                                         <h4>{% trans "F. Nacimiento" %}</h4>
                                     </label>
-                                    <input class="form-control" name="inputNacimiento" value="{{usuario.fnacimiento|slugify}}" id="datepicker" autocomplete="off">
+                                    <input class="form-control" name="inputNacimiento" value="{{usuario.fnacimiento|date:'d/m/Y' }}" id="datepicker" autocomplete="off">
                                 </div>
                                 <div class="col col-12 col-xl-6" >
                                     <label for="paisDropdown">

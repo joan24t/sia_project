@@ -598,9 +598,14 @@ def estableceDeporteEspecifico(rol, request, diccionario):
 """ Establece deporte si el rol lo requiere"""
 def estableceDeporte(rol, request, diccionario):
     deporte = None
-    if rol not in LIST_COMBO6:
+    total_list = LIST_COMBO5 + LIST_COMBO6
+    if rol not in total_list:
         deporte = Deporte.objects.get(
             codigo=str(request.POST.get('inputDeporte', ''))
+        ).id
+    else:
+        deporte = Deporte.objects.get(
+            codigo="MD"
         ).id
     diccionario.update({
         'deporte': deporte
