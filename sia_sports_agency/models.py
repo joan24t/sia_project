@@ -265,7 +265,7 @@ class Usuario(models.Model):
         null=False,
         default=0
     )
-    fecha_activacion = models.DateField(null=True)
+    fecha_activacion = models.DateTimeField(null=True)
     ruta_cromo = models.CharField(
         max_length=150
     )
@@ -277,7 +277,7 @@ class Usuario(models.Model):
         max_length=100,
         default = ''
     )
-    creado = models.DateField(
+    creado = models.DateTimeField(
         null=False,
         default=datetime.now
     )
