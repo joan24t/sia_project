@@ -9,36 +9,28 @@
 {% if lan == 'en-en' %}
 <h1 style="font-size: 100%;"> Welcome to SIA Sports Agency! </h1>
 
-<p>
-    <h2 style="font-size: 100%;">
+<p style="font-size: 100%;">
         Thanks for joining our online platform for athletes, complete your
         registration by confirming your account in the following link.
-    </h2>
 </p>
 <p style="font-size: 100%;">
     <a href="https://{{ domain }}{% url 'activate' uidb64=uid token=token %}"> Active your account </a>
 </p>
-<p>
-    <h2 style="font-size: 100%;">
+<p style="font-size: 100%;">
         Greetings from the SIA Sport Agency team.
-    </h2>
 </p>
 {% else %}
 <h1 style="font-size: 100%;"> ¡Bienvenid@ a SIA Sports Agency! </h1>
 
-<p>
-    <h2 style="font-size: 100%;">
-        Gracias por unirte a nuestra plataforma online para deportistas,
-        completa tu registro conﬁrmando tu cuenta en el siguiente enlace.
-    </h2>
+<p style="font-size: 100%;">
+    Gracias por unirte a nuestra plataforma online para deportistas,
+    completa tu registro conﬁrmando tu cuenta en el siguiente enlace.
 </p>
 <p style="font-size: 100%;">
     <a href="https://{{ domain }}{% url 'activate' uidb64=uid token=token %}"> Activar cuenta </a>
 </p>
-<p>
-    <h2 style="font-size: 100%;">
+<p style="font-size: 100%;">
         Un saludo del equipo de SIA Sports Agency.
-    </h2>
 </p>
 {% endif %}
 

@@ -9,11 +9,11 @@
 {% if lan == 'en-en' %}
 <p>
     <h2 style="font-size: 100%;">
-        Password reminder
+        You have requested a password change.
     </h2>
 </p>
 <p style="font-size: 100%;">
-    We remind you your user password from SIA Sports sia_sports_agency
+    Please, to change your password click on the following link:
 </p>
 <p style="font-size: 100%;">
     <a href="https://{{ domain }}{% url 'reset_password' uidb64=uid token=token %}"> Change password </a>
@@ -24,11 +24,11 @@
 {% else %}
 <p>
     <h2 style="font-size: 100%;">
-        Recuerdo de contraseña
+        Ha solicitiado un cambio de contraseña.
     </h2>
 </p>
 <p style="font-size: 100%;">
-    Desde SIA Sports Agency le recordamos su contraseña de usuario
+    Por favor, para poder cambiar su contraseña pulse en el siguiente enlace:
 </p>
 <p style="font-size: 100%;">
     <a href="https://{{ domain }}{% url 'reset_password' uidb64=uid token=token %}"> Cambiar contraseña </a>

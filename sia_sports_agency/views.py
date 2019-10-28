@@ -1453,13 +1453,26 @@ def reactivar_cuenta(request):
             usuario.activo = 1
             usuario.save()
             request.session['email'] = usuario.email
+            lan = request.session.get('language')
+            asunto = (
+                'Account reactivated' if lan == 'en-en' else 'Cuenta reactivada'
+            )
+            enviar_email(
+                'template_mail_reactivacion.html',
+                'template_mail_reactivacion.txt',
+                asunto,
+                [usuario.email],
+                {
+                    'lan': lan
+                }
+            )
             return HttpResponseRedirect('/perfil')
         else:
             return HttpResponseRedirect('/')
     except Exception as e:
         logger.error("Error al reactivar cuenta: {}".format(e))
 
-""" Reactiva una cuenta que estava desactivada """
+""" Desactiva una cuenta """
 @csrf_exempt
 def desactivar_cuenta(request):
     try:
@@ -1467,6 +1480,19 @@ def desactivar_cuenta(request):
         if usuario:
             usuario.activo = 0
             usuario.save()
+            lan = request.session.get('language')
+            asunto = (
+                'Account cancelled' if lan == 'en-en' else 'Cuenta cancelada'
+            )
+            enviar_email(
+                'template_mail_cancelacion.html',
+                'template_mail_cancelacion.txt',
+                asunto,
+                [usuario.email],
+                {
+                    'lan': lan
+                }
+            )
             del request.session['email']
         return HttpResponseRedirect('/')
     except Exception as e:

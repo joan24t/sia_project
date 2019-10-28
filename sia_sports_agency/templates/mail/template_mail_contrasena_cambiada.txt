@@ -7,24 +7,20 @@
     </div>
 </div>
 {% if lan == 'en-en' %}
-<p>
-    <h2 style="font-size: 100%;">
-        Password changed
-    </h2>
+<p style="font-size: 100%;">
+    Password changed.
 </p>
 <p style="font-size: 100%;">
     Your password has been changed successfully.
     If you have not requested the password change, please contact us.
 </p>
 
-<p>
+<p style="font-size: 100%;">
     Greetings from the SIA Sport Agency team.
 </p>
 {% else %}
-<p>
-    <h2 style="font-size: 100%;">
-        Recuerdo de contraseña
-    </h2>
+<p style="font-size: 100%;">
+    Constraseña cambiada.
 </p>
 <p style="font-size: 100%;">
     Su contraseña ha sido cambiada con éxito.
