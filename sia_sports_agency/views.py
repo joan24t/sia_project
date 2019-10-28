@@ -1342,7 +1342,8 @@ def busqueda_cromo(request):
             lista_usuarios = Usuario.objects.filter(
                 primer_acceso=0,
                 activo=1,
-                id__in = get_usuario_por_edad(eini, efin)
+                id__in=get_usuario_por_edad(eini, efin),
+                es_activo=1
             )
             nombre = request.POST.get('busquedaNombre', '')
             posiciones = Posicion.objects.filter(
