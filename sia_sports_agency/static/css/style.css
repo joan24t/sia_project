@@ -992,8 +992,9 @@ section{
 	border-color:   #2c3e50;
 }
 .panel-email .tabla-correos td{
+	width: 1300px !important;
 	min-width: 200px !important;
-	max-width: 500px !important;
+	max-width: 1300px !important;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
