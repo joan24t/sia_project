@@ -1,1 +1,444 @@
-var _0xaa5f=["\x72\x65\x61\x64\x79","\x76\x61\x6C","\x68\x69\x64\x64\x65\x6E","","\x61\x74\x74\x72","\x23\x6C\x61\x62\x65\x6C\x4E\x6F\x6D\x62\x72\x65\x20\x68\x34","\x23\x6C\x61\x62\x65\x6C\x4E\x6F\x6D\x62\x72\x65\x20\x73\x70\x61\x6E","\x23\x6C\x61\x62\x65\x6C\x54\x65\x78\x74\x41\x72\x65\x61\x20\x68\x34","\x23\x64\x65\x70\x6F\x72\x74\x65\x49\x6E\x70\x75\x74","\x63\x68\x61\x6E\x67\x65","\x23\x71\x75\x65\x45\x72\x65\x73\x44\x72\x6F\x70\x64\x6F\x77\x6E","\x50\x46","\x52\x45","\x41\x52","\x44\x49","\x46\x49","\x4F\x4A","\x50\x44","\x69\x6E\x63\x6C\x75\x64\x65\x73","\x23\x66\x6F\x72\x6D\x2D\x72\x65\x67\x69\x73\x74\x72\x6F\x20\x64\x69\x76\x2E\x67\x72\x75\x70\x6F\x41\x51\x75\x65\x4A\x75\x65\x67\x61\x73\x20\x68\x34","\x72\x65\x6D\x6F\x76\x65\x41\x74\x74\x72","\x2E\x67\x72\x75\x70\x6F\x45\x73\x70\x65\x63\x69\x66\x69\x71\x75\x65","\x2E\x67\x72\x75\x70\x6F\x45\x73\x70\x65\x63\x69\x66\x69\x71\x75\x65\x20\x3E\x20\x69\x6E\x70\x75\x74","\x4D\x44","\x4F\x54","\x45\x44","\x2E\x62\x75\x73\x71\x75\x65\x64\x61\x20\x2E\x62\x75\x73\x71\x75\x65\x64\x61\x2D\x64\x65\x70\x6F\x72\x74\x65","\x70\x61\x74\x68\x6E\x61\x6D\x65","\x6C\x6F\x63\x61\x74\x69\x6F\x6E","\x2F\x62\x75\x73\x71\x75\x65\x64\x61\x2F","\x2F\x70\x65\x72\x66\x69\x6C\x2F","\x23\x62\x75\x73\x71\x75\x65\x64\x61\x2D\x64\x65\x70\x6F\x72\x74\x65","\x66\x6F\x72\x45\x61\x63\x68","\x63\x61\x6D\x70\x6F\x4F\x62\x6C\x69\x67\x61\x74\x6F\x72\x69\x6F","\x61\x64\x64\x43\x6C\x61\x73\x73","\x72\x65\x6D\x6F\x76\x65\x43\x6C\x61\x73\x73","\x23\x6C\x61\x62\x65\x6C\x4E\x6F\x6D\x62\x72\x65\x20\x23\x6C\x61\x62\x65\x6C\x4E\x6F\x6D\x62\x72\x65\x41\x70\x65\x6C\x6C\x69\x64\x6F\x73","\x2E\x67\x72\x75\x70\x6F\x47\x65\x6E\x65\x72\x6F\x44\x65\x70\x6F\x72\x74\x65","\x2E\x67\x72\x75\x70\x6F\x41\x51\x75\x65\x4A\x75\x65\x67\x61\x73","\x2E\x67\x72\x75\x70\x6F\x46\x65\x63\x68\x61\x4E\x61\x63\x69\x6D\x69\x65\x6E\x74\x6F","\x2E\x67\x72\x75\x70\x6F\x53\x65\x78\x6F","\x2E\x67\x72\x75\x70\x6F\x50\x6F\x73\x69\x63\x69\x6F\x6E\x65\x73","\x2E\x67\x72\x75\x70\x6F\x4E\x61\x63\x69\x6F\x6E\x61\x6C\x69\x64\x61\x64","\x2E\x67\x72\x75\x70\x6F\x50\x65\x73\x6F\x41\x6C\x74\x75\x72\x61","\x2E\x67\x72\x75\x70\x6F\x45\x44\x6F\x6D\x69\x6E\x61\x6E\x74\x65","\x2E\x67\x72\x75\x70\x6F\x43\x50\x72\x65\x73\x65\x6E\x74\x61\x63\x69\x6F\x6E","\x2E\x67\x72\x75\x70\x6F\x43\x75\x72\x72\x69\x63\x75\x6C\x75\x6D","\x2E\x67\x72\x75\x70\x6F\x45\x41\x63\x74\x75\x61\x6C","\x2E\x67\x72\x75\x70\x6F\x55\x62\x69\x63\x61\x63\x69\x6F\x6E","\x2E\x67\x72\x75\x70\x6F\x49\x6E\x74\x65\x72\x65\x73\x61\x64\x6F\x45\x6E","\x2E\x67\x72\x75\x70\x6F\x50\x61\x67\x69\x6E\x61\x57\x65\x62","\x2E\x67\x72\x75\x70\x6F\x46\x65\x63\x68\x61\x4E\x61\x63\x69\x6D\x69\x65\x6E\x74\x6F\x20\x3E\x20\x69\x6E\x70\x75\x74","\x23\x6C\x61\x62\x65\x6C\x4E\x6F\x6D\x62\x72\x65\x20\x23\x6C\x61\x62\x65\x6C\x4E\x6F\x6D\x62\x72\x65\x43\x6C\x75\x62","\x23\x6C\x61\x62\x65\x6C\x54\x65\x78\x74\x41\x72\x65\x61\x20\x23\x6C\x61\x62\x65\x6C\x49\x6E\x74\x65\x72\x65\x73\x61\x64\x6F\x45\x6E","\x2E\x64\x69\x76\x50\x6F\x73\x69\x74\x69\x6F\x6E\x73\x53\x69\x6D\x70\x6C\x65\x20\x23\x70\x6F\x73\x69\x63\x69\x6F\x6E\x44\x72\x6F\x70\x64\x6F\x77\x6E","\x2E\x64\x69\x76\x4D\x75\x6C\x74\x69\x70\x6C\x65\x50\x6F\x73\x69\x74\x69\x6F\x6E\x73\x20\x23\x70\x6F\x73\x69\x63\x69\x6F\x6E\x44\x72\x6F\x70\x64\x6F\x77\x6E\x4D\x75\x6C\x74\x69\x70\x6C\x65","\x23\x6C\x61\x62\x65\x6C\x54\x65\x78\x74\x41\x72\x65\x61\x20\x23\x6C\x61\x62\x65\x6C\x44\x65\x73\x63\x72\x69\x70\x63\x69\x6F\x6E","\x23\x6C\x61\x62\x65\x6C\x4E\x6F\x6D\x62\x72\x65\x20\x23\x6C\x61\x62\x65\x6C\x53\x6F\x6C\x6F\x4E\x6F\x6D\x62\x72\x65","\x4A\x47","\x43\x4C","\x45\x4E","\x23\x6C\x61\x62\x65\x6C\x4E\x6F\x6D\x62\x72\x65\x20\x23\x6C\x61\x62\x65\x6C\x4E\x6F\x6D\x62\x72\x65\x45\x6D\x70\x72\x65\x73\x61","\x23\x6C\x61\x62\x65\x6C\x4E\x6F\x6D\x62\x72\x65\x20\x23\x6C\x61\x62\x65\x6C\x4E\x6F\x6D\x62\x72\x65\x4D\x61\x72\x63\x61","\x68\x74\x6D\x6C","\x2E\x63\x75\x73\x74\x6F\x6D\x2D\x66\x69\x6C\x65\x2D\x6C\x61\x62\x65\x6C","\x6E\x65\x78\x74","\x6F\x6E","\x23\x63\x75\x73\x74\x6F\x6D\x46\x69\x6C\x65\x43\x61\x72\x74\x61\x2C\x20\x23\x63\x75\x73\x74\x6F\x6D\x46\x69\x6C\x65\x43\x75\x72\x72\x69\x63\x75\x6C\x75\x6D\x2C\x20\x23\x63\x75\x73\x74\x6F\x6D\x46\x69\x6C\x65\x56\x69\x64\x65\x6F","\x47\x45\x54","\x2F\x67\x65\x74\x5F\x70\x6F\x73\x69\x63\x69\x6F\x6E\x65\x73\x2F","\x3F\x65\x64\x69\x74\x3D","\x6C\x69\x73\x74\x61\x5F\x70\x6F\x73\x69\x63\x69\x6F\x6E\x65\x73","\x23\x70\x6F\x73\x69\x63\x69\x6F\x6E\x44\x72\x6F\x70\x64\x6F\x77\x6E\x4D\x75\x6C\x74\x69\x70\x6C\x65","\x72\x65\x66\x72\x65\x73\x68","\x73\x65\x6C\x65\x63\x74\x70\x69\x63\x6B\x65\x72","\x2E\x73\x65\x6C\x65\x63\x74\x70\x69\x63\x6B\x65\x72","\x2E\x64\x69\x76\x50\x6F\x73\x69\x74\x69\x6F\x6E\x73\x53\x69\x6D\x70\x6C\x65","\x2E\x64\x69\x76\x4D\x75\x6C\x74\x69\x70\x6C\x65\x50\x6F\x73\x69\x74\x69\x6F\x6E\x73","\x23\x70\x6F\x73\x69\x63\x69\x6F\x6E\x44\x72\x6F\x70\x64\x6F\x77\x6E","\x6D\x75\x6C\x74\x69\x70\x6C\x65","\x61\x6A\x61\x78","\x73\x75\x62\x6D\x69\x74","\x23\x66\x6F\x72\x6D\x2D\x69\x64\x69\x6F\x6D\x61\x2D"];$(document)[_0xaa5f[0]](function(){cargarDatosDinamicos();cargarNombreUpload();cambioTipoJugador();submitRegistro()});var cambioTipoJugador=function(){$(_0xaa5f[10])[_0xaa5f[9]](function(){var _0x5865x2=$(this)[_0xaa5f[1]]();$(_0xaa5f[5])[_0xaa5f[4]](_0xaa5f[2],_0xaa5f[3]);$(_0xaa5f[6])[_0xaa5f[4]](_0xaa5f[2],_0xaa5f[3]);$(_0xaa5f[7])[_0xaa5f[4]](_0xaa5f[2],_0xaa5f[3]);ocultarMostrarCampos(_0x5865x2);var _0x5865x3=$(_0xaa5f[8])[_0xaa5f[1]]();cargarDeporteEspecifico(_0x5865x3,_0x5865x2);eliminarAQueJuegas(_0x5865x2)})};var eliminarAQueJuegas=function(_0x5865x2){var _0x5865x5=[_0xaa5f[11],_0xaa5f[12],_0xaa5f[13],_0xaa5f[14],_0xaa5f[15],_0xaa5f[16],_0xaa5f[17]];if(_0x5865x5[_0xaa5f[18]](_0x5865x2)){$(_0xaa5f[19])[_0xaa5f[4]](_0xaa5f[2],_0xaa5f[3])}else {$(_0xaa5f[19])[_0xaa5f[20]](_0xaa5f[2])}};var cargarDeporteEspecifico=function(_0x5865x7,_0x5865x2){$(_0xaa5f[21])[_0xaa5f[4]](_0xaa5f[2],_0xaa5f[3]);var _0x5865x8=[$(_0xaa5f[22])];if(_0x5865x7== _0xaa5f[23]&& (_0x5865x2!= _0xaa5f[24]&& _0x5865x2!= _0xaa5f[23]&& _0x5865x2!= _0xaa5f[25])){$(_0xaa5f[21])[_0xaa5f[20]](_0xaa5f[2]);camposObligatorios(_0x5865x8)}else {camposNoObligatorios(_0x5865x8)}};var cargarDatosDinamicos=function(){$(_0xaa5f[8])[_0xaa5f[9]](function(){var _0x5865x7=$(this)[_0xaa5f[1]]();var _0x5865xa=$(_0xaa5f[10])[_0xaa5f[1]]();cargarDeporteEspecifico(_0x5865x7,_0x5865xa);establecerPosiciones(_0x5865x7,0,false)});$(_0xaa5f[26])[_0xaa5f[9]](function(){var _0x5865x7=$(this)[_0xaa5f[1]]();establecerPosiciones(_0x5865x7,0,true)});if(window[_0xaa5f[28]][_0xaa5f[27]]!= _0xaa5f[29]){var _0x5865xa=$(_0xaa5f[10])[_0xaa5f[1]]();var _0x5865x3=$(_0xaa5f[8])[_0xaa5f[1]]();ocultarMostrarCampos(_0x5865xa);cargarDeporteEspecifico(_0x5865x3,_0x5865xa);if(window[_0xaa5f[28]][_0xaa5f[27]]== _0xaa5f[30]){establecerPosiciones(_0x5865x3,1,false)}else {establecerPosiciones($(_0xaa5f[8])[_0xaa5f[1]](),0,false)}}else {establecerPosiciones($(_0xaa5f[31])[_0xaa5f[1]](),0,true)}};var mostrarCampos=function(_0x5865xc){_0x5865xc[_0xaa5f[32]](function(_0x5865xd){_0x5865xd[_0xaa5f[20]](_0xaa5f[2])})};var ocultarCampos=function(_0x5865xf){_0x5865xf[_0xaa5f[32]](function(_0x5865xd){_0x5865xd[_0xaa5f[4]](_0xaa5f[2],_0xaa5f[3])})};var camposObligatorios=function(_0x5865xc){_0x5865xc[_0xaa5f[32]](function(_0x5865xd){_0x5865xd[_0xaa5f[34]](_0xaa5f[33])})};var camposNoObligatorios=function(_0x5865xf){_0x5865xf[_0xaa5f[32]](function(_0x5865xd){_0x5865xd[_0xaa5f[35]](_0xaa5f[33])})};var mostrarOcultarComb1=function(){$(_0xaa5f[36])[_0xaa5f[20]](_0xaa5f[2]);var _0x5865xc=[$(_0xaa5f[37]),$(_0xaa5f[38]),$(_0xaa5f[21]),$(_0xaa5f[39]),$(_0xaa5f[40]),$(_0xaa5f[41]),$(_0xaa5f[42]),$(_0xaa5f[43]),$(_0xaa5f[44]),$(_0xaa5f[45]),$(_0xaa5f[46]),$(_0xaa5f[47])];mostrarCampos(_0x5865xc);var _0x5865xf=[$(_0xaa5f[48]),$(_0xaa5f[49]),$(_0xaa5f[50])];ocultarCampos(_0x5865xf);var _0x5865x8=[$(_0xaa5f[51])];camposObligatorios(_0x5865x8)};var mostrarOcultarComb2=function(){$(_0xaa5f[52])[_0xaa5f[20]](_0xaa5f[2]);$(_0xaa5f[53])[_0xaa5f[20]](_0xaa5f[2]);var _0x5865xc=[$(_0xaa5f[37]),$(_0xaa5f[38]),$(_0xaa5f[21]),$(_0xaa5f[48]),$(_0xaa5f[49]),$(_0xaa5f[45])];mostrarCampos(_0x5865xc);var _0x5865xf=[$(_0xaa5f[39]),$(_0xaa5f[41]),$(_0xaa5f[40]),$(_0xaa5f[42]),$(_0xaa5f[43]),$(_0xaa5f[44]),$(_0xaa5f[47]),$(_0xaa5f[46]),$(_0xaa5f[50])];ocultarCampos(_0x5865xf);var _0x5865x14=[$(_0xaa5f[51]),$(_0xaa5f[54]),$(_0xaa5f[55])];camposNoObligatorios(_0x5865x14)};var mostrarOcultarComb3=function(){$(_0xaa5f[36])[_0xaa5f[20]](_0xaa5f[2]);var _0x5865xc=[$(_0xaa5f[37]),$(_0xaa5f[38]),$(_0xaa5f[21]),$(_0xaa5f[39]),$(_0xaa5f[40]),$(_0xaa5f[42]),$(_0xaa5f[45]),$(_0xaa5f[47])];mostrarCampos(_0x5865xc);var _0x5865xf=[$(_0xaa5f[41]),$(_0xaa5f[48]),$(_0xaa5f[49]),$(_0xaa5f[43]),$(_0xaa5f[44]),$(_0xaa5f[46]),$(_0xaa5f[50])];ocultarCampos(_0x5865xf);var _0x5865x8=[$(_0xaa5f[51])];camposObligatorios(_0x5865x8);var _0x5865x14=[$(_0xaa5f[54]),$(_0xaa5f[55])];camposNoObligatorios(_0x5865x14)};var mostrarOcultarComb4=function(){$(_0xaa5f[36])[_0xaa5f[20]](_0xaa5f[2]);var _0x5865xc=[$(_0xaa5f[38]),$(_0xaa5f[21]),$(_0xaa5f[39]),$(_0xaa5f[40]),$(_0xaa5f[42]),$(_0xaa5f[45])];mostrarCampos(_0x5865xc);var _0x5865xf=[$(_0xaa5f[37]),$(_0xaa5f[41]),$(_0xaa5f[48]),$(_0xaa5f[49]),$(_0xaa5f[43]),$(_0xaa5f[44]),$(_0xaa5f[47]),$(_0xaa5f[46]),$(_0xaa5f[50])];ocultarCampos(_0x5865xf);var _0x5865x8=[$(_0xaa5f[51])];camposObligatorios(_0x5865x8);var _0x5865x14=[$(_0xaa5f[54]),$(_0xaa5f[55])];camposNoObligatorios(_0x5865x14)};var mostrarOcultarComb5=function(){$(_0xaa5f[56])[_0xaa5f[20]](_0xaa5f[2]);var _0x5865xc=[$(_0xaa5f[50]),$(_0xaa5f[48]),$(_0xaa5f[45]),$(_0xaa5f[49])];mostrarCampos(_0x5865xc);var _0x5865xf=[$(_0xaa5f[38]),$(_0xaa5f[21]),$(_0xaa5f[37]),$(_0xaa5f[39]),$(_0xaa5f[40]),$(_0xaa5f[41]),$(_0xaa5f[42]),$(_0xaa5f[43]),$(_0xaa5f[44]),$(_0xaa5f[47]),$(_0xaa5f[46])];ocultarCampos(_0x5865xf);var _0x5865x14=[$(_0xaa5f[51]),$(_0xaa5f[54]),$(_0xaa5f[55])];camposNoObligatorios(_0x5865x14)};var mostrarOcultarComb6=function(){$(_0xaa5f[57])[_0xaa5f[20]](_0xaa5f[2]);var _0x5865xc=[$(_0xaa5f[39]),$(_0xaa5f[40]),$(_0xaa5f[48]),$(_0xaa5f[42]),$(_0xaa5f[45])];mostrarCampos(_0x5865xc);var _0x5865xf=[$(_0xaa5f[37]),$(_0xaa5f[38]),$(_0xaa5f[21]),$(_0xaa5f[41]),$(_0xaa5f[49]),$(_0xaa5f[43]),$(_0xaa5f[44]),$(_0xaa5f[47]),$(_0xaa5f[46]),$(_0xaa5f[50])];ocultarCampos(_0x5865xf);var _0x5865x8=[$(_0xaa5f[51])];camposObligatorios(_0x5865x8);var _0x5865x14=[$(_0xaa5f[54]),$(_0xaa5f[55])];camposNoObligatorios(_0x5865x14)};var mostrarOcultarComb7=function(){$(_0xaa5f[36])[_0xaa5f[20]](_0xaa5f[2]);var _0x5865xc=[$(_0xaa5f[37]),$(_0xaa5f[38]),$(_0xaa5f[21]),$(_0xaa5f[39]),$(_0xaa5f[40]),$(_0xaa5f[42]),$(_0xaa5f[45])];mostrarCampos(_0x5865xc);var _0x5865xf=[$(_0xaa5f[41]),$(_0xaa5f[48]),$(_0xaa5f[49]),$(_0xaa5f[43]),$(_0xaa5f[44]),$(_0xaa5f[47]),$(_0xaa5f[46]),$(_0xaa5f[50])];ocultarCampos(_0x5865xf);var _0x5865x8=[$(_0xaa5f[51])];camposObligatorios(_0x5865x8);var _0x5865x14=[$(_0xaa5f[54]),$(_0xaa5f[55])];camposNoObligatorios(_0x5865x14)};var ocultarMostrarCampos=function(_0x5865xa){var _0x5865xc=[];var _0x5865xf=[];switch(_0x5865xa){case _0xaa5f[58]:mostrarOcultarComb1();break;case _0xaa5f[59]:mostrarOcultarComb2();break;case _0xaa5f[60]:mostrarOcultarComb3();break;case _0xaa5f[11]:mostrarOcultarComb3();break;case _0xaa5f[12]:mostrarOcultarComb7();break;case _0xaa5f[13]:mostrarOcultarComb7();break;case _0xaa5f[14]:mostrarOcultarComb3();break;case _0xaa5f[15]:mostrarOcultarComb4();break;case _0xaa5f[16]:mostrarOcultarComb7();break;case _0xaa5f[17]:mostrarOcultarComb4();break;case _0xaa5f[25]:$(_0xaa5f[61])[_0xaa5f[20]](_0xaa5f[2]);mostrarOcultarComb5();break;case _0xaa5f[23]:$(_0xaa5f[62])[_0xaa5f[20]](_0xaa5f[2]);mostrarOcultarComb5();break;case _0xaa5f[24]:mostrarOcultarComb6();break;default:mostrarOcultarComb1();break}};var cargarNombreUpload=function(){$(_0xaa5f[67])[_0xaa5f[66]](_0xaa5f[9],function(){var _0x5865x1c=$(this)[_0xaa5f[1]]();$(this)[_0xaa5f[65]](_0xaa5f[64])[_0xaa5f[63]](_0x5865x1c)})};var establecerPosiciones=function(_0x5865x7,_0x5865x1e,_0x5865x1f){if(_0x5865x7!= null&& _0x5865x7!= _0xaa5f[3]){$[_0xaa5f[80]]({type:_0xaa5f[68],url:_0xaa5f[69]+ _0x5865x7+ _0xaa5f[70]+ _0x5865x1e,success:function(_0x5865x20){if(_0x5865x1f){$(_0xaa5f[72])[_0xaa5f[63]](_0x5865x20[_0xaa5f[71]]);$(_0xaa5f[75])[_0xaa5f[74]](_0xaa5f[73])}else {if(_0x5865x7== _0xaa5f[23]){$(_0xaa5f[76])[_0xaa5f[4]](_0xaa5f[2],_0xaa5f[3]);$(_0xaa5f[77])[_0xaa5f[4]](_0xaa5f[2],_0xaa5f[3]);$(_0xaa5f[78])[_0xaa5f[35]](_0xaa5f[33]);$(_0xaa5f[72])[_0xaa5f[35]](_0xaa5f[33])}else {if(_0x5865x20[_0xaa5f[79]]){$(_0xaa5f[76])[_0xaa5f[4]](_0xaa5f[2],_0xaa5f[3]);$(_0xaa5f[77])[_0xaa5f[20]](_0xaa5f[2]);$(_0xaa5f[72])[_0xaa5f[63]](_0x5865x20[_0xaa5f[71]]);$(_0xaa5f[78])[_0xaa5f[35]](_0xaa5f[33]);$(_0xaa5f[72])[_0xaa5f[34]](_0xaa5f[33]);$(_0xaa5f[75])[_0xaa5f[74]](_0xaa5f[73])}else {$(_0xaa5f[77])[_0xaa5f[4]](_0xaa5f[2],_0xaa5f[3]);$(_0xaa5f[76])[_0xaa5f[20]](_0xaa5f[2],_0xaa5f[3]);$(_0xaa5f[78])[_0xaa5f[63]](_0x5865x20[_0xaa5f[71]]);$(_0xaa5f[78])[_0xaa5f[34]](_0xaa5f[33]);$(_0xaa5f[72])[_0xaa5f[35]](_0xaa5f[33])}}}}})}};var cambiarIdioma=function(_0x5865x22){$(_0xaa5f[82]+ _0x5865x22)[_0xaa5f[81]]()}
+/*** En el momento en el que todo ha sido cargado ***/
+$(document).ready(function(){
+
+    /*Datos que cambien en función del tipo de jugador*/
+    cargarDatosDinamicos();
+
+    /*Cargamos el nombre del fichero en el input de tipo upload file*/
+    cargarNombreUpload();
+
+    /*En el momento en el que el valor de tipo de jugador cambie, mostramos u ocultamos*/
+    cambioTipoJugador();
+    /* Form de registro. Trigger para validar los datos insertados. */
+    submitRegistro();
+    /* Form de cambio de contrasena. Trigger para validar los datos insertados. */
+    submitCambioContrasena();
+
+});
+
+var cambioTipoJugador = function(){
+    $('#queEresDropdown').change(function () {
+        var tipo_jugador = $(this).val();
+        $("#labelNombre h4").attr('hidden', '');
+        $("#labelNombre span").attr('hidden', '');
+        $("#labelTextArea h4").attr('hidden', '');
+        ocultarMostrarCampos(tipo_jugador);
+        var cod_deporte = $('#deporteInput').val();
+        cargarDeporteEspecifico(cod_deporte, tipo_jugador);
+        eliminarAQueJuegas(tipo_jugador);
+    });
+}
+
+var eliminarAQueJuegas = function (tipo_jugador){
+    var no_permitidos = ["PF", "RE", "AR", "DI", "FI", "OJ", "PD"];
+    if (no_permitidos.includes(tipo_jugador)){
+        $('#form-registro div.grupoAQueJuegas h4').attr('hidden', '');
+    }else{
+        $('#form-registro div.grupoAQueJuegas h4').removeAttr('hidden');
+    }
+}
+
+var cargarDeporteEspecifico = function(cod, tipo_jugador){
+    $('.grupoEspecifique').attr('hidden', '');
+    var listaObligatorios = [
+        $('.grupoEspecifique > input')
+    ];
+    if(cod == 'MD' && (tipo_jugador != 'OT' && tipo_jugador != 'MD' && tipo_jugador != 'ED')){
+        $('.grupoEspecifique').removeAttr('hidden');
+        camposObligatorios(listaObligatorios);
+    }else{
+        camposNoObligatorios(listaObligatorios);
+    }
+}
+
+var cargarDatosDinamicos = function(){
+    /* Oculta o muestra el dropdown singular o múltiple en función del deporte seleccionado.
+    Si se trata de fútbol americano, se muestra el dropdown múltiple.*/
+    $('#deporteInput').change(function () {
+        var cod = $(this).val();
+        var tipoJugador = $('#queEresDropdown').val();
+        cargarDeporteEspecifico(cod, tipoJugador);
+        establecerPosiciones(cod, 0, false);
+    });
+    $('.busqueda .busqueda-deporte').change(function () {
+        var cod = $(this).val();
+        establecerPosiciones(cod, 0, true);
+    });
+    /*Si accedemos al perfil, establecemos en el input del deporte las posiciones (llamado deporteInput).
+    Si se trata de la página principal, realizamos lo mismo pero en el input deporteInput*/
+    if(window.location.pathname != "/busqueda/"){
+        var tipoJugador = $('#queEresDropdown').val();
+        var cod_deporte = $('#deporteInput').val();
+        ocultarMostrarCampos(tipoJugador);
+        cargarDeporteEspecifico(cod_deporte, tipoJugador);
+        if (window.location.pathname == "/perfil/"){
+            establecerPosiciones(cod_deporte, 1, false);
+        } else{
+            establecerPosiciones($('#deporteInput').val(), 0, false);
+        }
+    }else{
+        establecerPosiciones($('#busqueda-deporte').val(), 0, true);
+    }
+}
+
+var mostrarCampos = function(listaMostrar){
+    listaMostrar.forEach(function(element) {
+        element.removeAttr('hidden');
+    });
+}
+
+var ocultarCampos = function(listaOcultar){
+    listaOcultar.forEach(function(element) {
+        element.attr('hidden', '');
+    });
+}
+
+var camposObligatorios = function(listaMostrar){
+    listaMostrar.forEach(function(element) {
+        element.addClass('campoObligatorio');
+    });
+}
+
+var camposNoObligatorios = function(listaOcultar){
+    listaOcultar.forEach(function(element) {
+        element.removeClass('campoObligatorio');
+    });
+}
+
+var mostrarOcultarComb1 = function(){
+    $("#labelNombre #labelNombreApellidos").removeAttr('hidden');
+    var listaMostrar = [
+        $('.grupoGeneroDeporte'),
+        $('.grupoAQueJuegas'),
+        $('.grupoEspecifique'),
+        $('.grupoFechaNacimiento'),
+        $('.grupoSexo'),
+        $('.grupoPosiciones'),
+        $('.grupoNacionalidad'),
+        $('.grupoPesoAltura'),
+        $('.grupoEDominante'),
+        $('.grupoCPresentacion'),
+        $('.grupoCurriculum'),
+        $('.grupoEActual')
+    ];
+    mostrarCampos(listaMostrar);
+    var listaOcultar = [
+        $('.grupoUbicacion'),
+        $('.grupoInteresadoEn'),
+        $('.grupoPaginaWeb')
+    ];
+    ocultarCampos(listaOcultar);
+    var listaObligatorios = [
+        $('.grupoFechaNacimiento > input')
+    ];
+    camposObligatorios(listaObligatorios);
+};
+
+var mostrarOcultarComb2 = function(){
+    $("#labelNombre #labelNombreClub").removeAttr('hidden');
+    $("#labelTextArea #labelInteresadoEn").removeAttr('hidden');
+    var listaMostrar = [
+        $('.grupoGeneroDeporte'),
+        $('.grupoAQueJuegas'),
+        $('.grupoEspecifique'),
+        $('.grupoUbicacion'),
+        $('.grupoInteresadoEn'),
+        $('.grupoCPresentacion')
+    ];
+    mostrarCampos(listaMostrar);
+    var listaOcultar = [
+        $('.grupoFechaNacimiento'),
+        $('.grupoPosiciones'),
+        $('.grupoSexo'),
+        $('.grupoNacionalidad'),
+        $('.grupoPesoAltura'),
+        $('.grupoEDominante'),
+        $('.grupoEActual'),
+        $('.grupoCurriculum'),
+        $('.grupoPaginaWeb')
+    ];
+    ocultarCampos(listaOcultar);
+    var listaNoObligatorios = [
+        $('.grupoFechaNacimiento > input'),
+        $('.divPositionsSimple #posicionDropdown'),
+        $('.divMultiplePositions #posicionDropdownMultiple')
+    ];
+    camposNoObligatorios(listaNoObligatorios);
+};
+
+var mostrarOcultarComb3 = function(){
+    $("#labelNombre #labelNombreApellidos").removeAttr('hidden');
+    var listaMostrar = [
+        $('.grupoGeneroDeporte'),
+        $('.grupoAQueJuegas'),
+        $('.grupoEspecifique'),
+        $('.grupoFechaNacimiento'),
+        $('.grupoSexo'),
+        $('.grupoNacionalidad'),
+        $('.grupoCPresentacion'),
+        $('.grupoEActual'),
+    ];
+    mostrarCampos(listaMostrar);
+    var listaOcultar = [
+        $('.grupoPosiciones'),
+        $('.grupoUbicacion'),
+        $('.grupoInteresadoEn'),
+        $('.grupoPesoAltura'),
+        $('.grupoEDominante'),
+        $('.grupoCurriculum'),
+        $('.grupoPaginaWeb')
+    ];
+    ocultarCampos(listaOcultar);
+    var listaObligatorios = [
+        $('.grupoFechaNacimiento > input')
+    ];
+    camposObligatorios(listaObligatorios);
+    var listaNoObligatorios = [
+        $('.divPositionsSimple #posicionDropdown'),
+        $('.divMultiplePositions #posicionDropdownMultiple')
+    ];
+    camposNoObligatorios(listaNoObligatorios);
+};
+
+var mostrarOcultarComb4 = function(){
+    $("#labelNombre #labelNombreApellidos").removeAttr('hidden');
+    var listaMostrar = [
+        $('.grupoAQueJuegas'),
+        $('.grupoEspecifique'),
+        $('.grupoFechaNacimiento'),
+        $('.grupoSexo'),
+        $('.grupoNacionalidad'),
+        $('.grupoCPresentacion'),
+    ];
+    mostrarCampos(listaMostrar);
+    var listaOcultar = [
+        $('.grupoGeneroDeporte'),
+        $('.grupoPosiciones'),
+        $('.grupoUbicacion'),
+        $('.grupoInteresadoEn'),
+        $('.grupoPesoAltura'),
+        $('.grupoEDominante'),
+        $('.grupoEActual'),
+        $('.grupoCurriculum'),
+        $('.grupoPaginaWeb')
+    ];
+    ocultarCampos(listaOcultar);
+    var listaObligatorios = [
+        $('.grupoFechaNacimiento > input')
+    ];
+    camposObligatorios(listaObligatorios);
+    var listaNoObligatorios = [
+        $('.divPositionsSimple #posicionDropdown'),
+        $('.divMultiplePositions #posicionDropdownMultiple')
+    ];
+    camposNoObligatorios(listaNoObligatorios);
+};
+
+var mostrarOcultarComb5 = function(){
+    $("#labelTextArea #labelDescripcion").removeAttr('hidden');
+    var listaMostrar = [
+        $('.grupoPaginaWeb'),
+        $('.grupoUbicacion'),
+        $('.grupoCPresentacion'),
+        $('.grupoInteresadoEn')
+    ];
+    mostrarCampos(listaMostrar);
+    var listaOcultar = [
+        $('.grupoAQueJuegas'),
+        $('.grupoEspecifique'),
+        $('.grupoGeneroDeporte'),
+        $('.grupoFechaNacimiento'),
+        $('.grupoSexo'),
+        $('.grupoPosiciones'),
+        $('.grupoNacionalidad'),
+        $('.grupoPesoAltura'),
+        $('.grupoEDominante'),
+        $('.grupoEActual'),
+        $('.grupoCurriculum')
+    ];
+    ocultarCampos(listaOcultar);
+    var listaNoObligatorios = [
+        $('.grupoFechaNacimiento > input'),
+        $('.divPositionsSimple #posicionDropdown'),
+        $('.divMultiplePositions #posicionDropdownMultiple')
+    ];
+    camposNoObligatorios(listaNoObligatorios);
+};
+
+var mostrarOcultarComb6 = function(){
+    $("#labelNombre #labelSoloNombre").removeAttr('hidden');
+    var listaMostrar = [
+        $('.grupoFechaNacimiento'),
+        $('.grupoSexo'),
+        $('.grupoUbicacion'),
+        $('.grupoNacionalidad'),
+        $('.grupoCPresentacion')
+    ];
+    mostrarCampos(listaMostrar);
+    var listaOcultar = [
+        $('.grupoGeneroDeporte'),
+        $('.grupoAQueJuegas'),
+        $('.grupoEspecifique'),
+        $('.grupoPosiciones'),
+        $('.grupoInteresadoEn'),
+        $('.grupoPesoAltura'),
+        $('.grupoEDominante'),
+        $('.grupoEActual'),
+        $('.grupoCurriculum'),
+        $('.grupoPaginaWeb')
+    ];
+    ocultarCampos(listaOcultar);
+    var listaObligatorios = [
+        $('.grupoFechaNacimiento > input')
+    ];
+    camposObligatorios(listaObligatorios);
+    var listaNoObligatorios = [
+        $('.divPositionsSimple #posicionDropdown'),
+        $('.divMultiplePositions #posicionDropdownMultiple')
+    ];
+    camposNoObligatorios(listaNoObligatorios);
+};
+
+var mostrarOcultarComb7 = function(){
+    $("#labelNombre #labelNombreApellidos").removeAttr('hidden');
+    var listaMostrar = [
+        $('.grupoGeneroDeporte'),
+        $('.grupoAQueJuegas'),
+        $('.grupoEspecifique'),
+        $('.grupoFechaNacimiento'),
+        $('.grupoSexo'),
+        $('.grupoNacionalidad'),
+        $('.grupoCPresentacion'),
+    ];
+    mostrarCampos(listaMostrar);
+    var listaOcultar = [
+        $('.grupoPosiciones'),
+        $('.grupoUbicacion'),
+        $('.grupoInteresadoEn'),
+        $('.grupoPesoAltura'),
+        $('.grupoEDominante'),
+        $('.grupoEActual'),
+        $('.grupoCurriculum'),
+        $('.grupoPaginaWeb')
+    ];
+    ocultarCampos(listaOcultar);
+    var listaObligatorios = [
+        $('.grupoFechaNacimiento > input')
+    ];
+    camposObligatorios(listaObligatorios);
+    var listaNoObligatorios = [
+        $('.divPositionsSimple #posicionDropdown'),
+        $('.divMultiplePositions #posicionDropdownMultiple')
+    ];
+    camposNoObligatorios(listaNoObligatorios);
+};
+
+var ocultarMostrarCampos = function(tipoJugador){
+    var listaMostrar = [];
+    var listaOcultar = [];
+    switch(tipoJugador){
+        case 'JG':
+            mostrarOcultarComb1();
+            break;
+        case 'CL':
+            mostrarOcultarComb2();
+            break;
+        case 'EN':
+            mostrarOcultarComb3();
+            break;
+        case 'PF':
+            mostrarOcultarComb3();
+            break;
+        case 'RE':
+            mostrarOcultarComb7();
+            break;
+        case 'AR':
+            mostrarOcultarComb7();
+            break;
+        case 'DI':
+            mostrarOcultarComb3();
+            break;
+        case 'FI':
+            mostrarOcultarComb4();
+            break;
+        case 'OJ':
+            mostrarOcultarComb7();
+            break;
+        case 'PD':
+            mostrarOcultarComb4();
+            break;
+        case 'ED':
+            $("#labelNombre #labelNombreEmpresa").removeAttr('hidden');
+            mostrarOcultarComb5();
+            break;
+        case 'MD':
+            $("#labelNombre #labelNombreMarca").removeAttr('hidden');
+            mostrarOcultarComb5();
+            break;
+        case 'OT':
+            mostrarOcultarComb6();
+            break;
+        default:
+            mostrarOcultarComb1();
+            break;
+    }
+}
+
+var cargarNombreUpload = function(){
+    $('#customFileCarta, #customFileCurriculum, #customFileVideo').on('change',function(){
+        //Conseguimos el nombre del fichero
+        var fileName = $(this).val();
+        //Lo establecemos en el input
+        $(this).next('.custom-file-label').html(fileName);
+    });
+}
+
+/***
+    Establece los valores en el dropdaown de las posiciones según el deporte seleccionado
+    Parámetros: cod: Código del deporte seleccionado, edit: Indica si se trata de la edición del usuario,
+    pues entonces marcará como seleccionados los que ya tenía otorgados en el momento de recuperación de los datos,
+    esBusqueda: En la pantalla de búsqueda, el campos de posiciones siempre será de tipo múltiple. Por lo tanto,
+    no tan solo hay que recuperar las posiciones.
+***/
+var establecerPosiciones = function(cod, edit, esBusqueda){
+    if (cod != null && cod != ''){
+        $.ajax({
+            type: "GET",
+            url: "/get_posiciones/"+ cod + "?edit=" + edit,
+            success: function (data) {
+                if (esBusqueda){
+                    $("#posicionDropdownMultiple").html(data.lista_posiciones);
+                    $('.selectpicker').selectpicker('refresh');
+                }
+                else{
+                    if (cod == 'MD'){
+                        $('.divPositionsSimple').attr('hidden', '');
+                        $('.divMultiplePositions').attr('hidden', '');
+                        $('#posicionDropdown').removeClass('campoObligatorio');
+                        $('#posicionDropdownMultiple').removeClass('campoObligatorio');
+                    }else{
+                        if (data.multiple){
+                            $('.divPositionsSimple').attr('hidden', '');
+                            $('.divMultiplePositions').removeAttr('hidden');
+                            $("#posicionDropdownMultiple").html(data.lista_posiciones);
+                            $('#posicionDropdown').removeClass('campoObligatorio');
+                            $('#posicionDropdownMultiple').addClass('campoObligatorio');
+                            $('.selectpicker').selectpicker('refresh');
+                        }else{
+                            $('.divMultiplePositions').attr('hidden', '');
+                            $('.divPositionsSimple').removeAttr('hidden', '');
+                            $("#posicionDropdown").html(data.lista_posiciones);
+                            $('#posicionDropdown').addClass('campoObligatorio');
+                            $('#posicionDropdownMultiple').removeClass('campoObligatorio');
+                        }
+                    }
+                }
+            }
+        });
+    }
+}
+
+/* Función que cambia el idioma de la pagina */
+var cambiarIdioma = function(idioma){
+    $( "#form-idioma-" + idioma ).submit();
+}

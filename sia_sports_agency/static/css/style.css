@@ -1522,7 +1522,9 @@ hr.fila{
 	CAMBIO CONTRASENA
 ****************************************************************************************************
 */
-#form-cambio-contrasena .form-control {
+#form-cambio-contrasena .form-control,
+#form-cambio-contrasena-ext .form-control,
+#form-recordar-contrasena .form-control{
 	background-color: #46433F !important;
     color: white;
 	width: 100%;
@@ -1612,6 +1614,7 @@ meter[value="2"]::-moz-meter-bar { background: yellow; border-radius: 25px;}
 meter[value="3"]::-moz-meter-bar { background: orange; border-radius: 25px;}
 meter[value="4"]::-moz-meter-bar { background: green; border-radius: 25px; }
 
-#form-cambio-contrasena #password-strength-meter{
+#form-cambio-contrasena #password-strength-meter,
+#form-cambio-contrasena-ext #password-strength-meter{
 	width: 100%;
 }

@@ -100,4 +100,14 @@ urlpatterns = [
         views.recordar_contrasena_mail,
         name='Recordar contrasena'
     ),
+    url(
+        r'^reset_password/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
+        views.reset_password,
+        name='reset_password'
+    ),
+    path(
+        'reset_password_ext/',
+        views.reset_password_ext,
+        name='Resetear contrasena desde el exterior'
+    ),
 ]

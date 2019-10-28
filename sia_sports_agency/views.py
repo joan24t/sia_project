@@ -184,6 +184,58 @@ def index(request):
         contexto
     )
 
+""" Cambio de contraseña """
+def reset_password(request, uidb64, token):
+    try:
+        uid = force_text(urlsafe_base64_decode(uidb64))
+        usuario = Usuario.objects.get(id=uid)
+    except(TypeError, ValueError, OverflowError, Usuario.DoesNotExist) as e:
+        usuario = None
+        logger.error(
+            "Error al resetear password: {}".format(
+                e
+            )
+        )
+    if usuario is not None and account_activation_token.check_token(
+        usuario,
+        token
+    ):
+        context = {'email_usuario': usuario.email}
+        return render(
+            request,
+            'sia_sports_agency/cambiar_password.html',
+            context
+        )
+    else:
+        return HttpResponse('¡El link de activación es inválido!')
+
+""" Cambio de contraseña formulario"""
+def reset_password_ext(request):
+    email = request.POST.get('inputEmail', '')
+    password = request.POST.get('inputPassword', '')
+    usuario =  Usuario.objects.filter(
+        email=email
+    ).first()
+    lan = request.session.get('language')
+    if usuario:
+        usuario.contrasena_1 = make_password(password)
+        usuario.save()
+        asunto = (
+            'Password changed' if lan == 'en-en' else 'Contraseña cambiada'
+        )
+        enviar_email(
+            'template_mail_contrasena_cambiada.html',
+            'template_mail_contrasena_cambiada.txt',
+            asunto,
+            [email],
+            {
+                'lan': lan
+            }
+        )
+        return index(request)
+    else:
+        return HttpResponse('¡El link de activación es inválido!')
+
 """ Aviso legal """
 def aviso_legal(request):
     return render(
@@ -1638,38 +1690,23 @@ def enviar_email(template_html, template_txt, asunto, lista_correos, dict):
 """ Envia un mail desde el registro"""
 def enviar_registro_mail(mail, usuario, request):
     current_site = get_current_site(request)
+    lan = request.session.get('language')
+    asunto = (
+        'Account activation' if lan == 'en-en' else 'Activación de cuenta'
+    )
     enviar_email(
         'template_mail_registro.html',
         'template_mail_registro.txt',
-        'Registro correcto',
+        asunto,
         [mail],
         {
             'user': usuario,
             'domain': current_site.domain,
             'uid': urlsafe_base64_encode(force_bytes(usuario.id)),
             'token': account_activation_token.make_token(usuario),
-            'lan': request.session.get('language')
+            'lan': lan
         }
     )
-
-""" Envia un mail que recuerda la contraseña"""
-def recordar_contrasena_mail(request):
-    mail = request.POST.get("inputEmail")
-    usuario_exi = Usuario.objects.filter(
-        email=mail
-    ).first()
-    if usuario_exi:
-        enviar_email(
-            'template_mail_recordar_contrasena.html',
-            'template_mail_recordar_contrasena.txt',
-            'Recordatorio de contraseña',
-            [],
-            {
-                'lan': request.session.get('language'),
-                'password': 'AAAAA'
-            }
-        )
-    return HttpResponseRedirect('/perfil/')
 
 """ Comprueba si ya existe el correo """
 @csrf_exempt
@@ -1722,3 +1759,30 @@ def activate(request, uidb64, token):
         return index(request)
     else:
         return HttpResponse('¡El link de activación es inválido!')
+
+""" Envia un mail que recuerda la contraseña"""
+def recordar_contrasena_mail(request):
+    mail = request.POST.get("inputEmail")
+    usuario_exi = Usuario.objects.filter(
+        email=mail
+    ).first()
+    lan = request.session.get('language')
+    asunto = (
+        'Reset password' if lan == 'en-en' else 'Reestablecer contraseña'
+    )
+    if usuario_exi:
+        current_site = get_current_site(request)
+        enviar_email(
+            'template_mail_recordar_contrasena.html',
+            'template_mail_recordar_contrasena.txt',
+            asunto,
+            [mail],
+            {
+                'user': usuario_exi,
+                'domain': current_site.domain,
+                'uid': urlsafe_base64_encode(force_bytes(usuario_exi.id)),
+                'token': account_activation_token.make_token(usuario_exi),
+                'lan': lan
+            }
+        )
+    return HttpResponseRedirect('/perfil/')

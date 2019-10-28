@@ -14,7 +14,9 @@
 </p>
 <p style="font-size: 100%;">
     We remind you your user password from SIA Sports sia_sports_agency
-    Password: Password
+</p>
+<p style="font-size: 100%;">
+    <a href="https://{{ domain }}{% url 'reset_password' uidb64=uid token=token %}"> Change password </a>
 </p>
 <p>
     Greetings from the SIA Sport Agency team.
@@ -27,7 +29,9 @@
 </p>
 <p style="font-size: 100%;">
     Desde SIA Sports Agency le recordamos su contraseña de usuario
-    Password: Password
+</p>
+<p style="font-size: 100%;">
+    <a href="https://{{ domain }}{% url 'reset_password' uidb64=uid token=token %}"> Cambiar contraseña </a>
 </p>
 <p>
     Un saludo del equipo de SIA Sports Agency.
@@ -36,6 +40,9 @@
 
 <div style="text-align: center; background-color: #202020; width: 100%; height: 80px; margin-top: 10%;">
     <img style="width: 50%; margin-top: 20px;" src="https://siasportsagency.com/static/img/mail/footer.png" />
+    <p style="margin-top: 10px;">
+        <a style="font-size: 90%; color:white;" href="https://www.siasportsagency.com">www.siasportsagency.com</a>
+    </p>
 </div>
 <html>
 {% endautoescape %}

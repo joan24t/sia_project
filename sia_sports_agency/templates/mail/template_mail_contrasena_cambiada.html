@@ -9,15 +9,14 @@
 {% if lan == 'en-en' %}
 <p>
     <h2 style="font-size: 100%;">
-        Password reminder
+        Password changed
     </h2>
 </p>
 <p style="font-size: 100%;">
-    We remind you your user password from SIA Sports sia_sports_agency
+    Your password has been changed successfully.
+    If you have not requested the password change, please contact us.
 </p>
-<p style="font-size: 100%;">
-    <a href="https://{{ domain }}{% url 'reset_password' uidb64=uid token=token %}"> Change password </a>
-</p>
+
 <p>
     Greetings from the SIA Sport Agency team.
 </p>
@@ -28,10 +27,8 @@
     </h2>
 </p>
 <p style="font-size: 100%;">
-    Desde SIA Sports Agency le recordamos su contraseña de usuario
-</p>
-<p style="font-size: 100%;">
-    <a href="https://{{ domain }}{% url 'reset_password' uidb64=uid token=token %}"> Cambiar contraseña </a>
+    Su contraseña ha sido cambiada con éxito.
+    Si usted no ha solicitado el cambio de contraseña póngase en contacto con nosotros.
 </p>
 <p>
     Un saludo del equipo de SIA Sports Agency.

@@ -1,17 +1,21 @@
 $(document).ready(function(){
     var password_registro = $('#form-registro #password1');
     var password_cambio = $('#form-cambio-contrasena #password1');
+    var password_cambio_ext = $('#form-cambio-contrasena-ext #password1');
     password_registro.keyup(function() {
         establecerMeter(password_registro);
     });
     password_cambio.keyup(function() {
         establecerMeter(password_cambio);
     });
+    password_cambio_ext.keyup(function() {
+        establecerMeter(password_cambio_ext);
+    });
 })
 
 /* Establece los valores al meter */
 var establecerMeter = function(password){
-    var meter = $('#password-strength-meter');
+    var meter = $('meter#password-strength-meter');
     var text = $('div#password-strength-text');
     var val = password.val().length;
     var strength = {
@@ -221,6 +225,25 @@ var submitRegistro = function(){
             ocultarElemento($('.loader-reg'));
             return false;
         }else if (!validarPolitica()){
+            ocultarElemento($('.loader-reg'));
+            return false;
+        }
+        ocultarElemento($('.loader-reg'));
+        return true;
+    });
+}
+
+/* Se dispara cuando se intenta registrar un nuevo usuario */
+var submitCambioContrasena = function(){
+    $('#form-cambio-contrasena-ext').submit(function () {
+        mostrarElemento($('.loader-reg'));
+        ocultarValidaciones();
+        var pass1 = $('#form-cambio-contrasena-ext #password1').val();
+        var pass2 = $('#form-cambio-contrasena-ext #password2').val();
+        if(!validarConcidenciaPasswords(pass1, pass2)){
+            ocultarElemento($('.loader-reg'));
+            return false;
+        } else if (!validarMinimosPassword(pass1)){
             ocultarElemento($('.loader-reg'));
             return false;
         }

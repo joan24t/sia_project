@@ -11,6 +11,8 @@ $(document).ready(function(){
     cambioTipoJugador();
     /* Form de registro. Trigger para validar los datos insertados. */
     submitRegistro();
+    /* Form de cambio de contrasena. Trigger para validar los datos insertados. */
+    submitCambioContrasena();
 
 });
 
