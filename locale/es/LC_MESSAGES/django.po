@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-28 18:11+0100\n"
+"POT-Creation-Date: 2019-10-28 18:57+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -457,6 +457,10 @@ msgstr "¿Olvidaste tu contraseña?"
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_recordar_contrasena.html:7
 msgid "Recordar contraseña"
 msgstr "Repita contraseña"
+
+#: .\sia_sports_agency\templates\sia_sports_agency\modal_recordar_contrasena.html:12
+msgid "Correo electrónico:"
+msgstr "Correo electrónico:"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_settings.html:13
 msgid "Cambiar contraseña"

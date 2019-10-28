@@ -9,7 +9,7 @@
             <div class="modal-body">
                 <form id="form-recordar-contrasena" action="recordar_contrasena_mail/" method="post">
                     {% csrf_token %}
-                    <label for="correoRecordar">Correo electrónico: </label>
+                    <label for="correoRecordar">{% trans "Correo electrónico:" %}</label>
                     <input type="text" class="form-control" id="correoRecordar" name="inputEmail">
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">{% trans "Cerrar" %}</button>

@@ -200,7 +200,10 @@ def reset_password(request, uidb64, token):
         usuario,
         token
     ):
-        context = {'email_usuario': usuario.email}
+        context = {
+            'email_usuario': usuario.email,
+            'dyn_language': request.session.get('language')
+        }
         return render(
             request,
             'sia_sports_agency/cambiar_password.html',
