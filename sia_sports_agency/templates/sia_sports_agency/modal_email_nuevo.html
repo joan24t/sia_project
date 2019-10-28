@@ -10,7 +10,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="enviar_correo/" method="post" class="form-email">
+                <form action="/enviar_correo/" method="post" class="form-email">
                     {% csrf_token %}
                     <div>
                         <label>{% trans "Destinatarios:" %} </label>

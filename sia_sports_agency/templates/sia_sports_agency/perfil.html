@@ -424,7 +424,7 @@
                                 <div class="video-options">
                                     <div class="row justify-content-center">
                                         <div id="{{video.id}}" class="option-delete col-12">
-                                            <form class="form-eliminar-video-{{video.id}}" method="POST" action="eliminar_video/">
+                                            <form class="form-eliminar-video-{{video.id}}" method="POST" action="/eliminar_video/">
                                                 {% csrf_token %}
                                                 <input name="idVideo" type="text" value="{{video.id}}" hidden>
                                                 <i class="fas fa-trash-alt fa-2x"></i>

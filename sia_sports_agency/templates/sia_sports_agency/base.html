@@ -185,12 +185,12 @@
                     </ul>
                 </div>
                 <div class="lista-idiomas">
-                    <form id="form-idioma-es" action="cambiar_idioma/" method="POST">
+                    <form id="form-idioma-es" action="/cambiar_idioma/" method="POST">
                         {% csrf_token %}
                         <input name="idioma" value="es-es" hidden />
                         <img onclick="cambiarIdioma('es');" class="idioma idioma-es {% if dyn_language == 'es-es' %} active {% endif %}" src="{% static 'img/idiomas/es.png' %}" />
                     </form>
-                    <form id="form-idioma-en" action="cambiar_idioma/" method="POST">
+                    <form id="form-idioma-en" action="/cambiar_idioma/" method="POST">
                         {% csrf_token %}
                         <input name="idioma" value="en-en" hidden />
                         <img onclick="cambiarIdioma('en');" class="idioma idioma-en {% if dyn_language == 'en-en' %} active {% endif %}" src="{% static 'img/idiomas/en.png' %}" />

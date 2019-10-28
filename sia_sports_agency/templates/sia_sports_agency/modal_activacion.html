@@ -10,7 +10,7 @@
                 {% trans "Esta cuenta se encuentra en un estado inactivo. ¿Desea reactivar la cuenta?" %}
             </div>
             <div class="modal-footer">
-                <form action="reactivar_cuenta/" method="POST">
+                <form action="/reactivar_cuenta/" method="POST">
                     {% csrf_token %}
                     <input id="reactivar-email" type="email" name="emailInput" hidden>
                     <input id="reactivar-password" type="password" name="passwordInput" hidden>
