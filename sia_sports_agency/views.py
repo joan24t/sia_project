@@ -1344,7 +1344,7 @@ def busqueda_cromo(request):
                 activo=1,
                 id__in=get_usuario_por_edad(eini, efin),
                 es_activo=1
-            )
+            ).exclude(email='admin')
             nombre = request.POST.get('busquedaNombre', '')
             posiciones = Posicion.objects.filter(
                 codigo__in=request.POST.getlist('busquedaPosicionMulti', '')
