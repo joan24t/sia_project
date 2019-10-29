@@ -145,7 +145,7 @@ msgstr "Seleccione opci&oacute;n"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:60
 msgid "Género"
-msgstr "G&eacute;nero"
+msgstr "G&eacute;nero deporte"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\busqueda.html:64
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_window_user.html:108
@@ -534,7 +534,7 @@ msgstr "Deporte"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:56
 msgid "G&eacute;nero deporte:"
-msgstr "G&eacute;nero"
+msgstr "G&eacute;nero deporte"
 
 #: .\sia_sports_agency\templates\sia_sports_agency\modal_usuario_detalle.html:61
 msgid "Posiciones:"
