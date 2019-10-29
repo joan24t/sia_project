@@ -421,7 +421,7 @@ def registrar_usuario(request):
         dict={'exito':False}
         logger.error("Error al modificar usuario: {}".format(e))
         return HttpResponse("Error al registrar: {}".format(e))
-    return HttpResponseRedirect('/perfil/')
+    return HttpResponseRedirect('/')
 
 """ Modificación de los datos de un usuario """
 @csrf_exempt
@@ -1791,7 +1791,8 @@ def activate(request, uidb64, token):
         usuario.es_activo = 1
         usuario.fecha_activacion = datetime.now()
         usuario.save()
-        return index(request)
+        request.session['email'] = usuario.email
+        return HttpResponseRedirect('/perfil/')
     else:
         return HttpResponse('¡El link de activación es inválido!')
 
