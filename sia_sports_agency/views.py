@@ -345,15 +345,20 @@ def get_posiciones(request, cod):
     else:
         usuario = get_usuario(request).get('usuario')
         for posicion in Posicion.objects.filter(deporte=deporte.id):
+            nombre_posicion = get_translate(
+                posicion.nombre,
+                request.session.get('language'),
+                DICT_POSITIONS
+            )
             if posicion in usuario.posiciones.all():
                 lista_posiciones.append(
                     "<option value=\"" + str(posicion.codigo) + "\" selected>"\
-                    + posicion.nombre + "</option>"
+                    + nombre_posicion + "</option>"
                 )
             else:
                 lista_posiciones.append(
                     "<option value=\"" + str(posicion.codigo) + "\">" + \
-                    posicion.nombre + "</option>"
+                    nombre_posicion + "</option>"
                 )
     dict = {
         'lista_posiciones': "".join(lista_posiciones),
