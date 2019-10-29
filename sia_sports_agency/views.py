@@ -241,34 +241,50 @@ def reset_password_ext(request):
 
 """ Aviso legal """
 def aviso_legal(request):
+    contexto = get_usuario(request)
+    contexto.update({
+        'dyn_language': request.session.get('language') or LANGUAGE_DEFAULT
+    })
     return render(
         request,
         'sia_sports_agency/aviso_legal.html',
-        {}
+        contexto
     )
 
 """ Politica de privacidad """
 def politica_privacidad(request):
+    contexto = get_usuario(request)
+    contexto.update({
+        'dyn_language': request.session.get('language') or LANGUAGE_DEFAULT
+    })
     return render(
         request,
         'sia_sports_agency/politica_privacidad.html',
-        {}
+        contexto
     )
 
 """ Condiciones de servicio """
 def condiciones_servicio(request):
+    contexto = get_usuario(request)
+    contexto.update({
+        'dyn_language': request.session.get('language') or LANGUAGE_DEFAULT
+    })
     return render(
         request,
         'sia_sports_agency/condiciones_servicio.html',
-        {}
+        contexto
     )
 
 """ Ley de cookies """
 def ley_cookies(request):
+    contexto = get_usuario(request)
+    contexto.update({
+        'dyn_language': request.session.get('language') or LANGUAGE_DEFAULT
+    })
     return render(
         request,
         'sia_sports_agency/ley_cookies.html',
-        {}
+        contexto
     )
 
 """ Comprueba si el email existe en base de datos """
