@@ -54,7 +54,7 @@ class UsuarioAdmin(admin.ModelAdmin):
 
     def get_fnacimiento(self, obj):
         return obj.fnacimiento if obj.fnacimiento else 'No especificado'
-    get_fnacimiento.short_description = 'Equipo actual'
+    get_fnacimiento.short_description = 'Fecha nacimiento'
 
     def get_genero(self, obj):
         return DICT_SEXO.get(obj.genero)
