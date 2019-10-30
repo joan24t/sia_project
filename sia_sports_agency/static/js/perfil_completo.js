@@ -594,6 +594,7 @@ var envioDatosBasicos = function(){
                     cargarCromo('db');
                 }else{
                     mostrarNotificacionError('Ha ocurrido un error en el proceso de guardado de los datos.');
+                    mostrarElemento($('.div-cromo'));
                 }
             },
             error: function(data){
