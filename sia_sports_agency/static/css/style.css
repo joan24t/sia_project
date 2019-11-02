@@ -1320,6 +1320,7 @@ margin-left: 4px;
 }
 .botones-busqueda .pagination>li>a{
 	background-color:  #171717;
+	font-size: 12px;
 	color: #9A8056;
 	border: 2px solid #404040;
 	font-weight: bold;
@@ -1332,6 +1333,7 @@ margin-left: 4px;
 	border: 2px solid #404040;
 	outline: none !important;
 	box-shadow: none;
+	cursor: pointer;
 }
 
 .botones-busqueda .pagination>li.disabled>a{
@@ -1340,9 +1342,6 @@ margin-left: 4px;
 	border: 2px solid #404040;
 	font-weight: bold;
 	opacity: 0.5;
-	height: 54px;
-	width: 135px;
-	margin-top: 2px;
 }
 
 #form-busqueda .dropdown-item{

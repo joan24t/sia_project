@@ -1410,7 +1410,7 @@ def busqueda_cromo(request):
                     eactual__icontains=eactual
                 )
             pagina = request.POST.get('busquedaPagina', '1')
-            lista_usuarios = lista_usuarios.order_by('-nombre')
+            lista_usuarios = lista_usuarios.order_by('-n_visitas')
             total_registros = len(lista_usuarios)
             lista_usuarios = paginar_resultados(lista_usuarios, pagina)
             dict = {
