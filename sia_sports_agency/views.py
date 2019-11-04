@@ -1541,10 +1541,10 @@ def posicionesPorUsuario(usuario,  request):
     lan = request.session.get('language')
     return ', '.join([
         get_translate(
-            p.nombre.capitalize(),
+            p.nombre,
             lan,
-            DICT_ROLES
-        ) for p in posiciones
+            DICT_POSITIONS
+        ).capitalize() for p in posiciones
     ])
 
 """ Inserta en un diccionario todos los datos de la ficha del usuario """

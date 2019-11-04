@@ -19,6 +19,7 @@ SPORT_TYPE_CHOICES = {
 class UsuarioAdmin(admin.ModelAdmin):
     list_display = (
         'nombre',
+        'alias',
         'email',
         'get_tipo_jugador',
         'get_pais',
@@ -31,6 +32,7 @@ class UsuarioAdmin(admin.ModelAdmin):
     fields = (
         'nombre',
         'email',
+        'get_n_visitas',
         'get_tipo_jugador',
         'get_es_activo',
         'get_fecha_activacion',
@@ -51,6 +53,10 @@ class UsuarioAdmin(admin.ModelAdmin):
     def get_ubicacion(self, obj):
         return obj.ubicacion if obj.ubicacion else 'No especificado'
     get_ubicacion.short_description = 'Ubicacion'
+
+    def get_n_visitas(self, obj):
+        return str(obj.n_visitas)
+    get_n_visitas.short_description = 'Nº visitas'
 
     def get_fnacimiento(self, obj):
         return obj.fnacimiento if obj.fnacimiento else 'No especificado'
