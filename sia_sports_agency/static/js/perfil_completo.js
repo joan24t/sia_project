@@ -53,8 +53,6 @@ $(document).ready(function(){
     consultaCromos(true);
     /*Disparar input de tipo file para la subida de la img del cromo*/
     triggerImgCromo();
-    /*Abrir dialogo subida video*/
-    abrirDialogoVideo();
     /*Dispara el form del login*/
     triggerLogin();
     /*Dispara el form de subida de video*/
@@ -212,16 +210,6 @@ var triggerLogin = function(){
                     window.location.href = '/perfil';
                 }
             }
-        });
-    });
-}
-
-/* Abrir modal subida video */
-var abrirDialogoVideo = function(){
-    $(".video-add").on("click", function() {
-        $('#uploadModalCenter').modal({
-            backdrop: 'static',
-            keyboard: false
         });
     });
 }

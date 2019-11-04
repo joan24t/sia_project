@@ -885,6 +885,10 @@ section{
 	text-align: center;
 	padding: 20% 0% 20% 0%;
 }
+.video-gallery .video-add a{
+	color: white;
+    text-decoration: none;
+}
 .video-gallery .video-icon:hover{
 	box-shadow:  #000000;
     z-index: 2;
